@@ -46,8 +46,51 @@ Add variable locations to Path
 >%HOOPS_INSTALL_DIR%\bin\nt_i386_vc12d
 
 Step 4.
-Download an additional files
-* [Download here](https://www.dropbox.com/s/3rrcqhpub5a05as/RegBin.7z?dl=0)
+1. Make a "RegBin" folder
+2. Download(https://drive.google.com/drive/folders/1iva5vPoeQD-UxPmxVsCZVrgDkP8xZQOv?usp=sharing) additional files and paste those file into RegBin folder
+3. Copy files and paste into RegBin folder
+< Hoops files >
+- base_stream.dll
+- hoops_mfcu1919_vc10.dll
+- hoops_mfcu1919_vc10d.dll
+- hoops_mvo1919_vc10.dll
+- hoops_mvo1919_vc10d.dll
+- hoops_stream1919_vc10.dll
+- hoops_stream1919_vc10d.dll
+- hoops1919_vc10.dll
+- hoops1919_vc10d.dll
+
+< ACIS files >
+- SpaACIS.dll
+- SpaACISd.dll
+- SPAAcisDs.dll
+- SpaHBridge.dll
+- SpaHBridged.dll
+- SPAIAcis.dll
+- SPAIInterop.dll
+- SPAIInteropC.dll
+- SPAIop.dll
+- SPAIopAcisC.dll
+- SPAIopC.dll
+- SPAXAcis.dll
+- SPAXAcisBase.dll
+- SPAXAcisKernel.dll
+- SPAXAcisMeshDS.dll
+- SPAXAssemblyRep.dll
+- SPAXBase.dll
+- SPAXBoundaryRep.dll
+- SPAXCommon.dll
+- SPAXGeometryRepresentation.dll
+- SPAXicuuc38.dll
+- SPAXIges.dll
+- SPAXInterop.dll
+- SPAXIop.dll
+- SPAXIopAcis.dll
+- SPAXPMIRep.dll
+- SPAXStep.dll
+- SPAXVisualizationAsm.dll
+- SPAXVisualizationRep.dll
+
 
 Extract to TransCAD source code folder  
 The folder structure is shown below.  
