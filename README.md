@@ -47,8 +47,9 @@ Add variable locations to Path
 
 Step 4.
 1. Make a "RegBin" folder
-2. Download(https://drive.google.com/drive/folders/1iva5vPoeQD-UxPmxVsCZVrgDkP8xZQOv?usp=sharing) additional files and paste those file into RegBin folder
+2. [Download](https://drive.google.com/drive/folders/1iva5vPoeQD-UxPmxVsCZVrgDkP8xZQOv?usp=sharing) additional files and paste those file into RegBin folder
 3. Copy files and paste into RegBin folder
+
 < Hoops files >
 - base_stream.dll
 - hoops_mfcu1919_vc10.dll
