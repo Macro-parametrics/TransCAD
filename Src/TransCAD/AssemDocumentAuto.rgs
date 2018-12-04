@@ -1,0 +1,16 @@
+HKCR
+{
+	NoRemove CLSID
+	{
+		ForceRemove {7D2F6751-2F31-4A5A-8982-8CF15913B1B2} = s 'AssemDocumentAuto Class'
+		{
+			ForceRemove Programmable
+			LocalServer32 = s '%MODULE%'
+			{
+				val ServerExecutable = s '%MODULE_RAW%'
+			}
+			TypeLib = s '{DC31CA13-34CA-4D11-A678-58E9FCE42872}'
+			Version = s '1.0'
+		}
+	}
+}

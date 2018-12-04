@@ -1,0 +1,16 @@
+HKCR
+{
+	NoRemove CLSID
+	{
+		ForceRemove {99CF8309-A0B3-44C0-AC01-50BE36BAA580} = s 'StdAssemblyConstraint Class'
+		{
+			ForceRemove Programmable
+			LocalServer32 = s '%MODULE%'
+			{
+				val ServerExecutable = s '%MODULE_RAW%'
+			}
+			TypeLib = s '{DC31CA13-34CA-4D11-A678-58E9FCE42872}'
+			Version = s '1.0'
+		}
+	}
+}

@@ -1,0 +1,16 @@
+HKCR
+{
+	NoRemove CLSID
+	{
+		ForceRemove {A7A2A97D-8E05-4E0F-B2F4-A47C4A28329C} = s 'StdAssemConstraintAngle Class'
+		{
+			ForceRemove Programmable
+			LocalServer32 = s '%MODULE%'
+			{
+				val ServerExecutable = s '%MODULE_RAW%'
+			}
+			TypeLib = s '{DC31CA13-34CA-4D11-A678-58E9FCE42872}'
+			Version = s '1.0'
+		}
+	}
+}

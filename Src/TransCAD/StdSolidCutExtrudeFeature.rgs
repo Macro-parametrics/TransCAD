@@ -1,0 +1,24 @@
+HKCR
+{
+	TransCAD.StdSolidCutExtrudeFeature.1 = s 'StdSolidCutExtrudeFeature Class'
+	{
+		CLSID = s '{F7E0B9E7-F1BD-45BF-9B91-9748A5CA0F3B}'
+	}
+	TransCAD.StdSolidCutExtrudeFeature = s 'StdSolidCutExtrudeFeature Class'
+	{
+		CLSID = s '{F7E0B9E7-F1BD-45BF-9B91-9748A5CA0F3B}'
+		CurVer = s 'TransCAD.StdSolidCutExtrudeFeature.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {F7E0B9E7-F1BD-45BF-9B91-9748A5CA0F3B} = s 'StdSolidCutExtrudeFeature Class'
+		{
+			ProgID = s 'TransCAD.StdSolidCutExtrudeFeature.1'
+			VersionIndependentProgID = s 'TransCAD.StdSolidCutExtrudeFeature'
+			ForceRemove 'Programmable'
+			LocalServer32 = s '%MODULE%'
+			val AppID = s '%APPID%'
+			'TypeLib' = s '{DC31CA13-34CA-4D11-A678-58E9FCE42872}'
+		}
+	}
+}

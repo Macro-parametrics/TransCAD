@@ -1,0 +1,541 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{8EC691FB-94E2-41EE-A655-58E60F947425}</ProjectGuid>
+    <Keyword>MFCDLLProj</Keyword>
+    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseOfMfc>Dynamic</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseOfMfc>Dynamic</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v100</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(SolutionDir)Bin\Debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(SolutionDir)IntmDir\$(ProjectName)\Debug\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</LinkIncremental>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\..\..\Bin\Release\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\..\..\IntmDir\$(ProjectName)\Release\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>$(SolutionDir)Src\MathRepresentation;$(X3DT_R25)\include;$(A3DT_R25)\include;$(DCUBED)\source\if2;$(SolutionDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>PME_EXPORTS;WIN32;_WINDOWS;_DEBUG;_AFXEXT;ANSI;NT;NT_VC10_DLLD;DCMNT;NO_PGM;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>true</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>comsuppw.lib;comsuppwd.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(OutDir)PartModelingEngine.dll</OutputFile>
+      <AdditionalLibraryDirectories>$(SolutionDir)Lib\Debug;$(X3DT_R25)\NT_VC10_DLLD\code\lib;$(A3DT_R25)\NT_VC10_DLLD\code\lib;$(DCUBED)\source\lib\nt7;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <IgnoreSpecificDefaultLibraries>msvcrt.lib;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ModuleDefinitionFile>.\PartModelingEngine.def</ModuleDefinitionFile>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <ImportLibrary>$(SolutionDir)Lib\Debug\PartModelingEngine.lib</ImportLibrary>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+    <Midl>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+    </Midl>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0412</Culture>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(SolutionDir)Src\MathRepresentation;$(X3DT)\include;$(A3DT)\include;$(DCUBED)\source\if2;$(SolutionDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>PME_EXPORTS;WIN32;_WINDOWS;NDEBUG;_AFXEXT;ANSI;NT;NT_VC10_DLL;DCMNT;NO_PGM;TNAME;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <MinimalRebuild>true</MinimalRebuild>
+      <BasicRuntimeChecks>UninitializedLocalUsageCheck</BasicRuntimeChecks>
+      <Optimization>Disabled</Optimization>
+    </ClCompile>
+    <Link>
+      <OutputFile>$(OutDir)PartModelingEngine.dll</OutputFile>
+      <AdditionalLibraryDirectories>$(SolutionDir)Lib\Release;$(X3DT)\NT_VC10_DLL\code\lib;$(A3DT)\NT_VC10_DLL\code\lib;$(DCUBED)\source\lib\nt7;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <ModuleDefinitionFile>.\PartModelingEngine.def</ModuleDefinitionFile>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>false</OptimizeReferences>
+      <EnableCOMDATFolding>false</EnableCOMDATFolding>
+      <ImportLibrary>$(SolutionDir)Lib\Release\PartModelingEngine.lib</ImportLibrary>
+      <TargetMachine>MachineX86</TargetMachine>
+      <AdditionalDependencies>comsuppw.lib;SpaACIS.lib</AdditionalDependencies>
+      <IgnoreSpecificDefaultLibraries>
+      </IgnoreSpecificDefaultLibraries>
+    </Link>
+    <Midl>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+    </Midl>
+    <ResourceCompile>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0412</Culture>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="attr_pme_edgename.cpp" />
+    <ClCompile Include="attr_pme_vertexname.cpp" />
+    <ClCompile Include="PmeFeatureTagMarker.cpp" />
+    <ClCompile Include="PartModelingEngine.cpp" />
+    <ClCompile Include="PmeAssembly.cpp" />
+    <ClCompile Include="PmeAssemblyAPI.cpp" />
+    <ClCompile Include="PmeAssemblyBoolean.cpp" />
+    <ClCompile Include="PmeAssemblyBooleanAPI.cpp" />
+    <ClCompile Include="PmeBrepFileReader.cpp" />
+    <ClCompile Include="PmeComponent.cpp" />
+    <ClCompile Include="PmeComponentAPI.cpp" />
+    <ClCompile Include="PmeEdge.cpp" />
+    <ClCompile Include="PmeEdgeAPI.cpp" />
+    <ClCompile Include="PmeEdges.cpp" />
+    <ClCompile Include="PmeEdgesAPI.cpp" />
+    <ClCompile Include="PmeExplicitModelAPI.cpp" />
+    <ClCompile Include="PmeFace.cpp" />
+    <ClCompile Include="PmeFaceAPI.cpp" />
+    <ClCompile Include="PmeFaces.cpp" />
+    <ClCompile Include="PmeFacesAPI.cpp" />
+    <ClCompile Include="PmeMeshFileWriter.cpp" />
+    <ClCompile Include="PmeObject.cpp" />
+    <ClCompile Include="PmeRuntimeType.cpp" />
+    <ClCompile Include="PmeSketchGeometryReference.cpp" />
+    <ClCompile Include="PmeStdAssemblyAngle.cpp" />
+    <ClCompile Include="PmeStdAssemblyAngleAPI.cpp" />
+    <ClCompile Include="PmeStdAssemblyCoaxial.cpp" />
+    <ClCompile Include="PmeStdAssemblyCoaxialAPI.cpp" />
+    <ClCompile Include="PmeStdAssemblyConstraint.cpp" />
+    <ClCompile Include="PmeStdAssemblyConstraintAPI.cpp" />
+    <ClCompile Include="PmeStdAssemblyConstraints.cpp" />
+    <ClCompile Include="PmeStdAssemblyConstraintsAPI.cpp" />
+    <ClCompile Include="PmeStdAssemblyDistance.cpp" />
+    <ClCompile Include="PmeStdAssemblyDistanceAPI.cpp" />
+    <ClCompile Include="PmeStdAssemblyIncidence.cpp" />
+    <ClCompile Include="PmeStdAssemblyIncidenceAPI.cpp" />
+    <ClCompile Include="PmeStdAssemblyParallel.cpp" />
+    <ClCompile Include="PmeStdAssemblyParallelAPI.cpp" />
+    <ClCompile Include="PmeStdAssemblyPerpendicular.cpp" />
+    <ClCompile Include="PmeStdAssemblyPerpendicularAPI.cpp" />
+    <ClCompile Include="PmeStdDatumPlaneOffsetFeatureAPI.cpp" />
+    <ClCompile Include="PmeStdDatumPlaneOffsetFeature.cpp" />
+    <ClCompile Include="PmeStdSketchCoincidentAPI.cpp" />
+    <ClCompile Include="PmeStdSketchConstraintAPI.cpp" />
+    <ClCompile Include="PmeStdSketchConstraintsAPI.cpp" />
+    <ClCompile Include="PmeStdSketchHorizontal.cpp" />
+    <ClCompile Include="PmeStdSketchHorizontalAPI.cpp" />
+    <ClCompile Include="PmeStdSketchParallel.cpp" />
+    <ClCompile Include="PmeStdSketchParallelAPI.cpp" />
+    <ClCompile Include="PmeStdSketchPerpendicular.cpp" />
+    <ClCompile Include="PmeStdSketchPerpendicularAPI.cpp" />
+    <ClCompile Include="PmeStdSketchVertical.cpp" />
+    <ClCompile Include="PmeStdSketchVerticalAPI.cpp" />
+    <ClCompile Include="PmeStdSolidImportedBrepFeature.cpp" />
+    <ClCompile Include="PmeStdSolidImportedBrepFeatureAPI.cpp" />
+    <ClCompile Include="PmeStdSolidCutSweepFeature.cpp" />
+    <ClCompile Include="PmeStdSolidCutSweepFeatureAPI.cpp" />
+    <ClCompile Include="PmeStdSolidDraftFeature.cpp" />
+    <ClCompile Include="PmeStdSolidDraftFeatureAPI.cpp" />
+    <ClCompile Include="PmeStdSolidHoleSimpleFeature.cpp" />
+    <ClCompile Include="PmeStdSolidHoleSimpleFeatureAPI.cpp" />
+    <ClCompile Include="PmeStdSolidLoftFacesFeature.cpp" />
+    <ClCompile Include="PmeStdSolidLoftFacesFeatureAPI.cpp" />
+    <ClCompile Include="PmeStdSolidLoftSectionsFeature.cpp" />
+    <ClCompile Include="PmeStdSolidLoftSectionsFeatureAPI.cpp" />
+    <ClCompile Include="PmeStdSolidOffsetFeature.cpp" />
+    <ClCompile Include="PmeStdSolidOffsetFeatureAPI.cpp" />
+    <ClCompile Include="PmeStdSolidRevolveWithExternalAxisFeature.cpp" />
+    <ClCompile Include="PmeStdSolidRevolveWithExternalAxisFeatureAPI.cpp" />
+    <ClCompile Include="PmeStdSolidShellFeature.cpp" />
+    <ClCompile Include="PmeStdSolidShellFeatureAPI.cpp" />
+    <ClCompile Include="PmeTransformAPI.cpp" />
+    <ClCompile Include="PmeVertex.cpp" />
+    <ClCompile Include="PmeVertexAPI.cpp" />
+    <ClCompile Include="PmeVertices.cpp" />
+    <ClCompile Include="PmeVerticesAPI.cpp" />
+    <ClCompile Include="PmeXmlMacroReader.cpp" />
+    <ClCompile Include="PmeXmlMacroWriter.cpp" />
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="PmeBrepReferenceAPI.cpp" />
+    <ClCompile Include="PmeDatumPlaneAPI.cpp" />
+    <ClCompile Include="PmeExplicitModelObjectAPI.cpp" />
+    <ClCompile Include="PmeExplicitModelObjectsAPI.cpp" />
+    <ClCompile Include="PmeFeatureAPI.cpp" />
+    <ClCompile Include="PmeFeaturesAPI.cpp" />
+    <ClCompile Include="PmePartAPI.cpp" />
+    <ClCompile Include="PmePersistentNameAPI.cpp" />
+    <ClCompile Include="PmeReferenceAPI.cpp" />
+    <ClCompile Include="PmeReferencesAPI.cpp" />
+    <ClCompile Include="PmeSketchAPI.cpp" />
+    <ClCompile Include="PmeSolidAPI.cpp" />
+    <ClCompile Include="PmeStdSketchCenterlineAPI.cpp" />
+    <ClCompile Include="PmeStdSketchCircleAPI.cpp" />
+    <ClCompile Include="PmeStdSketchCircularArcAPI.cpp" />
+    <ClCompile Include="PmeStdSketchControlPointAPI.cpp" />
+    <ClCompile Include="PmeStdSketchEditorAPI.cpp" />
+    <ClCompile Include="PmeStdSketchFeatureAPI.cpp" />
+    <ClCompile Include="PmeStdSketchGeometriesAPI.cpp" />
+    <ClCompile Include="PmeStdSketchGeometryAPI.cpp" />
+    <ClCompile Include="PmeStdSketchHDirectionAPI.cpp" />
+    <ClCompile Include="PmeStdSketchLineAPI.cpp" />
+    <ClCompile Include="PmeStdSketchOriginAPI.cpp" />
+    <ClCompile Include="PmeStdSketchVDirectionAPI.cpp" />
+    <ClCompile Include="PmeStdSolidChamferFeatureAPI.cpp" />
+    <ClCompile Include="PmeStdSolidCutExtrudeFeatureAPI.cpp" />
+    <ClCompile Include="PmeStdSolidCutRevolveFeatureAPI.cpp" />
+    <ClCompile Include="PmeStdSolidFilletConstantFeatureAPI.cpp" />
+    <ClCompile Include="PmeStdSolidHoleCounterboredFeatureAPI.cpp" />
+    <ClCompile Include="PmeStdSolidHoleCountersunkFeatureAPI.cpp" />
+    <ClCompile Include="PmeStdSolidOperatePatternCircularFeatureAPI.cpp" />
+    <ClCompile Include="PmeStdSolidOperatePatternRectangularFeatureAPI.cpp" />
+    <ClCompile Include="PmeStdSolidProtrusionExtrudeFeatureAPI.cpp" />
+    <ClCompile Include="PmeStdSolidProtrusionRevolveFeatureAPI.cpp" />
+    <ClCompile Include="PmeStdSolidProtrusionSweepFeatureAPI.cpp" />
+    <ClCompile Include="PmeStdSolidSphereFeatureAPI.cpp" />
+    <ClCompile Include="PmeUpdateInfoAPI.cpp" />
+    <ClCompile Include="PmeArgumentException.cpp" />
+    <ClCompile Include="PmeArgumentNullException.cpp" />
+    <ClCompile Include="PmeArgumentOutOfRangeException.cpp" />
+    <ClCompile Include="PmeArgumentTypeException.cpp" />
+    <ClCompile Include="PmeException.cpp" />
+    <ClCompile Include="PmeFileNotFoundException.cpp" />
+    <ClCompile Include="PmeIlligalOperationException.cpp" />
+    <ClCompile Include="PmeDcmFrustum.cpp" />
+    <ClCompile Include="PmeBrepReference.cpp" />
+    <ClCompile Include="PmeExplicitModelObjectReference.cpp" />
+    <ClCompile Include="PmeFeatureReference.cpp" />
+    <ClCompile Include="PmePersistentName.cpp" />
+    <ClCompile Include="PmeReference.cpp" />
+    <ClCompile Include="PmeReferences.cpp" />
+    <ClCompile Include="PmePart.cpp" />
+    <ClCompile Include="PmeSelectionManager.cpp" />
+    <ClCompile Include="PmeDatumPlane.cpp" />
+    <ClCompile Include="PmeExplicitModel.cpp" />
+    <ClCompile Include="PmeExplicitModelObject.cpp" />
+    <ClCompile Include="PmeSketch.cpp" />
+    <ClCompile Include="PmeSolid.cpp" />
+    <ClCompile Include="PmeFeature.cpp" />
+    <ClCompile Include="PmeFeatures.cpp" />
+    <ClCompile Include="PmeStdDatumFeature.cpp" />
+    <ClCompile Include="PmeStdDatumPlaneFeature.cpp" />
+    <ClCompile Include="PmeStdDefaultDatumPlaneFeature.cpp" />
+    <ClCompile Include="PmeStdFeature.cpp" />
+    <ClCompile Include="PmeStdSolidChamferFeature.cpp" />
+    <ClCompile Include="PmeStdSolidCutExtrudeFeature.cpp" />
+    <ClCompile Include="PmeStdSolidCutRevolveFeature.cpp" />
+    <ClCompile Include="PmeStdSolidExtrudeFeature.cpp" />
+    <ClCompile Include="PmeStdSolidFeature.cpp" />
+    <ClCompile Include="PmeStdSolidFilletConstantFeature.cpp" />
+    <ClCompile Include="PmeStdSolidHoleCounterboredFeature.cpp" />
+    <ClCompile Include="PmeStdSolidHoleCountersunkFeature.cpp" />
+    <ClCompile Include="PmeStdSolidOperatePatternCircularFeature.cpp" />
+    <ClCompile Include="PmeStdSolidOperatePatternRectangularFeature.cpp" />
+    <ClCompile Include="PmeStdSolidProtrusionExtrudeFeature.cpp" />
+    <ClCompile Include="PmeStdSolidProtrusionRevolveFeature.cpp" />
+    <ClCompile Include="PmeStdSolidProtrusionSweepFeature.cpp" />
+    <ClCompile Include="PmeStdSolidRevolveFeature.cpp" />
+    <ClCompile Include="PmeStdSolidSphereFeature.cpp" />
+    <ClCompile Include="PmeStdSolidSweepFeature.cpp" />
+    <ClCompile Include="PmeStdSketchConstraints.cpp" />
+    <ClCompile Include="PmeStdSketchFeature.cpp" />
+    <ClCompile Include="PmeStdSketchGeometries.cpp" />
+    <ClCompile Include="PmeStdSketchHDirection.cpp" />
+    <ClCompile Include="PmeStdSketchOrigin.cpp" />
+    <ClCompile Include="PmeStdSketchVDirection.cpp" />
+    <ClCompile Include="PmeStdSketchCenterline.cpp" />
+    <ClCompile Include="PmeStdSketchCircle.cpp" />
+    <ClCompile Include="PmeStdSketchCircularArc.cpp" />
+    <ClCompile Include="PmeStdSketchControlPoint.cpp" />
+    <ClCompile Include="PmeStdSketchGeometry.cpp" />
+    <ClCompile Include="PmeStdSketchLine.cpp" />
+    <ClCompile Include="PmeStdSketchCoincident.cpp" />
+    <ClCompile Include="PmeStdSketchConstraint.cpp" />
+    <ClCompile Include="PmeStdSketchEditor.cpp" />
+    <ClCompile Include="attr_pme.cpp" />
+    <ClCompile Include="attr_pme_facename.cpp" />
+    <ClCompile Include="PmeDatumPlaneUtility.cpp" />
+    <ClCompile Include="PmeQuery.cpp" />
+    <ClCompile Include="PmeSketchUtility.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="PartModelingEngine.def" />
+    <None Include="res\PartModelingEngine.rc2" />
+    <None Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="attr_pme_edgename.h" />
+    <ClInclude Include="attr_pme_vertexname.h" />
+    <ClInclude Include="PmeFeatureTagMarker.h" />
+    <ClInclude Include="PartModelingEngine.h" />
+    <ClInclude Include="PmeAcis.h" />
+    <ClInclude Include="PmeAPI.h" />
+    <ClInclude Include="PmeAssembly.h" />
+    <ClInclude Include="PmeAssemblyAPI.h" />
+    <ClInclude Include="PmeAssemblyBoolean.h" />
+    <ClInclude Include="PmeAssemblyBooleanAPI.h" />
+    <ClInclude Include="PmeAssemblyComponentType.h" />
+    <ClInclude Include="PmeBaseList.h" />
+    <ClInclude Include="PmeBrepFileReader.h" />
+    <ClInclude Include="PmeComponent.h" />
+    <ClInclude Include="PmeComponentAPI.h" />
+    <ClInclude Include="PmeEdge.h" />
+    <ClInclude Include="PmeEdgeAPI.h" />
+    <ClInclude Include="PmeEdges.h" />
+    <ClInclude Include="PmeEdgesAPI.h" />
+    <ClInclude Include="PmeEdgeType.h" />
+    <ClInclude Include="PmeExplicitModelAPI.h" />
+    <ClInclude Include="PmeFace.h" />
+    <ClInclude Include="PmeFaceAPI.h" />
+    <ClInclude Include="PmeFaces.h" />
+    <ClInclude Include="PmeFacesAPI.h" />
+    <ClInclude Include="PmeFaceType.h" />
+    <ClInclude Include="PmeInterOp.h" />
+    <ClInclude Include="PmeMacro.h" />
+    <ClInclude Include="PmeMeshFileWriter.h" />
+    <ClInclude Include="PmeObject.h" />
+    <ClInclude Include="PmeRuntimeType.h" />
+    <ClInclude Include="PmeSamePointsType.h" />
+    <ClInclude Include="PmeSketchGeometryReference.h" />
+    <ClInclude Include="PmeStdAssemblyAngle.h" />
+    <ClInclude Include="PmeStdAssemblyAngleAPI.h" />
+    <ClInclude Include="PmeStdAssemblyCoaxial.h" />
+    <ClInclude Include="PmeStdAssemblyCoaxialAPI.h" />
+    <ClInclude Include="PmeStdAssemblyConstraint.h" />
+    <ClInclude Include="PmeStdAssemblyConstraintAPI.h" />
+    <ClInclude Include="PmeStdAssemblyConstraints.h" />
+    <ClInclude Include="PmeStdAssemblyConstraintsAPI.h" />
+    <ClInclude Include="PmeStdAssemblyConstraintType.h" />
+    <ClInclude Include="PmeStdAssemblyDistance.h" />
+    <ClInclude Include="PmeStdAssemblyDistanceAPI.h" />
+    <ClInclude Include="PmeStdAssemblyIncidence.h" />
+    <ClInclude Include="PmeStdAssemblyIncidenceAPI.h" />
+    <ClInclude Include="PmeStdAssemblyParallel.h" />
+    <ClInclude Include="PmeStdAssemblyParallelAPI.h" />
+    <ClInclude Include="PmeStdAssemblyPerpendicular.h" />
+    <ClInclude Include="PmeStdAssemblyPerpendicularAPI.h" />
+    <ClInclude Include="PmeStdDatumPlaneOffsetFeatureAPI.h" />
+    <ClInclude Include="PmeStdDatumPlaneOffsetFeature.h" />
+    <ClInclude Include="PmeStdSketchCoincidentAPI.h" />
+    <ClInclude Include="PmeStdSketchConstraintAPI.h" />
+    <ClInclude Include="PmeStdSketchConstraintsAPI.h" />
+    <ClInclude Include="PmeStdSketchHorizontal.h" />
+    <ClInclude Include="PmeStdSketchHorizontalAPI.h" />
+    <ClInclude Include="PmeStdSketchParallel.h" />
+    <ClInclude Include="PmeStdSketchParallelAPI.h" />
+    <ClInclude Include="PmeStdSketchPerpendicular.h" />
+    <ClInclude Include="PmeStdSketchPerpendicularAPI.h" />
+    <ClInclude Include="PmeStdSketchVertical.h" />
+    <ClInclude Include="PmeStdSketchVerticalAPI.h" />
+    <ClInclude Include="PmeStdSolidImportedBrepFeature.h" />
+    <ClInclude Include="PmeStdSolidImportedBrepFeatureAPI.h" />
+    <ClInclude Include="PmeStdSolidCutSweepFeature.h" />
+    <ClInclude Include="PmeStdSolidCutSweepFeatureAPI.h" />
+    <ClInclude Include="PmeStdSolidDraftFeature.h" />
+    <ClInclude Include="PmeStdSolidDraftFeatureAPI.h" />
+    <ClInclude Include="PmeStdSolidHoleSimpleFeature.h" />
+    <ClInclude Include="PmeStdSolidHoleSimpleFeatureAPI.h" />
+    <ClInclude Include="PmeStdSolidLoftFacesFeature.h" />
+    <ClInclude Include="PmeStdSolidLoftFacesFeatureAPI.h" />
+    <ClInclude Include="PmeStdSolidLoftSectionsFeature.h" />
+    <ClInclude Include="PmeStdSolidLoftSectionsFeatureAPI.h" />
+    <ClInclude Include="PmeStdSolidOffsetFeature.h" />
+    <ClInclude Include="PmeStdSolidOffsetFeatureAPI.h" />
+    <ClInclude Include="PmeStdSolidRevolveWithExternalAxisFeature.h" />
+    <ClInclude Include="PmeStdSolidRevolveWithExternalAxisFeatureAPI.h" />
+    <ClInclude Include="PmeStdSolidShellFeature.h" />
+    <ClInclude Include="PmeStdSolidShellFeatureAPI.h" />
+    <ClInclude Include="PmeTransformAPI.h" />
+    <ClInclude Include="PmeUtility.h" />
+    <ClInclude Include="PmeVertex.h" />
+    <ClInclude Include="PmeVertexAPI.h" />
+    <ClInclude Include="PmeVertices.h" />
+    <ClInclude Include="PmeVerticesAPI.h" />
+    <ClInclude Include="PmeXmlMacroReader.h" />
+    <ClInclude Include="PmeXmlMacroWriter.h" />
+    <ClInclude Include="Resource.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="StringOut.h" />
+    <ClInclude Include="PmeBrepReferenceAPI.h" />
+    <ClInclude Include="PmeDatumPlaneAPI.h" />
+    <ClInclude Include="PmeExplicitModelObjectAPI.h" />
+    <ClInclude Include="PmeExplicitModelObjectsAPI.h" />
+    <ClInclude Include="PmeFeatureAPI.h" />
+    <ClInclude Include="PmeFeaturesAPI.h" />
+    <ClInclude Include="PmeHandle.h" />
+    <ClInclude Include="PmeHandleMacro.h" />
+    <ClInclude Include="PmePartAPI.h" />
+    <ClInclude Include="PmePersistentNameAPI.h" />
+    <ClInclude Include="PmeReferenceAPI.h" />
+    <ClInclude Include="PmeReferencesAPI.h" />
+    <ClInclude Include="PmeSketchAPI.h" />
+    <ClInclude Include="PmeSolidAPI.h" />
+    <ClInclude Include="PmeStdSketchCenterlineAPI.h" />
+    <ClInclude Include="PmeStdSketchCircleAPI.h" />
+    <ClInclude Include="PmeStdSketchCircularArcAPI.h" />
+    <ClInclude Include="PmeStdSketchControlPointAPI.h" />
+    <ClInclude Include="PmeStdSketchEditorAPI.h" />
+    <ClInclude Include="PmeStdSketchFeatureAPI.h" />
+    <ClInclude Include="PmeStdSketchGeometriesAPI.h" />
+    <ClInclude Include="PmeStdSketchGeometryAPI.h" />
+    <ClInclude Include="PmeStdSketchHDirectionAPI.h" />
+    <ClInclude Include="PmeStdSketchLineAPI.h" />
+    <ClInclude Include="PmeStdSketchOriginAPI.h" />
+    <ClInclude Include="PmeStdSketchVDirectionAPI.h" />
+    <ClInclude Include="PmeStdSolidChamferFeatureAPI.h" />
+    <ClInclude Include="PmeStdSolidCutExtrudeFeatureAPI.h" />
+    <ClInclude Include="PmeStdSolidCutRevolveFeatureAPI.h" />
+    <ClInclude Include="PmeStdSolidFilletConstantFeatureAPI.h" />
+    <ClInclude Include="PmeStdSolidHoleCounterboredFeatureAPI.h" />
+    <ClInclude Include="PmeStdSolidHoleCountersunkFeatureAPI.h" />
+    <ClInclude Include="PmeStdSolidOperatePatternCircularFeatureAPI.h" />
+    <ClInclude Include="PmeStdSolidOperatePatternRectangularFeatureAPI.h" />
+    <ClInclude Include="PmeStdSolidProtrusionExtrudeFeatureAPI.h" />
+    <ClInclude Include="PmeStdSolidProtrusionRevolveFeatureAPI.h" />
+    <ClInclude Include="PmeStdSolidProtrusionSweepFeatureAPI.h" />
+    <ClInclude Include="PmeStdSolidSphereFeatureAPI.h" />
+    <ClInclude Include="PmeUpdateInfoAPI.h" />
+    <ClInclude Include="PmeArgumentException.h" />
+    <ClInclude Include="PmeArgumentNullException.h" />
+    <ClInclude Include="PmeArgumentOutOfRangeException.h" />
+    <ClInclude Include="PmeArgumentTypeException.h" />
+    <ClInclude Include="PmeException.h" />
+    <ClInclude Include="PmeExceptionTest.h" />
+    <ClInclude Include="PmeFileNotFoundException.h" />
+    <ClInclude Include="PmeIlligalOperationException.h" />
+    <ClInclude Include="PmeDcm.h" />
+    <ClInclude Include="PmeDcmFrustum.h" />
+    <ClInclude Include="PmeDcmInterface.h" />
+    <ClInclude Include="PmeBrepReference.h" />
+    <ClInclude Include="PmeBrepType.h" />
+    <ClInclude Include="PmeExplicitModelObjectReference.h" />
+    <ClInclude Include="PmeFeatureReference.h" />
+    <ClInclude Include="PmePersistentName.h" />
+    <ClInclude Include="PmeReference.h" />
+    <ClInclude Include="PmeReferences.h" />
+    <ClInclude Include="PmeReferenceType.h" />
+    <ClInclude Include="PmePart.h" />
+    <ClInclude Include="PmeSelectionManager.h" />
+    <ClInclude Include="PmeDatumPlane.h" />
+    <ClInclude Include="PmeExplicitModel.h" />
+    <ClInclude Include="PmeExplicitModelObject.h" />
+    <ClInclude Include="PmeExplicitModelObjectType.h" />
+    <ClInclude Include="PmeSketch.h" />
+    <ClInclude Include="PmeSolid.h" />
+    <ClInclude Include="IPmePattern.h" />
+    <ClInclude Include="IPmeTransformable.h" />
+    <ClInclude Include="PmeFeature.h" />
+    <ClInclude Include="PmeFeatures.h" />
+    <ClInclude Include="PmeFeatureType.h" />
+    <ClInclude Include="PmeChamferType.h" />
+    <ClInclude Include="PmePropagationType.h" />
+    <ClInclude Include="PmeStdDatumFeature.h" />
+    <ClInclude Include="PmeStdDatumPlaneFeature.h" />
+    <ClInclude Include="PmeStdDefaultDatumPlaneFeature.h" />
+    <ClInclude Include="PmeStdDefaultDatumPlaneFeatureType.h" />
+    <ClInclude Include="PmeStdExtrudeEndType.h" />
+    <ClInclude Include="PmeStdFeature.h" />
+    <ClInclude Include="PmeStdRevolveEndType.h" />
+    <ClInclude Include="PmeStdSolidChamferFeature.h" />
+    <ClInclude Include="PmeStdSolidCutExtrudeFeature.h" />
+    <ClInclude Include="PmeStdSolidCutRevolveFeature.h" />
+    <ClInclude Include="PmeStdSolidExtrudeFeature.h" />
+    <ClInclude Include="PmeStdSolidFeature.h" />
+    <ClInclude Include="PmeStdSolidFilletConstantFeature.h" />
+    <ClInclude Include="PmeStdSolidHoleCounterboredFeature.h" />
+    <ClInclude Include="PmeStdSolidHoleCountersunkFeature.h" />
+    <ClInclude Include="PmeStdSolidOperatePatternCircularFeature.h" />
+    <ClInclude Include="PmeStdSolidOperatePatternRectangularFeature.h" />
+    <ClInclude Include="PmeStdSolidProtrusionExtrudeFeature.h" />
+    <ClInclude Include="PmeStdSolidProtrusionRevolveFeature.h" />
+    <ClInclude Include="PmeStdSolidProtrusionSweepFeature.h" />
+    <ClInclude Include="PmeStdSolidRevolveFeature.h" />
+    <ClInclude Include="PmeStdSolidSphereFeature.h" />
+    <ClInclude Include="PmeStdSolidSweepFeature.h" />
+    <ClInclude Include="PmeStdSketchConstraints.h" />
+    <ClInclude Include="PmeStdSketchFeature.h" />
+    <ClInclude Include="PmeStdSketchGeometries.h" />
+    <ClInclude Include="PmeStdSketchHDirection.h" />
+    <ClInclude Include="PmeStdSketchOrigin.h" />
+    <ClInclude Include="PmeStdSketchVDirection.h" />
+    <ClInclude Include="IPmeConstraintable.h" />
+    <ClInclude Include="PmeStdSketchCenterline.h" />
+    <ClInclude Include="PmeStdSketchCircle.h" />
+    <ClInclude Include="PmeStdSketchCircularArc.h" />
+    <ClInclude Include="PmeStdSketchControlPoint.h" />
+    <ClInclude Include="PmeStdSketchGeometry.h" />
+    <ClInclude Include="PmeStdSketchGeometryType.h" />
+    <ClInclude Include="PmeStdSketchLine.h" />
+    <ClInclude Include="PmeStdSketchCoincident.h" />
+    <ClInclude Include="PmeStdSketchConstraint.h" />
+    <ClInclude Include="PmeStdSketchConstraintType.h" />
+    <ClInclude Include="PmeStdSketchEditor.h" />
+    <ClInclude Include="attr_pme.h" />
+    <ClInclude Include="attr_pme_facename.h" />
+    <ClInclude Include="PmeDatumPlaneUtility.h" />
+    <ClInclude Include="PmeQuery.h" />
+    <ClInclude Include="PmeSketchUtility.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="PartModelingEngine.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MathRepresentation\MathRepresentation.vcxproj">
+      <Project>{6ec8508e-6866-4f89-8cee-45fde09af452}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties RESOURCE_FILE="PartModelingEngine.rc" />
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

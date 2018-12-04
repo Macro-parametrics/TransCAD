@@ -1,0 +1,16 @@
+HKCR
+{
+	NoRemove CLSID
+	{
+		ForceRemove {2026F4D1-3C6D-46A1-B38D-90C3986BA5FA} = s 'StdSketchHorizontal Class'
+		{
+			ForceRemove Programmable
+			LocalServer32 = s '%MODULE%'
+			{
+				val ServerExecutable = s '%MODULE_RAW%'
+			}
+			TypeLib = s '{DC31CA13-34CA-4D11-A678-58E9FCE42872}'
+			Version = s '1.0'
+		}
+	}
+}

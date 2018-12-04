@@ -1,0 +1,24 @@
+HKCR
+{
+	TransCAD.StdSketchConstraint.1 = s 'StdSketchConstraint Class'
+	{
+		CLSID = s '{28C0967E-E8E0-4180-AE84-3AF9CF11EF49}'
+	}
+	TransCAD.StdSketchConstraint = s 'StdSketchConstraint Class'
+	{
+		CLSID = s '{28C0967E-E8E0-4180-AE84-3AF9CF11EF49}'
+		CurVer = s 'TransCAD.StdSketchConstraint.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {28C0967E-E8E0-4180-AE84-3AF9CF11EF49} = s 'StdSketchConstraint Class'
+		{
+			ProgID = s 'TransCAD.StdSketchConstraint.1'
+			VersionIndependentProgID = s 'TransCAD.StdSketchConstraint'
+			ForceRemove 'Programmable'
+			LocalServer32 = s '%MODULE%'
+			val AppID = s '%APPID%'
+			'TypeLib' = s '{DC31CA13-34CA-4D11-A678-58E9FCE42872}'
+		}
+	}
+}

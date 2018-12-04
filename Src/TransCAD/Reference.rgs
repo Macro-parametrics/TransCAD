@@ -1,0 +1,24 @@
+HKCR
+{
+	TransCAD.Reference.1 = s 'Reference Class'
+	{
+		CLSID = s '{B305C600-A038-4F99-9081-18960E273016}'
+	}
+	TransCAD.Reference = s 'Reference Class'
+	{
+		CLSID = s '{B305C600-A038-4F99-9081-18960E273016}'
+		CurVer = s 'TransCAD.Reference.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {B305C600-A038-4F99-9081-18960E273016} = s 'Reference Class'
+		{
+			ProgID = s 'TransCAD.Reference.1'
+			VersionIndependentProgID = s 'TransCAD.Reference'
+			ForceRemove 'Programmable'
+			LocalServer32 = s '%MODULE%'
+			val AppID = s '%APPID%'
+			'TypeLib' = s '{DC31CA13-34CA-4D11-A678-58E9FCE42872}'
+		}
+	}
+}

@@ -1,0 +1,11 @@
+HKCR
+{
+	NoRemove AppID
+	{
+		'%APPID%' = s 'TransCAD'
+				'TransCAD.EXE'
+				{
+			val AppID = s '%APPID%'
+		}
+	}
+}

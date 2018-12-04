@@ -1,0 +1,24 @@
+HKCR
+{
+	TransCAD.Features.1 = s 'Features Class'
+	{
+		CLSID = s '{606DAAF6-D453-4015-845F-7EE235B68DCF}'
+	}
+	TransCAD.Features = s 'Features Class'
+	{
+		CLSID = s '{606DAAF6-D453-4015-845F-7EE235B68DCF}'
+		CurVer = s 'TransCAD.Features.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {606DAAF6-D453-4015-845F-7EE235B68DCF} = s 'Features Class'
+		{
+			ProgID = s 'TransCAD.Features.1'
+			VersionIndependentProgID = s 'TransCAD.Features'
+			ForceRemove 'Programmable'
+			LocalServer32 = s '%MODULE%'
+			val AppID = s '%APPID%'
+			'TypeLib' = s '{DC31CA13-34CA-4D11-A678-58E9FCE42872}'
+		}
+	}
+}

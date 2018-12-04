@@ -1,0 +1,255 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Template|Win32">
+      <Configuration>Template</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{AE55D6B6-CC43-4E10-ABD3-7CD39BD73F49}</ProjectGuid>
+    <Keyword>MFCDLLProj</Keyword>
+    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseOfMfc>Dynamic</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <WholeProgramOptimization>false</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseOfMfc>Dynamic</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(SolutionDir)Bin\Debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(SolutionDir)IntmDir\$(ProjectName)\Debug\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</LinkIncremental>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(SolutionDir)Bin\Release\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(SolutionDir)IntmDir\$(ProjectName)\Release\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>$(SolutionDir)Src\MathRepresentation;$(SolutionDir)Src\PartModelingEngine;$(HOOPS_INSTALL_DIR_1919)\Dev_Tools\hoops_3dgs\include;$(HOOPS_INSTALL_DIR_1919)\Dev_Tools\hoops_stream\include;$(HOOPS_INSTALL_DIR_1919)\Dev_Tools\hoops_mvo\include;$(HOOPS_INSTALL_DIR_1919)\Dev_Tools\hoops_mfc\include;$(HOOPS_INSTALL_DIR_1919)\Dev_Tools\utility\include;$(X3DT_R25)\include;$(A3DT_R25)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>PM_EXPORTS;WIN32;_WINDOWS;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>true</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <StringPooling>true</StringPooling>
+    </ClCompile>
+    <Link>
+      <OutputFile>$(OutDir)PartModeler.dll</OutputFile>
+      <AdditionalLibraryDirectories>$(SolutionDir)Lib\Debug;$(HOOPS_INSTALL_DIR_1919)\Dev_Tools\hoops_3dgs\lib\nt_i386_vc10;$(HOOPS_INSTALL_DIR_1919)\Dev_Tools\hoops_stream\lib\nt_i386_vc10;$(HOOPS_INSTALL_DIR_1919)\Dev_Tools\hoops_mvo\lib\nt_i386_vc10;$(HOOPS_INSTALL_DIR_1919)\Dev_Tools\hoops_mfc\lib\nt_i386_vc10;$(HOOPS_INSTALL_DIR_1919)\Dev_Tools\utility\lib\nt_i386_vc10;$(X3DT_R25)\NT_VC10_DLLD\code\lib;$(A3DT_R25)\NT_VC10_DLLD\code\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <ModuleDefinitionFile>.\PartModeler.def</ModuleDefinitionFile>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <ImportLibrary>$(SolutionDir)Lib\Debug\PartModeler.lib</ImportLibrary>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+    <Midl>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+    </Midl>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0412</Culture>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(SolutionDir)Src\MathRepresentation;$(SolutionDir)Src\PartModelingEngine;$(HOOPS_INSTALL_DIR)\Dev_Tools\hoops_3dgs\source;$(HOOPS_INSTALL_DIR)\Dev_Tools\hoops_stream\source;$(HOOPS_INSTALL_DIR)\Dev_Tools\hoops_stream\source\stream_common;$(HOOPS_INSTALL_DIR)\Dev_Tools\hoops_mvo\source;$(HOOPS_INSTALL_DIR)\Dev_Tools\hoops_mfc\source;$(HOOPS_INSTALL_DIR)\Dev_Tools\utility\source;$(A3DT)\include;$(X3DT)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_AFXEXT;STDAFX;PM_EXPORTS;WIN32;_WINDOWS;NDEBUG;TNAME;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <MinimalRebuild>false</MinimalRebuild>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>false</FunctionLevelLinking>
+      <BufferSecurityCheck>true</BufferSecurityCheck>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <DisableLanguageExtensions>false</DisableLanguageExtensions>
+      <StringPooling>true</StringPooling>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+    </ClCompile>
+    <Link>
+      <OutputFile>$(OutDir)PartModeler.dll</OutputFile>
+      <AdditionalLibraryDirectories>$(SolutionDir)Lib\Release;$(HOOPS_INSTALL_DIR)\Dev_Tools\hoops_3dgs\lib\nt_i386_vc10;$(HOOPS_INSTALL_DIR)\Dev_Tools\hoops_stream\lib\nt_i386_vc10;$(HOOPS_INSTALL_DIR)\Dev_Tools\hoops_mvo\lib\nt_i386_vc10;$(HOOPS_INSTALL_DIR)\Dev_Tools\hoops_mfc\lib\nt_i386_vc10;$(HOOPS_INSTALL_DIR)\Dev_Tools\utility\lib\nt_i386_vc10;$(A3DT)\NT_VC10_DLL\code\lib;$(X3DT)\NT_VC10_DLL\code\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <ModuleDefinitionFile>.\PartModeler.def</ModuleDefinitionFile>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>
+      </OptimizeReferences>
+      <EnableCOMDATFolding>
+      </EnableCOMDATFolding>
+      <ImportLibrary>$(SolutionDir)Lib\Release\PartModeler.lib</ImportLibrary>
+      <TargetMachine>MachineX86</TargetMachine>
+      <AdditionalDependencies>SpaAcis.lib;SpaHbridge.lib</AdditionalDependencies>
+      <TreatLinkerWarningAsErrors>false</TreatLinkerWarningAsErrors>
+      <EntryPointSymbol>
+      </EntryPointSymbol>
+      <NoEntryPoint>false</NoEntryPoint>
+    </Link>
+    <Midl>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+    </Midl>
+    <ResourceCompile>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0412</Culture>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="PartModeler.cpp" />
+    <ClCompile Include="PmCreateChamferDialog.cpp" />
+    <ClCompile Include="PmCreateDatumPlaneOffsetDialog.cpp" />
+    <ClCompile Include="PmCreateDraftDialog.cpp" />
+    <ClCompile Include="PmCreateEdgeFilletDialog.cpp" />
+    <ClCompile Include="PmCreateExtrudeDialog.cpp" />
+    <ClCompile Include="PmCreateFeatureDialog.cpp" />
+    <ClCompile Include="PmCreateHoleDialog.cpp" />
+    <ClCompile Include="PmCreateOffsetDialog.cpp" />
+    <ClCompile Include="PmCreatePatternCircularDialog.cpp" />
+    <ClCompile Include="PmCreatePatternRectangularDialog.cpp" />
+    <ClCompile Include="PmCreateRevolveDialog.cpp" />
+    <ClCompile Include="PmCreateShellDialog.cpp" />
+    <ClCompile Include="PmCreateSweepDialog.cpp" />
+    <ClCompile Include="PmDocument.cpp" />
+    <ClCompile Include="PmFeatureTree.cpp" />
+    <ClCompile Include="PmFrame.cpp" />
+    <ClCompile Include="PmHModel.cpp" />
+    <ClCompile Include="PmHSelectionSet.cpp" />
+    <ClCompile Include="PmHView.cpp" />
+    <ClCompile Include="PmImUtility.cpp" />
+    <ClCompile Include="PmMeshManager.cpp" />
+    <ClCompile Include="PmRenderExplicitModelObject.cpp" />
+    <ClCompile Include="PmSettings.cpp" />
+    <ClCompile Include="PmView.cpp" />
+    <ClCompile Include="PmViewManipulationOperator.cpp" />
+    <ClCompile Include="PmViewSelectionOperator.cpp" />
+    <ClCompile Include="SizingControlBar\SizingControlBar.cpp" />
+    <ClCompile Include="SizingControlBar\SizingControlBarG.cpp" />
+    <ClCompile Include="SizingControlBar\TreeCtrlBar.cpp" />
+    <ClCompile Include="SizingControlBar\TreeCtrlEx.cpp" />
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="PmArgumentException.cpp" />
+    <ClCompile Include="PmException.cpp" />
+    <ClCompile Include="PmViewHoopsModelTreeDialog.cpp" />
+    <ClCompile Include="PmViewPersistentNameDialog.cpp" />
+    <ClCompile Include="PmViewPanningOperator.cpp" />
+    <ClCompile Include="PmViewPersistentNameOperator.cpp" />
+    <ClCompile Include="PmViewRotationOperator.cpp" />
+    <ClCompile Include="PmViewZoomWindowOperator.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="PartModeler.def" />
+    <None Include="res\PartDocument.ico" />
+    <None Include="res\PartModeler.rc2" />
+    <None Include="res\PmDocument.ico" />
+    <None Include="ReadMe.txt" />
+    <None Include="res\Toolbar.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="PartModeler.h" />
+    <ClInclude Include="PmAcis.h" />
+    <ClInclude Include="PmCreateChamferDialog.h" />
+    <ClInclude Include="PmCreateDatumPlaneOffsetDialog.h" />
+    <ClInclude Include="PmCreateDraftDialog.h" />
+    <ClInclude Include="PmCreateEdgeFilletDialog.h" />
+    <ClInclude Include="PmCreateExtrudeDialog.h" />
+    <ClInclude Include="PmCreateFeatureDialog.h" />
+    <ClInclude Include="PmCreateHoleDialog.h" />
+    <ClInclude Include="PmCreateOffsetDialog.h" />
+    <ClInclude Include="PmCreatePatternCircularDialog.h" />
+    <ClInclude Include="PmCreatePatternRectangularDialog.h" />
+    <ClInclude Include="PmCreateRevolveDialog.h" />
+    <ClInclude Include="PmCreateShellDialog.h" />
+    <ClInclude Include="PmCreateSweepDialog.h" />
+    <ClInclude Include="PmDocument.h" />
+    <ClInclude Include="PmFeatureTree.h" />
+    <ClInclude Include="PmFrame.h" />
+    <ClInclude Include="PmHModel.h" />
+    <ClInclude Include="PmHoops.h" />
+    <ClInclude Include="PmHSelectionSet.h" />
+    <ClInclude Include="PmHView.h" />
+    <ClInclude Include="PmImUtility.h" />
+    <ClInclude Include="PmMacro.h" />
+    <ClInclude Include="PmMeshManager.h" />
+    <ClInclude Include="PmRegPartModeler.h" />
+    <ClInclude Include="PmRenderExplicitModelObject.h" />
+    <ClInclude Include="PmSettings.h" />
+    <ClInclude Include="PmView.h" />
+    <ClInclude Include="PmViewManipulationOperator.h" />
+    <ClInclude Include="PmViewSelectionOperator.h" />
+    <ClInclude Include="Resource.h" />
+    <ClInclude Include="SizingControlBar\SizingControlBar.h" />
+    <ClInclude Include="SizingControlBar\SizingControlBarG.h" />
+    <ClInclude Include="SizingControlBar\TreeCtrlBar.h" />
+    <ClInclude Include="SizingControlBar\TreeCtrlEx.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="PmArgumentException.h" />
+    <ClInclude Include="PmException.h" />
+    <ClInclude Include="PmExceptionTest.h" />
+    <ClInclude Include="PmViewHoopsModelTreeDialog.h" />
+    <ClInclude Include="PmViewPersistentNameDialog.h" />
+    <ClInclude Include="PmViewPanningOperator.h" />
+    <ClInclude Include="PmViewPersistentNameOperator.h" />
+    <ClInclude Include="PmViewRotationOperator.h" />
+    <ClInclude Include="PmViewZoomWindowOperator.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="PartModeler.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PartModelingEngine\PartModelingEngine.vcxproj">
+      <Project>{8ec691fb-94e2-41ee-a655-58e60f947425}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <Private>true</Private>
+      <CopyLocalSatelliteAssemblies>false</CopyLocalSatelliteAssemblies>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+      <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties RESOURCE_FILE="PartModeler.rc" />
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

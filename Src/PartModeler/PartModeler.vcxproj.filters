@@ -1,0 +1,338 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="소스 파일">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="헤더 파일">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="리소스 파일">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx</Extensions>
+    </Filter>
+    <Filter Include="Exception">
+      <UniqueIdentifier>{c6d75bc4-749b-473d-b4f0-35bf97492d61}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Dialog">
+      <UniqueIdentifier>{9cc23291-317c-4295-8482-018013f247ee}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Operator">
+      <UniqueIdentifier>{0ccbc22b-f2c4-4b65-b6cb-70180a7a5549}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Panels">
+      <UniqueIdentifier>{82980827-4c21-454c-961f-2524f5a49d40}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Dialog\Feature">
+      <UniqueIdentifier>{4cce35ec-b860-4e2c-9d5b-88c62c1e0baa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Panels\SizingControlBar">
+      <UniqueIdentifier>{ee9700aa-d510-4ca0-be6b-65b963f41697}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Dialog\Feature\Datum">
+      <UniqueIdentifier>{8f1ec89e-2787-42d3-8e92-bac03adb97ff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Dialog\Feature\Sketch-based">
+      <UniqueIdentifier>{07c044c2-bdbf-4156-b52f-2208aadecbb4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Dialog\Feature\Transformation">
+      <UniqueIdentifier>{7665a80c-b6b2-47ed-a1bd-e7bb88b8e7d2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Dialog\Feature\Transition">
+      <UniqueIdentifier>{f5b3b45d-3fbd-41dc-8205-7cfe7af8c36c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Rendering">
+      <UniqueIdentifier>{4c7971ee-c010-4752-bcdb-b0b4b0cd0459}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Utility">
+      <UniqueIdentifier>{91f1c8af-fd4e-45f0-91ce-78bc7828bd60}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="PartModeler.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="PmDocument.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="PmFrame.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="PmHModel.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="PmHView.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="PmView.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="PmArgumentException.cpp">
+      <Filter>Exception</Filter>
+    </ClCompile>
+    <ClCompile Include="PmException.cpp">
+      <Filter>Exception</Filter>
+    </ClCompile>
+    <ClCompile Include="PmViewHoopsModelTreeDialog.cpp">
+      <Filter>Dialog</Filter>
+    </ClCompile>
+    <ClCompile Include="PmViewPersistentNameDialog.cpp">
+      <Filter>Dialog</Filter>
+    </ClCompile>
+    <ClCompile Include="PmViewPanningOperator.cpp">
+      <Filter>Operator</Filter>
+    </ClCompile>
+    <ClCompile Include="PmViewPersistentNameOperator.cpp">
+      <Filter>Operator</Filter>
+    </ClCompile>
+    <ClCompile Include="PmViewRotationOperator.cpp">
+      <Filter>Operator</Filter>
+    </ClCompile>
+    <ClCompile Include="PmViewZoomWindowOperator.cpp">
+      <Filter>Operator</Filter>
+    </ClCompile>
+    <ClCompile Include="SizingControlBar\SizingControlBar.cpp">
+      <Filter>Panels\SizingControlBar</Filter>
+    </ClCompile>
+    <ClCompile Include="SizingControlBar\SizingControlBarG.cpp">
+      <Filter>Panels\SizingControlBar</Filter>
+    </ClCompile>
+    <ClCompile Include="SizingControlBar\TreeCtrlBar.cpp">
+      <Filter>Panels\SizingControlBar</Filter>
+    </ClCompile>
+    <ClCompile Include="SizingControlBar\TreeCtrlEx.cpp">
+      <Filter>Panels\SizingControlBar</Filter>
+    </ClCompile>
+    <ClCompile Include="PmFeatureTree.cpp">
+      <Filter>Panels</Filter>
+    </ClCompile>
+    <ClCompile Include="PmViewSelectionOperator.cpp">
+      <Filter>Operator</Filter>
+    </ClCompile>
+    <ClCompile Include="PmCreateExtrudeDialog.cpp">
+      <Filter>Dialog\Feature\Sketch-based</Filter>
+    </ClCompile>
+    <ClCompile Include="PmCreateChamferDialog.cpp">
+      <Filter>Dialog\Feature\Transition</Filter>
+    </ClCompile>
+    <ClCompile Include="PmCreateEdgeFilletDialog.cpp">
+      <Filter>Dialog\Feature\Transition</Filter>
+    </ClCompile>
+    <ClCompile Include="PmCreatePatternRectangularDialog.cpp">
+      <Filter>Dialog\Feature\Transformation</Filter>
+    </ClCompile>
+    <ClCompile Include="PmCreateFeatureDialog.cpp">
+      <Filter>Dialog\Feature</Filter>
+    </ClCompile>
+    <ClCompile Include="PmViewManipulationOperator.cpp">
+      <Filter>Operator</Filter>
+    </ClCompile>
+    <ClCompile Include="PmCreatePatternCircularDialog.cpp">
+      <Filter>Dialog\Feature\Transformation</Filter>
+    </ClCompile>
+    <ClCompile Include="PmCreateRevolveDialog.cpp">
+      <Filter>Dialog\Feature\Sketch-based</Filter>
+    </ClCompile>
+    <ClCompile Include="PmCreateSweepDialog.cpp">
+      <Filter>Dialog\Feature\Sketch-based</Filter>
+    </ClCompile>
+    <ClCompile Include="PmCreateHoleDialog.cpp">
+      <Filter>Dialog\Feature\Sketch-based</Filter>
+    </ClCompile>
+    <ClCompile Include="PmCreateDraftDialog.cpp">
+      <Filter>Dialog\Feature\Transition</Filter>
+    </ClCompile>
+    <ClCompile Include="PmCreateOffsetDialog.cpp">
+      <Filter>Dialog\Feature\Transition</Filter>
+    </ClCompile>
+    <ClCompile Include="PmCreateShellDialog.cpp">
+      <Filter>Dialog\Feature\Transition</Filter>
+    </ClCompile>
+    <ClCompile Include="PmCreateDatumPlaneOffsetDialog.cpp">
+      <Filter>Dialog\Feature\Datum</Filter>
+    </ClCompile>
+    <ClCompile Include="PmRenderExplicitModelObject.cpp">
+      <Filter>Rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="PmHSelectionSet.cpp">
+      <Filter>Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="PmImUtility.cpp">
+      <Filter>Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="PmMeshManager.cpp">
+      <Filter>Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="PmSettings.cpp">
+      <Filter>Utility</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="PartModeler.def">
+      <Filter>소스 파일</Filter>
+    </None>
+    <None Include="res\PartDocument.ico">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\PartModeler.rc2">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\PmDocument.ico">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="ReadMe.txt" />
+    <None Include="res\Toolbar.bmp">
+      <Filter>리소스 파일</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="PartModeler.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="PmAcis.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="PmDocument.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="PmFrame.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="PmHModel.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="PmHoops.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="PmHView.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="PmMacro.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="PmRegPartModeler.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="PmView.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="PmArgumentException.h">
+      <Filter>Exception</Filter>
+    </ClInclude>
+    <ClInclude Include="PmException.h">
+      <Filter>Exception</Filter>
+    </ClInclude>
+    <ClInclude Include="PmExceptionTest.h">
+      <Filter>Exception</Filter>
+    </ClInclude>
+    <ClInclude Include="PmViewHoopsModelTreeDialog.h">
+      <Filter>Dialog</Filter>
+    </ClInclude>
+    <ClInclude Include="PmViewPersistentNameDialog.h">
+      <Filter>Dialog</Filter>
+    </ClInclude>
+    <ClInclude Include="PmViewPanningOperator.h">
+      <Filter>Operator</Filter>
+    </ClInclude>
+    <ClInclude Include="PmViewPersistentNameOperator.h">
+      <Filter>Operator</Filter>
+    </ClInclude>
+    <ClInclude Include="PmViewRotationOperator.h">
+      <Filter>Operator</Filter>
+    </ClInclude>
+    <ClInclude Include="PmViewZoomWindowOperator.h">
+      <Filter>Operator</Filter>
+    </ClInclude>
+    <ClInclude Include="SizingControlBar\SizingControlBar.h">
+      <Filter>Panels\SizingControlBar</Filter>
+    </ClInclude>
+    <ClInclude Include="SizingControlBar\SizingControlBarG.h">
+      <Filter>Panels\SizingControlBar</Filter>
+    </ClInclude>
+    <ClInclude Include="SizingControlBar\TreeCtrlBar.h">
+      <Filter>Panels\SizingControlBar</Filter>
+    </ClInclude>
+    <ClInclude Include="SizingControlBar\TreeCtrlEx.h">
+      <Filter>Panels\SizingControlBar</Filter>
+    </ClInclude>
+    <ClInclude Include="PmFeatureTree.h">
+      <Filter>Panels</Filter>
+    </ClInclude>
+    <ClInclude Include="PmViewSelectionOperator.h">
+      <Filter>Operator</Filter>
+    </ClInclude>
+    <ClInclude Include="PmCreateExtrudeDialog.h">
+      <Filter>Dialog\Feature\Sketch-based</Filter>
+    </ClInclude>
+    <ClInclude Include="PmCreateEdgeFilletDialog.h">
+      <Filter>Dialog\Feature\Transition</Filter>
+    </ClInclude>
+    <ClInclude Include="PmCreateChamferDialog.h">
+      <Filter>Dialog\Feature\Transition</Filter>
+    </ClInclude>
+    <ClInclude Include="PmCreatePatternRectangularDialog.h">
+      <Filter>Dialog\Feature\Transformation</Filter>
+    </ClInclude>
+    <ClInclude Include="PmCreateFeatureDialog.h">
+      <Filter>Dialog\Feature</Filter>
+    </ClInclude>
+    <ClInclude Include="PmViewManipulationOperator.h">
+      <Filter>Operator</Filter>
+    </ClInclude>
+    <ClInclude Include="PmCreatePatternCircularDialog.h">
+      <Filter>Dialog\Feature\Transformation</Filter>
+    </ClInclude>
+    <ClInclude Include="PmCreateRevolveDialog.h">
+      <Filter>Dialog\Feature\Sketch-based</Filter>
+    </ClInclude>
+    <ClInclude Include="PmCreateSweepDialog.h">
+      <Filter>Dialog\Feature\Sketch-based</Filter>
+    </ClInclude>
+    <ClInclude Include="PmCreateHoleDialog.h">
+      <Filter>Dialog\Feature\Sketch-based</Filter>
+    </ClInclude>
+    <ClInclude Include="PmCreateDraftDialog.h">
+      <Filter>Dialog\Feature\Transition</Filter>
+    </ClInclude>
+    <ClInclude Include="PmCreateOffsetDialog.h">
+      <Filter>Dialog\Feature\Transition</Filter>
+    </ClInclude>
+    <ClInclude Include="PmCreateShellDialog.h">
+      <Filter>Dialog\Feature\Transition</Filter>
+    </ClInclude>
+    <ClInclude Include="PmCreateDatumPlaneOffsetDialog.h">
+      <Filter>Dialog\Feature\Datum</Filter>
+    </ClInclude>
+    <ClInclude Include="PmRenderExplicitModelObject.h">
+      <Filter>Rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="PmHSelectionSet.h">
+      <Filter>Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="PmImUtility.h">
+      <Filter>Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="PmMeshManager.h">
+      <Filter>Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="PmSettings.h">
+      <Filter>Utility</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="PartModeler.rc">
+      <Filter>리소스 파일</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>

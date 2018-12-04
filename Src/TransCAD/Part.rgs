@@ -1,0 +1,24 @@
+HKCR
+{
+	TransCAD.Part.1 = s 'Part Class'
+	{
+		CLSID = s '{DE2D5FCB-7160-44CE-A96D-AA43B6975106}'
+	}
+	TransCAD.Part = s 'Part Class'
+	{
+		CLSID = s '{DE2D5FCB-7160-44CE-A96D-AA43B6975106}'
+		CurVer = s 'TransCAD.Part.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {DE2D5FCB-7160-44CE-A96D-AA43B6975106} = s 'Part Class'
+		{
+			ProgID = s 'TransCAD.Part.1'
+			VersionIndependentProgID = s 'TransCAD.Part'
+			ForceRemove 'Programmable'
+			LocalServer32 = s '%MODULE%'
+			val AppID = s '%APPID%'
+			'TypeLib' = s '{DC31CA13-34CA-4D11-A678-58E9FCE42872}'
+		}
+	}
+}

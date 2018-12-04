@@ -1,0 +1,396 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="소스 파일">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="헤더 파일">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="리소스 파일">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Exception">
+      <UniqueIdentifier>{e594fd2c-6376-408f-8e7a-c6d8bd8398db}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Part">
+      <UniqueIdentifier>{8784fb66-62ab-4383-9b48-95356aed2ec5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Part\Feature">
+      <UniqueIdentifier>{a065af80-43c8-4bd7-b7a1-239f7e172c3d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Part\Object">
+      <UniqueIdentifier>{9b6b2cd3-41c2-4dab-985c-7375c1425126}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Part\Reference">
+      <UniqueIdentifier>{dffb37d1-bcfe-418e-8df8-a16b384dca0f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Part\Feature\Datum">
+      <UniqueIdentifier>{542c93bf-3a52-4a34-b060-448c75adb7b7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Part\Feature\Sketch">
+      <UniqueIdentifier>{d930edf3-a55e-4b56-add6-8ffd0bc8faa5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Part\Feature\Sketch-based">
+      <UniqueIdentifier>{c79cda30-f78b-4edb-9c8b-cb9741b4e576}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Part\Feature\Transformation">
+      <UniqueIdentifier>{133fe9af-efbe-4c95-b12a-fed987901e49}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Part\Feature\Transition">
+      <UniqueIdentifier>{5a03247a-4122-42e2-b9f0-21c8adadaf44}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Part\Feature\Sketch\SketchItem">
+      <UniqueIdentifier>{f88210e5-a421-4981-b8fb-ade3a27d7e55}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Tool">
+      <UniqueIdentifier>{501fd0cd-0558-4ced-b241-3d8dfaf1cb63}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Part\Custom">
+      <UniqueIdentifier>{f9e2df29-e38c-423a-8421-a075c0e4596c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MathRepresentation">
+      <UniqueIdentifier>{efb7b846-d378-4b51-acb6-65e96b882cc8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Part\Feature\Sketch\SketchItem\Operation">
+      <UniqueIdentifier>{7a03deec-9634-4619-b262-49a85026b515}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Part\Feature\Sketch\SketchItem\Profile">
+      <UniqueIdentifier>{047e430f-7b6d-426d-86cb-80948352392c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Part\Feature\Sketch\SketchItem\Operation\Transformation">
+      <UniqueIdentifier>{afd8eb4e-da8f-40ab-81a4-be45d4cd6952}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Part\Feature\Brep">
+      <UniqueIdentifier>{53cfa7ce-3f30-4ad7-8561-e0efe67c61bd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Utils">
+      <UniqueIdentifier>{62fe830b-99d0-4f0b-bb12-e9763b54269d}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="targetver.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="TransCADScript.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="ClearList.h">
+      <Filter>Tool</Filter>
+    </ClInclude>
+    <ClInclude Include="CMD.h">
+      <Filter>Tool</Filter>
+    </ClInclude>
+    <ClInclude Include="CustomFeature.h">
+      <Filter>Part\Custom</Filter>
+    </ClInclude>
+    <ClInclude Include="Feature.h">
+      <Filter>Part\Feature</Filter>
+    </ClInclude>
+    <ClInclude Include="FeatureShell.h">
+      <Filter>Part\Feature\Transition</Filter>
+    </ClInclude>
+    <ClInclude Include="FeatureOffset.h">
+      <Filter>Part\Feature\Transition</Filter>
+    </ClInclude>
+    <ClInclude Include="FeatureFillet.h">
+      <Filter>Part\Feature\Transition</Filter>
+    </ClInclude>
+    <ClInclude Include="FeatureDraft.h">
+      <Filter>Part\Feature\Transition</Filter>
+    </ClInclude>
+    <ClInclude Include="FeatureChamfer.h">
+      <Filter>Part\Feature\Transition</Filter>
+    </ClInclude>
+    <ClInclude Include="FeatureDatumPlaneOffset.h">
+      <Filter>Part\Feature\Datum</Filter>
+    </ClInclude>
+    <ClInclude Include="FeatureExtrude.h">
+      <Filter>Part\Feature\Sketch-based</Filter>
+    </ClInclude>
+    <ClInclude Include="FeatureHole.h">
+      <Filter>Part\Feature\Sketch-based</Filter>
+    </ClInclude>
+    <ClInclude Include="FeatureLoft.h">
+      <Filter>Part\Feature\Sketch-based</Filter>
+    </ClInclude>
+    <ClInclude Include="FeatureRevolve.h">
+      <Filter>Part\Feature\Sketch-based</Filter>
+    </ClInclude>
+    <ClInclude Include="FeatureSweep.h">
+      <Filter>Part\Feature\Sketch-based</Filter>
+    </ClInclude>
+    <ClInclude Include="FeaturePatternRectangular.h">
+      <Filter>Part\Feature\Transformation</Filter>
+    </ClInclude>
+    <ClInclude Include="FeaturePatternCircular.h">
+      <Filter>Part\Feature\Transformation</Filter>
+    </ClInclude>
+    <ClInclude Include="FeatureSketch.h">
+      <Filter>Part\Feature\Sketch</Filter>
+    </ClInclude>
+    <ClInclude Include="ReferenceFeature.h">
+      <Filter>Part\Reference</Filter>
+    </ClInclude>
+    <ClInclude Include="Reference.h">
+      <Filter>Part\Reference</Filter>
+    </ClInclude>
+    <ClInclude Include="ReferenceBrep.h">
+      <Filter>Part\Reference</Filter>
+    </ClInclude>
+    <ClInclude Include="ReferenceExplicitModelObject.h">
+      <Filter>Part\Reference</Filter>
+    </ClInclude>
+    <ClInclude Include="Object.h">
+      <Filter>Part\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="SketchItem.h">
+      <Filter>Part\Feature\Sketch\SketchItem</Filter>
+    </ClInclude>
+    <ClInclude Include="SketchItemExtendLines.h">
+      <Filter>Part\Feature\Sketch\SketchItem\Operation</Filter>
+    </ClInclude>
+    <ClInclude Include="SketchItemFillet.h">
+      <Filter>Part\Feature\Sketch\SketchItem\Operation</Filter>
+    </ClInclude>
+    <ClInclude Include="SketchItemChamfer.h">
+      <Filter>Part\Feature\Sketch\SketchItem\Operation</Filter>
+    </ClInclude>
+    <ClInclude Include="SketchItemTranslate.h">
+      <Filter>Part\Feature\Sketch\SketchItem\Operation\Transformation</Filter>
+    </ClInclude>
+    <ClInclude Include="SketchItemRotate.h">
+      <Filter>Part\Feature\Sketch\SketchItem\Operation\Transformation</Filter>
+    </ClInclude>
+    <ClInclude Include="SketchItemRectangle.h">
+      <Filter>Part\Feature\Sketch\SketchItem\Profile</Filter>
+    </ClInclude>
+    <ClInclude Include="SketchItemArc.h">
+      <Filter>Part\Feature\Sketch\SketchItem\Profile</Filter>
+    </ClInclude>
+    <ClInclude Include="SketchItemCenterLine.h">
+      <Filter>Part\Feature\Sketch\SketchItem\Profile</Filter>
+    </ClInclude>
+    <ClInclude Include="SketchItemCircle.h">
+      <Filter>Part\Feature\Sketch\SketchItem\Profile</Filter>
+    </ClInclude>
+    <ClInclude Include="SketchItemLine.h">
+      <Filter>Part\Feature\Sketch\SketchItem\Profile</Filter>
+    </ClInclude>
+    <ClInclude Include="SketchItemPolygon.h">
+      <Filter>Part\Feature\Sketch\SketchItem\Profile</Filter>
+    </ClInclude>
+    <ClInclude Include="SketchItemPolyLine.h">
+      <Filter>Part\Feature\Sketch\SketchItem\Profile</Filter>
+    </ClInclude>
+    <ClInclude Include="Part.h">
+      <Filter>Part</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="StringToken.h">
+      <Filter>Tool</Filter>
+    </ClInclude>
+    <ClInclude Include="StringCalc.h">
+      <Filter>Tool</Filter>
+    </ClInclude>
+    <ClInclude Include="Matrix.h">
+      <Filter>MathRepresentation</Filter>
+    </ClInclude>
+    <ClInclude Include="Math.h">
+      <Filter>MathRepresentation</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector.h">
+      <Filter>MathRepresentation</Filter>
+    </ClInclude>
+    <ClInclude Include="TSIExceptionTest.h">
+      <Filter>Exception</Filter>
+    </ClInclude>
+    <ClInclude Include="TSIArgumentException.h">
+      <Filter>Exception</Filter>
+    </ClInclude>
+    <ClInclude Include="TSIException.h">
+      <Filter>Exception</Filter>
+    </ClInclude>
+    <ClInclude Include="FeatureBrep.h">
+      <Filter>Part\Feature\Brep</Filter>
+    </ClInclude>
+    <ClInclude Include="Definition.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="File.h">
+      <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Information.h">
+      <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Manipulation.h">
+      <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="System.h">
+      <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="FeatureDatumPlaneEquation.h">
+      <Filter>Part\Feature\Datum</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="TransCADScript.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="CMD.cpp">
+      <Filter>Tool</Filter>
+    </ClCompile>
+    <ClCompile Include="CustomFeature.cpp">
+      <Filter>Part\Custom</Filter>
+    </ClCompile>
+    <ClCompile Include="Feature.cpp">
+      <Filter>Part\Feature</Filter>
+    </ClCompile>
+    <ClCompile Include="FeatureShell.cpp">
+      <Filter>Part\Feature\Transition</Filter>
+    </ClCompile>
+    <ClCompile Include="FeatureOffset.cpp">
+      <Filter>Part\Feature\Transition</Filter>
+    </ClCompile>
+    <ClCompile Include="FeatureFillet.cpp">
+      <Filter>Part\Feature\Transition</Filter>
+    </ClCompile>
+    <ClCompile Include="FeatureDraft.cpp">
+      <Filter>Part\Feature\Transition</Filter>
+    </ClCompile>
+    <ClCompile Include="FeatureChamfer.cpp">
+      <Filter>Part\Feature\Transition</Filter>
+    </ClCompile>
+    <ClCompile Include="FeatureDatumPlaneOffset.cpp">
+      <Filter>Part\Feature\Datum</Filter>
+    </ClCompile>
+    <ClCompile Include="FeatureExtrude.cpp">
+      <Filter>Part\Feature\Sketch-based</Filter>
+    </ClCompile>
+    <ClCompile Include="FeatureHole.cpp">
+      <Filter>Part\Feature\Sketch-based</Filter>
+    </ClCompile>
+    <ClCompile Include="FeatureLoft.cpp">
+      <Filter>Part\Feature\Sketch-based</Filter>
+    </ClCompile>
+    <ClCompile Include="FeatureRevolve.cpp">
+      <Filter>Part\Feature\Sketch-based</Filter>
+    </ClCompile>
+    <ClCompile Include="FeatureSweep.cpp">
+      <Filter>Part\Feature\Sketch-based</Filter>
+    </ClCompile>
+    <ClCompile Include="FeaturePatternCircular.cpp">
+      <Filter>Part\Feature\Transformation</Filter>
+    </ClCompile>
+    <ClCompile Include="FeaturePatternRectangular.cpp">
+      <Filter>Part\Feature\Transformation</Filter>
+    </ClCompile>
+    <ClCompile Include="FeatureSketch.cpp">
+      <Filter>Part\Feature\Sketch</Filter>
+    </ClCompile>
+    <ClCompile Include="Reference.cpp">
+      <Filter>Part\Reference</Filter>
+    </ClCompile>
+    <ClCompile Include="ReferenceBrep.cpp">
+      <Filter>Part\Reference</Filter>
+    </ClCompile>
+    <ClCompile Include="ReferenceExplicitModelObject.cpp">
+      <Filter>Part\Reference</Filter>
+    </ClCompile>
+    <ClCompile Include="ReferenceFeature.cpp">
+      <Filter>Part\Reference</Filter>
+    </ClCompile>
+    <ClCompile Include="Object.cpp">
+      <Filter>Part\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="SketchItem.cpp">
+      <Filter>Part\Feature\Sketch\SketchItem</Filter>
+    </ClCompile>
+    <ClCompile Include="SketchItemExtendLines.cpp">
+      <Filter>Part\Feature\Sketch\SketchItem\Operation</Filter>
+    </ClCompile>
+    <ClCompile Include="SketchItemFillet.cpp">
+      <Filter>Part\Feature\Sketch\SketchItem\Operation</Filter>
+    </ClCompile>
+    <ClCompile Include="SketchItemChamfer.cpp">
+      <Filter>Part\Feature\Sketch\SketchItem\Operation</Filter>
+    </ClCompile>
+    <ClCompile Include="SketchItemRotate.cpp">
+      <Filter>Part\Feature\Sketch\SketchItem\Operation\Transformation</Filter>
+    </ClCompile>
+    <ClCompile Include="SketchItemTranslate.cpp">
+      <Filter>Part\Feature\Sketch\SketchItem\Operation\Transformation</Filter>
+    </ClCompile>
+    <ClCompile Include="SketchItemArc.cpp">
+      <Filter>Part\Feature\Sketch\SketchItem\Profile</Filter>
+    </ClCompile>
+    <ClCompile Include="SketchItemCenterLine.cpp">
+      <Filter>Part\Feature\Sketch\SketchItem\Profile</Filter>
+    </ClCompile>
+    <ClCompile Include="SketchItemCircle.cpp">
+      <Filter>Part\Feature\Sketch\SketchItem\Profile</Filter>
+    </ClCompile>
+    <ClCompile Include="SketchItemLine.cpp">
+      <Filter>Part\Feature\Sketch\SketchItem\Profile</Filter>
+    </ClCompile>
+    <ClCompile Include="SketchItemPolygon.cpp">
+      <Filter>Part\Feature\Sketch\SketchItem\Profile</Filter>
+    </ClCompile>
+    <ClCompile Include="SketchItemPolyLine.cpp">
+      <Filter>Part\Feature\Sketch\SketchItem\Profile</Filter>
+    </ClCompile>
+    <ClCompile Include="SketchItemRectangle.cpp">
+      <Filter>Part\Feature\Sketch\SketchItem\Profile</Filter>
+    </ClCompile>
+    <ClCompile Include="Part.cpp">
+      <Filter>Part</Filter>
+    </ClCompile>
+    <ClCompile Include="StringCalc.cpp">
+      <Filter>Tool</Filter>
+    </ClCompile>
+    <ClCompile Include="StringToken.cpp">
+      <Filter>Tool</Filter>
+    </ClCompile>
+    <ClCompile Include="Math.cpp">
+      <Filter>MathRepresentation</Filter>
+    </ClCompile>
+    <ClCompile Include="Matrix.cpp">
+      <Filter>MathRepresentation</Filter>
+    </ClCompile>
+    <ClCompile Include="TSIArgumentException.cpp">
+      <Filter>Exception</Filter>
+    </ClCompile>
+    <ClCompile Include="TSIException.cpp">
+      <Filter>Exception</Filter>
+    </ClCompile>
+    <ClCompile Include="FeatureBrep.cpp">
+      <Filter>Part\Feature\Brep</Filter>
+    </ClCompile>
+    <ClCompile Include="File.cpp">
+      <Filter>Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="Information.cpp">
+      <Filter>Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="Manipulation.cpp">
+      <Filter>Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="System.cpp">
+      <Filter>Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="FeatureDatumPlaneEquation.cpp">
+      <Filter>Part\Feature\Datum</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

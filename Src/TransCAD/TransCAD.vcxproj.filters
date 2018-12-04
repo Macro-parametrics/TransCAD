@@ -1,0 +1,808 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="소스 파일">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="헤더 파일">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="리소스 파일">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx</Extensions>
+    </Filter>
+    <Filter Include="Automation">
+      <UniqueIdentifier>{b135e9ab-f5f7-42f2-97fe-bdb7669f4fe5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Automation\Part">
+      <UniqueIdentifier>{8507711a-e64c-44f4-94dc-9b876fd5cb39}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Automation\Part\Feature">
+      <UniqueIdentifier>{2c77aaa8-a8d6-4e5f-b7e2-36c9d71d3789}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Automation\Part\Feature\Datum">
+      <UniqueIdentifier>{5ddcf6a0-378a-4990-a3b3-0c52695c6e39}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Automation\Part\Feature\Sketch">
+      <UniqueIdentifier>{548c70fb-2ce9-4ebb-9a99-5714ff0c5bb8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Automation\Part\Feature\Sketch-based">
+      <UniqueIdentifier>{e758410b-9408-4c6f-95fb-8e2a5c08ba58}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Automation\Part\Feature\Transformation">
+      <UniqueIdentifier>{fb45c60c-8c12-42ab-9e9e-433e2f2e856f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Automation\Part\Feature\Transition">
+      <UniqueIdentifier>{53ee2f73-1477-43ad-8308-93bd3fd03984}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Automation\Part\Feature\Brep">
+      <UniqueIdentifier>{f2880cc1-ca12-4f6d-8ce8-abb2d1a5a3cd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Automation\Part\ExplicitModel">
+      <UniqueIdentifier>{37c54dc6-14b0-4213-b24c-96fcdcdabb69}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Automation\Assembly">
+      <UniqueIdentifier>{8822824d-8749-4f47-9fb2-b799aa072d61}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Automation\Part\Reference">
+      <UniqueIdentifier>{e83c2516-a1ea-4234-812b-68ebdd4b667f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Automation\Application">
+      <UniqueIdentifier>{539819ec-d574-4363-a5cc-6bba9b443e2c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Automation\Document">
+      <UniqueIdentifier>{427ae0b0-9bd3-407e-8de1-258d2ab89499}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Automation\Part\ExplicitModel\ModelGeometry">
+      <UniqueIdentifier>{1697c80b-d26f-4715-bd4d-e595df59f5df}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Automation\Math">
+      <UniqueIdentifier>{366333c7-1660-44a9-ab02-99db3a0e7327}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Automation\Assembly\Constraint">
+      <UniqueIdentifier>{ec8e8b0d-913b-49dc-b72b-e4f8abc57237}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="MainFrame.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="PartDocument.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="PartFrame.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="PartView.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="TransCAD.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="StdDatumPlaneOffsetFeatureAuto.cpp">
+      <Filter>Automation\Part\Feature\Datum</Filter>
+    </ClCompile>
+    <ClCompile Include="StdDefaultDatumPlaneFeatureAuto.cpp">
+      <Filter>Automation\Part\Feature\Datum</Filter>
+    </ClCompile>
+    <ClCompile Include="StdSolidChamferFeatureAuto.cpp">
+      <Filter>Automation\Part\Feature\Transition</Filter>
+    </ClCompile>
+    <ClCompile Include="StdSolidDraftFeatureAuto.cpp">
+      <Filter>Automation\Part\Feature\Transition</Filter>
+    </ClCompile>
+    <ClCompile Include="StdSolidFilletConstantFeatureAuto.cpp">
+      <Filter>Automation\Part\Feature\Transition</Filter>
+    </ClCompile>
+    <ClCompile Include="StdSolidOffsetFeatureAuto.cpp">
+      <Filter>Automation\Part\Feature\Transition</Filter>
+    </ClCompile>
+    <ClCompile Include="StdSolidShellFeatureAuto.cpp">
+      <Filter>Automation\Part\Feature\Transition</Filter>
+    </ClCompile>
+    <ClCompile Include="SketchAuto.cpp">
+      <Filter>Automation\Part\Feature\Sketch</Filter>
+    </ClCompile>
+    <ClCompile Include="SketchEditorAuto.cpp">
+      <Filter>Automation\Part\Feature\Sketch</Filter>
+    </ClCompile>
+    <ClCompile Include="StdSketchCenterlineAuto.cpp">
+      <Filter>Automation\Part\Feature\Sketch</Filter>
+    </ClCompile>
+    <ClCompile Include="StdSketchCircleAuto.cpp">
+      <Filter>Automation\Part\Feature\Sketch</Filter>
+    </ClCompile>
+    <ClCompile Include="StdSketchCircularArcAuto.cpp">
+      <Filter>Automation\Part\Feature\Sketch</Filter>
+    </ClCompile>
+    <ClCompile Include="StdSketchCoincidentSamePointsAuto.cpp">
+      <Filter>Automation\Part\Feature\Sketch</Filter>
+    </ClCompile>
+    <ClCompile Include="StdSketchConstraintAuto.cpp">
+      <Filter>Automation\Part\Feature\Sketch</Filter>
+    </ClCompile>
+    <ClCompile Include="StdSketchConstraintsAuto.cpp">
+      <Filter>Automation\Part\Feature\Sketch</Filter>
+    </ClCompile>
+    <ClCompile Include="StdSketchControlPointAuto.cpp">
+      <Filter>Automation\Part\Feature\Sketch</Filter>
+    </ClCompile>
+    <ClCompile Include="StdSketchFeatureAuto.cpp">
+      <Filter>Automation\Part\Feature\Sketch</Filter>
+    </ClCompile>
+    <ClCompile Include="StdSketchGeometriesAuto.cpp">
+      <Filter>Automation\Part\Feature\Sketch</Filter>
+    </ClCompile>
+    <ClCompile Include="StdSketchHDirectionAuto.cpp">
+      <Filter>Automation\Part\Feature\Sketch</Filter>
+    </ClCompile>
+    <ClCompile Include="StdSketchHorizontalAuto.cpp">
+      <Filter>Automation\Part\Feature\Sketch</Filter>
+    </ClCompile>
+    <ClCompile Include="StdSketchLineAuto.cpp">
+      <Filter>Automation\Part\Feature\Sketch</Filter>
+    </ClCompile>
+    <ClCompile Include="StdSketchOriginAuto.cpp">
+      <Filter>Automation\Part\Feature\Sketch</Filter>
+    </ClCompile>
+    <ClCompile Include="StdSketchParallelAuto.cpp">
+      <Filter>Automation\Part\Feature\Sketch</Filter>
+    </ClCompile>
+    <ClCompile Include="StdSketchPerpendicularAuto.cpp">
+      <Filter>Automation\Part\Feature\Sketch</Filter>
+    </ClCompile>
+    <ClCompile Include="StdSketchVDirectionAuto.cpp">
+      <Filter>Automation\Part\Feature\Sketch</Filter>
+    </ClCompile>
+    <ClCompile Include="StdSketchVerticalAuto.cpp">
+      <Filter>Automation\Part\Feature\Sketch</Filter>
+    </ClCompile>
+    <ClCompile Include="StdSolidOperatePatternCircularFeatureAuto.cpp">
+      <Filter>Automation\Part\Feature\Transformation</Filter>
+    </ClCompile>
+    <ClCompile Include="StdSolidOperatePatternRectangularFeatureAuto.cpp">
+      <Filter>Automation\Part\Feature\Transformation</Filter>
+    </ClCompile>
+    <ClCompile Include="StdSolidCutExtrudeFeatureAuto.cpp">
+      <Filter>Automation\Part\Feature\Sketch-based</Filter>
+    </ClCompile>
+    <ClCompile Include="StdSolidCutRevolveFeatureAuto.cpp">
+      <Filter>Automation\Part\Feature\Sketch-based</Filter>
+    </ClCompile>
+    <ClCompile Include="StdSolidCutSweepFeatureAuto.cpp">
+      <Filter>Automation\Part\Feature\Sketch-based</Filter>
+    </ClCompile>
+    <ClCompile Include="StdSolidHoleCounterboredFeatureAuto.cpp">
+      <Filter>Automation\Part\Feature\Sketch-based</Filter>
+    </ClCompile>
+    <ClCompile Include="StdSolidHoleCountersunkFeatureAuto.cpp">
+      <Filter>Automation\Part\Feature\Sketch-based</Filter>
+    </ClCompile>
+    <ClCompile Include="StdSolidHoleSimpleFeatureAuto.cpp">
+      <Filter>Automation\Part\Feature\Sketch-based</Filter>
+    </ClCompile>
+    <ClCompile Include="StdSolidLoftFacesFeatureAuto.cpp">
+      <Filter>Automation\Part\Feature\Sketch-based</Filter>
+    </ClCompile>
+    <ClCompile Include="StdSolidLoftSectionsFeatureAuto.cpp">
+      <Filter>Automation\Part\Feature\Sketch-based</Filter>
+    </ClCompile>
+    <ClCompile Include="StdSolidProtrusionExtrudeFeatureAuto.cpp">
+      <Filter>Automation\Part\Feature\Sketch-based</Filter>
+    </ClCompile>
+    <ClCompile Include="StdSolidProtrusionRevolveFeatureAuto.cpp">
+      <Filter>Automation\Part\Feature\Sketch-based</Filter>
+    </ClCompile>
+    <ClCompile Include="StdSolidProtrusionSweepFeatureAuto.cpp">
+      <Filter>Automation\Part\Feature\Sketch-based</Filter>
+    </ClCompile>
+    <ClCompile Include="StdSolidRevolveWithExternalAxisFeatureAuto.cpp">
+      <Filter>Automation\Part\Feature\Sketch-based</Filter>
+    </ClCompile>
+    <ClCompile Include="StdSolidImportedBrepFeatureAuto.cpp">
+      <Filter>Automation\Part\Feature\Brep</Filter>
+    </ClCompile>
+    <ClCompile Include="FeaturesAuto.cpp">
+      <Filter>Automation\Part\Feature</Filter>
+    </ClCompile>
+    <ClCompile Include="PartAuto.cpp">
+      <Filter>Automation\Part</Filter>
+    </ClCompile>
+    <ClCompile Include="ExplicitModelObjectAuto.cpp">
+      <Filter>Automation\Part\ExplicitModel</Filter>
+    </ClCompile>
+    <ClCompile Include="AssemAuto.cpp">
+      <Filter>Automation\Assembly</Filter>
+    </ClCompile>
+    <ClCompile Include="ComponentAuto.cpp">
+      <Filter>Automation\Assembly</Filter>
+    </ClCompile>
+    <ClCompile Include="ReferenceAuto.cpp">
+      <Filter>Automation\Part\Reference</Filter>
+    </ClCompile>
+    <ClCompile Include="ReferencesAuto.cpp">
+      <Filter>Automation\Part\Reference</Filter>
+    </ClCompile>
+    <ClCompile Include="ApplicationAuto.cpp">
+      <Filter>Automation\Application</Filter>
+    </ClCompile>
+    <ClCompile Include="AssemDocumentAuto.cpp">
+      <Filter>Automation\Document</Filter>
+    </ClCompile>
+    <ClCompile Include="DocumentAuto.cpp">
+      <Filter>Automation\Document</Filter>
+    </ClCompile>
+    <ClCompile Include="DocumentsAuto.cpp">
+      <Filter>Automation\Document</Filter>
+    </ClCompile>
+    <ClCompile Include="PartDocumentAuto.cpp">
+      <Filter>Automation\Document</Filter>
+    </ClCompile>
+    <ClCompile Include="SolidAuto.cpp">
+      <Filter>Automation\Part\ExplicitModel</Filter>
+    </ClCompile>
+    <ClCompile Include="EdgeAuto.cpp">
+      <Filter>Automation\Part\ExplicitModel\ModelGeometry</Filter>
+    </ClCompile>
+    <ClCompile Include="EdgesAuto.cpp">
+      <Filter>Automation\Part\ExplicitModel\ModelGeometry</Filter>
+    </ClCompile>
+    <ClCompile Include="FaceAuto.cpp">
+      <Filter>Automation\Part\ExplicitModel\ModelGeometry</Filter>
+    </ClCompile>
+    <ClCompile Include="FacesAuto.cpp">
+      <Filter>Automation\Part\ExplicitModel\ModelGeometry</Filter>
+    </ClCompile>
+    <ClCompile Include="VerticesAuto.cpp">
+      <Filter>Automation\Part\ExplicitModel\ModelGeometry</Filter>
+    </ClCompile>
+    <ClCompile Include="VertexAuto.cpp">
+      <Filter>Automation\Part\ExplicitModel\ModelGeometry</Filter>
+    </ClCompile>
+    <ClCompile Include="Axis1Auto.cpp">
+      <Filter>Automation\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="Point3DAuto.cpp">
+      <Filter>Automation\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="StdAssemConstraintsAuto.cpp">
+      <Filter>Automation\Assembly\Constraint</Filter>
+    </ClCompile>
+    <ClCompile Include="StdAssemConstraintCoaxialAuto.cpp">
+      <Filter>Automation\Assembly\Constraint</Filter>
+    </ClCompile>
+    <ClCompile Include="StdAssemConstraintIncidenceAuto.cpp">
+      <Filter>Automation\Assembly\Constraint</Filter>
+    </ClCompile>
+    <ClCompile Include="StdAssemConstraintDistanceAuto.cpp">
+      <Filter>Automation\Assembly\Constraint</Filter>
+    </ClCompile>
+    <ClCompile Include="StdAssemConstraintAngleAuto.cpp">
+      <Filter>Automation\Assembly\Constraint</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Acis.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Hoops.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="MainFrame.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="PartDocument.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="PartFrame.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="PartView.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="TransCAD.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="DispatchImplEx.h">
+      <Filter>Automation</Filter>
+    </ClInclude>
+    <ClInclude Include="StdDatumPlaneOffsetFeatureAuto.h">
+      <Filter>Automation\Part\Feature\Datum</Filter>
+    </ClInclude>
+    <ClInclude Include="StdDefaultDatumPlaneFeatureAuto.h">
+      <Filter>Automation\Part\Feature\Datum</Filter>
+    </ClInclude>
+    <ClInclude Include="StdSolidChamferFeatureAuto.h">
+      <Filter>Automation\Part\Feature\Transition</Filter>
+    </ClInclude>
+    <ClInclude Include="StdSolidDraftFeatureAuto.h">
+      <Filter>Automation\Part\Feature\Transition</Filter>
+    </ClInclude>
+    <ClInclude Include="StdSolidFilletConstantFeatureAuto.h">
+      <Filter>Automation\Part\Feature\Transition</Filter>
+    </ClInclude>
+    <ClInclude Include="StdSolidOffsetFeatureAuto.h">
+      <Filter>Automation\Part\Feature\Transition</Filter>
+    </ClInclude>
+    <ClInclude Include="StdSolidShellFeatureAuto.h">
+      <Filter>Automation\Part\Feature\Transition</Filter>
+    </ClInclude>
+    <ClInclude Include="StdSketchVerticalAuto.h">
+      <Filter>Automation\Part\Feature\Sketch</Filter>
+    </ClInclude>
+    <ClInclude Include="SketchAuto.h">
+      <Filter>Automation\Part\Feature\Sketch</Filter>
+    </ClInclude>
+    <ClInclude Include="SketchEditorAuto.h">
+      <Filter>Automation\Part\Feature\Sketch</Filter>
+    </ClInclude>
+    <ClInclude Include="StdSketchCenterlineAuto.h">
+      <Filter>Automation\Part\Feature\Sketch</Filter>
+    </ClInclude>
+    <ClInclude Include="StdSketchCircleAuto.h">
+      <Filter>Automation\Part\Feature\Sketch</Filter>
+    </ClInclude>
+    <ClInclude Include="StdSketchCircularArcAuto.h">
+      <Filter>Automation\Part\Feature\Sketch</Filter>
+    </ClInclude>
+    <ClInclude Include="StdSketchCoincidentSamePointsAuto.h">
+      <Filter>Automation\Part\Feature\Sketch</Filter>
+    </ClInclude>
+    <ClInclude Include="StdSketchConstraintAuto.h">
+      <Filter>Automation\Part\Feature\Sketch</Filter>
+    </ClInclude>
+    <ClInclude Include="StdSketchConstraintImpl.h">
+      <Filter>Automation\Part\Feature\Sketch</Filter>
+    </ClInclude>
+    <ClInclude Include="StdSketchConstraintsAuto.h">
+      <Filter>Automation\Part\Feature\Sketch</Filter>
+    </ClInclude>
+    <ClInclude Include="StdSketchControlPointAuto.h">
+      <Filter>Automation\Part\Feature\Sketch</Filter>
+    </ClInclude>
+    <ClInclude Include="StdSketchFeatureAuto.h">
+      <Filter>Automation\Part\Feature\Sketch</Filter>
+    </ClInclude>
+    <ClInclude Include="StdSketchGeometriesAuto.h">
+      <Filter>Automation\Part\Feature\Sketch</Filter>
+    </ClInclude>
+    <ClInclude Include="StdSketchGeometryImpl.h">
+      <Filter>Automation\Part\Feature\Sketch</Filter>
+    </ClInclude>
+    <ClInclude Include="StdSketchHDirectionAuto.h">
+      <Filter>Automation\Part\Feature\Sketch</Filter>
+    </ClInclude>
+    <ClInclude Include="StdSketchHorizontalAuto.h">
+      <Filter>Automation\Part\Feature\Sketch</Filter>
+    </ClInclude>
+    <ClInclude Include="StdSketchLineAuto.h">
+      <Filter>Automation\Part\Feature\Sketch</Filter>
+    </ClInclude>
+    <ClInclude Include="StdSketchOriginAuto.h">
+      <Filter>Automation\Part\Feature\Sketch</Filter>
+    </ClInclude>
+    <ClInclude Include="StdSketchParallelAuto.h">
+      <Filter>Automation\Part\Feature\Sketch</Filter>
+    </ClInclude>
+    <ClInclude Include="StdSketchPerpendicularAuto.h">
+      <Filter>Automation\Part\Feature\Sketch</Filter>
+    </ClInclude>
+    <ClInclude Include="StdSketchVDirectionAuto.h">
+      <Filter>Automation\Part\Feature\Sketch</Filter>
+    </ClInclude>
+    <ClInclude Include="StdSolidOperatePatternRectangularFeatureAuto.h">
+      <Filter>Automation\Part\Feature\Transformation</Filter>
+    </ClInclude>
+    <ClInclude Include="StdSolidOperatePatternCircularFeatureAuto.h">
+      <Filter>Automation\Part\Feature\Transformation</Filter>
+    </ClInclude>
+    <ClInclude Include="StdSolidRevolveWithExternalAxisFeatureAuto.h">
+      <Filter>Automation\Part\Feature\Sketch-based</Filter>
+    </ClInclude>
+    <ClInclude Include="StdSolidCutExtrudeFeatureAuto.h">
+      <Filter>Automation\Part\Feature\Sketch-based</Filter>
+    </ClInclude>
+    <ClInclude Include="StdSolidCutRevolveFeatureAuto.h">
+      <Filter>Automation\Part\Feature\Sketch-based</Filter>
+    </ClInclude>
+    <ClInclude Include="StdSolidCutSweepFeatureAuto.h">
+      <Filter>Automation\Part\Feature\Sketch-based</Filter>
+    </ClInclude>
+    <ClInclude Include="StdSolidHoleCounterboredFeatureAuto.h">
+      <Filter>Automation\Part\Feature\Sketch-based</Filter>
+    </ClInclude>
+    <ClInclude Include="StdSolidHoleCountersunkFeatureAuto.h">
+      <Filter>Automation\Part\Feature\Sketch-based</Filter>
+    </ClInclude>
+    <ClInclude Include="StdSolidHoleSimpleFeatureAuto.h">
+      <Filter>Automation\Part\Feature\Sketch-based</Filter>
+    </ClInclude>
+    <ClInclude Include="StdSolidLoftFacesFeatureAuto.h">
+      <Filter>Automation\Part\Feature\Sketch-based</Filter>
+    </ClInclude>
+    <ClInclude Include="StdSolidLoftSectionsFeatureAuto.h">
+      <Filter>Automation\Part\Feature\Sketch-based</Filter>
+    </ClInclude>
+    <ClInclude Include="StdSolidProtrusionExtrudeFeatureAuto.h">
+      <Filter>Automation\Part\Feature\Sketch-based</Filter>
+    </ClInclude>
+    <ClInclude Include="StdSolidProtrusionRevolveFeatureAuto.h">
+      <Filter>Automation\Part\Feature\Sketch-based</Filter>
+    </ClInclude>
+    <ClInclude Include="StdSolidProtrusionSweepFeatureAuto.h">
+      <Filter>Automation\Part\Feature\Sketch-based</Filter>
+    </ClInclude>
+    <ClInclude Include="StdSolidImportedBrepFeatureAuto.h">
+      <Filter>Automation\Part\Feature\Brep</Filter>
+    </ClInclude>
+    <ClInclude Include="FeatureImpl.h">
+      <Filter>Automation\Part\Feature</Filter>
+    </ClInclude>
+    <ClInclude Include="FeaturesAuto.h">
+      <Filter>Automation\Part\Feature</Filter>
+    </ClInclude>
+    <ClInclude Include="PartAuto.h">
+      <Filter>Automation\Part</Filter>
+    </ClInclude>
+    <ClInclude Include="ExplicitModelObjectAuto.h">
+      <Filter>Automation\Part\ExplicitModel</Filter>
+    </ClInclude>
+    <ClInclude Include="AssemAuto.h">
+      <Filter>Automation\Assembly</Filter>
+    </ClInclude>
+    <ClInclude Include="ComponentAuto.h">
+      <Filter>Automation\Assembly</Filter>
+    </ClInclude>
+    <ClInclude Include="ReferencesAuto.h">
+      <Filter>Automation\Part\Reference</Filter>
+    </ClInclude>
+    <ClInclude Include="ReferenceAuto.h">
+      <Filter>Automation\Part\Reference</Filter>
+    </ClInclude>
+    <ClInclude Include="ApplicationAuto.h">
+      <Filter>Automation\Application</Filter>
+    </ClInclude>
+    <ClInclude Include="AssemDocumentAuto.h">
+      <Filter>Automation\Document</Filter>
+    </ClInclude>
+    <ClInclude Include="DocumentAuto.h">
+      <Filter>Automation\Document</Filter>
+    </ClInclude>
+    <ClInclude Include="DocumentsAuto.h">
+      <Filter>Automation\Document</Filter>
+    </ClInclude>
+    <ClInclude Include="PartDocumentAuto.h">
+      <Filter>Automation\Document</Filter>
+    </ClInclude>
+    <ClInclude Include="SolidAuto.h">
+      <Filter>Automation\Part\ExplicitModel</Filter>
+    </ClInclude>
+    <ClInclude Include="EdgeAuto.h">
+      <Filter>Automation\Part\ExplicitModel\ModelGeometry</Filter>
+    </ClInclude>
+    <ClInclude Include="EdgesAuto.h">
+      <Filter>Automation\Part\ExplicitModel\ModelGeometry</Filter>
+    </ClInclude>
+    <ClInclude Include="FaceAuto.h">
+      <Filter>Automation\Part\ExplicitModel\ModelGeometry</Filter>
+    </ClInclude>
+    <ClInclude Include="FacesAuto.h">
+      <Filter>Automation\Part\ExplicitModel\ModelGeometry</Filter>
+    </ClInclude>
+    <ClInclude Include="VerticesAuto.h">
+      <Filter>Automation\Part\ExplicitModel\ModelGeometry</Filter>
+    </ClInclude>
+    <ClInclude Include="VertexAuto.h">
+      <Filter>Automation\Part\ExplicitModel\ModelGeometry</Filter>
+    </ClInclude>
+    <ClInclude Include="Axis1Auto.h">
+      <Filter>Automation\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Point3DAuto.h">
+      <Filter>Automation\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="StdAssemConstraintsAuto.h">
+      <Filter>Automation\Assembly\Constraint</Filter>
+    </ClInclude>
+    <ClInclude Include="StdAssemConstraintImpl.h">
+      <Filter>Automation\Assembly\Constraint</Filter>
+    </ClInclude>
+    <ClInclude Include="StdAssemConstraintCoaxialAuto.h">
+      <Filter>Automation\Assembly\Constraint</Filter>
+    </ClInclude>
+    <ClInclude Include="StdAssemConstraintIncidenceAuto.h">
+      <Filter>Automation\Assembly\Constraint</Filter>
+    </ClInclude>
+    <ClInclude Include="TCVersion.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="StdAssemConstraintDistanceAuto.h">
+      <Filter>Automation\Assembly\Constraint</Filter>
+    </ClInclude>
+    <ClInclude Include="StdAssemConstraintAngleAuto.h">
+      <Filter>Automation\Assembly\Constraint</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ApplicationAuto.rgs">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="DocumentAuto.rgs">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="DocumentsAuto.rgs">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="ExplicitModelObject.rgs">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="Features.rgs">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="IStdSolidHoleCounterboredFeatureAuto.rgs">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="Part.rgs">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\PartDocument.ico">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="PartDocumentAuto.rgs">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="Reference.rgs">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="References.rgs">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="Sketch.rgs">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="SketchEditor.rgs">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="StdDefaultDatumPlaneFeatureAuto.rgs">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="StdSketchCenterline.rgs">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="StdSketchCircle.rgs">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="StdSketchCircularArc.rgs">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="StdSketchConstraint.rgs">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="StdSketchConstraints.rgs">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="StdSketchControlPoint.rgs">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="StdSketchFeature.rgs">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="StdSketchGeometries.rgs">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="StdSketchGeometry.rgs">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="StdSketchHDirection.rgs">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="StdSketchLine.rgs">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="StdSketchOrigin.rgs">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="StdSketchVDirection.rgs">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="StdSolidChamferFeature.rgs">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="StdSolidCutExtrudeFeature.rgs">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="StdSolidCutRevolveFeature.rgs">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="StdSolidFilletConstantFeature.rgs">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="StdSolidHoleCounterboredFeatureAuto.rgs">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="StdSolidHoleCountersunkFeature.rgs">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="StdSolidOperatePatternCircularFeature.rgs">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="StdSolidOperatePatternRectangularFeature.rgs">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="StdSolidProtrusionExtrudeFeature.rgs">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="StdSolidProtrusionRevolveFeature.rgs">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="StdSolidProtrusionSweepFeature.rgs">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\Toolbar.bmp">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\TransCAD.ico">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\TransCAD.rc2">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="TransCAD.rgs">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="ReadMe.txt" />
+    <None Include="res\icon1.ico">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="..\RegBin\Transcad.ico">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="StdSketchHorizontal.rgs">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="StdSketchParallel.rgs">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="StdSketchPerpendicular.rgs">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="StdSketchCoincidentSamePoints.rgs">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="StdSketchVertical.rgs">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="StdDatumPlaneOffsetFeature.rgs">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\registry.bin">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="AssemDocumentAuto.rgs">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="AssemAuto.rgs">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="StdSolidLoftFacesFeatureAuto3.rgs">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="ComponentAuto.rgs">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="StdSolidLoftSectionsFeature.rgs">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="StdSolidCutSweepFeature.rgs">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="StdSolidHoleSimpleFeature.rgs">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="StdSolidShellFeature.rgs">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="StdSolidRevolveWithExternalAxisFeature.rgs">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="StdSolidDraftFeature.rgs">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="StdSolidOffsetFeature.rgs">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="StdSolidImportedBrepFeature.rgs">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="Solid.rgs">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="Faces.rgs">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="Edges.rgs">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="Face.rgs">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="Edge.rgs">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="Vertices.rgs">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="Vertex.rgs">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="Point3D.rgs">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="Axis1.rgs">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="StdAssemblyConstraint.rgs">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="StdAssemblyConstraints.rgs">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="StdAssemblyConstraintsCoaxial.rgs">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="StdAssemblyConstraints1.rgs">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="StdAssemblyConstraint1.rgs">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="StdAssemConstraints.rgs">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="StdAssemConstraint.rgs">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="TestClass.rgs">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="StdAssemConstraintCoaxial.rgs">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="StdAssemConstraintIncidence.rgs">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="StdAssemConstraintIncidence1.rgs">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="StdAssemConstraintDistance.rgs">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="StdAssemConstraintAngle.rgs">
+      <Filter>리소스 파일</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="TransCAD.rc">
+      <Filter>리소스 파일</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Midl Include="TransCAD.idl">
+      <Filter>Automation</Filter>
+    </Midl>
+  </ItemGroup>
+  <ItemGroup>
+    <Manifest Include="res\TransCAD.manifest" />
+  </ItemGroup>
+</Project>

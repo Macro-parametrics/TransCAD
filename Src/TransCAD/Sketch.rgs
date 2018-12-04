@@ -1,0 +1,24 @@
+HKCR
+{
+	TransCAD.Sketch.1 = s 'Sketch Class'
+	{
+		CLSID = s '{78C8CF8F-48A1-41AD-B47E-AD802059344E}'
+	}
+	TransCAD.Sketch = s 'Sketch Class'
+	{
+		CLSID = s '{78C8CF8F-48A1-41AD-B47E-AD802059344E}'
+		CurVer = s 'TransCAD.Sketch.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {78C8CF8F-48A1-41AD-B47E-AD802059344E} = s 'Sketch Class'
+		{
+			ProgID = s 'TransCAD.Sketch.1'
+			VersionIndependentProgID = s 'TransCAD.Sketch'
+			ForceRemove 'Programmable'
+			LocalServer32 = s '%MODULE%'
+			val AppID = s '%APPID%'
+			'TypeLib' = s '{DC31CA13-34CA-4D11-A678-58E9FCE42872}'
+		}
+	}
+}

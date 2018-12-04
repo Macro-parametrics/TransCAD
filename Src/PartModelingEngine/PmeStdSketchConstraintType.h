@@ -1,0 +1,11 @@
+#pragma once
+
+enum PmeStdSketchConstraintType
+{
+//	PmeStdSketchConstraintType_Coincident
+	PmeStdSketchConstraintType_CoincidentSamePoints,
+	PmeStdSketchConstraintType_Perpendicular,
+	PmeStdSketchConstraintType_Parallel,
+	PmeStdSketchConstraintType_Horizontal,
+	PmeStdSketchConstraintType_Vertical
+};

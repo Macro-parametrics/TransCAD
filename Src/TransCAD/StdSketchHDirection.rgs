@@ -1,0 +1,24 @@
+HKCR
+{
+	TransCAD.StdSketchHDirection.1 = s 'StdSketchHDirection Class'
+	{
+		CLSID = s '{09464CC6-18AC-439D-B619-30928FF81D95}'
+	}
+	TransCAD.StdSketchHDirection = s 'StdSketchHDirection Class'
+	{
+		CLSID = s '{09464CC6-18AC-439D-B619-30928FF81D95}'
+		CurVer = s 'TransCAD.StdSketchHDirection.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {09464CC6-18AC-439D-B619-30928FF81D95} = s 'StdSketchHDirection Class'
+		{
+			ProgID = s 'TransCAD.StdSketchHDirection.1'
+			VersionIndependentProgID = s 'TransCAD.StdSketchHDirection'
+			ForceRemove 'Programmable'
+			LocalServer32 = s '%MODULE%'
+			val AppID = s '%APPID%'
+			'TypeLib' = s '{DC31CA13-34CA-4D11-A678-58E9FCE42872}'
+		}
+	}
+}

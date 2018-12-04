@@ -1,0 +1,24 @@
+HKCR
+{
+	TransCAD.StdSketchOrigin.1 = s 'StdSketchOrigin Class'
+	{
+		CLSID = s '{21EDA72E-5989-461A-9C82-1BBE68990A3D}'
+	}
+	TransCAD.StdSketchOrigin = s 'StdSketchOrigin Class'
+	{
+		CLSID = s '{21EDA72E-5989-461A-9C82-1BBE68990A3D}'
+		CurVer = s 'TransCAD.StdSketchOrigin.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {21EDA72E-5989-461A-9C82-1BBE68990A3D} = s 'StdSketchOrigin Class'
+		{
+			ProgID = s 'TransCAD.StdSketchOrigin.1'
+			VersionIndependentProgID = s 'TransCAD.StdSketchOrigin'
+			ForceRemove 'Programmable'
+			LocalServer32 = s '%MODULE%'
+			val AppID = s '%APPID%'
+			'TypeLib' = s '{DC31CA13-34CA-4D11-A678-58E9FCE42872}'
+		}
+	}
+}

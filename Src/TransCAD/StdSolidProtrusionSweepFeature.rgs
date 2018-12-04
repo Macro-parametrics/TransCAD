@@ -1,0 +1,24 @@
+HKCR
+{
+	TransCAD.StdSolidProtrusionSweepFeatu.1 = s 'StdSolidProtrusionSweepFeature Class'
+	{
+		CLSID = s '{55A4F80E-6504-47FA-A2C1-309CAF002353}'
+	}
+	TransCAD.StdSolidProtrusionSweepFeature = s 'StdSolidProtrusionSweepFeature Class'
+	{
+		CLSID = s '{55A4F80E-6504-47FA-A2C1-309CAF002353}'
+		CurVer = s 'TransCAD.StdSolidProtrusionSweepFeatu.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {55A4F80E-6504-47FA-A2C1-309CAF002353} = s 'StdSolidProtrusionSweepFeature Class'
+		{
+			ProgID = s 'TransCAD.StdSolidProtrusionSweepFeatu.1'
+			VersionIndependentProgID = s 'TransCAD.StdSolidProtrusionSweepFeature'
+			ForceRemove 'Programmable'
+			LocalServer32 = s '%MODULE%'
+			val AppID = s '%APPID%'
+			'TypeLib' = s '{DC31CA13-34CA-4D11-A678-58E9FCE42872}'
+		}
+	}
+}

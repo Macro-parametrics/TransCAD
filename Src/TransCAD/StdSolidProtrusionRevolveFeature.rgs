@@ -1,0 +1,24 @@
+HKCR
+{
+	TransCAD.StdSolidProtrusionRevolveFea.1 = s 'StdSolidProtrusionRevolveFeature Class'
+	{
+		CLSID = s '{135BB7D6-4978-4580-981F-CBB43287DA55}'
+	}
+	TransCAD.StdSolidProtrusionRevolveFeatu = s 'StdSolidProtrusionRevolveFeature Class'
+	{
+		CLSID = s '{135BB7D6-4978-4580-981F-CBB43287DA55}'
+		CurVer = s 'TransCAD.StdSolidProtrusionRevolveFea.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {135BB7D6-4978-4580-981F-CBB43287DA55} = s 'StdSolidProtrusionRevolveFeature Class'
+		{
+			ProgID = s 'TransCAD.StdSolidProtrusionRevolveFea.1'
+			VersionIndependentProgID = s 'TransCAD.StdSolidProtrusionRevolveFeatu'
+			ForceRemove 'Programmable'
+			LocalServer32 = s '%MODULE%'
+			val AppID = s '%APPID%'
+			'TypeLib' = s '{DC31CA13-34CA-4D11-A678-58E9FCE42872}'
+		}
+	}
+}

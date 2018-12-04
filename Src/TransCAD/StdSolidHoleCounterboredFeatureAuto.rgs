@@ -1,0 +1,24 @@
+HKCR
+{
+	TransCAD.StdSolidHoleCounterboredFeat.1 = s 'StdSolidHoleCounterboredFeature Class'
+	{
+		CLSID = s '{D1D97125-6F20-4315-8ED7-98B7CFEBEA19}'
+	}
+	TransCAD.StdSolidHoleCounterboredFeatur = s 'StdSolidHoleCounterboredFeature Class'
+	{
+		CLSID = s '{D1D97125-6F20-4315-8ED7-98B7CFEBEA19}'
+		CurVer = s 'TransCAD.StdSolidHoleCounterboredFeat.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {D1D97125-6F20-4315-8ED7-98B7CFEBEA19} = s 'StdSolidHoleCounterboredFeature Class'
+		{
+			ProgID = s 'TransCAD.StdSolidHoleCounterboredFeat.1'
+			VersionIndependentProgID = s 'TransCAD.StdSolidHoleCounterboredFeatur'
+			ForceRemove 'Programmable'
+			LocalServer32 = s '%MODULE%'
+			val AppID = s '%APPID%'
+			'TypeLib' = s '{DC31CA13-34CA-4D11-A678-58E9FCE42872}'
+		}
+	}
+}

@@ -1,0 +1,296 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="소스 파일">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="헤더 파일">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="리소스 파일">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav</Extensions>
+    </Filter>
+    <Filter Include="Dialog">
+      <UniqueIdentifier>{8bd17262-3c32-4082-82ad-dc167a9266c4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Operator">
+      <UniqueIdentifier>{e10eea13-f756-4f53-858f-db163bb1ee13}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Utility">
+      <UniqueIdentifier>{1c8b474f-e531-4d83-972f-b0c2ee17166e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Rendering">
+      <UniqueIdentifier>{c26eb20d-b815-4270-a7ab-b810a63c1487}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Panels">
+      <UniqueIdentifier>{2bf0160a-1679-48f8-88c2-9ea55ea9b893}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Exception">
+      <UniqueIdentifier>{0adb6fb3-84e9-4119-881b-510fba4f5c4b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Dialog\Assembly">
+      <UniqueIdentifier>{9a206e6e-34a0-4a05-8caa-853fdcf6f6a2}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Assembler.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="AssemDocument.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="AssemFrame.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="AssemHModel.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="AssemHView.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="AssemView.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="AssemOpMoveHandle.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="AssemImUtility.cpp">
+      <Filter>Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="AssemViewPanningOperator.cpp">
+      <Filter>Operator</Filter>
+    </ClCompile>
+    <ClCompile Include="AssemViewZoomWindowOperator.cpp">
+      <Filter>Operator</Filter>
+    </ClCompile>
+    <ClCompile Include="AssemViewRotationOperator.cpp">
+      <Filter>Operator</Filter>
+    </ClCompile>
+    <ClCompile Include="AssemViewHoopsModelTreeDialog.cpp">
+      <Filter>Dialog</Filter>
+    </ClCompile>
+    <ClCompile Include="AssemRenderPart.cpp">
+      <Filter>Rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="AssemHSelectionSet.cpp">
+      <Filter>Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\PartModeler\PmMeshManager.cpp">
+      <Filter>Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="AssemSettings.cpp">
+      <Filter>Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="AssemSizingControlBar.cpp">
+      <Filter>Panels</Filter>
+    </ClCompile>
+    <ClCompile Include="AssemSizingControlBarG.cpp">
+      <Filter>Panels</Filter>
+    </ClCompile>
+    <ClCompile Include="AssemTreeCtrlBar.cpp">
+      <Filter>Panels</Filter>
+    </ClCompile>
+    <ClCompile Include="AssemTreeCtrlEx.cpp">
+      <Filter>Panels</Filter>
+    </ClCompile>
+    <ClCompile Include="AssemMeshManager.cpp">
+      <Filter>Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="AssemFeatureTree.cpp">
+      <Filter>Panels</Filter>
+    </ClCompile>
+    <ClCompile Include="AssemException.cpp">
+      <Filter>Exception</Filter>
+    </ClCompile>
+    <ClCompile Include="AssemArgumentException.cpp">
+      <Filter>Exception</Filter>
+    </ClCompile>
+    <ClCompile Include="AssemViewManipulationOperator.cpp">
+      <Filter>Operator</Filter>
+    </ClCompile>
+    <ClCompile Include="AssemViewPersistentNameOperator.cpp">
+      <Filter>Operator</Filter>
+    </ClCompile>
+    <ClCompile Include="AssemApplyConstraintDialog.cpp">
+      <Filter>Dialog</Filter>
+    </ClCompile>
+    <ClCompile Include="AssemApplyCoaxialDialog.cpp">
+      <Filter>Dialog\Assembly</Filter>
+    </ClCompile>
+    <ClCompile Include="AssemApplyIncidenceDialog.cpp">
+      <Filter>Dialog\Assembly</Filter>
+    </ClCompile>
+    <ClCompile Include="AssemApplyParallelDialog.cpp">
+      <Filter>Dialog\Assembly</Filter>
+    </ClCompile>
+    <ClCompile Include="AssemApplyPerpendicularDialog.cpp">
+      <Filter>Dialog\Assembly</Filter>
+    </ClCompile>
+    <ClCompile Include="AssemApplyDistanceDialog.cpp">
+      <Filter>Dialog\Assembly</Filter>
+    </ClCompile>
+    <ClCompile Include="AssemApplyAngleDialog.cpp">
+      <Filter>Dialog\Assembly</Filter>
+    </ClCompile>
+    <ClCompile Include="AssemAddComponentDialog.cpp">
+      <Filter>Dialog</Filter>
+    </ClCompile>
+    <ClCompile Include="AssemImportPartDialog.cpp">
+      <Filter>Dialog</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assembler.def">
+      <Filter>소스 파일</Filter>
+    </None>
+    <None Include="res\Assembler.rc2">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\AssemDocument.ico">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="ReadMe.txt" />
+    <None Include="res\toolbar1.bmp">
+      <Filter>리소스 파일</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="AssemAcis.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Assembler.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="AssemDocument.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="AssemFrame.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="AssemHModel.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="AssemHoops.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="AssemHView.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="AssemMacro.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="AssemRegAssembler.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="AssemView.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="AssemOpMoveHandle.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="AssemSizingControlBar.h">
+      <Filter>Panels</Filter>
+    </ClInclude>
+    <ClInclude Include="AssemSizingControlBarG.h">
+      <Filter>Panels</Filter>
+    </ClInclude>
+    <ClInclude Include="AssemTreeCtrlBar.h">
+      <Filter>Panels</Filter>
+    </ClInclude>
+    <ClInclude Include="AssemTreeCtrlEx.h">
+      <Filter>Panels</Filter>
+    </ClInclude>
+    <ClInclude Include="AssemFeatureTree.h">
+      <Filter>Panels</Filter>
+    </ClInclude>
+    <ClInclude Include="AssemHSelectionSet.h">
+      <Filter>Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="AssemImUtility.h">
+      <Filter>Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="AssemMeshManager.h">
+      <Filter>Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="AssemSettings.h">
+      <Filter>Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="..\PartModeler\PmMeshManager.h">
+      <Filter>Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="AssemRenderPart.h">
+      <Filter>Rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="AssemViewZoomWindowOperator.h">
+      <Filter>Operator</Filter>
+    </ClInclude>
+    <ClInclude Include="AssemViewRotationOperator.h">
+      <Filter>Operator</Filter>
+    </ClInclude>
+    <ClInclude Include="AssemViewPanningOperator.h">
+      <Filter>Operator</Filter>
+    </ClInclude>
+    <ClInclude Include="AssemViewHoopsModelTreeDialog.h">
+      <Filter>Dialog</Filter>
+    </ClInclude>
+    <ClInclude Include="AssemArgumentException.h">
+      <Filter>Exception</Filter>
+    </ClInclude>
+    <ClInclude Include="AssemException.h">
+      <Filter>Exception</Filter>
+    </ClInclude>
+    <ClInclude Include="AssemExceptionTest.h">
+      <Filter>Exception</Filter>
+    </ClInclude>
+    <ClInclude Include="AssemViewManipulationOperator.h">
+      <Filter>Operator</Filter>
+    </ClInclude>
+    <ClInclude Include="AssemViewPersistentNameOperator.h">
+      <Filter>Operator</Filter>
+    </ClInclude>
+    <ClInclude Include="AssemApplyConstraintDialog.h">
+      <Filter>Dialog</Filter>
+    </ClInclude>
+    <ClInclude Include="AssemApplyPerpendicularDialog.h">
+      <Filter>Dialog\Assembly</Filter>
+    </ClInclude>
+    <ClInclude Include="AssemApplyCoaxialDialog.h">
+      <Filter>Dialog\Assembly</Filter>
+    </ClInclude>
+    <ClInclude Include="AssemApplyIncidenceDialog.h">
+      <Filter>Dialog\Assembly</Filter>
+    </ClInclude>
+    <ClInclude Include="AssemApplyParallelDialog.h">
+      <Filter>Dialog\Assembly</Filter>
+    </ClInclude>
+    <ClInclude Include="AssemApplyDistanceDialog.h">
+      <Filter>Dialog\Assembly</Filter>
+    </ClInclude>
+    <ClInclude Include="AssemApplyAngleDialog.h">
+      <Filter>Dialog\Assembly</Filter>
+    </ClInclude>
+    <ClInclude Include="AssemAddComponentDialog.h">
+      <Filter>Dialog</Filter>
+    </ClInclude>
+    <ClInclude Include="AssemImportPartDialog.h">
+      <Filter>Dialog</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Assembler.rc">
+      <Filter>리소스 파일</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>

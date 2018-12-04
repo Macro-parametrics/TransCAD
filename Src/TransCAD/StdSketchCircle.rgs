@@ -1,0 +1,24 @@
+HKCR
+{
+	TransCAD.StdSketchCircle.1 = s 'StdSketchCircle Class'
+	{
+		CLSID = s '{F24E3B06-EB2A-4C6F-A2FB-D53BDDA85F4E}'
+	}
+	TransCAD.StdSketchCircle = s 'StdSketchCircle Class'
+	{
+		CLSID = s '{F24E3B06-EB2A-4C6F-A2FB-D53BDDA85F4E}'
+		CurVer = s 'TransCAD.StdSketchCircle.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {F24E3B06-EB2A-4C6F-A2FB-D53BDDA85F4E} = s 'StdSketchCircle Class'
+		{
+			ProgID = s 'TransCAD.StdSketchCircle.1'
+			VersionIndependentProgID = s 'TransCAD.StdSketchCircle'
+			ForceRemove 'Programmable'
+			LocalServer32 = s '%MODULE%'
+			val AppID = s '%APPID%'
+			'TypeLib' = s '{DC31CA13-34CA-4D11-A678-58E9FCE42872}'
+		}
+	}
+}

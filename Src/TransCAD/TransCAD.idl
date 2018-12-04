@@ -1,0 +1,2323 @@
+/**	\file TransCAD.idl	*/
+
+/** \mainpage TransCAD API 참조 문서
+
+	\section developer 개발자
+		- Suchul Shin
+
+	\section info 개발목적
+		- TransCAD API
+*/
+
+// TransCAD.idl : TransCAD의 IDL 소스입니다.
+//
+
+// 이 파일은 MIDL 도구에 의해 처리되어
+// 형식 라이브러리(TransCAD.tlb) 및 마샬링 코드가 생성됩니다.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+interface IApplication;
+interface IAssemDocument;
+interface IAssem;
+interface IDoc;
+interface IPartDocument;
+interface IDocs;
+interface IPart;
+interface IFeatures;
+interface IFeature;
+interface IStdDefaultDatumPlaneFeature;
+interface IStdDatumPlaneOffsetFeature;
+interface IStdSketchFeature;
+interface IStdSolidProtrusionExtrudeFeature;
+interface IStdSolidCutExtrudeFeature;
+interface IStdSolidFilletConstantFeature;
+interface IStdSolidChamferFeature;
+interface IStdSolidProtrusionSweepFeature;
+interface IStdSolidProtrusionRevolveFeature;
+interface IStdSolidCutRevolveFeature;
+interface IStdSolidOperatePatternRectangularFeature;
+interface IStdSolidOperatePatternCircularFeature;
+interface IStdSolidHoleCounterboredFeature;
+interface IStdSolidHoleCountersunkFeature;
+interface IStdSketchOrigin;
+interface IStdSketchVDirection;
+interface IStdSketchHDirection;
+interface IStdSketchGeometries;
+interface IStdSketchConstraints;
+interface IStdSketchGeometry;
+interface IStdSketchCircle;
+interface IStdSketchCircularArc;
+interface IStdSketchControlPoint;
+interface IStdSketchLine;
+interface IStdSketchCenterline;
+interface IStdSketchConstraint;
+interface IStdSketchCoincidentSamePoints;
+interface IStdSketchPerpendicular;
+interface IStdSketchParallel;
+interface IStdSketchHorizontal;
+interface IStdSketchVertical;
+interface IReferences;
+interface IReference;
+interface IExplicitModelObject;
+interface ISketch;
+interface ISketchEditor;
+interface IStdSolidLoftFacesFeature;
+interface IStdSolidLoftSectionsFeature;
+interface IStdSolidCutSweepFeature;
+interface IStdSolidHoleSimpleFeature;
+interface IStdSolidShellFeature;
+interface IStdSolidRevolveWithExternalAxisFeature;
+interface IStdSolidDraftFeature;
+interface IStdSolidOffsetFeature;
+interface IStdSolidImportedBrepFeature;
+interface ISolid;
+interface IFaces;
+interface IFace;
+interface IEdges;
+interface IEdge;
+interface IVertices;
+interface IVertex;
+interface IPoint3D;
+interface IAxis1;
+interface IStdAssemConstraints;
+interface IStdAssemConstraint;
+interface IStdAssemConstraintCoaxial;
+interface IStdAssemConstraintIncidence;
+interface IStdAssemConstraintDistance;
+interface IStdAssemConstraintAngle;
+
+/**
+	\defgroup enumList		열거자 목록
+	\defgroup interfaceList	인터페이스 목록
+*/
+
+/** 
+	\addtogroup enumList
+	\{
+		enumeration type들을 정의합니다
+*/
+
+// enumberation type들을 정의합니다
+
+/**
+	\enum StdExtrudeEndType
+	돌출할 때 끝을 어떻게 처리할 지를 설명하는 타입입니다.
+*/
+typedef enum StdExtrudeEndType
+{
+	Blind,		///< 길이 입력
+	ThroughAll	///< Throgh all
+}StdExtrudeEndType;
+
+/**
+	\enum StdRevolveEndType
+	Revolve 할 때 끝을 어떻게 처리할 지를 설명하는 타입입니다.
+*/
+typedef enum StdRevolveEndType
+{
+	StdRevolveEndType_Blind	///< 길이 입력
+}StdRevolveEndType;
+
+/**
+	\enum PropagationType
+	필렛을 어떻게 처리할 지를 설명하는 타입입니다.
+*/
+typedef enum PropagationType
+{
+	Minimal,	///< (?)최소한으로 설정
+	Tangency	///< (?)G1 컨디션 유지
+}PropagationType;
+
+/**
+	특징형상의 타입입니다.
+*/
+typedef enum FeatureType
+{
+	StdDefaultDatumPlaneFeature,				///< 기본 참조 평면 특징형상
+	StdSketchFeature,							///< 스케치 특징형상
+	StdSolidProtrusionExtrudeFeature,			///< 솔리드 직선 돌출 특징형상
+	StdSolidCutExtrudeFeature,					///< 솔리드 직선 컷 특징형상
+	StdSolidFilletConstantFeature,				///< 솔리드 일정한 반지름을 가지는 필렛 특징형상.
+	StdSolidChamferFeature,						///< 솔리드 직선 컷 특징형상.
+	StdSolidProtrusionSweepFeature,				///< 솔리드 Protrusion Sweep 특징형상.
+	StdSolidProtrusionRevolveFeature,			///< 솔리드 Protrusion Revolve 특징형상.
+	StdSolidCutRevolveFeature,					///< 솔리드 Cut Revolve 특징형상.
+	StdSolidOperatePatternRectangularFeature,	///< 솔리드 Rectangular 패턴 특징형상.
+	StdSolidOperatePatternCircularFeature,		///< 솔리드 Circular 패턴 특징형상.
+	StdSolidHoleCounterboredFeature,			///< 솔리드 Hole Counterbored 특징형상
+	StdSolidHoleCountersunkFeature,				///< 솔리드 Hole Countersunk 특징형상
+	StdDatumPlaneOffsetFeature,					///< Offset 참조 평면 특징형상
+	StdSolidLoftFacesFeature,
+	StdSolidLoftSectionsFeature,
+	StdSolidCutSweepFeature,
+	StdSolidHoleSimpleFeature,
+	StdSolidShellFeature,
+	StdSolidRevolveWithExternalAxisFeature,
+	StdSolidDraftFeature,
+	StdSolidOffsetFeature,
+	StdSolidImportedBrepFeature,
+	// DEBUG 용
+	StdSolidSphereFeature						///< DEBUG 용
+}FeatureType;
+
+/** 스케치 기하 형상의 타입입니다. */
+typedef enum StdSketchGeometryType
+{
+	Line,			///< 선분
+	Centerline,		///< 중심선
+	Circle,			///< 원
+	CircularArc,	///< 원호
+	ControlPoint	///< 제어점
+}StdSketchGeometryType;
+
+/**	스케치 구속조건의 타입입니다. */
+typedef enum StdSketchConstraintType
+{
+	SamePoints,
+	Perpendicular,
+	Parallel,
+	Horizontal,
+	Vertical
+}StdSketchConstraintType;
+
+/**	스케치 Coincident SamePoints 구속조건의 타입입니다. */
+typedef enum StdCoincidentSamePointsType
+{
+	StartPoint,
+	EndPoint,
+	CenterPoint,
+	Whole
+}StdCoincidentSamePointsType;
+
+/**	명시적 모델 객체의 타입입니다. */
+typedef enum ExplicitModelObjectType
+{
+	Solid,		///< 솔리드 객체
+	DatumPlane,	///< 참조 평면
+	Sketch		///< 스케치 객체
+}ExplicitModelObjectType;
+
+/**	참조 객체의 타입입니다. */
+typedef enum ReferenceType
+{
+	Feature,				///< 특징 형상 객체에 대한 참조
+	ExplicitModelObject,	///< 명시적 모델 객체에 대한 참조
+	Brep					///< Brep에 대한 참조
+}ReferenceType;
+
+/**	돌출할 때 끝을 어떻게 처리할 지를 설명하는 타입입니다. */
+typedef enum ChamferType
+{
+	ChamferType_Length,	///< Length
+	ChamferType_Angle	///< Angle
+}ChamferType;
+
+typedef enum FaceType
+{
+	FaceType_Plane,
+	FaceType_Cylinder,
+	FaceType_Cone,
+	FaceType_Sphere,
+	FaceType_Torus,
+	FaceType_Spline
+}FaceType;
+
+typedef enum EdgeType
+{
+	EdgeType_Line,
+	EdgeType_Circle,
+	EdgeType_Ellipse,
+	EdgeType_Helix,
+	EdgeType_Spline
+}EdgeType;
+
+/** 어셈블리 제약조건 타입입니다. */
+typedef enum StdAssemblyConstraintType
+{
+	Coaxial,
+	Incidence,
+	Distance,
+	Angle
+	//AssemblyPerpendicular,
+	//AssemblyParallel,
+	//AssemblyDistance,
+	//AssemblyAngle
+}StdAssemblyConstraintType;
+
+/**
+	\enum StdAssemblyIncidenceType
+	면이 접촉할 때 각 면의 normal vector사이의 관계를 나타냅니다.
+*/
+typedef enum StdAssemblyIncidenceType
+{
+	Opposite,		
+	Same	
+}StdAssemblyIncidenceType;
+
+/**	\} */
+
+/**
+	\addtogroup interfaceList
+	\{
+		인터페이스를 정의합니다
+*/
+
+/**
+	IApplication 인터페이스
+*/
+[
+	object,
+	uuid(19487FB9-54F2-49A6-9DAE-FD9ADDD12A76),
+	dual,
+	nonextensible,
+	helpstring("IApplication 인터페이스"),
+	pointer_default(unique)
+]
+interface IApplication : IDispatch{
+	/** TransCAD의 화면 표시 여부를 리턴합니다. */
+	[propget, id(1), helpstring("TransCAD의 화면 표시 여부를 설정하거나 가져옵니다.")] HRESULT Visible([out, retval] VARIANT_BOOL* pVal);
+	/** TransCAD의 화면 표시 여부를 설정합니다. */
+	[propput, id(1)] HRESULT Visible([in] VARIANT_BOOL newVal);
+	/** Application 객체를 리턴합니다. */
+	[propget, id(2), helpstring("Application 객체를 리턴합니다.")] HRESULT Application([out, retval] IApplication** ppVal);
+	/** 부모 객체를 리턴합니다. */
+	[propget, id(3), helpstring("부모 객체를 리턴합니다.")] HRESULT Parent([out, retval] IDispatch** ppVal);
+	/** 활성화된 Document 객체를 리턴합니다. 활성화된 Document 객체가 없는 경우 null 값을 리턴합니다. */
+	[propget, id(4), helpstring("활성화된 Document 객체를 리턴합니다. 활성화된 Document 객체가 없는 경우 null 값을 리턴합니다.")] HRESULT ActiveDocument([out, retval] IDoc** ppVal);
+	/** Documents 객체를 리턴합니다. */
+	[propget, id(5), helpstring("Documents 객체를 리턴합니다.")] HRESULT Documents([out, retval] IDocs** ppVal);
+	/** 응용 프로그램의 이름을 리턴합니다. */
+	[propget, id(6), helpstring("응용 프로그램의 이름을 리턴합니다.")] HRESULT Name([out, retval] BSTR* pVal);
+	/** TransCAD를 종료합니다. */
+	[id(7), helpstring("TransCAD를 종료합니다.")] HRESULT Quit(void);
+};
+
+/** IDocs 인터페이스 */
+[
+	object,
+	uuid(C12FB0DA-8BB2-4CF4-BC4F-7D538BA36727),
+	dual,
+	nonextensible,
+	helpstring("IDocs 인터페이스"),
+	pointer_default(unique)
+]
+interface IDocs : IDispatch{
+	/** Application 객체를 리턴합니다 */
+	[propget, id(1), helpstring("Application 객체를 리턴합니다.")] HRESULT Application([out, retval] IApplication** ppVal);
+	/** 부모 객체를 리턴합니다 */
+	[propget, id(2), helpstring("부모 객체를 리턴합니다.")] HRESULT Parent([out, retval] IDispatch** ppVal);
+	/** Document 객체의 수를 리턴합니다. */
+	[propget, id(3), helpstring("Document 객체의 수를 리턴합니다.")] HRESULT Count([out, retval] long* pVal);
+	/** index 번째의 Document 객체를 리턴합니다. */
+	/** \param index index입니다. */
+	[propget, id(DISPID_VALUE), helpstring("index 번째의 Document 객체를 리턴합니다.")] HRESULT Item([in] long index, [out, retval] IDoc** ppVal);
+	/** 열거자 객체를 리턴합니다. */
+	[propget, id(DISPID_NEWENUM), helpstring("열거자 객체를 리턴합니다.")] HRESULT _NewEnum([out, retval] IUnknown** ppUnk);
+	/** 새 PartDocument 객체를 만들고, 이를 추가합니다. */
+	/** \param ppVal 새 PartDocument 객체입니다 */
+	[id(4), helpstring("새 PartDocument 객체를 만들고, 이를 추가합니다.")] HRESULT AddPartDocument([out,retval] IPartDocument** ppVal);
+	[id(5), helpstring("새 AssemDocument 객체를 만들고, 이를 추가합니다.")] HRESULT AddAssemDocument([out,retval] IAssemDocument** ppVal);
+	/** 모든 문서를 닫습니다. 구현 안됨 */
+	[id(6), helpstring("모든 문서를 닫습니다. 구현 안됨")] HRESULT Close(void);
+	/** filename의 이름을 가진 파일을 읽어 들입니다. */
+	/** \param filename 불러올 파일의 이름입니다.
+	    \param ppVAl Document 객체입니다. */
+	[id(7), helpstring("filename을 읽어 들입니다. 구현 안됨")] HRESULT Open([in] BSTR filename, [out,retval] IPartDocument** ppVal);
+};
+
+/** IDoc 인터페이스 */
+[
+	object,
+	uuid(BC5F8AB3-0439-4F12-AF08-8F7D74928940),
+	dual,
+	nonextensible,
+	helpstring("IDoc 인터페이스"),
+	pointer_default(unique)
+]
+interface IDoc : IDispatch{
+	/** Application 객체를 리턴합니다. */
+	[propget, id(1), helpstring("Application 객체를 리턴합니다.")] HRESULT Application([out, retval] IApplication** ppVal);
+	/** 부모 객체를 리턴합니다. */
+	[propget, id(2), helpstring("부모 객체를 리턴합니다.")] HRESULT Parent([out, retval] IDispatch** ppVal);
+	/** 파일 이름을 포함한 현재 문서의 경로를 리턴합니다. */
+	[propget, id(3), helpstring("파일 이름을 포함한 현재 문서의 경로를 리턴합니다.")] HRESULT FullName([out, retval] BSTR* pVal);
+	/** 경로를 포함하지 않은 현재 문서의 이름을 리턴합니다. */
+	[propget, id(4), helpstring("경로를 포함하지 않은 현재 문서의 이름을 리턴합니다.")] HRESULT Name([out, retval] BSTR* pVal);
+	/** 파일 이름을 포함하지 않은 현재 문서의 경로를 리턴합니다. */
+	[propget, id(5), helpstring("파일 이름을 포함하지 않은 현재 문서의 경로를 리턴합니다.")] HRESULT Path([out, retval] BSTR* pVal);
+	/** 문서 내용이 바뀐 후에 저장이 되지 않았을 경우 FALSE를 리턴합니다. 그렇지 않은 경우에는 TRUE를 리턴합니다. 구현 안됨. */
+	[propget, id(6), helpstring("문서 내용이 바뀐 후에 저장이 되지 않았을 경우 FALSE를 리턴합니다. 그렇지 않은 경우에는 TRUE를 리턴합니다. 구현 안됨.")] HRESULT Saved([out, retval] VARIANT_BOOL* pVal);
+	/** 문서와 관련된 윈도우를 활성화 시킵니다. 구현 안됨. */
+	[id(7), helpstring("문서와 관련된 윈도우를 활성화 시킵니다. 구현 안됨.")] HRESULT Activate(void);
+	/** 문서를 닫고 Documents 객체에서 제거합니다. 또한 관련된 모든 윈도우를 닫습니다. 매개변수 saveChanges가 TRUE일 경우, 문서에 수정이 있었을 경우 문서를 저장합니다. */
+	/** \param saveChange 문서에 수정이 있었을 경우 문서를 저장할 지의 여부입니다.
+	    \param filename 저장할 문서의 파일 이름입니다. */
+	[id(8), helpstring("문서를 닫고 Documents 객체에서 제거합니다. 또한 관련된 모든 윈도우를 닫습니다. 매개변수 saveChanges가 TRUE일 경우, 문서에 수정이 있었을 경우 문서를 저장합니다.")] HRESULT Close([in] VARIANT_BOOL saveChanges, [in] BSTR filename);
+	/** FullName 프로퍼티를 파일 이름으로 하여 문서를 저장합니다. */
+	[id(9), helpstring("FullName 프로퍼티를 파일 이름으로 하여 문서를 저장합니다.")] HRESULT Save(void);
+	/** 매개변수 filename으로 문서를 저장합니다. */
+	/** \param filename 저장할 문서의 파일 이름입니다 */
+	[id(10), helpstring("매개변수 filename으로 문서를 저장합니다.")] HRESULT SaveAs([in] BSTR filename);
+
+};
+
+/** IPartDocument 인터페이스 */
+[
+	object,
+	uuid(C37F3BC0-22DD-4E20-A203-286ACE862758),
+	dual,
+	nonextensible,
+	helpstring("IPartDocument 인터페이스"),
+	pointer_default(unique)
+]
+interface IPartDocument : IDoc{
+	/** Part 객체를 리턴합니다. */
+	[propget, id(101), helpstring("속성 Part")] HRESULT Part([out, retval] IPart** pVal);
+	/** Part를 업데이트합니다. */
+	[id(102), helpstring("Part를 업데이트합니다.")] HRESULT Update(void);
+	[propget, id(103), helpstring("현재 문서의 타이틀을 리턴합니다.")] HRESULT Title([out, retval] BSTR* pVal);
+	[id(104), helpstring("MeshGeneration")] HRESULT DoMeshGeneration(double normalTolerance,double surfaceTolerance);
+	[id(105), helpstring("GetBBDiagonal")] HRESULT GetBBDiagonal(void);
+	
+	[id(106), helpstring("ImportFromCATIA")] HRESULT ImportFromCATIA([in] BSTR filePath);
+	[id(107), helpstring("ExportToCATIA")] HRESULT ExportToCATIA([in] BSTR filePath);
+	[id(108), helpstring("ImportFromUG")] HRESULT ImportFromUG([in] BSTR filePath);
+	[id(109), helpstring("ExportToUG")] HRESULT ExportToUG([in] BSTR filePath);
+	[id(110), helpstring("ExportToMesh")] HRESULT ExportToMesh([in] BSTR filePath);
+	[id(111), helpstring("ExportToBrep")] HRESULT ExportToBrep([in] BSTR filePath);
+	[id(112), helpstring("ExportToXML")] HRESULT ExportToXML([in] BSTR filePath);
+	[id(113), helpstring("ImportFromXML")] HRESULT ImportFromXML([in] BSTR filePath);
+	[id(114), helpstring("RunScriptInterface")] HRESULT RunScriptInterface([in] BSTR command);
+	[id(115), helpstring("ImportFromBrep")] HRESULT ImportFromBrep([in] BSTR filePath);
+	[id(116), helpstring("ConvertMesh")] HRESULT ConvertMesh([in] BSTR sourcePath, [in] BSTR targetPath);
+};
+
+/** IPart 인터페이스 */
+[
+	object,
+	uuid(37EBFFCD-077E-4323-83E0-3A8255AFB845),
+	dual,
+	nonextensible,
+	helpstring("IPart 인터페이스"),
+	pointer_default(unique)
+]
+interface IPart : IDispatch{
+	/** Application 객체를 리턴합니다. */
+	[propget, id(1), helpstring("Application 객체를 리턴합니다.")] HRESULT Application([out, retval] IApplication** ppVal);
+	/** 부모 객체를 리턴합니다. */
+	[propget, id(2), helpstring("부모 객체를 리턴합니다.")] HRESULT Parent([out, retval] IDispatch** ppVal);
+	/** 이름을 리턴합니다. */
+	[propget, id(3), helpstring("이름을 리턴합니다.")] HRESULT Name([out, retval] BSTR* pVal);
+	/** Features 객체를 리턴합니다. */
+	[propget, id(4), helpstring("Ifeatures 객체를 리턴합니다.")] HRESULT Features([out, retval] IFeatures** ppVal);
+	/** References 객체를 생성합니다. */
+	[id(5), helpstring("CreateReferences")] HRESULT CreateReferences([out, retval] IReferences** ppVal);
+	/** 이름으로 Object를 선택합니다. */
+	/** \param name 이름입니다 */
+	[id(6), helpstring("SelectObjectByName")] HRESULT SelectObjectByName([in] BSTR name, [out, retval] IReference** ppVal);
+	/** 이름으로 Brep을 선택합니다. */
+	/** \param name 이름입니다 */
+	[id(7), helpstring("SelectBrepByName")] HRESULT SelectBrepByName([in] BSTR name, [out, retval] IReference** ppVal);
+	/** Axis로 Plane을 선택합니다. */
+	/**
+		\param ox origin의 x 좌표입니다
+		\param oy origin의 y 좌표입니다
+		\param oz origin의 z 좌표입니다
+		\param xx x방향의 x 좌표입니다
+		\param xy x방향의 y 좌표입니다
+		\param xz z방향의 z 좌표입니다
+		\param yx x방향의 x 좌표입니다
+		\param yy y방향의 y 좌표입니다
+		\param yz z방향의 z 좌표입니다
+	*/
+	[id(8), helpstring("SelectPlaneByAxis")] HRESULT SelectPlaneByAxis([in] double ox, [in] double oy, [in] double oz, [in] double xx, [in] double xy, [in] double xz, [in] double yx, [in] double yy, [in] double yz, [out, retval] IReference** ppVal);
+	/** 세 점으로 Curve를 선택합니다 */
+	/**
+		\param startx 시작점의 x 좌표입니다
+		\param starty 시작점의 y 좌표입니다
+		\param startz 시작점의 z 좌표입니다
+		\param endx 끝점의 x 좌표입니다
+		\param endy 끝점의 y 좌표입니다
+		\param endz 끝점의 z 좌표입니다
+		\param curvex 중간점의 x 좌표입니다
+		\param curvey 중간점의 y 좌표입니다
+		\param curvez 중간점의 z 좌표입니다
+	*/
+	[id(9), helpstring("SelectCurveBy3Points")] HRESULT SelectCurveBy3Points([in] double startx, [in] double starty, [in] double startz, [in] double endx, [in] double endy, [in] double endz, [in] double curvex, [in] double curvey, [in] double curvez, [out, retval] IReference** ppVal);
+	[id(10), helpstring("SelectFeatureByName")] HRESULT SelectFeatureByName([in] BSTR name, [out, retval] IReference** ppVal);
+	[id(11), helpstring("SelectCurveByPoint")] HRESULT SelectCurveByPoint([in] double curvex, [in] double curvey, [in] double curvez, [out, retval] IReference** ppVal);
+	[id(12), helpstring("Set Part Name")] HRESULT set_Name ([in] BSTR pVal);
+	[id(13), helpstring("Set Part Parent Name")] HRESULT set_ParentName ([in] BSTR pVal);
+
+	//[id(14), helpstring("Get Part Name")] HRESULT get_Name ([out, retval] BSTR* pVal);
+	[id(15), helpstring("Get Part Parent Name")] HRESULT get_ParentName ([out, retval] BSTR* pVal);
+	[id(16), helpstring("Load brep file")] HRESULT LoadFromFile ([in] BSTR name);
+	
+	[id(17), helpstring("is brep part")] HRESULT IsBrepPart ([out, retval] VARIANT_BOOL* pVal);
+	[id(18), helpstring("SelectSketchSegmentByName")] HRESULT SelectSketchSegmentByName([in] BSTR name, [out, retval] IReference** ppVal);
+	/** Solid 객체를 리턴합니다. */
+	[propget, id(19), helpstring("ISolid 객체를 리턴합니다.")] HRESULT Solid([out, retval] ISolid** ppVal);
+	[id(20), helpstring("Part의 좌표를 리턴합니다.")] HRESULT GetPlacement([out] double* ox, [out] double* oy, [out] double* oz, [out] double* xx, [out] double* xy, [out] double* xz, [out] double* yx, [out] double* yy, [out] double* yz);
+};
+
+/** IFeatures 인터페이스 */
+[
+	object,
+	uuid(8084C085-5F3F-49F0-B82C-2276F12C88AB),
+	dual,
+	nonextensible,
+	helpstring("IFeatures 인터페이스"),
+	pointer_default(unique)
+]
+interface IFeatures : IDispatch{
+	/** Application 객체를 리턴합니다. */
+	[propget, id(1), helpstring("Application 객체를 리턴합니다.")] HRESULT Application([out, retval] IApplication** ppVal);
+	/** 부모 객체를 리턴합니다. */
+	[propget, id(2), helpstring("부모 객체를 리턴합니다.")] HRESULT Parent([out, retval] IDispatch** ppVal);
+	/** Feature 객체의 수를 리턴합니다. */
+	[propget, id(3), helpstring("Feature 객체의 수를 리턴합니다.")] HRESULT Count([out, retval] long* pVal);
+	/** index 번째의 Feature 객체를 리턴합니다. */
+	/** \param index index입니다. */
+	[propget, id(DISPID_VALUE), helpstring("index 번째의 Feature 객체를 리턴합니다.")] HRESULT Item([in] long index, [out, retval] IFeature** ppVal);
+	/** 열거자 객체를 리턴합니다. */
+	[propget, id(DISPID_NEWENUM), helpstring("열거자 객체를 리턴합니다.")] HRESULT _NewEnum([out, retval] IUnknown** ppUnk);
+	/** 새 SketchFeature 객체를 만들고, 이를 추가합니다. */
+	/**
+		\param name 새 SketchFeature 객체의 이름입니다
+		\param pSketchPlane 스케치가 그려지는 평면입니다
+		\param ppVal 새 SketchFeature 객체입니다
+	*/
+	[id(4), helpstring("새 SketchFeature 객체를 만들고, 이를 추가합니다.")] HRESULT AddNewSketchFeature([in] BSTR name, [in] IReference* pSketchPlane, [out,retval] IStdSketchFeature** ppVal);
+	/** 새 SolidProtrusionExtrudeFeature 객체를 만들고, 이를 추가합니다. */
+	/**
+		\param name 새 SolidProtrusionExtrudeFeature 객체의 이름입니다
+		\param pProfileSketch 컷에 사용할 스케치에 관한 참조입니다
+		\param startDepth SolidProtrusionExtrudeFeature 의 시작 방향으로의 길이입니다.
+		\param startCondition SolidProtrusionExtrudeFeature 의 시작 방향으로의 상태입니다.
+		\param endDepth SolidProtrusionExtrudeFeature 의 끝 방향으로의 길이입니다.
+		\param endCondition SolidProtrusionExtrudeFeature 의 끝 방향으로의 상태입니다.
+		\param isFlip SolidProtrusionExtrudeFeature 의 반전 플레그입니다.
+		\param ppVal 새 SolidProtrusionExtrudeFeature 객체입니다.
+	*/
+	[id(5), helpstring("새 SolidProtrusionExtrudeFeature 객체를 만들고, 이를 추가합니다.")] HRESULT AddNewSolidProtrusionExtrudeFeature([in] BSTR name, [in] IReference* pProfileSketch, [in] double startDepth, [in] StdExtrudeEndType startCondition, [in] double endDepth, [in] StdExtrudeEndType endCondition, [in] VARIANT_BOOL isFlip, [out,retval] IStdSolidProtrusionExtrudeFeature** ppVal);
+	/** 새 SolidCutExtrudeFeature 객체를 만들고, 이를 추가합니다. */
+	/**
+		\param name				SolidCutExtrudeFeature의 이름입니다.
+		\param pProfileSketch	컷에 사용할 스케치에 관한 참조입니다.
+		\param startDepth		SolidCutExtrudeFeature의 시작 방향으로의 길이입니다.
+		\param startCondition	SolidCutExtrudeFeature의 시작 방향으로의 상태입니다.
+		\param endDepth			SolidCutExtrudeFeature의 끝 방향으로의 길이입니다.
+		\param endCondition		SolidCutExtrudeFeature의 끝 방향으로의 상태입니다.
+		\param isFlip			SolidCutExtrudeFeature의 반전 플레그입니다.
+		\param ppVal			새 SolidCutExtrudeFeature 객체입니다.
+	*/
+	[id(6), helpstring("새 SolidCutExtrudeFeature 객체를 만들고, 이를 추가합니다.")] HRESULT AddNewSolidCutExtrudeFeature([in] BSTR name, [in] IReference* pProfileSketch, [in] double startDepth, [in] StdExtrudeEndType startCondition, [in] double endDepth, [in] StdExtrudeEndType endCondition, [in] VARIANT_BOOL isFlip, [out,retval] IStdSolidCutExtrudeFeature** ppVal);
+	/** 새 SolidFilletConstantFeature 객체를 만들고, 이를 추가합니다. */
+	/**
+		\param name 필렛 특징형상의 이름입니다.
+		\param pfilletEdges 필렛을 적용할 모서리에 대한 References 객체입니다.
+		\param radius 필렛의 반지름입니다.
+		\param propagation 필렛이 적용되는 형태입니다.
+		\param ppVal 새 SolidFilletConstantFeature 객체입니다.
+	*/
+	[id(7), helpstring("새 SolidFilletConstantFeature 객체를 만들고, 이를 추가합니다.")] HRESULT AddNewSolidFilletConstantFeature([in] BSTR name, [in] IReferences* pfilletEdges, [in] double radius, [in] PropagationType propagation, [out,retval] IStdSolidFilletConstantFeature** ppVal);
+	/** 새 SolidChamferFeature 객체를 만들고, 이를 추가합니다. */
+	/**
+		\param name				필렛 특징형상의 이름입니다.
+		\param pSelectedEdges	챔퍼를 적용할 모서리에 대한 References 객체입니다.
+		\param length			챔퍼의 길이입니다.
+		\param ppVal			새 SolidChamferFeature 객체입니다.
+	*/
+	[id(8), helpstring("새 SolidChamferFeature 객체를 만들고, 이를 추가합니다.")] HRESULT AddNewSolidChamferFeature([in] BSTR name, [in] IReferences* pSelectedEdges, [in] double length, [out,retval] IStdSolidChamferFeature** ppVal);
+	/** 새 SolidProtrusionSweepFeature 객체를 만들고, 이를 추가합니다. */
+	/**
+		\param name				Protrusion Sweep 특징형상의 이름입니다.
+		\param pProfileSketch	Protrusion Sweep 를 사용할 스케치에 대한 Reference 객체입니다.
+		\param pGuideCurve		Protrusion Sweep에서 사용할 Guide Curve에 대한 Reference 객체입니다.
+		\param propagation		필렛이 적용되는 형태입니다.
+		\param ppVal			새 SolidProtrusionSweepFeature 객체입니다.
+	*/
+	[id(9), helpstring("새 SolidProtrusionSweepFeature 객체를 만들고, 이를 추가합니다.")] HRESULT AddNewSolidProtrusionSweepFeature([in] BSTR name, [in] IReference* pProfileSketch, [in] IReference* pGuideCurve, [out,retval] IStdSolidProtrusionSweepFeature** ppVal);
+	/** 새 SolidProtrusionRevolveFeature 객체를 만들고, 이를 추가합니다. */
+	/**
+		\param name				Protrusion Revolve 특징형상의 이름입니다.
+		\param pProfileSketch	Protrusion Revolve에서 사용할 스케치에 대한 Reference 객체입니다.
+		\param startAngle		시작각입니다
+		\param startCondition	시작 방향으로의 상태입니다
+		\param endAngle			끝각입니다
+		\param endCondition		끝 방향으로의 상태입니다
+		\param isFlip			반전 플레그입니다
+		\param ppVal			새 SolidProtrusionRevolveFeature 객체입니다
+	*/
+	[id(10), helpstring("새 SolidProtrusionRevolveFeature 객체를 만들고, 이를 추가합니다.")] HRESULT AddNewSolidProtrusionRevolveFeature([in] BSTR name, [in] IReference* pProfileSketch, [in] double startAngle, [in] StdRevolveEndType startCondition, [in] double endAngle, [in] StdRevolveEndType endCondition, [in] VARIANT_BOOL isFlip, [out,retval] IStdSolidProtrusionRevolveFeature** ppVal);
+	/** 새 SolidCutRevolveFeature 객체를 만들고, 이를 추가합니다. */
+	/**
+		\param name				Cut Revolve 특징형상의 이름입니다.
+		\param pProfileSketch	Cut Revolve에서 사용할 스케치에 대한 Reference 객체입니다.
+		\param startAngle		시작각입니다
+		\param startCondition	시작 방향으로의 상태입니다
+		\param endAngle			끝각입니다
+		\param endCondition		끝 방향으로의 상태입니다
+		\param isFlip			반전 플레그입니다
+		\param ppVal			새 SolidCutRevolveFeature 객체입니다
+	*/
+	[id(11), helpstring("새 SolidCutRevolveFeature 객체를 만들고, 이를 추가합니다.")] HRESULT AddNewSolidCutRevolveFeature([in] BSTR name, [in] IReference* pProfileSketch, [in] double startAngle, [in] StdRevolveEndType startCondition, [in] double endAngle, [in] StdRevolveEndType endCondition, [in] VARIANT_BOOL isFlip, [out,retval] IStdSolidCutRevolveFeature** ppVal);
+	/** 새 SolidOperatePatternRectangularFeature 객체를 만들고, 이를 추가합니다. */
+	/**
+		\param name				Rectangular 패턴 특징형상의 이름입니다.
+		\param pTargetFeature	Rectangular 패턴을 적용할 특징형상에 대한 Reference 객체입니다.
+		\param columnSpacing	columnSpacing
+		\param colDirX			colDirX
+		\param colDirY			colDirY
+		\param colDirZ			colDirZ
+		\param columnNumber		columnNumber
+		\param rowSpacing		rowSpacing
+		\param rowDirX			rowDirX
+		\param rowDirY			rowDirY
+		\param rowDirZ			rowDirZ
+		\param rowNumber		rowNumber
+		\param ppVal			새 SolidOperatePatternRectangularFeature 객체입니다.
+	*/
+	[id(12), helpstring("새 SolidOperatePatternRectangularFeature 객체를 만들고, 이를 추가합니다.")] HRESULT AddNewSolidOperatePatternRectangularFeature([in] BSTR name, [in] IReferences* pTargetFeatures, [in] double columnSpacing, [in] double colDirX, [in] double colDirY, [in] double colDirZ, [in] int columnNumber, [in] double rowSpacing, [in] double rowDirX, [in] double rowDirY, [in] double rowDirZ, [in] int rowNumber, [out,retval] IStdSolidOperatePatternRectangularFeature** ppVal);
+	/** 새 SolidOperatePatternCircularFeature 객체를 만들고, 이를 추가합니다. */
+	/**
+		\param name				Circular 패턴 특징형상의 이름입니다.
+		\param pTargetFeature	Circular 패턴을 적용할 특징형상에 대한 Reference 객체입니다.
+		\param x1				x1
+		\param y1				y1
+		\param z1				z1
+		\param x2				x2
+		\param y2				y2
+		\param z2				z2
+		\param numberOfPatterns	numberOfPatterns
+		\param angleIncrement	angleIncrement
+		\param radialAlginment	radialAlginment
+		\param ppVal			새 SolidOperatePatternCircularFeature 객체입니다.
+	*/
+	[id(13), helpstring("새 SolidOperatePatternCircularFeature 객체를 만들고, 이를 추가합니다.")] HRESULT AddNewSolidOperatePatternCircularFeature([in] BSTR name, [in] IReferences* pTargetFeatures, [in] double x1, [in] double y1, [in] double z1, [in] double x2, [in] double y2, [in] double z2, [in] int angleNumber, [in] double angleIncrement, [in] int radialNumber, [in] double radialSpacing, [in] VARIANT_BOOL radialAlignment, [out,retval] IStdSolidOperatePatternCircularFeature** ppVal);
+	/** 새 SolidHoleCounterboredFeature 객체를 만들고, 이를 추가합니다. */
+	/**
+		\param name				Hole Counterbored 특징형상의 이름입니다.
+		\param pTargetFace		Hole Counterbored을 적용할 특징형상에 대한 Reference 객체입니다.
+		\param cx				center point x
+		\param cy				center point y
+		\param startRadius		start radius
+		\param startDepth		start depth
+		\param endRadius		end radius
+		\param endDepth			end depth
+		\param angle			angle
+		\param ppVal			새 SolidHoleCounterboredFeature 객체입니다.
+	*/
+	[id(14), helpstring("새 SolidHoleCounterboredFeature 객체를 만들고, 이를 추가합니다.")] HRESULT AddNewSolidHoleCounterboredFeature([in] BSTR name, [in] IReference* pTargetFace, [in] double cx, [in] double cy, [in] double cz, [in] double startRadius, [in] double startDepth, [in] double endRadius, [in] double endDepth, [in] double angle, [out,retval] IStdSolidHoleCounterboredFeature** ppVal);
+	[id(15), helpstring("새 SolidHoleCountersunkFeature 객체를 만들고, 이를 추가합니다.")] HRESULT AddNewSolidHoleCountersunkFeature([in] BSTR name, [in] IReference* pTargetFace, [in] double cx, [in] double cy, [in] double cz, [in] double radius, [in] double depth, [in] double sinkRadius, [in] double sinkAngle, [in] double bottomAngle, [out,retval] IStdSolidHoleCountersunkFeature** ppVal);
+	[id(16), helpstring("새 DatumPlaneOffsetFeature 객체를 만들고, 이를 추가합니다.")] HRESULT AddNewDatumPlaneOffsetFeature([in] BSTR name, [in] IReference* pSelectedPlane, [in] double distance, [in] VARIANT_BOOL isFlip, [out,retval] IStdDatumPlaneOffsetFeature** ppVal);
+	[id(17), helpstring("새 DatumPlaneOffsetFeature 객체를 만들고, 이를 추가합니다.")] HRESULT AddNewDatumPlaneOffsetFeature2([in] BSTR name, [in]double ox, [in]double oy, [in]double oz, [in]double xx, [in]double xy, [in]double xz, [in]double yx, [in]double yy, [in]double yz, [in] VARIANT_BOOL isFlip, [out,retval] IStdDatumPlaneOffsetFeature** ppVal);
+	[id(18), helpstring("새 SolidLoftFacesFeature 객체를 만들고, 이를 추가합니다.")] HRESULT AddNewSolidLoftFacesFeature([in] BSTR name, [in] IReference* pFace1, [in] double param1, [in] IReference* pFace2, [in] double param2, [out,retval] IStdSolidLoftFacesFeature** ppVal);
+	[id(19), helpstring("새 SolidLoftSectionsFeature 객체를 만들고, 이를 추가합니다.")] HRESULT AddNewSolidLoftSectionsFeature([in] BSTR name, [in]IReferences* pLoftSections, [in] VARIANT_BOOL isCut, [out,retval] IStdSolidLoftSectionsFeature** ppVal);
+	[id(20), helpstring("새 SolidCutSweepFeature 객체를 만들고, 이를 추가합니다.")] HRESULT AddNewSolidCutSweepFeature([in] BSTR name, [in] IReference* pProfileSketch, [in] IReference* pGuideCurve, [out,retval] IStdSolidCutSweepFeature** ppVal);
+	[id(21), helpstring("새 SolidHoleSimpleFeature 객체를 만들고, 이를 추가합니다.")] HRESULT AddNewSolidHoleSimpleFeature([in] BSTR name, [in] IReference* pTargetFace, [in] double cx, [in] double cy, [in] double cz, [in] double Radius, [in] double Depth, [out,retval] IStdSolidHoleSimpleFeature** ppVal);
+	[id(22), helpstring("새 SolidShellFeature 객체를 만들고, 이를 추가합니다.")] HRESULT AddNewSolidShellFeature([in] BSTR name, [in] IReferences* pTargetFaces, [in] double innerThickness, [in] double outerThickness, [out,retval] IStdSolidShellFeature** ppVal);
+	[id(23), helpstring("새 SolidRevolveWithExternalAxisFeature 객체를 만들고, 이를 추가합니다.")] HRESULT AddNewSolidRevolveWithExternalAxisFeature([in] BSTR name, [in] IReference* pProfileSketch, [in] double startAngle, [in] StdRevolveEndType startCondition, [in] double endAngle, [in] StdRevolveEndType endCondition, [in] double orgX, [in] double orgY, [in] double orgZ, [in] double dirX, [in] double dirY, [in] double dirZ, [in] VARIANT_BOOL isCut, [in] VARIANT_BOOL isFlip, [out,retval] IStdSolidRevolveWithExternalAxisFeature** ppVal);
+	/** index 번째의 Feature 객체를 삭제합니다.. */
+	[id(24), helpstring("index 번째의 Feature 객체를 삭제합니다.")] HRESULT Delete([in] long index);
+	[id(25), helpstring("name과 같은 Feature 객체를 삭제합니다.")] HRESULT DeleteByName([in] BSTR name);
+	[id(26), helpstring("새 SolidDraftFeature 객체를 만들고, 이를 추가합니다.")] HRESULT AddNewSolidDraftFeature([in] BSTR name, [in] IReferences* pTargetFaces, [in] double orgX, [in] double orgY, [in] double orgZ, [in] double dirX, [in] double dirY, [in] double dirZ, [in] double draftAngle, [out,retval] IStdSolidDraftFeature** ppVal);
+	[id(27), helpstring("새 SolidOffsetFeature 객체를 만들고, 이를 추가합니다.")] HRESULT AddNewSolidOffsetFeature([in] BSTR name, [in] IReferences* pTargetFaces, [in] double offsetThickness, [out,retval] IStdSolidOffsetFeature** ppVal);
+	[id(28), helpstring("새 SolidImportedBrepFeature 객체를 만들고, 이를 추가합니다.")] HRESULT AddNewSolidImportedBrepFeature([in] BSTR name, [in] BSTR filePath, [out,retval] IStdSolidImportedBrepFeature** ppVal);
+};
+
+[
+	object,
+	uuid(F898093C-1B98-420d-B097-C2F1E88CA345),
+	dual,
+	nonextensible,
+	helpstring("IFeature 인터페이스"),
+	pointer_default(unique)
+]
+interface IFeature : IDispatch{
+	[propget, id(1), helpstring("Application 객체를 리턴합니다.")] HRESULT Application([out, retval] IApplication** ppVal);
+	[propget, id(2), helpstring("부모 객체를 리턴합니다.")] HRESULT Parent([out, retval] IDispatch** ppVal);
+	[propget, id(3), helpstring("FeatureType을 리턴합니다.")] HRESULT Type([out, retval] FeatureType* pVal);
+	[propget, id(4), helpstring("Feature의 이름을 리턴합니다.")] HRESULT Name([out, retval] BSTR* pVal);
+	[id(5), helpstring("Feature의 이름을 설정합니다.")] HRESULT SetName([in] BSTR pVal);
+};
+
+[
+	object,
+	uuid(F91A93A8-65A9-48DC-A44F-BDD01CBEF588),
+	dual,
+	nonextensible,
+	helpstring("IStdDefaultDatumPlaneFeature 인터페이스"),
+	pointer_default(unique)
+]
+interface IStdDefaultDatumPlaneFeature : IFeature{
+};
+
+[
+	object,
+	uuid(54A6F7F9-5C98-4C65-96D5-BD43D248B788),
+	dual,
+	nonextensible,
+	helpstring("IStdSketchFeature 인터페이스"),
+	pointer_default(unique)
+]
+interface IStdSketchFeature : IFeature{
+	[propget, id(101), helpstring("StdSketchOrigin 객체를 리턴합니다.")] HRESULT Origin([out, retval] IStdSketchOrigin** ppVal);
+	[propget, id(102), helpstring("StdSketchHDirection 객체를 리턴합니다.")] HRESULT HDirection([out, retval] IStdSketchHDirection** ppVal);
+	[propget, id(103), helpstring("StdSketchVDirection 객체를 리턴합니다.")] HRESULT VDirection([out, retval] IStdSketchVDirection** ppVal);
+	[propget, id(104), helpstring("StdSketchGeometries 객체를 리턴합니다.")] HRESULT Geometries([out, retval] IStdSketchGeometries** ppVal);
+	[propget, id(105), helpstring("StdSketchConstraints 객체를 리턴합니다.")] HRESULT Constraints([out, retval] IStdSketchConstraints** ppVal);
+	[propget, id(106), helpstring("Sketch 객체를 리턴합니다.")] HRESULT Sketch([out, retval] ISketch** ppVal);
+	[propget, id(107), helpstring("스케치의 평면을 리턴합니다.")] HRESULT SketchPlane([out, retval] IReference** ppVal);
+	[propget, id(108), helpstring("스케치의 평면과 좌표계의 방향이 일치하는지 확인합니다.")] HRESULT IsInversed([out, retval] VARIANT_BOOL* pVal);
+	[id(109), helpstring("SketchEditor를 시작합니다.")] HRESULT OpenEditor([out, retval] ISketchEditor** ppVal);
+	[id(110), helpstring("Dcm 실행 여부에 대한 옵션과 함께 SketchEditor를 시작합니다.")] HRESULT OpenEditorEx([in] VARIANT_BOOL activateDcm, [out, retval] ISketchEditor** ppVal);
+	[id(111), helpstring("스케치의 좌표계를 설정합니다.")] HRESULT SetCoordinateSystem([in] double ox, [in] double oy, [in] double oz, [in] double xx, [in] double xy, [in] double xz, [in] double yx, [in] double yy, [in] double yz);
+	[id(112), helpstring("스케치의 좌표계를 리턴합니다.")] HRESULT GetCoordinateSystem([out] double* ox, [out] double* oy, [out] double* oz, [out] double* xx, [out] double* xy, [out] double* xz, [out] double* yx, [out] double* yy, [out] double* yz);
+	[id(113), helpstring("name과 같은 스케치 요소를 제거합니다.")] HRESULT DeleteByName([in] BSTR name);
+};
+
+[
+	object,
+	uuid(570069A3-AC18-40E5-9CD4-BE1ECF8318E2),
+	dual,
+	nonextensible,
+	helpstring("IStdSolidProtrusionExtrudeFeature 인터페이스"),
+	pointer_default(unique)
+]
+interface IStdSolidProtrusionExtrudeFeature : IFeature{
+	[propget, id(101), helpstring("ProfileSketch 속성")] HRESULT ProfileSketch([out, retval] IReference** ppVal);
+	[propput, id(101), helpstring("ProfileSketch 속성")] HRESULT ProfileSketch([in] IReference* ppVal);
+	[propget, id(102), helpstring("IsFlip 속성")] HRESULT IsFlip([out, retval] VARIANT_BOOL* pVal);
+	[propput, id(102), helpstring("IsFlip 속성")] HRESULT IsFlip([in] VARIANT_BOOL pVal);
+	[propget, id(103), helpstring("StartCondition 속성")] HRESULT StartCondition([out, retval] StdExtrudeEndType* pVal);
+	[propput, id(103), helpstring("StartCondition 속성")] HRESULT StartCondition([in] StdExtrudeEndType pVal);
+	[propget, id(104), helpstring("StartDepth 속성")] HRESULT StartDepth([out, retval] double* pVal);
+	[propput, id(104), helpstring("StartDepth 속성")] HRESULT StartDepth([in] double pVal);
+	[propget, id(105), helpstring("EndCondition 속성")] HRESULT EndCondition([out, retval] StdExtrudeEndType* pVal);
+	[propput, id(105), helpstring("EndCondition 속성")] HRESULT EndCondition([in] StdExtrudeEndType pVal);
+	[propget, id(106), helpstring("EndDepth 속성")] HRESULT EndDepth([out, retval] double* pVal);
+	[propput, id(106), helpstring("EndDepth 속성")] HRESULT EndDepth([in] double pVal);
+};
+
+[
+	object,
+	uuid(8645E5AD-94DF-48A8-AD8E-9ED717AC4691),
+	dual,
+	nonextensible,
+	helpstring("IStdSolidCutExtrudeFeature 인터페이스"),
+	pointer_default(unique)
+]
+interface IStdSolidCutExtrudeFeature : IFeature{
+	[propget, id(101), helpstring("ProfileSketch 속성")] HRESULT ProfileSketch([out, retval] IReference** ppVal);
+	[propput, id(101), helpstring("ProfileSketch 속성")] HRESULT ProfileSketch([in] IReference* ppVal);
+	[propget, id(102), helpstring("IsFlip 속성")] HRESULT IsFlip([out, retval] VARIANT_BOOL* pVal);
+	[propput, id(102), helpstring("IsFlip 속성")] HRESULT IsFlip([in] VARIANT_BOOL pVal);
+	[propget, id(103), helpstring("StartCondition 속성")] HRESULT StartCondition([out, retval] StdExtrudeEndType* pVal);
+	[propput, id(103), helpstring("StartCondition 속성")] HRESULT StartCondition([in] StdExtrudeEndType pVal);
+	[propget, id(104), helpstring("StartDepth 속성")] HRESULT StartDepth([out, retval] double* pVal);
+	[propput, id(104), helpstring("StartDepth 속성")] HRESULT StartDepth([in] double pVal);
+	[propget, id(105), helpstring("EndCondition 속성")] HRESULT EndCondition([out, retval] StdExtrudeEndType* pVal);
+	[propput, id(105), helpstring("EndCondition 속성")] HRESULT EndCondition([in] StdExtrudeEndType pVal);
+	[propget, id(106), helpstring("EndDepth 속성")] HRESULT EndDepth([out, retval] double* pVal);
+	[propput, id(106), helpstring("EndDepth 속성")] HRESULT EndDepth([in] double pVal);
+};
+
+[
+	object,
+	uuid(7813D4F8-1398-4A75-8FEA-AF3A262A9898),
+	dual,
+	nonextensible,
+	helpstring("IStdSolidFilletConstantFeature 인터페이스"),
+	pointer_default(unique)
+]
+interface IStdSolidFilletConstantFeature : IFeature{
+	[propget, id(101), helpstring("FilletEdges 속성")] HRESULT FilletEdges([out, retval] IReferences** ppVal);
+	[propput, id(101), helpstring("FilletEdges 속성")] HRESULT FilletEdges([in] IReferences* ppVal);
+	[propget, id(102), helpstring("Radius 속성")] HRESULT Radius([out, retval] double* pVal);
+	[propput, id(102), helpstring("Radius 속성")] HRESULT Radius([in] double pVal);
+	[propget, id(103), helpstring("Propagation 속성")] HRESULT Propagation([out, retval] PropagationType* pVal);
+	[propput, id(103), helpstring("Propagation 속성")] HRESULT Propagation([in] PropagationType pVal);
+	
+	[propget, id(104), helpstring("Edge 포인트 속성")] HRESULT StartPosX([out, retval] double* pVal);
+	[propget, id(105), helpstring("Edge 포인트 속성")] HRESULT StartPosY([out, retval] double* pVal);
+	[propget, id(106), helpstring("Edge 포인트 속성")] HRESULT StartPosZ([out, retval] double* pVal);
+	[propget, id(107), helpstring("Edge 포인트 속성")] HRESULT EndPosX([out, retval] double* pVal);
+	[propget, id(108), helpstring("Edge 포인트 속성")] HRESULT EndPosY([out, retval] double* pVal);
+	[propget, id(109), helpstring("Edge 포인트 속성")] HRESULT EndPosZ([out, retval] double* pVal);
+
+	[propget, id(110), helpstring("Edge 포인트 속성")] HRESULT StartPosXAt([in] int index, [out, retval] double* pVal);
+	[propget, id(111), helpstring("Edge 포인트 속성")] HRESULT StartPosYAt([in] int index, [out, retval] double* pVal);
+	[propget, id(112), helpstring("Edge 포인트 속성")] HRESULT StartPosZAt([in] int index, [out, retval] double* pVal);
+	[propget, id(113), helpstring("Edge 포인트 속성")] HRESULT EndPosXAt([in] int index, [out, retval] double* pVal);
+	[propget, id(114), helpstring("Edge 포인트 속성")] HRESULT EndPosYAt([in] int index, [out, retval] double* pVal);
+	[propget, id(115), helpstring("Edge 포인트 속성")] HRESULT EndPosZAt([in] int index, [out, retval] double* pVal);
+};
+
+[
+	object,
+	uuid(1804C402-FBAF-438F-B849-AB6940606E6D),
+	dual,
+	nonextensible,
+	helpstring("IStdSketchOrigin 인터페이스"),
+	pointer_default(unique)
+]
+interface IStdSketchOrigin : IDispatch{
+	[propget, id(1), helpstring("Application 객체를 리턴합니다.")] HRESULT Application([out, retval] IApplication** ppVal);
+	[propget, id(2), helpstring("부모 객체를 리턴합니다.")] HRESULT Parent([out, retval] IDispatch** ppVal);
+	[propget, id(3), helpstring("Name 속성")] HRESULT Name([out, retval] BSTR* pVal);
+	[propget, id(4), helpstring("StdSketchFeature 속성")] HRESULT SketchFeature([out, retval] IStdSketchFeature** ppVal);
+};
+
+[
+	object,
+	uuid(1C5FDD6C-3075-4A54-9E08-D959769C24C6),
+	dual,
+	nonextensible,
+	helpstring("IStdSketchVDirection 인터페이스"),
+	pointer_default(unique)
+]
+interface IStdSketchVDirection : IDispatch{
+	[propget, id(1), helpstring("Application 객체를 리턴합니다.")] HRESULT Application([out, retval] IApplication** ppVal);
+	[propget, id(2), helpstring("부모 객체를 리턴합니다.")] HRESULT Parent([out, retval] IDispatch** ppVal);
+	[propget, id(3), helpstring("Name 속성")] HRESULT Name([out, retval] BSTR* pVal);
+	[propget, id(4), helpstring("StdSketchFeature 속성")] HRESULT SketchFeature([out, retval] IStdSketchFeature** ppVal);
+};
+
+[
+	object,
+	uuid(5A732443-2A35-4519-9C1A-5C9E25342D22),
+	dual,
+	nonextensible,
+	helpstring("IStdSketchHDirection 인터페이스"),
+	pointer_default(unique)
+]
+interface IStdSketchHDirection : IDispatch{
+	[propget, id(1), helpstring("Application 객체를 리턴합니다.")] HRESULT Application([out, retval] IApplication** ppVal);
+	[propget, id(2), helpstring("부모 객체를 리턴합니다.")] HRESULT Parent([out, retval] IDispatch** ppVal);
+	[propget, id(3), helpstring("Name 속성")] HRESULT Name([out, retval] BSTR* pVal);
+	[propget, id(4), helpstring("StdSketchFeature 속성")] HRESULT SketchFeature([out, retval] IStdSketchFeature** ppVal);
+};
+
+[
+	object,
+	uuid(7FFE9084-7C7B-4E75-ABF6-C21A1281E279),
+	dual,
+	nonextensible,
+	helpstring("IStdSketchGeometries 인터페이스"),
+	pointer_default(unique)
+]
+interface IStdSketchGeometries : IDispatch{
+	[propget, id(1), helpstring("Application 객체를 리턴합니다.")] HRESULT Application([out, retval] IApplication** ppVal);
+	[propget, id(2), helpstring("부모 객체를 리턴합니다.")] HRESULT Parent([out, retval] IDispatch** ppVal);
+	[propget, id(3), helpstring("StdSketchGeometries 객체의 수를 리턴합니다.")] HRESULT Count([out, retval] long* pVal);
+	[propget, id(DISPID_VALUE), helpstring("index 번째의 IStdSketchGeometry 객체를 리턴합니다.")] HRESULT Item([in] long index, [out, retval] IStdSketchGeometry** ppVal);
+	[propget, id(DISPID_NEWENUM), helpstring("열거자 객체를 리턴합니다.")] HRESULT _NewEnum([out, retval] IUnknown** ppUnk);
+	[propget, id(4), helpstring("FindByName 속성")] HRESULT FindByName([out, retval] IStdSketchGeometry** ppVal);
+};
+
+[
+	object,
+	uuid(82DD5568-C7F7-4647-B815-66D4E72D5738),
+	dual,
+	nonextensible,
+	helpstring("IStdSketchConstraints 인터페이스"),
+	pointer_default(unique)
+]
+interface IStdSketchConstraints : IDispatch{
+	[propget, id(1), helpstring("Application 객체를 리턴합니다.")] HRESULT Application([out, retval] IApplication** ppVal);
+	[propget, id(2), helpstring("부모 객체를 리턴합니다.")] HRESULT Parent([out, retval] IDispatch** ppVal);
+	[propget, id(3), helpstring("StdSketchConstraints 객체의 수를 리턴합니다.")] HRESULT Count([out, retval] long* pVal);
+	[propget, id(DISPID_VALUE), helpstring("index 번째의 StdSketchConstraint 객체를 리턴합니다.")] HRESULT Item([in] long index, [out, retval] IStdSketchConstraint** ppVal);
+	[propget, id(DISPID_NEWENUM), helpstring("열거자 객체를 리턴합니다.")] HRESULT _NewEnum([out, retval] IUnknown** ppUnk);
+	[propget, id(4), helpstring("FindByName 속성")] HRESULT FindByName([out, retval] IStdSketchConstraint** ppVal);
+};
+
+[
+	object,
+	uuid(882DF9BC-FF59-4E65-8E7B-0BCAD3D4150F),
+	dual,
+	nonextensible,
+	helpstring("IStdSketchGeometry 인터페이스"),
+	pointer_default(unique)
+]
+interface IStdSketchGeometry : IDispatch{
+	[propget, id(1), helpstring("Application 객체를 리턴합니다.")] HRESULT Application([out, retval] IApplication** ppVal);
+	[propget, id(2), helpstring("부모 객체를 리턴합니다.")] HRESULT Parent([out, retval] IDispatch** ppVal);
+	[propget, id(3), helpstring("StdSketchGeometryType을 리턴합니다.")] HRESULT Type([out, retval] StdSketchGeometryType* pVal);
+	[propget, id(4), helpstring("이름 속성")] HRESULT Name([out, retval] BSTR* pVal);
+	[propget, id(5), helpstring("StdSketchFeature 속성")] HRESULT SketchFeature([out, retval] IStdSketchFeature** ppVal);
+};
+
+[
+	object,
+	uuid(23057881-19B6-4395-9D39-B5B62F75B5EF),
+	dual,
+	nonextensible,
+	helpstring("IStdSketchConstraint 인터페이스"),
+	pointer_default(unique)
+]
+interface IStdSketchConstraint : IDispatch{
+	[propget, id(1), helpstring("Application 객체를 리턴합니다.")] HRESULT Application([out, retval] IApplication** ppVal);
+	[propget, id(2), helpstring("부모 객체를 리턴합니다.")] HRESULT Parent([out, retval] IDispatch** ppVal);
+	[propget, id(3), helpstring("StdSketchConstraintType을 리턴합니다.")] HRESULT Type([out, retval] StdSketchConstraintType* pVal);
+	[propget, id(4), helpstring("이름 속성")] HRESULT Name([out, retval] BSTR* pVal);
+	[propget, id(5), helpstring("StdSketchFeature 속성")] HRESULT SketchFeature([out, retval] IStdSketchFeature** ppVal);
+};
+
+[
+	object,
+	uuid(C10C6FDD-8B99-4449-82F1-EAE67407CE67),
+	dual,
+	nonextensible,
+	helpstring("IStdSketchCircle 인터페이스"),
+	pointer_default(unique)
+]
+interface IStdSketchCircle : IStdSketchGeometry{
+	[propget, id(101), helpstring("CenterPoint 속성")] HRESULT CenterPoint([out, retval] IStdSketchControlPoint** ppVal);
+	[propget, id(102), helpstring("Radius 속성")] HRESULT Radius([out, retval] double* pVal);
+};
+
+[
+	object,
+	uuid(EF6BF49C-742C-4C57-8A37-CECFE279DB97),
+	dual,
+	nonextensible,
+	helpstring("IStdSketchCircularArc 인터페이스"),
+	pointer_default(unique)
+]
+interface IStdSketchCircularArc : IStdSketchGeometry{
+	[propget, id(101), helpstring("CenterPoint 속성")] HRESULT CenterPoint([out, retval] IStdSketchControlPoint** ppVal);
+	[propget, id(102), helpstring("StartPoint 속성")] HRESULT StartPoint([out, retval] IStdSketchControlPoint** ppVal);
+	[propget, id(103), helpstring("EndPoint 속성")] HRESULT EndPoint([out, retval] IStdSketchControlPoint** ppVal);
+	[propget, id(104), helpstring("Radius 속성")] HRESULT Radius([out, retval] double* pVal);
+	[propget, id(105), helpstring("StartAngle 속성")] HRESULT StartAngle([out, retval] double* pVal);
+	[propget, id(106), helpstring("EndAngle 속성")] HRESULT EndAngle([out, retval] double* pVal);
+};
+
+[
+	object,
+	uuid(3966E6F5-EC21-413E-B0EA-AF5077205967),
+	dual,
+	nonextensible,
+	helpstring("IStdSketchControlPoint 인터페이스"),
+	pointer_default(unique)
+]
+interface IStdSketchControlPoint : IStdSketchGeometry{
+	[propget, id(101), helpstring("X 속성")] HRESULT X([out, retval] double* pVal);
+	[propget, id(102), helpstring("Y 속성")] HRESULT Y([out, retval] double* pVal);
+};
+
+[
+	object,
+	uuid(EE1EB2EA-DFA3-42A5-A9CB-321FC40B04DC),
+	dual,
+	nonextensible,
+	helpstring("IStdSketchLine 인터페이스"),
+	pointer_default(unique)
+]
+interface IStdSketchLine : IStdSketchGeometry{
+	[propget, id(101), helpstring("StartPoint 속성")] HRESULT StartPoint([out, retval] IStdSketchControlPoint** ppVal);
+	[propget, id(102), helpstring("EndPoint 속성")] HRESULT EndPoint([out, retval] IStdSketchControlPoint** ppVal);
+};
+
+[
+	object,
+	uuid(2A7E4FCC-4DF6-4E4F-81F8-80C048316156),
+	dual,
+	nonextensible,
+	helpstring("IReferences 인터페이스"),
+	pointer_default(unique)
+]
+interface IReferences : IDispatch{
+	[propget, id(3), helpstring("Reference 객체의 수를 리턴합니다.")] HRESULT Count([out, retval] long* pVal);
+	[propget, id(DISPID_VALUE), helpstring("index 번째의 Reference 객체를 리턴합니다.")] HRESULT Item([in] long index, [out, retval] IReference** ppVal);
+	[propget, id(DISPID_NEWENUM), helpstring("열거자 객체를 리턴합니다.")] HRESULT _NewEnum([out, retval] IUnknown** ppUnk);
+	[id(4), helpstring("Reference 객체를 추가합니다.")] HRESULT Add([in] IReference* pVal);
+};
+
+[
+	object,
+	uuid(A0CDFCD7-C97B-426F-8528-0AA0321EA0FA),
+	dual,
+	nonextensible,
+	helpstring("IReference 인터페이스"),
+	pointer_default(unique)
+]
+interface IReference : IDispatch{
+	[propget, id(1), helpstring("ReferenceType을 리턴합니다.")] HRESULT Type([out, retval] ReferenceType* pVal);
+	[propget, id(2), helpstring("Name 속성")] HRESULT Name([out, retval] BSTR* pVal);
+	[propget, id(3), helpstring("ReferenceeName 속성")] HRESULT ReferenceeName([out, retval] BSTR* pVal);
+};
+
+[
+	object,
+	uuid(86E4FF07-1F31-42AD-A922-315C8DD57943),
+	dual,
+	nonextensible,
+	helpstring("IExplicitModelObject 인터페이스"),
+	pointer_default(unique)
+]
+interface IExplicitModelObject : IDispatch{
+	[propget, id(1), helpstring("Application 객체를 리턴합니다.")] HRESULT Application([out, retval] IApplication** ppVal);
+	[propget, id(2), helpstring("부모 객체를 리턴합니다.")] HRESULT Parent([out, retval] IDispatch** ppVal);
+	[propget, id(3), helpstring("ExplicitModelObjectType을 리턴합니다.")] HRESULT Type([out, retval] ExplicitModelObjectType* pVal);
+	[propget, id(4), helpstring("Creator 속성")] HRESULT Creator([out, retval] IFeature** ppVal);
+	[propget, id(5), helpstring("Name 속성")] HRESULT Name([out, retval] BSTR* pVal);
+};
+
+[
+	object,
+	uuid(0235D6AB-E6F9-4665-98AF-75B7D56A0129),
+	dual,
+	nonextensible,
+	helpstring("ISketch 인터페이스"),
+	pointer_default(unique)
+]
+interface ISketch : IExplicitModelObject{
+};
+
+[
+	object,
+	uuid(57FAE9E3-F8D4-49B2-AB0A-B88F640B7CF2),
+	dual,
+	nonextensible,
+	helpstring("ISketchEditor 인터페이스"),
+	pointer_default(unique)
+]
+interface ISketchEditor : IDispatch{
+	[id(1), helpstring("SketchEditor를 끝냅니다.")] HRESULT Close(void);
+	[id(2), helpstring("두 점으로부터 선분을 생성합니다.")] HRESULT Create2DLine2Points([in] BSTR name, [in] double startX, [in] double startY, [in] double endX, [in] double endY, [out, retval] IStdSketchLine** ppVal);
+	[id(3), helpstring("원의 중심과 반경으로부터 원을 생성합니다.")] HRESULT Create2DCircleCenterPoint([in] BSTR name, [in] double centerX, [in] double centerY, [in] double radius, [out, retval] IStdSketchCircle** ppVal);
+	[id(4), helpstring("원호의 중심과 시작각, 끝각으로부터 원호를 생성합니다.")] HRESULT Create2DArc([in] BSTR name, [in] double centerX, [in] double centerY, [in] double radius, [in] double startAngle, [in] double endAngle, [out, retval] IStdSketchCircularArc** ppVal);
+	[id(5), helpstring("원호의 중심과 시작점, 끝점으로부터 원호를 생성합니다.")] HRESULT Create2DArcCenterStartEnd([in] BSTR name, [in] double centerX, [in] double centerY, [in] double startX, [in] double startY, [in] double endX, [in] double endY, [out, retval] IStdSketchCircularArc** ppVal);
+	[id(6), helpstring("세 점으로부터 원호를 생성합니다.")] HRESULT Create2DArc3Points([in] BSTR name, [in] double startX, [in] double startY, [in] double intermediateX, [in] double intermediateY, [in] double endX, [in] double endY, [out, retval] IStdSketchCircularArc** ppVal);
+	[id(7), helpstring("두 점으로부터 중심선분을 생성합니다.")] HRESULT Create2DCenterline2Points([in] BSTR name, [in] double startX, [in] double startY, [in] double endX, [in] double endY, [out, retval] IStdSketchLine** ppVal);
+	[id(8), helpstring("Coincident_SamePoints 생성")] HRESULT CreateCoincidentSamePoints([in] BSTR name, [in] IReference* pFirstObject, [in] StdCoincidentSamePointsType firstType, [in] IReference* pSecondObject, [in] StdCoincidentSamePointsType secondType, [out, retval] IStdSketchCoincidentSamePoints** ppVal);
+	[id(9), helpstring("Perpendicular 생성")] HRESULT CreatePerpendicular([in] BSTR name, [in] IReference* pReferenceEdit, [in] IReference* pTarget, [out, retval] IStdSketchPerpendicular** ppVal);
+	[id(10), helpstring("Parallel 생성")] HRESULT CreateParallel([in] BSTR name, [in] IReference* pReferenceEdit, [in] IReference* pTarget, [out, retval] IStdSketchParallel** ppVal);
+	[id(11), helpstring("Horizontal 생성")] HRESULT CreateHorizontal([in] BSTR name, [in] IReference* pTarget, [out, retval] IStdSketchHorizontal** ppVal);
+	[id(12), helpstring("Vertical 생성")] HRESULT CreateVertical([in] BSTR name, [in] IReference* pTarget, [out, retval] IStdSketchVertical** ppVal);
+	[id(13), helpstring("name과 같은 스케치 요소를 제거합니다.")] HRESULT DeleteByName([in] BSTR name);
+};
+
+[
+	object,
+	uuid(62F39890-0584-4142-A8DE-E419F9BF7301),
+	dual,
+	nonextensible,
+	helpstring("IStdSolidProtrusionSweepFeature 인터페이스"),
+	pointer_default(unique)
+]
+interface IStdSolidProtrusionSweepFeature : IFeature{
+	[propget, id(101), helpstring("ProfileSketch 속성")] HRESULT ProfileSketch([out, retval] IReference** ppVal);
+	[propput, id(101), helpstring("ProfileSketch 속성")] HRESULT ProfileSketch([in] IReference* ppVal);
+	[propget, id(102), helpstring("GuideCurve 속성")] HRESULT GuideCurve([out, retval] IReference** ppVal);
+	[propput, id(102), helpstring("GuideCurve 속성")] HRESULT GuideCurve([in] IReference* ppVal);
+};
+
+[
+	object,
+	uuid(B8AAC9D3-8453-48C9-AC93-A116E891101E),
+	dual,
+	nonextensible,
+	helpstring("IStdSolidProtrusionRevolveFeature 인터페이스"),
+	pointer_default(unique)
+]
+interface IStdSolidProtrusionRevolveFeature : IFeature{
+	[propget, id(101), helpstring("ProfileSketch 속성")] HRESULT ProfileSketch([out, retval] IReference** ppVal);
+	[propput, id(101), helpstring("ProfileSketch 속성")] HRESULT ProfileSketch([in] IReference* ppVal);
+	[propget, id(102), helpstring("IsFlip 속성")] HRESULT IsFlip([out, retval] VARIANT_BOOL* pVal);
+	[propput, id(102), helpstring("IsFlip 속성")] HRESULT IsFlip([in] VARIANT_BOOL pVal);
+	[propget, id(103), helpstring("StartCondition 속성")] HRESULT StartCondition([out, retval] StdRevolveEndType* pVal);
+	[propget, id(104), helpstring("StartAngle 속성")] HRESULT StartAngle([out, retval] double* pVal);
+	[propput, id(104), helpstring("StartAngle 속성")] HRESULT StartAngle([in] double pVal);
+	[propget, id(105), helpstring("EndCondition 속성")] HRESULT EndCondition([out, retval] StdRevolveEndType* pVal);
+	[propget, id(106), helpstring("EndAngle 속성")] HRESULT EndAngle([out, retval] double* pVal);
+	[propput, id(106), helpstring("EndAngle 속성")] HRESULT EndAngle([in] double pVal);
+};
+
+[
+	object,
+	uuid(2600ED0F-883F-478A-AFDA-A7743A1ADF3A),
+	dual,
+	nonextensible,
+	helpstring("IStdSketchCenterline 인터페이스"),
+	pointer_default(unique)
+]
+interface IStdSketchCenterline : IStdSketchGeometry{
+	[propget, id(101), helpstring("StartPoint 속성")] HRESULT StartPoint([out, retval] IStdSketchControlPoint** ppVal);
+	[propget, id(102), helpstring("EndPoint 속성")] HRESULT EndPoint([out, retval] IStdSketchControlPoint** ppVal);
+};
+
+[
+	object,
+	uuid(929007FB-0FF4-477A-BC6B-9DB63B4F6407),
+	dual,
+	nonextensible,
+	helpstring("IStdSolidOperatePatternRectangularFeature 인터페이스"),
+	pointer_default(unique)
+]
+interface IStdSolidOperatePatternRectangularFeature : IFeature{
+	[propget, id(101), helpstring("TargetFeatures 속성")] HRESULT TargetFeatures([out, retval] IReferences** ppVal);
+	[propput, id(101), helpstring("TargetFeatures 속성")] HRESULT TargetFeatures([in] IReferences* ppVal);
+	[propget, id(102), helpstring("ColumnSpacing 속성")] HRESULT ColumnSpacing([out, retval] double* pVal);
+	[propput, id(102), helpstring("ColumnSpacing 속성")] HRESULT ColumnSpacing([in] double pVal);
+	[propget, id(103), helpstring("ColumnDirection 속성")] HRESULT ColumnDirection([out] double* x, [out] double* y, [out] double* z);
+	[propget, id(104), helpstring("ColumnNumber 속성")] HRESULT ColumnNumber([out, retval] int* pVal);
+	[propput, id(104), helpstring("ColumnNumber 속성")] HRESULT ColumnNumber([in] int pVal);
+	[propget, id(105), helpstring("RowSpacing 속성")] HRESULT RowSpacing([out, retval] double* pVal);
+	[propput, id(105), helpstring("RowSpacing 속성")] HRESULT RowSpacing([in] double pVal);
+	[propget, id(106), helpstring("RowDirection 속성")] HRESULT RowDirection([out] double* x, [out] double* y, [out] double* z);
+	[propget, id(107), helpstring("RowNumber 속성")] HRESULT RowNumber([out, retval] int* pVal);
+	[propput, id(107), helpstring("RowNumber 속성")] HRESULT RowNumber([in] int pVal);
+	[id(108), helpstring("ColumnDirection 속성")] HRESULT PutColumnDirection([in] double x, [in] double y, [in] double z);
+	[id(109), helpstring("RowDirection 속성")] HRESULT PutRowDirection([in] double x, [in] double y, [in] double z);
+};
+
+[
+	object,
+	uuid(7397F21A-E19F-4EDA-B89F-E18405BD3760),
+	dual,
+	nonextensible,
+	helpstring("IStdSolidChamferFeature 인터페이스"),
+	pointer_default(unique)
+]
+interface IStdSolidChamferFeature : IFeature{
+	[propget, id(101), helpstring("ChamferType 속성")] HRESULT ChamferType([out, retval] ChamferType* pVal);
+	[propget, id(102), helpstring("SelectedEdges 속성")] HRESULT SelectedEdges([out, retval] IReferences** ppVal);
+	[propput, id(102), helpstring("SelectedEdges 속성")] HRESULT SelectedEdges([in] IReferences* ppVal);
+	[propget, id(103), helpstring("SelectedFace 속성")] HRESULT SelectedFace([out, retval] IReference** ppVal);
+	[propget, id(104), helpstring("Length 속성")] HRESULT Length([out, retval] double* pVal);
+	[propput, id(104), helpstring("Length 속성")] HRESULT Length([in] double pVal);
+	[propget, id(105), helpstring("Value 속성")] HRESULT Value([out, retval] double* pVal);
+	[propget, id(106), helpstring("Edge 포인트 속성")] HRESULT StartPosX([out, retval] double* pVal);
+	[propget, id(107), helpstring("Edge 포인트 속성")] HRESULT StartPosY([out, retval] double* pVal);
+	[propget, id(108), helpstring("Edge 포인트 속성")] HRESULT StartPosZ([out, retval] double* pVal);
+	[propget, id(109), helpstring("Edge 포인트 속성")] HRESULT EndPosX([out, retval] double* pVal);
+	[propget, id(110), helpstring("Edge 포인트 속성")] HRESULT EndPosY([out, retval] double* pVal);
+	[propget, id(111), helpstring("Edge 포인트 속성")] HRESULT EndPosZ([out, retval] double* pVal);
+
+	[propget, id(112), helpstring("Edge 포인트 속성")] HRESULT StartPosXAt([in] int index, [out, retval] double* pVal);
+	[propget, id(113), helpstring("Edge 포인트 속성")] HRESULT StartPosYAt([in] int index, [out, retval] double* pVal);
+	[propget, id(114), helpstring("Edge 포인트 속성")] HRESULT StartPosZAt([in] int index, [out, retval] double* pVal);
+
+	[propget, id(115), helpstring("Edge 포인트 속성")] HRESULT EndPosXAt([in] int index, [out, retval] double* pVal);
+	[propget, id(116), helpstring("Edge 포인트 속성")] HRESULT EndPosYAt([in] int index, [out, retval] double* pVal);
+	[propget, id(117), helpstring("Edge 포인트 속성")] HRESULT EndPosZAt([in] int index, [out, retval] double* pVal);
+};
+
+[
+	object,
+	uuid(1B8E8E40-7D68-4387-A13F-D8E204212607),
+	dual,
+	nonextensible,
+	helpstring("IStdSolidCutRevolveFeature 인터페이스"),
+	pointer_default(unique)
+]
+interface IStdSolidCutRevolveFeature : IFeature{
+	[propget, id(101), helpstring("ProfileSketch 속성")] HRESULT ProfileSketch([out, retval] IReference** ppVal);
+	[propput, id(101), helpstring("ProfileSketch 속성")] HRESULT ProfileSketch([in] IReference* ppVal);
+	[propget, id(102), helpstring("IsFlip 속성")] HRESULT IsFlip([out, retval] VARIANT_BOOL* pVal);
+	[propput, id(102), helpstring("IsFlip 속성")] HRESULT IsFlip([in] VARIANT_BOOL pVal);
+	[propget, id(103), helpstring("StartCondition 속성")] HRESULT StartCondition([out, retval] StdRevolveEndType* pVal);
+	[propget, id(104), helpstring("StartAngle 속성")] HRESULT StartAngle([out, retval] double* pVal);
+	[propput, id(104), helpstring("StartAngle 속성")] HRESULT StartAngle([in] double pVal);
+	[propget, id(105), helpstring("EndCondition 속성")] HRESULT EndCondition([out, retval] StdRevolveEndType* pVal);
+	[propget, id(106), helpstring("EndAngle 속성")] HRESULT EndAngle([out, retval] double* pVal);
+	[propput, id(106), helpstring("EndAngle 속성")] HRESULT EndAngle([in] double pVal);
+};
+
+[
+	object,
+	uuid(1B44E76F-21AD-482B-A2D4-950375EC2D61),
+	dual,
+	nonextensible,
+	helpstring("IStdSolidOperatePatternCircularFeature 인터페이스"),
+	pointer_default(unique)
+]
+interface IStdSolidOperatePatternCircularFeature : IFeature{
+	[propget, id(101), helpstring("TargetFeatures 속성")] HRESULT TargetFeatures([out, retval] IReferences** ppVal);
+	[propput, id(101), helpstring("TargetFeatures 속성")] HRESULT TargetFeatures([in] IReferences* ppVal);
+	[propget, id(102), helpstring("CenterAxis 속성")] HRESULT CenterAxis([out] double* x1, [out] double* y1, [out] double* z1, [out] double* x2, [out] double* y2, [out] double* z2);
+	[propget, id(103), helpstring("AngleNumber 속성")] HRESULT AngleNumber([out, retval] int* pVal);
+	[propput, id(103), helpstring("AngleNumber 속성")] HRESULT AngleNumber([in] int pVal);
+	[propget, id(104), helpstring("AngleIncrement 속성")] HRESULT AngleIncrement([out, retval] double* pVal);
+	[propput, id(104), helpstring("AngleIncrement 속성")] HRESULT AngleIncrement([in] double pVal);
+	[propget, id(105), helpstring("RadialNumber 속성")] HRESULT RadialNumber([out, retval] int* pVal);
+	[propput, id(105), helpstring("RadialNumber 속성")] HRESULT RadialNumber([in] int pVal);
+	[propget, id(106), helpstring("RadialSpacing 속성")] HRESULT RadialSpacing([out, retval] double* pVal);
+	[propput, id(106), helpstring("RadialSpacing 속성")] HRESULT RadialSpacing([in] double pVal);
+	[propget, id(107), helpstring("IsRadialAnignment 속성")] HRESULT IsRadialAnignment([out, retval] VARIANT_BOOL* pVal);
+	[propput, id(107), helpstring("IsRadialAnignment 속성")] HRESULT IsRadialAnignment([in] VARIANT_BOOL pVal);
+	[id(108), helpstring("CenterAxis 속성")] HRESULT PutCenterAxis([in] double x1, [in] double y1, [in] double z1, [in] double x2, [in] double y2, [in] double z2);
+};
+
+/** \} */
+
+[
+	object,
+	uuid(5089AE2E-41C5-4DD3-BFFA-6B5ECFF99141),
+	dual,
+	nonextensible,
+	helpstring("IStdSolidHoleCounterboredFeature 인터페이스"),
+	pointer_default(unique)
+]
+interface IStdSolidHoleCounterboredFeature : IFeature{
+	[propget, id(101), helpstring("TargetFace 속성")] HRESULT TargetFace([out, retval] IReference** ppVal);
+	[propput, id(101), helpstring("TargetFace 속성")] HRESULT TargetFace([in] IReference* ppVal);
+	[propget, id(102), helpstring("CenterPoint 속성")] HRESULT CenterPoint([out] double* cx, [out] double* cy, [out] double* cz);
+	[propget, id(103), helpstring("StartRadius 속성")] HRESULT StartRadius([out, retval] double* pVal);
+	[propput, id(103), helpstring("StartRadius 속성")] HRESULT StartRadius([in] double pVal);
+	[propget, id(104), helpstring("StartDepth 속성")] HRESULT StartDepth([out, retval] double* pVal);
+	[propput, id(104), helpstring("StartDepth 속성")] HRESULT StartDepth([in] double pVal);
+	[propget, id(105), helpstring("EndRadius 속성")] HRESULT EndRadius([out, retval] double* pVal);
+	[propput, id(105), helpstring("EndRadius 속성")] HRESULT EndRadius([in] double pVal);
+	[propget, id(106), helpstring("EndDepth 속성")] HRESULT EndDepth([out, retval] double* pVal);
+	[propput, id(106), helpstring("EndDepth 속성")] HRESULT EndDepth([in] double pVal);
+	[propget, id(107), helpstring("BottomAngle 속성")] HRESULT Angle([out, retval] double* pVal);
+	[propput, id(107), helpstring("BottomAngle 속성")] HRESULT Angle([in] double pVal);
+	[id(108), helpstring("CenterPoint 속성")] HRESULT PutCenterPoint([in] double cx, [in] double cy, [in] double cz);
+};
+
+[
+	object,
+	uuid(9980B5BE-2421-46DC-9425-84588082DD28),
+	dual,
+	nonextensible,
+	helpstring("IStdSolidHoleCountersunkFeature 인터페이스"),
+	pointer_default(unique)
+]
+interface IStdSolidHoleCountersunkFeature : IFeature{
+	[propget, id(101), helpstring("TargetFace 속성")] HRESULT TargetFace([out, retval] IReference** ppVal);
+	[propput, id(101), helpstring("TargetFace 속성")] HRESULT TargetFace([in] IReference* ppVal);
+	[propget, id(102), helpstring("CenterPoint 속성")] HRESULT CenterPoint([out] double* cx, [out] double* cy, [out] double* cz);
+	[propget, id(103), helpstring("Radius 속성")] HRESULT Radius([out, retval] double* pVal);
+	[propput, id(103), helpstring("Radius 속성")] HRESULT Radius([in] double pVal);
+	[propget, id(104), helpstring("Depth 속성")] HRESULT Depth([out, retval] double* pVal);
+	[propput, id(104), helpstring("Depth 속성")] HRESULT Depth([in] double pVal);
+	[propget, id(105), helpstring("SinkRadius 속성")] HRESULT SinkRadius([out, retval] double* pVal);
+	[propput, id(105), helpstring("SinkRadius 속성")] HRESULT SinkRadius([in] double pVal);
+	[propget, id(106), helpstring("SinkAngle 속성")] HRESULT SinkAngle([out, retval] double* pVal);
+	[propput, id(106), helpstring("SinkAngle 속성")] HRESULT SinkAngle([in] double pVal);
+	[propget, id(107), helpstring("BottomAngle 속성")] HRESULT BottomAngle([out, retval] double* pVal);
+	[propput, id(107), helpstring("BottomAngle 속성")] HRESULT BottomAngle([in] double pVal);
+	[id(108), helpstring("CenterPoint 속성")] HRESULT PutCenterPoint([in] double cx, [in] double cy, [in] double cz);
+};
+
+[
+	object,
+	uuid(16103C6E-B6D1-4F7C-BDA8-E6CF5112ACCD),
+	dual,
+	nonextensible,
+	helpstring("IStdSketchCoincidentSamePoints 인터페이스"),
+	pointer_default(unique)
+]
+interface IStdSketchCoincidentSamePoints : IStdSketchConstraint{
+	[propget, id(101), helpstring("FirstObject 속성")] HRESULT FirstObject([out, retval] IReference** ppVal);
+	[propget, id(102), helpstring("FirstType 속성")] HRESULT FirstType([out, retval] StdCoincidentSamePointsType* pVal);
+	[propget, id(103), helpstring("SecondObject 속성")] HRESULT SecondObject([out, retval] IReference** ppVal);
+	[propget, id(104), helpstring("SecondType속성")] HRESULT SecondType([out, retval] StdCoincidentSamePointsType* pVal);
+};
+
+[
+	object,
+	uuid(ABA27711-124A-47C3-BB88-3D2703F87984),
+	dual,
+	nonextensible,
+	helpstring("IStdSketchParallel 인터페이스"),
+	pointer_default(unique)
+]
+interface IStdSketchParallel : IStdSketchConstraint{
+	[propget, id(101), helpstring("ReferenceEdit 속성")] HRESULT ReferenceEdit([out, retval] IReference** ppVal);
+	[propget, id(102), helpstring("Target 속성")] HRESULT Target([out, retval] IReference** ppVal);
+};
+
+[
+	object,
+	uuid(FF3A0BDD-1AA5-48FA-9F40-228A00C64A47),
+	dual,
+	nonextensible,
+	helpstring("IStdSketchPerpendicular 인터페이스"),
+	pointer_default(unique)
+]
+interface IStdSketchPerpendicular : IStdSketchConstraint{
+	[propget, id(101), helpstring("ReferenceEdit 속성")] HRESULT ReferenceEdit([out, retval] IReference** ppVal);
+	[propget, id(102), helpstring("Target 속성")] HRESULT Target([out, retval] IReference** ppVal);
+};
+
+[
+	object,
+	uuid(3C500269-634E-4018-9598-916C7035CCAA),
+	dual,
+	nonextensible,
+	helpstring("IStdSketchHorizontal 인터페이스"),
+	pointer_default(unique)
+]
+interface IStdSketchHorizontal : IStdSketchConstraint{
+	[propget, id(101), helpstring("Target 속성")] HRESULT Target([out, retval] IReference** ppVal);
+};
+
+[
+	object,
+	uuid(07F4BA82-AA63-4C00-B640-0D00044FB2DC),
+	dual,
+	nonextensible,
+	helpstring("IStdSketchVertical 인터페이스"),
+	pointer_default(unique)
+]
+interface IStdSketchVertical : IStdSketchConstraint{
+	[propget, id(101), helpstring("Target 속성")] HRESULT Target([out, retval] IReference** ppVal);
+};
+
+[
+	object,
+	uuid(5A9FB9F5-92A5-4E46-B5A5-D9C163A1FD8C),
+	dual,
+	nonextensible,
+	pointer_default(unique)
+]
+interface IStdDatumPlaneOffsetFeature : IFeature{
+	[propget, id(101), helpstring("SelectedPlane 속성")] HRESULT SelectedPlane([out, retval] IReference** ppVal);
+	[propput, id(101), helpstring("SelectedPlane 속성")] HRESULT SelectedPlane([in] IReference* ppVal);
+	[propget, id(102), helpstring("IsFlip 속성")] HRESULT IsFlip([out, retval] VARIANT_BOOL* pVal);
+	[propput, id(102), helpstring("IsFlip 속성")] HRESULT IsFlip([in] VARIANT_BOOL pVal);
+	[propget, id(103), helpstring("Distance 속성")] HRESULT Distance([out, retval] double* pVal);
+	[propput, id(103), helpstring("Distance 속성")] HRESULT Distance([in] double pVal);
+	[propget, id(104), helpstring("IsFree 속성")] HRESULT IsFree([out, retval] VARIANT_BOOL* pVal);
+	[propget, id(105), helpstring("Origin 속성")] HRESULT Origin([out] double* ox, [out] double* oy, [out] double* oz);
+	[propget, id(106), helpstring("XDirection 속성")] HRESULT XDirection([out] double* xx, [out] double* xy, [out] double* xz);
+	[propget, id(107), helpstring("YDirection 속성")] HRESULT YDirection([out] double* yx, [out] double* yy, [out] double* yz);
+	[id(108), helpstring("Origin 속성")] HRESULT PutOrigin([in] double ox, [in] double oy, [in] double oz);
+	[id(109), helpstring("XDirection 속성")] HRESULT PutXDirection([in] double xx, [in] double xy, [in] double xz);
+	[id(110), helpstring("YDirection 속성")] HRESULT PutYDirection([in] double yx, [in] double yy, [in] double yz);
+};
+
+[
+	object,
+	uuid(B1A7FE7F-54BF-4CE5-8947-831358C38D56),
+	dual,
+	nonextensible,
+	pointer_default(unique)
+]
+interface IStdSolidLoftFacesFeature : IFeature{
+	[propget, id(101), helpstring("Face1 속성")] HRESULT Face1([out, retval] IReference** ppVal);
+	[propget, id(102), helpstring("Param1 속성")] HRESULT Param1([out, retval] double* pVal);
+	[propget, id(103), helpstring("Face2 속성")] HRESULT Face2([out, retval] IReference** ppVal);
+	[propget, id(104), helpstring("Param2 속성")] HRESULT Param2([out, retval] double* pVal);
+};
+
+[
+	object,
+	uuid(09BE8C17-DB20-4474-8BE9-F4D94E27261A),
+	dual,
+	nonextensible,
+	pointer_default(unique)
+]
+interface IStdSolidLoftSectionsFeature : IFeature{
+	[propget, id(101), helpstring("References 속성")] HRESULT References([out, retval] IReferences** ppVal);
+	[propget, id(102), helpstring("IsCut 속성")] HRESULT IsCut([out, retval] VARIANT_BOOL* pVal);
+};
+
+[
+	object,
+	uuid(CF090569-05D8-44A0-8656-82BDFE1B79A6),
+	dual,
+	nonextensible,
+	pointer_default(unique)
+]
+interface IStdSolidCutSweepFeature : IFeature{
+	[propget, id(101), helpstring("ProfileSketch 속성")] HRESULT ProfileSketch([out, retval] IReference** ppVal);
+	[propput, id(101), helpstring("ProfileSketch 속성")] HRESULT ProfileSketch([in] IReference* ppVal);
+	[propget, id(102), helpstring("GuideCurve 속성")] HRESULT GuideCurve([out, retval] IReference** ppVal);
+	[propput, id(102), helpstring("GuideCurve 속성")] HRESULT GuideCurve([in] IReference* ppVal);
+};
+
+[
+	object,
+	uuid(FCCF7496-9645-4B6D-9C4D-067D3D1D60AF),
+	dual,
+	nonextensible,
+	pointer_default(unique)
+]
+interface IStdSolidHoleSimpleFeature : IFeature{
+	[propget, id(101), helpstring("TargetFace 속성")] HRESULT TargetFace([out, retval] IReference** ppVal);
+	[propput, id(101), helpstring("TargetFace 속성")] HRESULT TargetFace([in] IReference* ppVal);
+	[propget, id(102), helpstring("CenterPoint 속성")] HRESULT CenterPoint([out] double* cx, [out] double* cy, [out] double* cz);
+	[propget, id(103), helpstring("StartRadius 속성")] HRESULT Radius([out, retval] double* pVal);
+	[propput, id(103), helpstring("StartRadius 속성")] HRESULT Radius([in] double pVal);
+	[propget, id(104), helpstring("StartDepth 속성")] HRESULT Depth([out, retval] double* pVal);
+	[propput, id(104), helpstring("StartDepth 속성")] HRESULT Depth([in] double pVal);
+	[id(105), helpstring("CenterPoint 속성")] HRESULT PutCenterPoint([in] double cx, [in] double cy, [in] double cz);
+};
+
+[
+	object,
+	uuid(66548701-6ACC-4271-98A8-D7666930FF05),
+	dual,
+	nonextensible,
+	pointer_default(unique)
+]
+interface IStdSolidShellFeature : IFeature{
+	[propget, id(101), helpstring("TargetFaces 속성")] HRESULT TargetFaces([out, retval] IReferences** ppVal);
+	[propput, id(101), helpstring("TargetFaces 속성")] HRESULT TargetFaces([in] IReferences* ppVal);
+	[propget, id(102), helpstring("InnerThickness 속성")] HRESULT InnerThickness([out, retval] double* pVal);
+	[propput, id(102), helpstring("InnerThickness 속성")] HRESULT InnerThickness([in] double pVal);
+	[propget, id(103), helpstring("OuterThickness 속성")] HRESULT OuterThickness([out, retval] double* pVal);
+	[propput, id(103), helpstring("OuterThickness 속성")] HRESULT OuterThickness([in] double pVal);
+};
+
+[
+	object,
+	uuid(EA1585E2-4E46-44E1-808B-4432B9896E2D),
+	dual,
+	nonextensible,
+	pointer_default(unique)
+]
+interface IStdSolidRevolveWithExternalAxisFeature : IFeature{
+	[propget, id(101), helpstring("ProfileSketch 속성")] HRESULT ProfileSketch([out, retval] IReference** ppVal);
+	[propput, id(101), helpstring("ProfileSketch 속성")] HRESULT ProfileSketch([in] IReference* ppVal);
+	[propget, id(102), helpstring("StartAngle 속성")] HRESULT StartAngle([out, retval] double* pVal);
+	[propput, id(102), helpstring("StartAngle 속성")] HRESULT StartAngle([in] double pVal);
+	[propget, id(103), helpstring("StartCondition 속성")] HRESULT StartCondition([out, retval] StdRevolveEndType* pVal);
+	[propget, id(104), helpstring("EndAngle 속성")] HRESULT EndAngle([out, retval] double* pVal);
+	[propput, id(104), helpstring("EndAngle 속성")] HRESULT EndAngle([in] double pVal);
+	[propget, id(105), helpstring("EndCondition 속성")] HRESULT EndCondition([out, retval] StdRevolveEndType* pVal);
+	[propget, id(106), helpstring("IsFlip 속성")] HRESULT IsFlip([out, retval] VARIANT_BOOL* pVal);
+	[propput, id(106), helpstring("IsFlip 속성")] HRESULT IsFlip([in] VARIANT_BOOL pVal);
+	[propget, id(107), helpstring("IsCut 속성")] HRESULT IsCut([out, retval] VARIANT_BOOL* pVal);
+	[propput, id(107), helpstring("IsCut 속성")] HRESULT IsCut([in] VARIANT_BOOL pVal);
+	[propget, id(108), helpstring("CenterAxis 속성")] HRESULT RevolveAxis([out] double* orgX, [out] double* orgY, [out] double* orgZ, [out] double* dirX, [out] double* dirY, [out] double* dirZ);
+	[id(109), helpstring("CenterAxis 속성")] HRESULT PutRevolveAxis([in] double orgX, [in] double orgY, [in] double orgZ, [in] double dirX, [in] double dirY, [in] double dirZ);
+};
+
+[
+	object,
+	uuid(2AC4B8DA-F372-4214-89F7-AB6231E94691),
+	dual,
+	nonextensible,
+	pointer_default(unique)
+]
+interface IStdSolidDraftFeature : IFeature{
+	[propget, id(101), helpstring("TargetFaces 속성")] HRESULT TargetFaces([out, retval] IReferences** ppVal);
+	[propput, id(101), helpstring("TargetFaces 속성")] HRESULT TargetFaces([in] IReferences* ppVal);
+	[propget, id(102), helpstring("DraftAngle 속성")] HRESULT DraftAngle([out, retval] double* pVal);
+	[propput, id(102), helpstring("DraftAngle 속성")] HRESULT DraftAngle([in] double pVal);
+	[propget, id(103), helpstring("PullingDirection 속성")] HRESULT PullingDirection([out] double* orgX, [out] double* orgY, [out] double* orgZ, [out] double* dirX, [out] double* dirY, [out] double* dirZ);	
+	[id(104), helpstring("PullingDirection 속성")] HRESULT PutPullingDirection([in] double orgX, [in] double orgY, [in] double orgZ, [in] double dirX, [in] double dirY, [in] double dirZ);
+	
+};
+
+[
+	object,
+	uuid(B7A36313-CA66-4A4B-83BE-B797FB0DE80A),
+	dual,
+	nonextensible,
+	pointer_default(unique)
+]
+interface IStdSolidOffsetFeature : IFeature{
+	[propget, id(101), helpstring("TargetFaces 속성")] HRESULT TargetFaces([out, retval] IReferences** ppVal);
+	[propput, id(101), helpstring("TargetFaces 속성")] HRESULT TargetFaces([in] IReferences* ppVal);
+	[propget, id(102), helpstring("OffsetThickness 속성")] HRESULT OffsetThickness([out, retval] double* pVal);
+	[propput, id(102), helpstring("OffsetThickness 속성")] HRESULT OffsetThickness([in] double pVal);
+};
+
+[
+	object,
+	uuid(378EBA37-1568-40E9-BD72-EA48ED471EDC),
+	dual,
+	nonextensible,
+	pointer_default(unique)
+]
+interface IStdSolidImportedBrepFeature : IFeature{
+	[propget, id(101), helpstring("FilePath 속성")] HRESULT FilePath([out, retval] BSTR* pVal);
+};
+
+[
+	object,
+	uuid(280DF2D0-BE2A-448C-BBCE-11814636C4C8),
+	dual,
+	nonextensible,
+	pointer_default(unique)
+]
+interface ISolid : IDispatch{
+	[propget, id(101), helpstring("Faces 속성")] HRESULT Faces([out, retval] IFaces** ppVal);
+	[propget, id(102), helpstring("Edges 속성")] HRESULT Edges([out, retval] IEdges** ppVal);
+	[propget, id(103), helpstring("Vertices 속성")] HRESULT Vertices([out, retval] IVertices** ppVal);
+};
+
+[
+	object,
+	uuid(3C5C1AB1-AFE7-43B3-874B-D76D77909018),
+	dual,
+	nonextensible,
+	pointer_default(unique)
+]
+interface IFaces : IDispatch{
+	[propget, id(3), helpstring("Face 객체의 수를 리턴합니다.")] HRESULT Count([out, retval] long* pVal);
+	[propget, id(DISPID_VALUE), helpstring("index 번째의 Face 객체를 리턴합니다.")] HRESULT Item([in] long index, [out, retval] IFace** ppVal);
+	[propget, id(DISPID_NEWENUM), helpstring("열거자 객체를 리턴합니다.")] HRESULT _NewEnum([out, retval] IUnknown** ppUnk);
+};
+
+[
+	object,
+	uuid(9E0256D6-3731-41C9-997B-245FF562E829),
+	dual,
+	nonextensible,
+	pointer_default(unique)
+]
+interface IEdges : IDispatch{
+	[propget, id(3), helpstring("Edge 객체의 수를 리턴합니다.")] HRESULT Count([out, retval] long* pVal);
+	[propget, id(DISPID_VALUE), helpstring("index 번째의 Edge 객체를 리턴합니다.")] HRESULT Item([in] long index, [out, retval] IEdge** ppVal);
+	[propget, id(DISPID_NEWENUM), helpstring("열거자 객체를 리턴합니다.")] HRESULT _NewEnum([out, retval] IUnknown** ppUnk);
+};
+
+[
+	object,
+	uuid(2439D908-0C5B-47E0-890E-46C20B9F1897),
+	dual,
+	nonextensible,
+	pointer_default(unique)
+]
+interface IFace : IDispatch{
+	[propget, id(1), helpstring("FaceType을 리턴합니다.")] HRESULT Type([out, retval] FaceType* pVal);
+	[propget, id(2), helpstring("Name 속성")] HRESULT Name([out, retval] BSTR* pVal);
+	[propget, id(3), helpstring("Edges 속성")] HRESULT Edges([out, retval] IEdges** ppVal);
+	[propget, id(4), helpstring("Vertices 속성")] HRESULT Vertices([out, retval] IVertices** ppVal);
+	[propget, id(5), helpstring("Centroid 속성")] HRESULT Centroid([out] double* cx, [out] double* cy, [out] double* cz);
+	[propget, id(6), helpstring("XDirection 속성")] HRESULT XDirection([out] double* xx, [out] double* xy, [out] double* xz);
+	[propget, id(7), helpstring("YDirection 속성")] HRESULT YDirection([out] double* yx, [out] double* yy, [out] double* yz);
+	[propget, id(8), helpstring("ZDirection 속성")] HRESULT ZDirection([out] double* zx, [out] double* zy, [out] double* zz);
+	[propget, id(9), helpstring("Area 속성")] HRESULT Area([out, retval] double* pVal);
+};
+
+[
+	object,
+	uuid(D54BD7B3-4AE1-4B8E-8925-A92A223EF614),
+	dual,
+	nonextensible,
+	pointer_default(unique)
+]
+interface IEdge : IDispatch{
+	[propget, id(1), helpstring("EdgeType을 리턴합니다.")] HRESULT Type([out, retval] EdgeType* pVal);
+	[propget, id(2), helpstring("Name 속성")] HRESULT Name([out, retval] BSTR* pVal);
+	[propget, id(3), helpstring("StartPoint 속성")] HRESULT StartPoint([out, retval] IVertex** ppVal);
+	[propget, id(4), helpstring("EndPoint 속성")] HRESULT EndPoint([out, retval] IVertex** ppVal);
+};
+
+[
+	object,
+	uuid(AC5C4DC7-E3A7-4978-97E0-E4F2DB1226EF),
+	dual,
+	nonextensible,
+	pointer_default(unique)
+]
+interface IVertices : IDispatch{
+	[propget, id(3), helpstring("Vertex 객체의 수를 리턴합니다.")] HRESULT Count([out, retval] long* pVal);
+	[propget, id(DISPID_VALUE), helpstring("index 번째의 Vertex 객체를 리턴합니다.")] HRESULT Item([in] long index, [out, retval] IVertex** ppVal);
+	[propget, id(DISPID_NEWENUM), helpstring("열거자 객체를 리턴합니다.")] HRESULT _NewEnum([out, retval] IUnknown** ppUnk);
+};
+
+[
+	object,
+	uuid(0EA073CC-3C4A-48EA-9799-3C818D8107A6),
+	dual,
+	nonextensible,
+	pointer_default(unique)
+]
+interface IVertex : IDispatch{
+	[propget, id(1), helpstring("Name 속성")] HRESULT Name([out, retval] BSTR* pVal);
+	[propget, id(2), helpstring("Coordinates 속성")] HRESULT Coordinates([out] double* x, [out] double* y, [out] double* z);
+	[propget, id(3), helpstring("X 속성")] HRESULT X([out, retval] double* x);
+	[propget, id(4), helpstring("Y 속성")] HRESULT Y([out, retval] double* y);
+	[propget, id(5), helpstring("Z 속성")] HRESULT Z([out, retval] double* z);
+};
+
+[
+	object,
+	uuid(381B3303-9EEA-482A-A184-F404C85AB87D),
+	dual,
+	nonextensible,
+	pointer_default(unique)
+]
+interface IPoint3D : IDispatch{
+	[propget, id(1), helpstring("X 좌표")] HRESULT X([out, retval] double* pVal);
+	[propput, id(1), helpstring("X 좌표")] HRESULT X([in] double pVal);
+	[propget, id(2), helpstring("Y 좌표")] HRESULT Y([out, retval] double* pVal);
+	[propput, id(2), helpstring("Y 좌표")] HRESULT Y([in] double pVal);
+	[propget, id(3), helpstring("Z 좌표")] HRESULT Z([out, retval] double* pVal);
+	[propput, id(3), helpstring("Z 좌표")] HRESULT Z([in] double pVal);
+};
+
+[
+	object,
+	uuid(F30AD8B9-836E-4869-B5A2-CD7682555719),
+	dual,
+	nonextensible,
+	pointer_default(unique)
+]
+interface IAxis1 : IDispatch{
+	[propget, id(1), helpstring("Location 속성")] HRESULT Location([out, retval] IPoint3D** pVal);
+	[propput, id(1), helpstring("Location 속성")] HRESULT Location([in] IPoint3D* pVal);
+	[propget, id(2), helpstring("Direction 속성")] HRESULT Direction([out, retval] IPoint3D** pVal);
+	[propput, id(2), helpstring("Direction 속성")] HRESULT Direction([in] IPoint3D* pVal);
+};
+
+//-------------------------- Assembly --------------------------//
+
+[
+	object,
+	uuid(1EE2B408-02CE-4E5F-BFFC-B793BAC322C1),
+	dual,
+	nonextensible,
+	pointer_default(unique)
+]
+interface IAssemDocument : IDoc{
+	[propget, id(101), helpstring("속성 Assem")] HRESULT Assem([out, retval] IAssem** pVal);
+	[id(102), helpstring("Assem를 업데이트합니다.")] HRESULT Update(void);
+	[id(103), helpstring("test합니다.")] HRESULT test(void);
+
+};
+
+[
+	object,
+	uuid(47B8D6AB-475C-4102-AF1A-6962A7796C3A),
+	dual,
+	nonextensible,
+	pointer_default(unique)
+]
+interface IComp : IDispatch{
+	[id(1), helpstring("Set Comp Name")] HRESULT set_Name ([in] BSTR pVal);
+	[id(2), helpstring("Set Comp Parent Name")] HRESULT set_ParentName ([in] BSTR pVal);
+
+	[id(3), helpstring("Get Comp Name")] HRESULT get_Name ([out, retval] BSTR* pVal);
+	[id(4), helpstring("Get Comp Parent Name")] HRESULT get_ParentName ([out, retval] BSTR* pVal);
+	[id(5), helpstring("Get Part")] HRESULT GetPart ([in] int i, [out, retval] IPart** ppVal);
+	[id(6), helpstring("Get Comp")] HRESULT GetComponent ([in] int i, [out, retval] IComp** ppVal);
+
+	[id(7), helpstring("is Comp")] HRESULT IsComponent ([in] int i, VARIANT_BOOL* pVal);
+	[id(8), helpstring("is Part")] HRESULT IsPart ([in] int i, VARIANT_BOOL* pVal);
+
+	[id(9), helpstring("add part")] HRESULT AddPart ([in] IPart* pVal);
+	[id(10), helpstring("add Comp")] HRESULT AddComponent([in] IComp* pVal);
+
+	[id(11), helpstring("Get size")] HRESULT GetSize([out, retval] int * pVal);
+	[id(12), helpstring("Get placement")] HRESULT GetPlacement([out]double* ox, [out]double* oy, [out]double* oz, [out]double* xx, [out]double* xy,[out] double* xz, [out]double* yx, [out]double* yy, [out]double* yz);
+	[id(13), helpstring("Set placement")] HRESULT SetPlacement([in]double ox, [in]double oy, [in]double oz, [in]double zx, [in]double zy, [in]double zz, [in]double xx, [in]double xy, [in]double xz);
+	[id(17), helpstring("save as mesh file")] HRESULT SaveAsMesh ([in]int i, [in] BSTR name);
+	[id(18), helpstring("새로운 Part를 생성합니다.")] HRESULT CreatePart ( [in] BSTR name, [out, retval] IPart** ppVal );
+	[id(19), helpstring("XML을 이용하여 Part를 생성합니다")] HRESULT ImportPartFromXML( [in] BSTR path, [in] IPart* pVal, [out, retval] IPart** ppVal );
+	[id(20), helpstring("Component에 추가된 Part의 placement를 지정합니다.")] HRESULT SetPartPlacement ( [in] IPart* pVal, [in]double ox, [in]double oy, [in]double oz, [in]double zx, [in]double zy, [in]double zz, [in]double xx, [in]double xy, [in]double xz );
+// 	[id(1), helpstring("CreatePart")] HRESULT CreatePart([out, retval] IPart** ppVal);
+// //	[id(4), helpstring("Reference 객체를 추가합니다.")] HRESULT Add([in] IReference* pVal);
+// 	[id(2), helpstring("AddPart")] HRESULT AddPart([in] IPart* pVal);
+// 	[id(3), helpstring("AddAssem temporary")] HRESULT AddAssem([in] BSTR pVal,[in] BSTR pVal2);
+// 	[id(4), helpstring("Add Boolean Part")] HRESULT AddBooleanPart( [in] BSTR pVal, [in] IPart* pTool, [in] IPart* pBlank );
+// 	[id(5), helpstring("Add Boolean Part 2")] HRESULT AddBooleanPart2( [in] BSTR pVal, [in] IPart* pTool, [in] VARIANT_BOOL type/*true for add; false for cut*/);
+// 	[id(6), helpstring("Create Component")] HRESULT CreateComponent([out, retval] IComp** ppVal);
+};
+
+[
+	object,
+	uuid(AD55F898-5CF6-4D13-97DB-FEAB1156626F),
+	dual,
+	nonextensible,
+	pointer_default(unique)
+]
+interface IAssem : IDispatch{
+	[id(1), helpstring("CreatePart")] HRESULT CreatePart([out, retval] IPart** ppVal);
+	[id(2), helpstring("Create Component")] HRESULT CreateComponent([out, retval] IComp** ppVal);
+	[id(3), helpstring("Add Comp")] HRESULT AddComponent([in] IComp* pVal);
+	[id(4), helpstring("Get Comp")] HRESULT GetComponent ([in] int index, [out, retval] IComp** ppVal);
+	[id(5), helpstring("Get size")] HRESULT GetSize([out, retval] int * pVal);
+	[propget, id(6), helpstring("이름을 리턴합니다.")] HRESULT Name([out, retval] BSTR* pVal);
+	[propget, id(7), helpstring("IConstraints 객체를 리턴합니다.")] HRESULT Constraints([out, retval] IStdAssemConstraints** ppVal);
+};
+
+
+
+
+[
+	object,
+	uuid(4AB8ED74-3B2F-47AB-B081-D676C2C45AE8),
+	dual,
+	nonextensible,
+	helpstring("IStdAssemConstraints 인터페이스"),
+	pointer_default(unique)
+]
+interface IStdAssemConstraints : IDispatch{
+	[propget, id(1), helpstring("Constraint 객체의 수를 리턴합니다.")] HRESULT Count([out, retval] long* pVal);
+	[propget, id(2), helpstring("index 번째의 Constraint 객체를 리턴합니다.")] HRESULT Constraint([in] long index, [out, retval] IStdAssemConstraint** ppVal);
+	[id(3), helpstring("Select constraint by name")] HRESULT SelectConstraintByName([in] BSTR name, [out, retval] IStdAssemConstraint** ppVal);
+	[id(4), helpstring("새로운 CoaxialConstraint 객체를 만들고, 이를 추가합니다.")] HRESULT AddNewAssemblyCoaxialConstraint( [in]BSTR name, [in] IPart* pConstrainedPart, [in] IReference* pConstrainedGeometry, [in] IPart* pReferencePart, [in] IReference* pReferenceGeometry, [out, retval] IStdAssemConstraintCoaxial** ppVal );
+	[id(5), helpstring("새로운 IncidenceConstraint 객체를 만들고, 이를 추가합니다.")] HRESULT AddNewAssemblyIncidenceConstraint( [in] BSTR name, [in] IPart* pConstrainedPart, [in] IReference* pConstrainedGeometry, [in] IPart* pReferencePart, [in] IReference* pReferenceGeometry, [in] StdAssemblyIncidenceType incidenceType, [out, retval] IStdAssemConstraintIncidence** ppVal );
+	[id(6), helpstring("새로운 DistanceConstraint 객체를 만들고, 이를 추가합니다.")] HRESULT AddNewAssemblyDistance( [in] BSTR name, [in] IPart* pConstrainedPart, [in] IReference* pConstrainedGeometry, [in] IPart* pReferencePart, [in] IReference* pReferenceGeometry, [in] double distance,[in] StdAssemblyIncidenceType incidenceType, [out, retval] IStdAssemConstraintDistance** ppVal );
+	[id(7), helpstring("새로운 AngleConstraint 객체를 만들고, 이를 추가합니다.")] HRESULT AddNewAssemblyAngle( [in] BSTR name, [in] IPart* pConstrainedPart, [in] IReference* pConstrainedGeometry, [in] IPart* pReferencePart, [in] IReference* pReferenceGeometry, [in] double angle, [out, retval] IStdAssemConstraintAngle** ppVal );
+};
+
+
+[
+	object,
+	uuid(0861DBF0-310A-4F63-BB23-DC9C37341155),
+	dual,
+	nonextensible,
+	helpstring("IStdAssemConstraint 인터페이스"),
+	pointer_default(unique)
+]
+interface IStdAssemConstraint : IDispatch{
+	[propget, id(1), helpstring("Application 객체를 리턴합니다.")] HRESULT Application([out, retval] IApplication** ppVal);
+	[propget, id(2), helpstring("부모 객체를 리턴합니다.")] HRESULT Parent([out, retval] IDispatch** ppVal);
+	[propget, id(3), helpstring("AssemblyConstraintType을 리턴합니다.")] HRESULT Type([out, retval] StdAssemblyConstraintType* pVal);
+	[propget, id(4), helpstring("AssemblyConstraint의 이름을 리턴합니다.")] HRESULT Name([out, retval] BSTR* pVal);
+	[id(5), helpstring("AssemblyConstraint의 이름을 설정합니다.")] HRESULT SetName([in] BSTR pVal);
+};
+
+
+
+[
+	object,
+	uuid(F5074BA1-513A-4F33-9091-CC8CF56DAAB1),
+	dual,
+	nonextensible,
+	helpstring("IStdAssemConstraintCoaxial 인터페이스"),
+	pointer_default(unique)
+]
+interface IStdAssemConstraintCoaxial : IStdAssemConstraint{
+	[propget, id(101), helpstring("ConstrainedPart 객체를 리턴합니다.")] HRESULT ConstrainedPart([out, retval] IPart** ppVal);
+	[propget, id(102), helpstring("ConstrainedGeometry 객체를 리턴합니다.")] HRESULT ConstrainedGeometry([out, retval] IReference** ppVal);
+	[propget, id(103), helpstring("ReferencePart 객체를 리턴합니다.")] HRESULT ReferencePart([out, retval] IPart** ppVal);
+	[propget, id(104), helpstring("ReferenceGeometry 객체를 리턴합니다.")] HRESULT ReferenceGeometry([out, retval] IReference** ppVal);
+
+};
+
+
+[
+	object,
+	uuid(449F2C9C-FA8E-43A1-B332-AFAD30360C60),
+	dual,
+	nonextensible,
+	helpstring("IStdAssemConstraintIncidence 인터페이스"),
+	pointer_default(unique)
+]
+interface IStdAssemConstraintIncidence : IStdAssemConstraint{
+	[propget, id(101), helpstring("ConstrainedPart 객체를 리턴합니다.")] HRESULT ConstrainedPart([out, retval] IPart** ppVal);
+	[propget, id(102), helpstring("ConstrainedGeometry 객체를 리턴합니다.")] HRESULT ConstrainedGeometry([out, retval] IReference** ppVal);
+	[propget, id(103), helpstring("ReferencePart 객체를 리턴합니다.")] HRESULT ReferencePart([out, retval] IPart** ppVal);
+	[propget, id(104), helpstring("ReferenceGeometry 객체를 리턴합니다.")] HRESULT ReferenceGeometry([out, retval] IReference** ppVal);
+};
+
+
+[
+	object,
+	uuid(2EEDC914-DAB8-467B-899F-EDCC4C2B5D0B),
+	dual,
+	nonextensible,
+	pointer_default(unique)
+]
+interface IStdAssemConstraintDistance : IStdAssemConstraint{
+	[propget, id(101), helpstring("ConstrainedPart 객체를 리턴합니다.")] HRESULT ConstrainedPart([out, retval] IPart** ppVal);
+	[propget, id(102), helpstring("ConstrainedGeometry 객체를 리턴합니다.")] HRESULT ConstrainedGeometry([out, retval] IReference** ppVal);
+	[propget, id(103), helpstring("ReferencePart 객체를 리턴합니다.")] HRESULT ReferencePart([out, retval] IPart** ppVal);
+	[propget, id(104), helpstring("ReferenceGeometry 객체를 리턴합니다.")] HRESULT ReferenceGeometry([out, retval] IReference** ppVal);
+};
+
+[
+	object,
+	uuid(27423066-332F-4719-B64B-BA655C36CE47),
+	dual,
+	nonextensible,
+	pointer_default(unique)
+]
+interface IStdAssemConstraintAngle : IStdAssemConstraint{
+	[propget, id(101), helpstring("ConstrainedPart 객체를 리턴합니다.")] HRESULT ConstrainedPart([out, retval] IPart** ppVal);
+	[propget, id(102), helpstring("ConstrainedGeometry 객체를 리턴합니다.")] HRESULT ConstrainedGeometry([out, retval] IReference** ppVal);
+	[propget, id(103), helpstring("ReferencePart 객체를 리턴합니다.")] HRESULT ReferencePart([out, retval] IPart** ppVal);
+	[propget, id(104), helpstring("ReferenceGeometry 객체를 리턴합니다.")] HRESULT ReferenceGeometry([out, retval] IReference** ppVal);
+};
+
+[
+	uuid(DC31CA13-34CA-4D11-A678-58E9FCE42872),
+	version(1.0),
+	helpstring("TransCAD 1.0 형식 라이브러리")
+]
+library TransCAD
+{
+	importlib("stdole2.tlb");
+	[
+		uuid(D83A9111-5458-42C6-B99D-836E42E21B45),
+		helpstring("Application Class"),
+		appobject
+	]
+	coclass Application
+	{
+		[default] interface IApplication;
+	};
+	
+	[
+		uuid(AD3DDB7B-9F0E-4315-B922-79FC0C8EC2BA),
+		helpstring("Documents Class")
+	]
+	coclass Documents
+	{
+		[default] interface IDocs;
+	};
+
+	[
+		uuid(986B706F-513A-45C5-A943-89A379553504),
+		helpstring("Document Class")
+	]
+	coclass Document
+	{
+		[default] interface IDoc;
+	};
+
+	[
+		uuid(D16A646E-C4E2-43EB-888E-39CC59488B5A),
+		helpstring("PartDocument Class")
+	]
+	coclass PartDocument
+	{
+		[default] interface IPartDocument;
+	};
+
+	[
+		uuid(DE2D5FCB-7160-44CE-A96D-AA43B6975106),
+		helpstring("Part Class")
+	]
+	coclass Part
+	{
+		[default] interface IPart;
+	};
+
+	[
+		uuid(606DAAF6-D453-4015-845F-7EE235B68DCF),
+		helpstring("Features Class")
+	]
+	coclass Features
+	{
+		[default] interface IFeatures;
+	};
+
+	[
+		uuid(F931861E-5FAC-491F-9E55-2AA15343BEF5),
+		helpstring("StdDefaultDatumPlaneFeature Class")
+	]
+	coclass StdDefaultDatumPlaneFeature
+	{
+		[default] interface IStdDefaultDatumPlaneFeature;
+	};
+
+	[
+		uuid(FFAFC9A3-572B-4039-8F79-F012DDA8284C),
+		helpstring("StdSketchFeature Class")
+	]
+	coclass StdSketchFeature
+	{
+		[default] interface IStdSketchFeature;
+	};
+
+	[
+		uuid(48C7D279-76DC-4A8D-B538-E5DC0546A293),
+		helpstring("StdSolidProtrusionExtrudeFeature Class")
+	]
+	coclass StdSolidProtrusionExtrudeFeature
+	{
+		[default] interface IStdSolidProtrusionExtrudeFeature;
+	};
+
+	[
+		uuid(F7E0B9E7-F1BD-45BF-9B91-9748A5CA0F3B),
+		helpstring("StdSolidCutExtrudeFeature Class")
+	]
+	coclass StdSolidCutExtrudeFeature
+	{
+		[default] interface IStdSolidCutExtrudeFeature;
+	};
+
+	[
+		uuid(A73A542C-CA02-49E8-A6A7-7DDDD05EA083),
+		helpstring("StdSolidFilletConstantFeature Class")
+	]
+	coclass StdSolidFilletConstantFeature
+	{
+		[default] interface IStdSolidFilletConstantFeature;
+	};
+
+	[
+		uuid(21EDA72E-5989-461A-9C82-1BBE68990A3D),
+		helpstring("StdSketchOrigin Class")
+	]
+	coclass StdSketchOrigin
+	{
+		[default] interface IStdSketchOrigin;
+	};
+
+	[
+		uuid(7A4A8E6C-34BC-40AC-AE41-4C72D87A1303),
+		helpstring("StdSketchVDirection Class")
+	]
+	coclass StdSketchVDirection
+	{
+		[default] interface IStdSketchVDirection;
+	};
+
+	[
+		uuid(09464CC6-18AC-439D-B619-30928FF81D95),
+		helpstring("StdSketchHDirection Class")
+	]
+	coclass StdSketchHDirection
+	{
+		[default] interface IStdSketchHDirection;
+	};
+
+	[
+		uuid(F8FEF672-2F3E-4891-B1C1-D0344659B1B8),
+		helpstring("StdSketchGeometries Class")
+	]
+	coclass StdSketchGeometries
+	{
+		[default] interface IStdSketchGeometries;
+	};
+
+	[
+		uuid(FE4F1E78-5869-496B-90A1-054A2C82D6B8),
+		helpstring("StdSketchConstraints Class")
+	]
+	coclass StdSketchConstraints
+	{
+		[default] interface IStdSketchConstraints;
+	};
+
+	[
+		uuid(C8CA998E-7106-4C71-B1EA-8550A478DC0C),
+		helpstring("StdSketchGeometry Class")
+	]
+	coclass StdSketchGeometry
+	{
+		[default] interface IStdSketchGeometry;
+	};
+
+	[
+		uuid(28C0967E-E8E0-4180-AE84-3AF9CF11EF49),
+		helpstring("StdSketchConstraint Class")
+	]
+	coclass StdSketchConstraint
+	{
+		[default] interface IStdSketchConstraint;
+	};
+
+	[
+		uuid(F24E3B06-EB2A-4C6F-A2FB-D53BDDA85F4E),
+		helpstring("StdSketchCircle Class")
+	]
+	coclass StdSketchCircle
+	{
+		[default] interface IStdSketchCircle;
+	};
+
+	[
+		uuid(6B2CAA3D-D1FF-4DA4-AC97-E18A7867DF64),
+		helpstring("StdSketchCircularArc Class")
+	]
+	coclass StdSketchCircularArc
+	{
+		[default] interface IStdSketchCircularArc;
+	};
+
+	[
+		uuid(A02B8290-2B16-4E7A-A360-EEEC6DDC6700),
+		helpstring("StdSketchControlPoint Class")
+	]
+	coclass StdSketchControlPoint
+	{
+		[default] interface IStdSketchControlPoint;
+	};
+
+	[
+		uuid(9F8963EE-1DE4-485E-9B09-E5B376E7C869),
+		helpstring("StdSketchLine Class")
+	]
+	coclass StdSketchLine
+	{
+		[default] interface IStdSketchLine;
+	};
+
+	[
+		uuid(CB55CD74-F19E-4DB3-9FF5-BF66B8EEA916),
+		helpstring("References Class")
+	]
+	coclass References
+	{
+		[default] interface IReferences;
+	};
+
+	[
+		uuid(B305C600-A038-4F99-9081-18960E273016),
+		helpstring("Reference Class")
+	]
+	coclass Reference
+	{
+		[default] interface IReference;
+	};
+
+	[
+		uuid(0C575300-D79F-4C2D-AE23-A7D1FD3A0421),
+		helpstring("ExplicitModelObject Class")
+	]
+	coclass ExplicitModelObject
+	{
+		[default] interface IExplicitModelObject;
+	};
+
+	[
+		uuid(78C8CF8F-48A1-41AD-B47E-AD802059344E),
+		helpstring("Sketch Class")
+	]
+	coclass Sketch
+	{
+		[default] interface ISketch;
+	};
+
+	[
+		uuid(2A4BB0D4-ED3E-43DE-BB11-DA0EC51AA1A1),
+		helpstring("SketchEditor Class")
+	]
+	coclass SketchEditor
+	{
+		[default] interface ISketchEditor;
+	};	
+
+	[
+		uuid(55A4F80E-6504-47FA-A2C1-309CAF002353),
+		helpstring("StdSolidProtrusionSweepFeature Class")
+	]
+	coclass StdSolidProtrusionSweepFeature
+	{
+		[default] interface IStdSolidProtrusionSweepFeature;
+	};
+
+	[
+		uuid(135BB7D6-4978-4580-981F-CBB43287DA55),
+		helpstring("StdSolidProtrusionRevolveFeature Class")
+	]
+	coclass StdSolidProtrusionRevolveFeature
+	{
+		[default] interface IStdSolidProtrusionRevolveFeature;
+	};
+
+	[
+		uuid(E0E00E33-5799-4E88-8F95-37E4CDF160A8),
+		helpstring("StdSketchCenterline Class")
+	]
+	coclass StdSketchCenterline
+	{
+		[default] interface IStdSketchCenterline;
+	};
+
+	[
+		uuid(AB178822-57C5-4580-BEC4-5A1D28D18A5A),
+		helpstring("StdSolidOperatePatternRectangularFeature Class")
+	]
+	coclass StdSolidOperatePatternRectangularFeature
+	{
+		[default] interface IStdSolidOperatePatternRectangularFeature;
+	};
+
+	[
+		uuid(119291A7-495D-42BB-B26E-B16BB89C4513),
+		helpstring("StdSolidChamferFeature Class")
+	]
+	coclass StdSolidChamferFeature
+	{
+		[default] interface IStdSolidChamferFeature;
+	};
+
+	[
+		uuid(14AA1AEF-63F7-4729-9D0B-ED50AB1A9276),
+		helpstring("StdSolidCutRevolveFeature Class")
+	]
+	coclass StdSolidCutRevolveFeature
+	{
+		[default] interface IStdSolidCutRevolveFeature;
+	};
+
+	[
+		uuid(9B1C1D69-F475-4E5E-AB2A-B461FB090351),
+		helpstring("StdSolidOperatePatternCircularFeature Class")
+	]
+	coclass StdSolidOperatePatternCircularFeature
+	{
+		[default] interface IStdSolidOperatePatternCircularFeature;
+	};
+
+	[
+		uuid(D1D97125-6F20-4315-8ED7-98B7CFEBEA19),
+		helpstring("StdSolidHoleCounterboredFeature Class")
+	]
+	coclass StdSolidHoleCounterboredFeature
+	{
+		[default] interface IStdSolidHoleCounterboredFeature;
+	};
+
+	[
+		uuid(76D732AF-F626-4165-94D6-28A108D5D1B0),
+		helpstring("StdSolidHoleCountersunkFeature Class")
+	]
+	coclass StdSolidHoleCountersunkFeature
+	{
+		[default] interface IStdSolidHoleCountersunkFeature;
+	};
+
+	[
+		uuid(8EF63188-27E0-426A-9706-FD528CAAEA19)		
+	]
+	coclass StdSketchCoincidentSamePoints
+	{
+		[default] interface IStdSketchCoincidentSamePoints;
+	};
+
+	[
+		uuid(CF544838-ADA6-46F6-A879-B07BA0CB2DA9)		
+	]
+	coclass StdSketchParallel
+	{
+		[default] interface IStdSketchParallel;
+	};
+
+	[
+		uuid(634CDB4B-31D1-4F62-B0A0-2ACCF5310BB5)		
+	]
+	coclass StdSketchPerpendicular
+	{
+		[default] interface IStdSketchPerpendicular;
+	};
+
+	[
+		uuid(2026F4D1-3C6D-46A1-B38D-90C3986BA5FA)		
+	]
+	coclass StdSketchHorizontal
+	{
+		[default] interface IStdSketchHorizontal;
+	};
+
+	[
+		uuid(88BEB2B9-2537-4A26-BF31-F8A4CC8E4EEE)		
+	]
+	coclass StdSketchVertical
+	{
+		[default] interface IStdSketchVertical;
+	};
+
+	[
+		uuid(2411D4FB-2117-4141-BDBE-4A06AA3F474B)		
+	]
+	coclass StdDatumPlaneOffsetFeature
+	{
+		[default] interface IStdDatumPlaneOffsetFeature;
+	};
+
+	[
+		uuid(7D2F6751-2F31-4A5A-8982-8CF15913B1B2)		
+	]
+	coclass AssemDocument
+	{
+		[default] interface IAssemDocument;
+	};
+
+	[
+		uuid(69C0835A-52B2-4D48-87D5-4DD526CAF20F)		
+	]
+	coclass Assem
+	{
+		[default] interface IAssem;
+	};
+
+	[
+		uuid(A2B69C14-A3CB-4A24-8257-6AB09A3229C0)		
+	]
+	coclass StdSolidLoftFacesFeature
+	{
+		[default] interface IStdSolidLoftFacesFeature;
+	};
+
+	[
+		uuid(C130D261-1349-498C-9BFE-BF50FB210DE5)		
+	]
+	coclass Component
+	{
+		[default] interface IComp;
+	};
+
+	[
+		uuid(F6B91C04-FE7C-42F7-9EDA-EA422488435A)		
+	]
+	coclass StdSolidLoftSectionsFeature
+	{
+		[default] interface IStdSolidLoftSectionsFeature;
+	};
+
+	[
+		uuid(4355BB2C-26F5-4B54-9FD1-3BEC29A14E20)		
+	]
+	coclass StdSolidCutSweepFeature
+	{
+		[default] interface IStdSolidCutSweepFeature;
+	};
+
+	[
+		uuid(862655C6-A468-40EA-AE7F-E115DC173166)		
+	]
+	coclass StdSolidHoleSimpleFeature
+	{
+		[default] interface IStdSolidHoleSimpleFeature;
+	};
+
+	[
+		uuid(DBCE6749-F171-4BFE-B16B-BB503388CCAD)		
+	]
+	coclass StdSolidShellFeature
+	{
+		[default] interface IStdSolidShellFeature;
+	};
+
+	[
+		uuid(9B592AE3-252B-4055-A929-40B61FD579B3)		
+	]
+	coclass StdSolidRevolveWithExternalAxisFeature
+	{
+		[default] interface IStdSolidRevolveWithExternalAxisFeature;
+	};
+
+	[
+		uuid(EA4665A7-A1E0-4114-A9C4-B5CE51B7ED98)		
+	]
+	coclass StdSolidDraftFeature
+	{
+		[default] interface IStdSolidDraftFeature;
+	};
+
+	[
+		uuid(D0E64BDD-DAE0-4A3B-B498-FFA4AA3965C6)		
+	]
+	coclass StdSolidOffsetFeature
+	{
+		[default] interface IStdSolidOffsetFeature;
+	};
+
+	[
+		uuid(0B1DA8B1-F07A-4992-9608-33DC223E7026)		
+	]
+	coclass StdSolidImportedBrepFeature
+	{
+		[default] interface IStdSolidImportedBrepFeature;
+	};
+	[
+		uuid(E43A5792-FAD8-4900-8ADA-6BC7AEF9F853)		
+	]
+	coclass Solid
+	{
+		[default] interface ISolid;
+	};
+	[
+		uuid(286F04FF-35EE-4DE3-BA7C-CAF5DFEB299F)		
+	]
+	coclass Faces
+	{
+		[default] interface IFaces;
+	};
+	[
+		uuid(D7FDB9A6-B050-459D-B151-67DFD75334B3)		
+	]
+	coclass Edges
+	{
+		[default] interface IEdges;
+	};
+	[
+		uuid(BE3EB3FD-27B1-4E8C-8E18-BBF82ED6E7FA)		
+	]
+	coclass Face
+	{
+		[default] interface IFace;
+	};
+	[
+		uuid(3D778A2F-4507-42F3-BADC-3491616FCAF0)		
+	]
+	coclass Edge
+	{
+		[default] interface IEdge;
+	};
+	[
+		uuid(C89024CE-BDC2-4B60-9151-73FC7E61AD96)		
+	]
+	coclass Vertices
+	{
+		[default] interface IVertices;
+	};
+	[
+		uuid(B6197B74-41DC-4BB5-B28A-3F730071A44C)		
+	]
+	coclass Vertex
+	{
+		[default] interface IVertex;
+	};
+	[
+		uuid(36D30594-7F32-4C2D-A839-C51C1F79C47B)		
+	]
+	coclass Point3D
+	{
+		[default] interface IPoint3D;
+	};
+	[
+		uuid(FFF99068-DDB2-419E-ACFD-283B1C946FBE)		
+	]
+	coclass Axis1
+	{
+		[default] interface IAxis1;
+	};
+
+	// 순조가 한 것들 //
+	
+	
+	[
+		uuid(5CB7B87B-A240-4EAB-A450-1186189D841E)		
+	]
+	coclass StdAssemConstraints
+	{
+		[default] interface IStdAssemConstraints;
+	};
+	
+
+	[
+		uuid(ACE6C03B-3878-46ED-B9DF-12858A904E5D)		
+	]
+	coclass StdAssemConstraintCoaxial
+	{
+		[default] interface IStdAssemConstraintCoaxial;
+	};
+	
+	
+	[
+		uuid(88630BBD-06D6-4E81-9552-D2F88D2E8CF5)		
+	]
+	coclass StdAssemConstraintIncidence
+	{
+		[default] interface IStdAssemConstraintIncidence;
+	};
+	[
+		uuid(399112CE-EF25-4CF2-9880-8A6F6145BBB8)		
+	]
+	coclass StdAssemConstraintDistance
+	{
+		[default] interface IStdAssemConstraintDistance;
+	};
+	[
+		uuid(A7A2A97D-8E05-4E0F-B2F4-A47C4A28329C)		
+	]
+	coclass StdAssemConstraintAngle
+	{
+		[default] interface IStdAssemConstraintAngle;
+	};
+};
+import "shobjidl.idl";

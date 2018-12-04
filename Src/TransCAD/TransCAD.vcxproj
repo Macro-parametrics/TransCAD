@@ -1,0 +1,406 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{3C4BF80A-0332-4EC4-BF7F-59E132875C17}</ProjectGuid>
+    <RootNamespace>TransCAD</RootNamespace>
+    <Keyword>MFCProj</Keyword>
+    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseOfMfc>Dynamic</UseOfMfc>
+    <UseOfAtl>Static</UseOfAtl>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseOfMfc>Dynamic</UseOfMfc>
+    <UseOfAtl>Static</UseOfAtl>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(SolutionDir)Bin\Debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(SolutionDir)IntmDir\$(ProjectName)\Debug\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</LinkIncremental>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(SolutionDir)Bin\Release\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(SolutionDir)IntmDir\$(ProjectName)\Release\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
+    <EmbedManifest Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</EmbedManifest>
+    <PostBuildEventUseInBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</PostBuildEventUseInBuild>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>$(SolutionDir)Src\MathRepresentation;$(SolutionDir)Src\PartModelingEngine;$(SolutionDir)Src\Assembler;$(SolutionDir)Src\PartModeler;$(HOOPS_INSTALL_DIR_1919)\Dev_Tools\hoops_3dgs\include;$(HOOPS_INSTALL_DIR_1919)\Dev_Tools\hoops_stream\include;$(HOOPS_INSTALL_DIR_1919)\Dev_Tools\hoops_mvo\include;$(HOOPS_INSTALL_DIR_1919)\Dev_Tools\hoops_mfc\include;$(HOOPS_INSTALL_DIR_1919)\Dev_Tools\utility\include;$(A3DT_R25)\include</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;_AFXDLL;ANSI;NT;NT_VC10_DLLD;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>true</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+    </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>$(SolutionDir)Lib\Debug;$(HOOPS_INSTALL_DIR_1919)\Dev_Tools\hoops_3dgs\lib\nt_i386_vc10;$(HOOPS_INSTALL_DIR_1919)\Dev_Tools\hoops_stream\lib\nt_i386_vc10;$(HOOPS_INSTALL_DIR_1919)\Dev_Tools\hoops_mvo\lib\nt_i386_vc10;$(HOOPS_INSTALL_DIR_1919)\Dev_Tools\hoops_mfc\lib\nt_i386_vc10;$(HOOPS_INSTALL_DIR_1919)\Dev_Tools\utility\lib\nt_i386_vc10;$(A3DT_R25)\NT_VC10_DLLD\code\lib\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+    <Midl>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+      <TargetEnvironment>Win32</TargetEnvironment>
+      <GenerateStublessProxies>true</GenerateStublessProxies>
+      <TypeLibraryName>$(OutDir)$(ProjectName).tlb</TypeLibraryName>
+      <HeaderFileName>$(ProjectName)_i.h</HeaderFileName>
+      <InterfaceIdentifierFileName>$(ProjectName)_i.c</InterfaceIdentifierFileName>
+    </Midl>
+    <PostBuildEvent>
+      <Message>등록하고 있습니다.</Message>
+      <Command>"$(TargetPath)" /RegServer</Command>
+    </PostBuildEvent>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0412</Culture>
+      <AdditionalIncludeDirectories>$(IntDir);$(OutDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(SolutionDir)Src\MathRepresentation;$(SolutionDir)Src\PartModelingEngine;$(SolutionDir)Src\PartModeler;$(SolutionDir)Src\Assembler;$(HOOPS_INSTALL_DIR)\Dev_Tools\hoops_3dgs\include;$(HOOPS_INSTALL_DIR)\Dev_Tools\hoops_stream\include;$(HOOPS_INSTALL_DIR)\Dev_Tools\hoops_mvo\include;$(HOOPS_INSTALL_DIR)\Dev_Tools\hoops_mfc\include;$(HOOPS_INSTALL_DIR)\Dev_Tools\utility\include;$(A3DT)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_AFXDLL;ANSI;NT;NT_NET_DLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>false</MinimalRebuild>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <Optimization>Disabled</Optimization>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>
+      </AdditionalDependencies>
+      <AdditionalLibraryDirectories>.\..\..\Lib\Release;$(HOOPS_INSTALL_DIR)\Dev_Tools\hoops_3dgs\lib\nt_i386_vc10;$(HOOPS_INSTALL_DIR)\Dev_Tools\hoops_stream\lib\nt_i386_vc10;$(HOOPS_INSTALL_DIR)\Dev_Tools\hoops_mvo\lib\nt_i386_vc10;$(HOOPS_INSTALL_DIR)\Dev_Tools\hoops_mfc\lib\nt_i386_vc10;$(HOOPS_INSTALL_DIR)\Dev_Tools\utility\lib\nt_i386_vc10;$(A3DT)\NT_VC10_DLL\code\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>false</OptimizeReferences>
+      <EnableCOMDATFolding>false</EnableCOMDATFolding>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+    <Midl>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+      <TargetEnvironment>Win32</TargetEnvironment>
+      <GenerateStublessProxies>true</GenerateStublessProxies>
+      <TypeLibraryName>$(OutDir)$(ProjectName).tlb</TypeLibraryName>
+      <HeaderFileName>TransCAD_i.h</HeaderFileName>
+      <InterfaceIdentifierFileName>TransCAD_i.c</InterfaceIdentifierFileName>
+    </Midl>
+    <PostBuildEvent>
+      <Message>등록하고 있습니다.</Message>
+      <Command>"$(TargetPath)"/RegServer</Command>
+    </PostBuildEvent>
+    <ResourceCompile>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0412</Culture>
+      <AdditionalIncludeDirectories>$(IntDir);$(OutDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="AssemAuto.cpp" />
+    <ClCompile Include="AssemDocumentAuto.cpp" />
+    <ClCompile Include="Axis1Auto.cpp" />
+    <ClCompile Include="ComponentAuto.cpp" />
+    <ClCompile Include="EdgeAuto.cpp" />
+    <ClCompile Include="EdgesAuto.cpp" />
+    <ClCompile Include="FaceAuto.cpp" />
+    <ClCompile Include="FacesAuto.cpp" />
+    <ClCompile Include="MainFrame.cpp" />
+    <ClCompile Include="PartDocument.cpp" />
+    <ClCompile Include="PartFrame.cpp" />
+    <ClCompile Include="PartView.cpp" />
+    <ClCompile Include="Point3DAuto.cpp" />
+    <ClCompile Include="SolidAuto.cpp" />
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="StdAssemConstraintAngleAuto.cpp" />
+    <ClCompile Include="StdAssemConstraintCoaxialAuto.cpp" />
+    <ClCompile Include="StdAssemConstraintDistanceAuto.cpp" />
+    <ClCompile Include="StdAssemConstraintIncidenceAuto.cpp" />
+    <ClCompile Include="StdAssemConstraintsAuto.cpp" />
+    <ClCompile Include="StdDatumPlaneOffsetFeatureAuto.cpp" />
+    <ClCompile Include="StdSketchCoincidentSamePointsAuto.cpp" />
+    <ClCompile Include="StdSketchHorizontalAuto.cpp" />
+    <ClCompile Include="StdSketchParallelAuto.cpp" />
+    <ClCompile Include="StdSketchPerpendicularAuto.cpp" />
+    <ClCompile Include="StdSketchVerticalAuto.cpp" />
+    <ClCompile Include="StdSolidCutSweepFeatureAuto.cpp" />
+    <ClCompile Include="StdSolidDraftFeatureAuto.cpp" />
+    <ClCompile Include="StdSolidHoleSimpleFeatureAuto.cpp" />
+    <ClCompile Include="StdSolidImportedBrepFeatureAuto.cpp" />
+    <ClCompile Include="StdSolidLoftFacesFeatureAuto.cpp" />
+    <ClCompile Include="StdSolidLoftSectionsFeatureAuto.cpp" />
+    <ClCompile Include="StdSolidOffsetFeatureAuto.cpp" />
+    <ClCompile Include="StdSolidRevolveWithExternalAxisFeatureAuto.cpp" />
+    <ClCompile Include="StdSolidShellFeatureAuto.cpp" />
+    <ClCompile Include="TransCAD.cpp" />
+    <ClCompile Include="ApplicationAuto.cpp" />
+    <ClCompile Include="DocumentAuto.cpp" />
+    <ClCompile Include="DocumentsAuto.cpp" />
+    <ClCompile Include="ExplicitModelObjectAuto.cpp" />
+    <ClCompile Include="FeaturesAuto.cpp" />
+    <ClCompile Include="PartAuto.cpp" />
+    <ClCompile Include="PartDocumentAuto.cpp" />
+    <ClCompile Include="ReferenceAuto.cpp" />
+    <ClCompile Include="ReferencesAuto.cpp" />
+    <ClCompile Include="SketchAuto.cpp" />
+    <ClCompile Include="SketchEditorAuto.cpp" />
+    <ClCompile Include="StdDefaultDatumPlaneFeatureAuto.cpp" />
+    <ClCompile Include="StdSketchCenterlineAuto.cpp" />
+    <ClCompile Include="StdSketchCircleAuto.cpp" />
+    <ClCompile Include="StdSketchCircularArcAuto.cpp" />
+    <ClCompile Include="StdSketchConstraintAuto.cpp" />
+    <ClCompile Include="StdSketchConstraintsAuto.cpp" />
+    <ClCompile Include="StdSketchControlPointAuto.cpp" />
+    <ClCompile Include="StdSketchFeatureAuto.cpp" />
+    <ClCompile Include="StdSketchGeometriesAuto.cpp" />
+    <ClCompile Include="StdSketchHDirectionAuto.cpp" />
+    <ClCompile Include="StdSketchLineAuto.cpp" />
+    <ClCompile Include="StdSketchOriginAuto.cpp" />
+    <ClCompile Include="StdSketchVDirectionAuto.cpp" />
+    <ClCompile Include="StdSolidChamferFeatureAuto.cpp" />
+    <ClCompile Include="StdSolidCutExtrudeFeatureAuto.cpp" />
+    <ClCompile Include="StdSolidCutRevolveFeatureAuto.cpp" />
+    <ClCompile Include="StdSolidFilletConstantFeatureAuto.cpp" />
+    <ClCompile Include="StdSolidHoleCounterboredFeatureAuto.cpp" />
+    <ClCompile Include="StdSolidHoleCountersunkFeatureAuto.cpp" />
+    <ClCompile Include="StdSolidOperatePatternCircularFeatureAuto.cpp" />
+    <ClCompile Include="StdSolidOperatePatternRectangularFeatureAuto.cpp" />
+    <ClCompile Include="StdSolidProtrusionExtrudeFeatureAuto.cpp" />
+    <ClCompile Include="StdSolidProtrusionRevolveFeatureAuto.cpp" />
+    <ClCompile Include="StdSolidProtrusionSweepFeatureAuto.cpp" />
+    <ClCompile Include="VertexAuto.cpp" />
+    <ClCompile Include="VerticesAuto.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Acis.h" />
+    <ClInclude Include="AssemAuto.h" />
+    <ClInclude Include="AssemDocumentAuto.h" />
+    <ClInclude Include="Axis1Auto.h" />
+    <ClInclude Include="ComponentAuto.h" />
+    <ClInclude Include="EdgeAuto.h" />
+    <ClInclude Include="EdgesAuto.h" />
+    <ClInclude Include="FaceAuto.h" />
+    <ClInclude Include="FacesAuto.h" />
+    <ClInclude Include="Hoops.h" />
+    <ClInclude Include="MainFrame.h" />
+    <ClInclude Include="PartDocument.h" />
+    <ClInclude Include="PartFrame.h" />
+    <ClInclude Include="PartView.h" />
+    <ClInclude Include="Point3DAuto.h" />
+    <ClInclude Include="Resource.h" />
+    <ClInclude Include="SketchAuto.h" />
+    <ClInclude Include="SolidAuto.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="StdAssemConstraintAngleAuto.h" />
+    <ClInclude Include="StdAssemConstraintCoaxialAuto.h" />
+    <ClInclude Include="StdAssemConstraintDistanceAuto.h" />
+    <ClInclude Include="StdAssemConstraintImpl.h" />
+    <ClInclude Include="StdAssemConstraintIncidenceAuto.h" />
+    <ClInclude Include="StdAssemConstraintsAuto.h" />
+    <ClInclude Include="StdDatumPlaneOffsetFeatureAuto.h" />
+    <ClInclude Include="StdSketchCoincidentSamePointsAuto.h" />
+    <ClInclude Include="StdSketchConstraintImpl.h" />
+    <ClInclude Include="StdSketchHorizontalAuto.h" />
+    <ClInclude Include="StdSketchParallelAuto.h" />
+    <ClInclude Include="StdSketchPerpendicularAuto.h" />
+    <ClInclude Include="StdSketchVerticalAuto.h" />
+    <ClInclude Include="StdSolidCutSweepFeatureAuto.h" />
+    <ClInclude Include="StdSolidDraftFeatureAuto.h" />
+    <ClInclude Include="StdSolidHoleSimpleFeatureAuto.h" />
+    <ClInclude Include="StdSolidImportedBrepFeatureAuto.h" />
+    <ClInclude Include="StdSolidLoftFacesFeatureAuto.h" />
+    <ClInclude Include="StdSolidLoftSectionsFeatureAuto.h" />
+    <ClInclude Include="StdSolidOffsetFeatureAuto.h" />
+    <ClInclude Include="StdSolidRevolveWithExternalAxisFeatureAuto.h" />
+    <ClInclude Include="StdSolidShellFeatureAuto.h" />
+    <ClInclude Include="TransCAD.h" />
+    <ClInclude Include="ApplicationAuto.h" />
+    <ClInclude Include="DispatchImplEx.h" />
+    <ClInclude Include="DocumentAuto.h" />
+    <ClInclude Include="DocumentsAuto.h" />
+    <ClInclude Include="ExplicitModelObjectAuto.h" />
+    <ClInclude Include="FeatureImpl.h" />
+    <ClInclude Include="FeaturesAuto.h" />
+    <ClInclude Include="PartAuto.h" />
+    <ClInclude Include="PartDocumentAuto.h" />
+    <ClInclude Include="ReferenceAuto.h" />
+    <ClInclude Include="ReferencesAuto.h" />
+    <ClInclude Include="SketchEditorAuto.h" />
+    <ClInclude Include="StdDefaultDatumPlaneFeatureAuto.h" />
+    <ClInclude Include="StdSketchCenterlineAuto.h" />
+    <ClInclude Include="StdSketchCircleAuto.h" />
+    <ClInclude Include="StdSketchCircularArcAuto.h" />
+    <ClInclude Include="StdSketchConstraintAuto.h" />
+    <ClInclude Include="StdSketchConstraintsAuto.h" />
+    <ClInclude Include="StdSketchControlPointAuto.h" />
+    <ClInclude Include="StdSketchFeatureAuto.h" />
+    <ClInclude Include="StdSketchGeometriesAuto.h" />
+    <ClInclude Include="StdSketchGeometryImpl.h" />
+    <ClInclude Include="StdSketchHDirectionAuto.h" />
+    <ClInclude Include="StdSketchLineAuto.h" />
+    <ClInclude Include="StdSketchOriginAuto.h" />
+    <ClInclude Include="StdSketchVDirectionAuto.h" />
+    <ClInclude Include="StdSolidChamferFeatureAuto.h" />
+    <ClInclude Include="StdSolidCutExtrudeFeatureAuto.h" />
+    <ClInclude Include="StdSolidCutRevolveFeatureAuto.h" />
+    <ClInclude Include="StdSolidFilletConstantFeatureAuto.h" />
+    <ClInclude Include="StdSolidHoleCounterboredFeatureAuto.h" />
+    <ClInclude Include="StdSolidHoleCountersunkFeatureAuto.h" />
+    <ClInclude Include="StdSolidOperatePatternCircularFeatureAuto.h" />
+    <ClInclude Include="StdSolidOperatePatternRectangularFeatureAuto.h" />
+    <ClInclude Include="StdSolidProtrusionExtrudeFeatureAuto.h" />
+    <ClInclude Include="StdSolidProtrusionRevolveFeatureAuto.h" />
+    <ClInclude Include="StdSolidProtrusionSweepFeatureAuto.h" />
+    <ClInclude Include="TCVersion.h" />
+    <ClInclude Include="VertexAuto.h" />
+    <ClInclude Include="VerticesAuto.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\RegBin\Transcad.ico" />
+    <None Include="ApplicationAuto.rgs" />
+    <None Include="AssemAuto.rgs" />
+    <None Include="AssemDocumentAuto.rgs" />
+    <None Include="Axis1.rgs" />
+    <None Include="ComponentAuto.rgs" />
+    <None Include="DocumentAuto.rgs" />
+    <None Include="DocumentsAuto.rgs" />
+    <None Include="Edge.rgs" />
+    <None Include="Edges.rgs" />
+    <None Include="ExplicitModelObject.rgs" />
+    <None Include="Face.rgs" />
+    <None Include="Faces.rgs" />
+    <None Include="Features.rgs" />
+    <None Include="IStdSolidHoleCounterboredFeatureAuto.rgs" />
+    <None Include="Part.rgs" />
+    <None Include="Point3D.rgs" />
+    <None Include="res\icon1.ico" />
+    <None Include="res\PartDocument.ico" />
+    <None Include="PartDocumentAuto.rgs" />
+    <None Include="Reference.rgs" />
+    <None Include="References.rgs" />
+    <None Include="res\registry.bin" />
+    <None Include="Sketch.rgs" />
+    <None Include="SketchEditor.rgs" />
+    <None Include="Solid.rgs" />
+    <None Include="StdAssemblyConstraint.rgs" />
+    <None Include="StdAssemblyConstraint1.rgs" />
+    <None Include="StdAssemblyConstraints.rgs" />
+    <None Include="StdAssemblyConstraints1.rgs" />
+    <None Include="StdAssemblyConstraintsCoaxial.rgs" />
+    <None Include="StdAssemConstraint.rgs" />
+    <None Include="StdAssemConstraintAngle.rgs" />
+    <None Include="StdAssemConstraintCoaxial.rgs" />
+    <None Include="StdAssemConstraintDistance.rgs" />
+    <None Include="StdAssemConstraintIncidence.rgs" />
+    <None Include="StdAssemConstraintIncidence1.rgs" />
+    <None Include="StdAssemConstraints.rgs" />
+    <None Include="StdDatumPlaneOffsetFeature.rgs" />
+    <None Include="StdDefaultDatumPlaneFeatureAuto.rgs" />
+    <None Include="StdSketchCenterline.rgs" />
+    <None Include="StdSketchCircle.rgs" />
+    <None Include="StdSketchCircularArc.rgs" />
+    <None Include="StdSketchCoincidentSamePoints.rgs" />
+    <None Include="StdSketchConstraint.rgs" />
+    <None Include="StdSketchConstraints.rgs" />
+    <None Include="StdSketchControlPoint.rgs" />
+    <None Include="StdSketchFeature.rgs" />
+    <None Include="StdSketchGeometries.rgs" />
+    <None Include="StdSketchGeometry.rgs" />
+    <None Include="StdSketchHDirection.rgs" />
+    <None Include="StdSketchHorizontal.rgs" />
+    <None Include="StdSketchLine.rgs" />
+    <None Include="StdSketchOrigin.rgs" />
+    <None Include="StdSketchParallel.rgs" />
+    <None Include="StdSketchPerpendicular.rgs" />
+    <None Include="StdSketchVDirection.rgs" />
+    <None Include="StdSketchVertical.rgs" />
+    <None Include="StdSolidChamferFeature.rgs" />
+    <None Include="StdSolidCutExtrudeFeature.rgs" />
+    <None Include="StdSolidCutRevolveFeature.rgs" />
+    <None Include="StdSolidCutSweepFeature.rgs" />
+    <None Include="StdSolidDraftFeature.rgs" />
+    <None Include="StdSolidFilletConstantFeature.rgs" />
+    <None Include="StdSolidHoleCounterboredFeatureAuto.rgs" />
+    <None Include="StdSolidHoleCountersunkFeature.rgs" />
+    <None Include="StdSolidHoleSimpleFeature.rgs" />
+    <None Include="StdSolidImportedBrepFeature.rgs" />
+    <None Include="StdSolidLoftFacesFeatureAuto3.rgs" />
+    <None Include="StdSolidLoftSectionsFeature.rgs" />
+    <None Include="StdSolidOffsetFeature.rgs" />
+    <None Include="StdSolidOperatePatternCircularFeature.rgs" />
+    <None Include="StdSolidOperatePatternRectangularFeature.rgs" />
+    <None Include="StdSolidProtrusionExtrudeFeature.rgs" />
+    <None Include="StdSolidProtrusionRevolveFeature.rgs" />
+    <None Include="StdSolidProtrusionSweepFeature.rgs" />
+    <None Include="res\Toolbar.bmp" />
+    <None Include="res\TransCAD.ico" />
+    <None Include="res\TransCAD.rc2" />
+    <None Include="StdSolidRevolveWithExternalAxisFeature.rgs" />
+    <None Include="StdSolidShellFeature.rgs" />
+    <None Include="TestClass.rgs" />
+    <None Include="TransCAD.rgs" />
+    <None Include="ReadMe.txt" />
+    <None Include="Vertex.rgs" />
+    <None Include="Vertices.rgs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="TransCAD.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Midl Include="TransCAD.idl" />
+  </ItemGroup>
+  <ItemGroup>
+    <Manifest Include="res\TransCAD.manifest" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PartModeler\PartModeler.vcxproj">
+      <Project>{ae55d6b6-cc43-4e10-abd3-7cd39bd73f49}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties RESOURCE_FILE="TransCAD.rc" />
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

@@ -1,0 +1,1313 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="소스 파일">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="헤더 파일">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="리소스 파일">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx</Extensions>
+    </Filter>
+    <Filter Include="Exception">
+      <UniqueIdentifier>{43849a75-bb6a-479f-9177-240a738a4365}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DCM">
+      <UniqueIdentifier>{85c1623c-552e-4f17-bc62-85f0e09495df}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Part">
+      <UniqueIdentifier>{94a089e4-f30b-4271-a6ca-63e047a6e889}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Part\ExplicitModel">
+      <UniqueIdentifier>{9d4750da-d9dc-4f62-ae86-afa454426a5f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Part\Feature">
+      <UniqueIdentifier>{efa17e0b-2ee4-4a0b-8fb2-11d061f6562d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Attribute">
+      <UniqueIdentifier>{a2ceef49-4d34-4831-aab1-50bdb58ac2c8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Utility">
+      <UniqueIdentifier>{c6b0c32b-decf-47ea-abb1-ce4249fd3418}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Assembly">
+      <UniqueIdentifier>{edecb68a-ddae-4013-8ae6-093a62104c85}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Part\Feature\API">
+      <UniqueIdentifier>{74880ee4-0ea7-4dfa-af4e-9927e7c9bebe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Part\API">
+      <UniqueIdentifier>{17e7959a-f3c1-4ef9-a6cc-7c3c386f6800}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Part\Feature\API\API %28Datum%29">
+      <UniqueIdentifier>{41531594-e3b1-44cd-8876-5e94967be762}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Part\Feature\API\API %28Sketch-based%29">
+      <UniqueIdentifier>{a15e3f68-1ba0-437e-9c34-fd158c6f877a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Part\Feature\API\API %28Transformation%29">
+      <UniqueIdentifier>{5948c465-1c8b-46e9-8e56-a31922f1ef36}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Part\Feature\API\API %28Transition%29">
+      <UniqueIdentifier>{561949b5-51c9-4a48-942a-4f3ee52d43ce}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Part\Feature\API\API %28Sketch%29">
+      <UniqueIdentifier>{33f5b606-c99d-42bb-95c5-4c01088578b1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Part\Feature\API\API %28Brep%29">
+      <UniqueIdentifier>{5347341b-ae5b-4bfc-ba8b-2badb45e6d9d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Part\Reference">
+      <UniqueIdentifier>{71c1d769-6b09-4f94-a46f-8520ce77731c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Part\ExplicitModel\API">
+      <UniqueIdentifier>{4d1fcb07-2e7e-494e-b963-da5d8fa79f1e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Part\ExplicitModel\ModelGeometry">
+      <UniqueIdentifier>{057f5a7e-b58c-4026-adef-3c89211f3f25}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Part\ExplicitModel\ModelGeometry\API">
+      <UniqueIdentifier>{d9f47d48-f3ea-42d0-bbfc-02d5daf900fe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Part\Reference\API">
+      <UniqueIdentifier>{71b47a6d-792b-419f-ad1a-35195575a73f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Part\Feature\StdFeature">
+      <UniqueIdentifier>{69cb89af-8c22-439e-a9fc-333a64d7baf0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Part\Feature\StdFeature\StdFeature %28Sketch%29">
+      <UniqueIdentifier>{94c4008e-bb15-4625-8b3c-3bd82e94f5ee}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Part\Feature\StdFeature\StdFeature %28Sketch%29\StdSketchGeometry">
+      <UniqueIdentifier>{b7923a2e-5272-41a1-9980-a80c86fd8b1f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Part\Feature\StdFeature\StdFeature %28Sketch%29\StdSketchConstraint">
+      <UniqueIdentifier>{38f2bcca-5ecf-4493-b23d-5680d911d7ae}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Part\Feature\StdFeature\StdFeature %28Sketch%29\StdSketchEditor">
+      <UniqueIdentifier>{674a13d6-b668-4538-8151-3d049e58f4ae}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Part\Feature\StdFeature\StdFeature %28Datum%29">
+      <UniqueIdentifier>{2d5d8875-5a4d-4b50-bb59-c227fce14d82}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Part\Feature\StdFeature\StdFeature %28Sketch-based%29">
+      <UniqueIdentifier>{7d3d9bbf-a23e-447d-8f32-8e59448a51ec}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Part\Feature\StdFeature\StdFeature %28Transformation%29">
+      <UniqueIdentifier>{2517736b-5396-46e8-9fbc-436b58bd8e08}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Part\Feature\StdFeature\StdFeature %28Transition%29">
+      <UniqueIdentifier>{06af76b8-9f85-4559-96c4-9d46da645bff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Part\Feature\StdFeature\StdFeature %28Brep%29">
+      <UniqueIdentifier>{a11ca47c-ed29-431d-921a-4b489ab99b7a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Assembly\AssemblyConstraint">
+      <UniqueIdentifier>{b1b69a57-af17-418b-8e74-7a6ef4185609}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Assembly\AssemblyConstraint\StdAssemConstraint">
+      <UniqueIdentifier>{20a5e170-a99e-41c2-8db5-eaf1f2b3d68d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Assembly\AssemblyConstraint\StdAssemConstraint\StdAssemblyConstraintAPI">
+      <UniqueIdentifier>{a163cb88-7b26-4b06-960c-3c3bc5e2c640}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Assembly\AssemDocAPI">
+      <UniqueIdentifier>{d26c4e85-f041-433b-9435-aa885544ec54}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Assembly\AssemblyConstraint\AssemblyConstraintAPI">
+      <UniqueIdentifier>{f42fbc36-b133-453f-924d-081de2d790f8}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="PartModelingEngine.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeObject.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeRuntimeType.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeFeatureAPI.cpp">
+      <Filter>Part\Feature\API</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeFeaturesAPI.cpp">
+      <Filter>Part\Feature\API</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeStdSolidSphereFeatureAPI.cpp">
+      <Filter>Part\Feature\API</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeUpdateInfoAPI.cpp">
+      <Filter>Part\Feature\API</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeArgumentException.cpp">
+      <Filter>Exception</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeArgumentNullException.cpp">
+      <Filter>Exception</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeArgumentOutOfRangeException.cpp">
+      <Filter>Exception</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeArgumentTypeException.cpp">
+      <Filter>Exception</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeException.cpp">
+      <Filter>Exception</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeFileNotFoundException.cpp">
+      <Filter>Exception</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeIlligalOperationException.cpp">
+      <Filter>Exception</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeDcmFrustum.cpp">
+      <Filter>DCM</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeBrepReference.cpp">
+      <Filter>Part\Reference</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeExplicitModelObjectReference.cpp">
+      <Filter>Part\Reference</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeFeatureReference.cpp">
+      <Filter>Part\Reference</Filter>
+    </ClCompile>
+    <ClCompile Include="PmePersistentName.cpp">
+      <Filter>Part\Reference</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeReference.cpp">
+      <Filter>Part\Reference</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeReferences.cpp">
+      <Filter>Part\Reference</Filter>
+    </ClCompile>
+    <ClCompile Include="PmePart.cpp">
+      <Filter>Part</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeSelectionManager.cpp">
+      <Filter>Part</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeDatumPlane.cpp">
+      <Filter>Part\ExplicitModel</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeExplicitModel.cpp">
+      <Filter>Part\ExplicitModel</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeExplicitModelObject.cpp">
+      <Filter>Part\ExplicitModel</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeSketch.cpp">
+      <Filter>Part\ExplicitModel</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeSolid.cpp">
+      <Filter>Part\ExplicitModel</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeFeature.cpp">
+      <Filter>Part\Feature</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeFeatures.cpp">
+      <Filter>Part\Feature</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeStdFeature.cpp">
+      <Filter>Part\Feature\StdFeature</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeStdSolidFeature.cpp">
+      <Filter>Part\Feature\StdFeature</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeStdSolidSphereFeature.cpp">
+      <Filter>Part\Feature\StdFeature</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeStdSketchConstraints.cpp">
+      <Filter>Part\Feature\StdFeature\StdFeature %28Sketch%29</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeStdSketchFeature.cpp">
+      <Filter>Part\Feature\StdFeature\StdFeature %28Sketch%29</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeStdSketchGeometries.cpp">
+      <Filter>Part\Feature\StdFeature\StdFeature %28Sketch%29</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeStdSketchHDirection.cpp">
+      <Filter>Part\Feature\StdFeature\StdFeature %28Sketch%29</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeStdSketchOrigin.cpp">
+      <Filter>Part\Feature\StdFeature\StdFeature %28Sketch%29</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeStdSketchVDirection.cpp">
+      <Filter>Part\Feature\StdFeature\StdFeature %28Sketch%29</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeStdSketchCenterline.cpp">
+      <Filter>Part\Feature\StdFeature\StdFeature %28Sketch%29\StdSketchGeometry</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeStdSketchCircle.cpp">
+      <Filter>Part\Feature\StdFeature\StdFeature %28Sketch%29\StdSketchGeometry</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeStdSketchCircularArc.cpp">
+      <Filter>Part\Feature\StdFeature\StdFeature %28Sketch%29\StdSketchGeometry</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeStdSketchControlPoint.cpp">
+      <Filter>Part\Feature\StdFeature\StdFeature %28Sketch%29\StdSketchGeometry</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeStdSketchGeometry.cpp">
+      <Filter>Part\Feature\StdFeature\StdFeature %28Sketch%29\StdSketchGeometry</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeStdSketchLine.cpp">
+      <Filter>Part\Feature\StdFeature\StdFeature %28Sketch%29\StdSketchGeometry</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeStdSketchCoincident.cpp">
+      <Filter>Part\Feature\StdFeature\StdFeature %28Sketch%29\StdSketchConstraint</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeStdSketchConstraint.cpp">
+      <Filter>Part\Feature\StdFeature\StdFeature %28Sketch%29\StdSketchConstraint</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeStdSketchEditor.cpp">
+      <Filter>Part\Feature\StdFeature\StdFeature %28Sketch%29\StdSketchEditor</Filter>
+    </ClCompile>
+    <ClCompile Include="attr_pme.cpp">
+      <Filter>Attribute</Filter>
+    </ClCompile>
+    <ClCompile Include="attr_pme_facename.cpp">
+      <Filter>Attribute</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeDatumPlaneUtility.cpp">
+      <Filter>Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeQuery.cpp">
+      <Filter>Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeSketchUtility.cpp">
+      <Filter>Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeSketchGeometryReference.cpp">
+      <Filter>Part\Reference</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeStdSketchHorizontal.cpp">
+      <Filter>Part\Feature\StdFeature\StdFeature %28Sketch%29\StdSketchConstraint</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeStdSketchParallel.cpp">
+      <Filter>Part\Feature\StdFeature\StdFeature %28Sketch%29\StdSketchConstraint</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeStdSketchPerpendicular.cpp">
+      <Filter>Part\Feature\StdFeature\StdFeature %28Sketch%29\StdSketchConstraint</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeStdSketchVertical.cpp">
+      <Filter>Part\Feature\StdFeature\StdFeature %28Sketch%29\StdSketchConstraint</Filter>
+    </ClCompile>
+    <ClCompile Include="attr_pme_edgename.cpp">
+      <Filter>Attribute</Filter>
+    </ClCompile>
+    <ClCompile Include="attr_pme_vertexname.cpp">
+      <Filter>Attribute</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeAssembly.cpp">
+      <Filter>Assembly</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeComponent.cpp">
+      <Filter>Assembly</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeAssemblyBoolean.cpp">
+      <Filter>Assembly</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeAssemblyAPI.cpp">
+      <Filter>Assembly\AssemDocAPI</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeAssemblyBooleanAPI.cpp">
+      <Filter>Assembly\AssemDocAPI</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeComponentAPI.cpp">
+      <Filter>Assembly\AssemDocAPI</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeTransformAPI.cpp">
+      <Filter>Assembly\AssemDocAPI</Filter>
+    </ClCompile>
+    <ClCompile Include="PmePartAPI.cpp">
+      <Filter>Part\API</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeBrepFileReader.cpp">
+      <Filter>Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeMeshFileWriter.cpp">
+      <Filter>Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeStdSolidCutExtrudeFeature.cpp">
+      <Filter>Part\Feature\StdFeature\StdFeature %28Sketch-based%29</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeStdSolidCutRevolveFeature.cpp">
+      <Filter>Part\Feature\StdFeature\StdFeature %28Sketch-based%29</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeStdSolidCutSweepFeature.cpp">
+      <Filter>Part\Feature\StdFeature\StdFeature %28Sketch-based%29</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeStdSolidExtrudeFeature.cpp">
+      <Filter>Part\Feature\StdFeature\StdFeature %28Sketch-based%29</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeStdSolidHoleCounterboredFeature.cpp">
+      <Filter>Part\Feature\StdFeature\StdFeature %28Sketch-based%29</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeStdSolidHoleCountersunkFeature.cpp">
+      <Filter>Part\Feature\StdFeature\StdFeature %28Sketch-based%29</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeStdSolidHoleSimpleFeature.cpp">
+      <Filter>Part\Feature\StdFeature\StdFeature %28Sketch-based%29</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeStdSolidLoftFacesFeature.cpp">
+      <Filter>Part\Feature\StdFeature\StdFeature %28Sketch-based%29</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeStdSolidLoftSectionsFeature.cpp">
+      <Filter>Part\Feature\StdFeature\StdFeature %28Sketch-based%29</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeStdSolidProtrusionExtrudeFeature.cpp">
+      <Filter>Part\Feature\StdFeature\StdFeature %28Sketch-based%29</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeStdSolidProtrusionRevolveFeature.cpp">
+      <Filter>Part\Feature\StdFeature\StdFeature %28Sketch-based%29</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeStdSolidProtrusionSweepFeature.cpp">
+      <Filter>Part\Feature\StdFeature\StdFeature %28Sketch-based%29</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeStdSolidRevolveFeature.cpp">
+      <Filter>Part\Feature\StdFeature\StdFeature %28Sketch-based%29</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeStdSolidSweepFeature.cpp">
+      <Filter>Part\Feature\StdFeature\StdFeature %28Sketch-based%29</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeStdSolidOperatePatternCircularFeature.cpp">
+      <Filter>Part\Feature\StdFeature\StdFeature %28Transformation%29</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeStdSolidOperatePatternRectangularFeature.cpp">
+      <Filter>Part\Feature\StdFeature\StdFeature %28Transformation%29</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeStdSolidShellFeature.cpp">
+      <Filter>Part\Feature\StdFeature\StdFeature %28Transition%29</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeStdSolidOffsetFeature.cpp">
+      <Filter>Part\Feature\StdFeature\StdFeature %28Transition%29</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeStdSolidFilletConstantFeature.cpp">
+      <Filter>Part\Feature\StdFeature\StdFeature %28Transition%29</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeStdSolidChamferFeature.cpp">
+      <Filter>Part\Feature\StdFeature\StdFeature %28Transition%29</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeStdDatumFeature.cpp">
+      <Filter>Part\Feature\StdFeature\StdFeature %28Datum%29</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeStdDatumPlaneFeature.cpp">
+      <Filter>Part\Feature\StdFeature\StdFeature %28Datum%29</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeStdDatumPlaneOffsetFeature.cpp">
+      <Filter>Part\Feature\StdFeature\StdFeature %28Datum%29</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeStdDefaultDatumPlaneFeature.cpp">
+      <Filter>Part\Feature\StdFeature\StdFeature %28Datum%29</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeStdSolidDraftFeature.cpp">
+      <Filter>Part\Feature\StdFeature\StdFeature %28Transition%29</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeStdSolidRevolveWithExternalAxisFeature.cpp">
+      <Filter>Part\Feature\StdFeature\StdFeature %28Sketch-based%29</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeStdAssemblyConstraint.cpp">
+      <Filter>Assembly\AssemblyConstraint</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeStdSketchCenterlineAPI.cpp">
+      <Filter>Part\Feature\API\API %28Sketch%29</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeStdSketchCircleAPI.cpp">
+      <Filter>Part\Feature\API\API %28Sketch%29</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeStdSketchCircularArcAPI.cpp">
+      <Filter>Part\Feature\API\API %28Sketch%29</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeStdSketchCoincidentAPI.cpp">
+      <Filter>Part\Feature\API\API %28Sketch%29</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeStdSketchConstraintAPI.cpp">
+      <Filter>Part\Feature\API\API %28Sketch%29</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeStdSketchConstraintsAPI.cpp">
+      <Filter>Part\Feature\API\API %28Sketch%29</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeStdSketchControlPointAPI.cpp">
+      <Filter>Part\Feature\API\API %28Sketch%29</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeStdSketchEditorAPI.cpp">
+      <Filter>Part\Feature\API\API %28Sketch%29</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeStdSketchFeatureAPI.cpp">
+      <Filter>Part\Feature\API\API %28Sketch%29</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeStdSketchGeometriesAPI.cpp">
+      <Filter>Part\Feature\API\API %28Sketch%29</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeStdSketchGeometryAPI.cpp">
+      <Filter>Part\Feature\API\API %28Sketch%29</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeStdSketchHDirectionAPI.cpp">
+      <Filter>Part\Feature\API\API %28Sketch%29</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeStdSketchHorizontalAPI.cpp">
+      <Filter>Part\Feature\API\API %28Sketch%29</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeStdSketchLineAPI.cpp">
+      <Filter>Part\Feature\API\API %28Sketch%29</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeStdSketchOriginAPI.cpp">
+      <Filter>Part\Feature\API\API %28Sketch%29</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeStdSketchParallelAPI.cpp">
+      <Filter>Part\Feature\API\API %28Sketch%29</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeStdSketchPerpendicularAPI.cpp">
+      <Filter>Part\Feature\API\API %28Sketch%29</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeStdSketchVDirectionAPI.cpp">
+      <Filter>Part\Feature\API\API %28Sketch%29</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeStdSketchVerticalAPI.cpp">
+      <Filter>Part\Feature\API\API %28Sketch%29</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeSketchAPI.cpp">
+      <Filter>Part\Feature\API\API %28Sketch%29</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeStdDatumPlaneOffsetFeatureAPI.cpp">
+      <Filter>Part\Feature\API\API %28Datum%29</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeStdSolidChamferFeatureAPI.cpp">
+      <Filter>Part\Feature\API\API %28Transition%29</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeStdSolidFilletConstantFeatureAPI.cpp">
+      <Filter>Part\Feature\API\API %28Transition%29</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeStdSolidDraftFeatureAPI.cpp">
+      <Filter>Part\Feature\API\API %28Transition%29</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeStdSolidOffsetFeatureAPI.cpp">
+      <Filter>Part\Feature\API\API %28Transition%29</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeStdSolidShellFeatureAPI.cpp">
+      <Filter>Part\Feature\API\API %28Transition%29</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeStdSolidCutExtrudeFeatureAPI.cpp">
+      <Filter>Part\Feature\API\API %28Sketch-based%29</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeStdSolidCutRevolveFeatureAPI.cpp">
+      <Filter>Part\Feature\API\API %28Sketch-based%29</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeStdSolidCutSweepFeatureAPI.cpp">
+      <Filter>Part\Feature\API\API %28Sketch-based%29</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeStdSolidHoleCounterboredFeatureAPI.cpp">
+      <Filter>Part\Feature\API\API %28Sketch-based%29</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeStdSolidHoleCountersunkFeatureAPI.cpp">
+      <Filter>Part\Feature\API\API %28Sketch-based%29</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeStdSolidHoleSimpleFeatureAPI.cpp">
+      <Filter>Part\Feature\API\API %28Sketch-based%29</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeStdSolidLoftFacesFeatureAPI.cpp">
+      <Filter>Part\Feature\API\API %28Sketch-based%29</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeStdSolidLoftSectionsFeatureAPI.cpp">
+      <Filter>Part\Feature\API\API %28Sketch-based%29</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeStdSolidProtrusionExtrudeFeatureAPI.cpp">
+      <Filter>Part\Feature\API\API %28Sketch-based%29</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeStdSolidProtrusionRevolveFeatureAPI.cpp">
+      <Filter>Part\Feature\API\API %28Sketch-based%29</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeStdSolidProtrusionSweepFeatureAPI.cpp">
+      <Filter>Part\Feature\API\API %28Sketch-based%29</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeStdSolidRevolveWithExternalAxisFeatureAPI.cpp">
+      <Filter>Part\Feature\API\API %28Sketch-based%29</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeStdSolidOperatePatternCircularFeatureAPI.cpp">
+      <Filter>Part\Feature\API\API %28Transformation%29</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeStdSolidOperatePatternRectangularFeatureAPI.cpp">
+      <Filter>Part\Feature\API\API %28Transformation%29</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeReferenceAPI.cpp">
+      <Filter>Part\Reference\API</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeReferencesAPI.cpp">
+      <Filter>Part\Reference\API</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeStdSolidImportedBrepFeature.cpp">
+      <Filter>Part\Feature\StdFeature\StdFeature %28Brep%29</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeStdSolidImportedBrepFeatureAPI.cpp">
+      <Filter>Part\Feature\API\API %28Brep%29</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeXmlMacroWriter.cpp">
+      <Filter>Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeXmlMacroReader.cpp">
+      <Filter>Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeSolidAPI.cpp">
+      <Filter>Part\ExplicitModel\API</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeExplicitModelObjectsAPI.cpp">
+      <Filter>Part\ExplicitModel\API</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeExplicitModelObjectAPI.cpp">
+      <Filter>Part\ExplicitModel\API</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeExplicitModelAPI.cpp">
+      <Filter>Part\ExplicitModel\API</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeDatumPlaneAPI.cpp">
+      <Filter>Part\ExplicitModel\API</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeFaces.cpp">
+      <Filter>Part\ExplicitModel\ModelGeometry</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeEdges.cpp">
+      <Filter>Part\ExplicitModel\ModelGeometry</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeFace.cpp">
+      <Filter>Part\ExplicitModel\ModelGeometry</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeEdge.cpp">
+      <Filter>Part\ExplicitModel\ModelGeometry</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeEdgeAPI.cpp">
+      <Filter>Part\ExplicitModel\ModelGeometry\API</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeFaceAPI.cpp">
+      <Filter>Part\ExplicitModel\ModelGeometry\API</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeFacesAPI.cpp">
+      <Filter>Part\ExplicitModel\ModelGeometry\API</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeEdgesAPI.cpp">
+      <Filter>Part\ExplicitModel\ModelGeometry\API</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeBrepReferenceAPI.cpp">
+      <Filter>Part\Reference\API</Filter>
+    </ClCompile>
+    <ClCompile Include="PmePersistentNameAPI.cpp">
+      <Filter>Part\Reference\API</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeVertices.cpp">
+      <Filter>Part\ExplicitModel\ModelGeometry</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeVertex.cpp">
+      <Filter>Part\ExplicitModel\ModelGeometry</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeVerticesAPI.cpp">
+      <Filter>Part\ExplicitModel\ModelGeometry\API</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeVertexAPI.cpp">
+      <Filter>Part\ExplicitModel\ModelGeometry\API</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeFeatureTagMarker.cpp">
+      <Filter>Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeStdAssemblyAngleAPI.cpp">
+      <Filter>Assembly\AssemblyConstraint\StdAssemConstraint\StdAssemblyConstraintAPI</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeStdAssemblyCoaxialAPI.cpp">
+      <Filter>Assembly\AssemblyConstraint\StdAssemConstraint\StdAssemblyConstraintAPI</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeStdAssemblyDistanceAPI.cpp">
+      <Filter>Assembly\AssemblyConstraint\StdAssemConstraint\StdAssemblyConstraintAPI</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeStdAssemblyIncidenceAPI.cpp">
+      <Filter>Assembly\AssemblyConstraint\StdAssemConstraint\StdAssemblyConstraintAPI</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeStdAssemblyParallelAPI.cpp">
+      <Filter>Assembly\AssemblyConstraint\StdAssemConstraint\StdAssemblyConstraintAPI</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeStdAssemblyPerpendicularAPI.cpp">
+      <Filter>Assembly\AssemblyConstraint\StdAssemConstraint\StdAssemblyConstraintAPI</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeStdAssemblyConstraints.cpp">
+      <Filter>Assembly\AssemblyConstraint</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeStdAssemblyAngle.cpp">
+      <Filter>Assembly\AssemblyConstraint\StdAssemConstraint</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeStdAssemblyCoaxial.cpp">
+      <Filter>Assembly\AssemblyConstraint\StdAssemConstraint</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeStdAssemblyDistance.cpp">
+      <Filter>Assembly\AssemblyConstraint\StdAssemConstraint</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeStdAssemblyIncidence.cpp">
+      <Filter>Assembly\AssemblyConstraint\StdAssemConstraint</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeStdAssemblyParallel.cpp">
+      <Filter>Assembly\AssemblyConstraint\StdAssemConstraint</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeStdAssemblyPerpendicular.cpp">
+      <Filter>Assembly\AssemblyConstraint\StdAssemConstraint</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeStdAssemblyConstraintAPI.cpp">
+      <Filter>Assembly\AssemblyConstraint\AssemblyConstraintAPI</Filter>
+    </ClCompile>
+    <ClCompile Include="PmeStdAssemblyConstraintsAPI.cpp">
+      <Filter>Assembly\AssemblyConstraint\AssemblyConstraintAPI</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="PartModelingEngine.def">
+      <Filter>소스 파일</Filter>
+    </None>
+    <None Include="res\PartModelingEngine.rc2">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="PartModelingEngine.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeAcis.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeAPI.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeBaseList.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeMacro.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeObject.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeRuntimeType.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeFeatureAPI.h">
+      <Filter>Part\Feature\API</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeFeaturesAPI.h">
+      <Filter>Part\Feature\API</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeStdSolidSphereFeatureAPI.h">
+      <Filter>Part\Feature\API</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeUpdateInfoAPI.h">
+      <Filter>Part\Feature\API</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeArgumentException.h">
+      <Filter>Exception</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeArgumentNullException.h">
+      <Filter>Exception</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeArgumentOutOfRangeException.h">
+      <Filter>Exception</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeArgumentTypeException.h">
+      <Filter>Exception</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeException.h">
+      <Filter>Exception</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeExceptionTest.h">
+      <Filter>Exception</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeFileNotFoundException.h">
+      <Filter>Exception</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeIlligalOperationException.h">
+      <Filter>Exception</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeDcmFrustum.h">
+      <Filter>DCM</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeDcmInterface.h">
+      <Filter>DCM</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeBrepReference.h">
+      <Filter>Part\Reference</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeBrepType.h">
+      <Filter>Part\Reference</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeExplicitModelObjectReference.h">
+      <Filter>Part\Reference</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeFeatureReference.h">
+      <Filter>Part\Reference</Filter>
+    </ClInclude>
+    <ClInclude Include="PmePersistentName.h">
+      <Filter>Part\Reference</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeReference.h">
+      <Filter>Part\Reference</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeReferences.h">
+      <Filter>Part\Reference</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeReferenceType.h">
+      <Filter>Part\Reference</Filter>
+    </ClInclude>
+    <ClInclude Include="PmePart.h">
+      <Filter>Part</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeSelectionManager.h">
+      <Filter>Part</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeDatumPlane.h">
+      <Filter>Part\ExplicitModel</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeExplicitModel.h">
+      <Filter>Part\ExplicitModel</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeExplicitModelObject.h">
+      <Filter>Part\ExplicitModel</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeExplicitModelObjectType.h">
+      <Filter>Part\ExplicitModel</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeSketch.h">
+      <Filter>Part\ExplicitModel</Filter>
+    </ClInclude>
+    <ClInclude Include="IPmePattern.h">
+      <Filter>Part\Feature</Filter>
+    </ClInclude>
+    <ClInclude Include="IPmeTransformable.h">
+      <Filter>Part\Feature</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeFeature.h">
+      <Filter>Part\Feature</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeFeatures.h">
+      <Filter>Part\Feature</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeFeatureType.h">
+      <Filter>Part\Feature</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeStdFeature.h">
+      <Filter>Part\Feature\StdFeature</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeStdSolidFeature.h">
+      <Filter>Part\Feature\StdFeature</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeStdSolidSphereFeature.h">
+      <Filter>Part\Feature\StdFeature</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeStdSketchConstraints.h">
+      <Filter>Part\Feature\StdFeature\StdFeature %28Sketch%29</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeStdSketchFeature.h">
+      <Filter>Part\Feature\StdFeature\StdFeature %28Sketch%29</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeStdSketchGeometries.h">
+      <Filter>Part\Feature\StdFeature\StdFeature %28Sketch%29</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeStdSketchHDirection.h">
+      <Filter>Part\Feature\StdFeature\StdFeature %28Sketch%29</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeStdSketchOrigin.h">
+      <Filter>Part\Feature\StdFeature\StdFeature %28Sketch%29</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeStdSketchVDirection.h">
+      <Filter>Part\Feature\StdFeature\StdFeature %28Sketch%29</Filter>
+    </ClInclude>
+    <ClInclude Include="IPmeConstraintable.h">
+      <Filter>Part\Feature\StdFeature\StdFeature %28Sketch%29\StdSketchGeometry</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeStdSketchCenterline.h">
+      <Filter>Part\Feature\StdFeature\StdFeature %28Sketch%29\StdSketchGeometry</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeStdSketchCircle.h">
+      <Filter>Part\Feature\StdFeature\StdFeature %28Sketch%29\StdSketchGeometry</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeStdSketchCircularArc.h">
+      <Filter>Part\Feature\StdFeature\StdFeature %28Sketch%29\StdSketchGeometry</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeStdSketchControlPoint.h">
+      <Filter>Part\Feature\StdFeature\StdFeature %28Sketch%29\StdSketchGeometry</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeStdSketchGeometry.h">
+      <Filter>Part\Feature\StdFeature\StdFeature %28Sketch%29\StdSketchGeometry</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeStdSketchGeometryType.h">
+      <Filter>Part\Feature\StdFeature\StdFeature %28Sketch%29\StdSketchGeometry</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeStdSketchLine.h">
+      <Filter>Part\Feature\StdFeature\StdFeature %28Sketch%29\StdSketchGeometry</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeStdSketchCoincident.h">
+      <Filter>Part\Feature\StdFeature\StdFeature %28Sketch%29\StdSketchConstraint</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeStdSketchConstraint.h">
+      <Filter>Part\Feature\StdFeature\StdFeature %28Sketch%29\StdSketchConstraint</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeStdSketchConstraintType.h">
+      <Filter>Part\Feature\StdFeature\StdFeature %28Sketch%29\StdSketchConstraint</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeStdSketchEditor.h">
+      <Filter>Part\Feature\StdFeature\StdFeature %28Sketch%29\StdSketchEditor</Filter>
+    </ClInclude>
+    <ClInclude Include="attr_pme.h">
+      <Filter>Attribute</Filter>
+    </ClInclude>
+    <ClInclude Include="attr_pme_facename.h">
+      <Filter>Attribute</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeDatumPlaneUtility.h">
+      <Filter>Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeQuery.h">
+      <Filter>Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeSketchUtility.h">
+      <Filter>Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeSketchGeometryReference.h">
+      <Filter>Part\Reference</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeSamePointsType.h">
+      <Filter>Part\Feature\StdFeature\StdFeature %28Sketch%29\StdSketchConstraint</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeStdSketchHorizontal.h">
+      <Filter>Part\Feature\StdFeature\StdFeature %28Sketch%29\StdSketchConstraint</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeStdSketchParallel.h">
+      <Filter>Part\Feature\StdFeature\StdFeature %28Sketch%29\StdSketchConstraint</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeStdSketchPerpendicular.h">
+      <Filter>Part\Feature\StdFeature\StdFeature %28Sketch%29\StdSketchConstraint</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeStdSketchVertical.h">
+      <Filter>Part\Feature\StdFeature\StdFeature %28Sketch%29\StdSketchConstraint</Filter>
+    </ClInclude>
+    <ClInclude Include="attr_pme_edgename.h">
+      <Filter>Attribute</Filter>
+    </ClInclude>
+    <ClInclude Include="attr_pme_vertexname.h">
+      <Filter>Attribute</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeAssembly.h">
+      <Filter>Assembly</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeComponent.h">
+      <Filter>Assembly</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeAssemblyBoolean.h">
+      <Filter>Assembly</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeAssemblyAPI.h">
+      <Filter>Assembly\AssemDocAPI</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeAssemblyBooleanAPI.h">
+      <Filter>Assembly\AssemDocAPI</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeComponentAPI.h">
+      <Filter>Assembly\AssemDocAPI</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeTransformAPI.h">
+      <Filter>Assembly\AssemDocAPI</Filter>
+    </ClInclude>
+    <ClInclude Include="PmePartAPI.h">
+      <Filter>Part\API</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeInterOp.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeBrepFileReader.h">
+      <Filter>Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeMeshFileWriter.h">
+      <Filter>Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeAssemblyComponentType.h">
+      <Filter>Assembly</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeStdExtrudeEndType.h">
+      <Filter>Part\Feature\StdFeature\StdFeature %28Sketch-based%29</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeStdRevolveEndType.h">
+      <Filter>Part\Feature\StdFeature\StdFeature %28Sketch-based%29</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeStdSolidCutExtrudeFeature.h">
+      <Filter>Part\Feature\StdFeature\StdFeature %28Sketch-based%29</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeStdSolidCutRevolveFeature.h">
+      <Filter>Part\Feature\StdFeature\StdFeature %28Sketch-based%29</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeStdSolidCutSweepFeature.h">
+      <Filter>Part\Feature\StdFeature\StdFeature %28Sketch-based%29</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeStdSolidExtrudeFeature.h">
+      <Filter>Part\Feature\StdFeature\StdFeature %28Sketch-based%29</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeStdSolidHoleCounterboredFeature.h">
+      <Filter>Part\Feature\StdFeature\StdFeature %28Sketch-based%29</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeStdSolidHoleCountersunkFeature.h">
+      <Filter>Part\Feature\StdFeature\StdFeature %28Sketch-based%29</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeStdSolidHoleSimpleFeature.h">
+      <Filter>Part\Feature\StdFeature\StdFeature %28Sketch-based%29</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeStdSolidLoftFacesFeature.h">
+      <Filter>Part\Feature\StdFeature\StdFeature %28Sketch-based%29</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeStdSolidLoftSectionsFeature.h">
+      <Filter>Part\Feature\StdFeature\StdFeature %28Sketch-based%29</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeStdSolidProtrusionExtrudeFeature.h">
+      <Filter>Part\Feature\StdFeature\StdFeature %28Sketch-based%29</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeStdSolidProtrusionRevolveFeature.h">
+      <Filter>Part\Feature\StdFeature\StdFeature %28Sketch-based%29</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeStdSolidProtrusionSweepFeature.h">
+      <Filter>Part\Feature\StdFeature\StdFeature %28Sketch-based%29</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeStdSolidRevolveFeature.h">
+      <Filter>Part\Feature\StdFeature\StdFeature %28Sketch-based%29</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeStdSolidSweepFeature.h">
+      <Filter>Part\Feature\StdFeature\StdFeature %28Sketch-based%29</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeStdSolidOperatePatternCircularFeature.h">
+      <Filter>Part\Feature\StdFeature\StdFeature %28Transformation%29</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeStdSolidOperatePatternRectangularFeature.h">
+      <Filter>Part\Feature\StdFeature\StdFeature %28Transformation%29</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeStdSolidShellFeature.h">
+      <Filter>Part\Feature\StdFeature\StdFeature %28Transition%29</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeStdSolidOffsetFeature.h">
+      <Filter>Part\Feature\StdFeature\StdFeature %28Transition%29</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeStdSolidFilletConstantFeature.h">
+      <Filter>Part\Feature\StdFeature\StdFeature %28Transition%29</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeStdSolidChamferFeature.h">
+      <Filter>Part\Feature\StdFeature\StdFeature %28Transition%29</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeChamferType.h">
+      <Filter>Part\Feature\StdFeature\StdFeature %28Transition%29</Filter>
+    </ClInclude>
+    <ClInclude Include="PmePropagationType.h">
+      <Filter>Part\Feature\StdFeature\StdFeature %28Transition%29</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeStdDefaultDatumPlaneFeatureType.h">
+      <Filter>Part\Feature\StdFeature\StdFeature %28Datum%29</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeStdDatumFeature.h">
+      <Filter>Part\Feature\StdFeature\StdFeature %28Datum%29</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeStdDatumPlaneFeature.h">
+      <Filter>Part\Feature\StdFeature\StdFeature %28Datum%29</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeStdDatumPlaneOffsetFeature.h">
+      <Filter>Part\Feature\StdFeature\StdFeature %28Datum%29</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeStdDefaultDatumPlaneFeature.h">
+      <Filter>Part\Feature\StdFeature\StdFeature %28Datum%29</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeStdSolidDraftFeature.h">
+      <Filter>Part\Feature\StdFeature\StdFeature %28Transition%29</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeStdSolidRevolveWithExternalAxisFeature.h">
+      <Filter>Part\Feature\StdFeature\StdFeature %28Sketch-based%29</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeStdAssemblyConstraint.h">
+      <Filter>Assembly\AssemblyConstraint</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeStdAssemblyConstraintType.h">
+      <Filter>Assembly\AssemblyConstraint</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeStdSketchVerticalAPI.h">
+      <Filter>Part\Feature\API\API %28Sketch%29</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeStdSketchCenterlineAPI.h">
+      <Filter>Part\Feature\API\API %28Sketch%29</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeStdSketchCircleAPI.h">
+      <Filter>Part\Feature\API\API %28Sketch%29</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeStdSketchCircularArcAPI.h">
+      <Filter>Part\Feature\API\API %28Sketch%29</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeStdSketchCoincidentAPI.h">
+      <Filter>Part\Feature\API\API %28Sketch%29</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeStdSketchConstraintAPI.h">
+      <Filter>Part\Feature\API\API %28Sketch%29</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeStdSketchConstraintsAPI.h">
+      <Filter>Part\Feature\API\API %28Sketch%29</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeStdSketchControlPointAPI.h">
+      <Filter>Part\Feature\API\API %28Sketch%29</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeStdSketchEditorAPI.h">
+      <Filter>Part\Feature\API\API %28Sketch%29</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeStdSketchFeatureAPI.h">
+      <Filter>Part\Feature\API\API %28Sketch%29</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeStdSketchGeometriesAPI.h">
+      <Filter>Part\Feature\API\API %28Sketch%29</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeStdSketchGeometryAPI.h">
+      <Filter>Part\Feature\API\API %28Sketch%29</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeStdSketchHDirectionAPI.h">
+      <Filter>Part\Feature\API\API %28Sketch%29</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeStdSketchHorizontalAPI.h">
+      <Filter>Part\Feature\API\API %28Sketch%29</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeStdSketchLineAPI.h">
+      <Filter>Part\Feature\API\API %28Sketch%29</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeStdSketchOriginAPI.h">
+      <Filter>Part\Feature\API\API %28Sketch%29</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeStdSketchParallelAPI.h">
+      <Filter>Part\Feature\API\API %28Sketch%29</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeStdSketchPerpendicularAPI.h">
+      <Filter>Part\Feature\API\API %28Sketch%29</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeStdSketchVDirectionAPI.h">
+      <Filter>Part\Feature\API\API %28Sketch%29</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeSketchAPI.h">
+      <Filter>Part\Feature\API\API %28Sketch%29</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeStdDatumPlaneOffsetFeatureAPI.h">
+      <Filter>Part\Feature\API\API %28Datum%29</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeStdSolidChamferFeatureAPI.h">
+      <Filter>Part\Feature\API\API %28Transition%29</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeStdSolidFilletConstantFeatureAPI.h">
+      <Filter>Part\Feature\API\API %28Transition%29</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeStdSolidDraftFeatureAPI.h">
+      <Filter>Part\Feature\API\API %28Transition%29</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeStdSolidOffsetFeatureAPI.h">
+      <Filter>Part\Feature\API\API %28Transition%29</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeStdSolidShellFeatureAPI.h">
+      <Filter>Part\Feature\API\API %28Transition%29</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeStdSolidCutSweepFeatureAPI.h">
+      <Filter>Part\Feature\API\API %28Sketch-based%29</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeStdSolidCutExtrudeFeatureAPI.h">
+      <Filter>Part\Feature\API\API %28Sketch-based%29</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeStdSolidCutRevolveFeatureAPI.h">
+      <Filter>Part\Feature\API\API %28Sketch-based%29</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeStdSolidHoleSimpleFeatureAPI.h">
+      <Filter>Part\Feature\API\API %28Sketch-based%29</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeStdSolidHoleCounterboredFeatureAPI.h">
+      <Filter>Part\Feature\API\API %28Sketch-based%29</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeStdSolidHoleCountersunkFeatureAPI.h">
+      <Filter>Part\Feature\API\API %28Sketch-based%29</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeStdSolidLoftFacesFeatureAPI.h">
+      <Filter>Part\Feature\API\API %28Sketch-based%29</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeStdSolidLoftSectionsFeatureAPI.h">
+      <Filter>Part\Feature\API\API %28Sketch-based%29</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeStdSolidProtrusionExtrudeFeatureAPI.h">
+      <Filter>Part\Feature\API\API %28Sketch-based%29</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeStdSolidProtrusionRevolveFeatureAPI.h">
+      <Filter>Part\Feature\API\API %28Sketch-based%29</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeStdSolidProtrusionSweepFeatureAPI.h">
+      <Filter>Part\Feature\API\API %28Sketch-based%29</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeStdSolidRevolveWithExternalAxisFeatureAPI.h">
+      <Filter>Part\Feature\API\API %28Sketch-based%29</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeStdSolidOperatePatternRectangularFeatureAPI.h">
+      <Filter>Part\Feature\API\API %28Transformation%29</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeStdSolidOperatePatternCircularFeatureAPI.h">
+      <Filter>Part\Feature\API\API %28Transformation%29</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeReferencesAPI.h">
+      <Filter>Part\Reference\API</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeReferenceAPI.h">
+      <Filter>Part\Reference\API</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeStdSolidImportedBrepFeature.h">
+      <Filter>Part\Feature\StdFeature\StdFeature %28Brep%29</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeStdSolidImportedBrepFeatureAPI.h">
+      <Filter>Part\Feature\API\API %28Brep%29</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeXmlMacroWriter.h">
+      <Filter>Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeXmlMacroReader.h">
+      <Filter>Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeUtility.h">
+      <Filter>Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeDcm.h">
+      <Filter>DCM</Filter>
+    </ClInclude>
+    <ClInclude Include="StringOut.h">
+      <Filter>Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeSolidAPI.h">
+      <Filter>Part\ExplicitModel\API</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeExplicitModelObjectsAPI.h">
+      <Filter>Part\ExplicitModel\API</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeExplicitModelObjectAPI.h">
+      <Filter>Part\ExplicitModel\API</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeExplicitModelAPI.h">
+      <Filter>Part\ExplicitModel\API</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeDatumPlaneAPI.h">
+      <Filter>Part\ExplicitModel\API</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeFaces.h">
+      <Filter>Part\ExplicitModel\ModelGeometry</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeEdges.h">
+      <Filter>Part\ExplicitModel\ModelGeometry</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeFace.h">
+      <Filter>Part\ExplicitModel\ModelGeometry</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeEdge.h">
+      <Filter>Part\ExplicitModel\ModelGeometry</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeFaceType.h">
+      <Filter>Part\ExplicitModel\ModelGeometry</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeEdgeType.h">
+      <Filter>Part\ExplicitModel\ModelGeometry</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeHandleMacro.h">
+      <Filter>Part</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeHandle.h">
+      <Filter>Part</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeEdgeAPI.h">
+      <Filter>Part\ExplicitModel\ModelGeometry\API</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeFaceAPI.h">
+      <Filter>Part\ExplicitModel\ModelGeometry\API</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeFacesAPI.h">
+      <Filter>Part\ExplicitModel\ModelGeometry\API</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeEdgesAPI.h">
+      <Filter>Part\ExplicitModel\ModelGeometry\API</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeBrepReferenceAPI.h">
+      <Filter>Part\Reference\API</Filter>
+    </ClInclude>
+    <ClInclude Include="PmePersistentNameAPI.h">
+      <Filter>Part\Reference\API</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeSolid.h">
+      <Filter>Part\ExplicitModel</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeVertices.h">
+      <Filter>Part\ExplicitModel\ModelGeometry</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeVertex.h">
+      <Filter>Part\ExplicitModel\ModelGeometry</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeVerticesAPI.h">
+      <Filter>Part\ExplicitModel\ModelGeometry\API</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeVertexAPI.h">
+      <Filter>Part\ExplicitModel\ModelGeometry\API</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeFeatureTagMarker.h">
+      <Filter>Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeStdAssemblyPerpendicularAPI.h">
+      <Filter>Assembly\AssemblyConstraint\StdAssemConstraint\StdAssemblyConstraintAPI</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeStdAssemblyAngleAPI.h">
+      <Filter>Assembly\AssemblyConstraint\StdAssemConstraint\StdAssemblyConstraintAPI</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeStdAssemblyCoaxialAPI.h">
+      <Filter>Assembly\AssemblyConstraint\StdAssemConstraint\StdAssemblyConstraintAPI</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeStdAssemblyDistanceAPI.h">
+      <Filter>Assembly\AssemblyConstraint\StdAssemConstraint\StdAssemblyConstraintAPI</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeStdAssemblyIncidenceAPI.h">
+      <Filter>Assembly\AssemblyConstraint\StdAssemConstraint\StdAssemblyConstraintAPI</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeStdAssemblyParallelAPI.h">
+      <Filter>Assembly\AssemblyConstraint\StdAssemConstraint\StdAssemblyConstraintAPI</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeStdAssemblyConstraints.h">
+      <Filter>Assembly\AssemblyConstraint</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeStdAssemblyAngle.h">
+      <Filter>Assembly\AssemblyConstraint\StdAssemConstraint</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeStdAssemblyCoaxial.h">
+      <Filter>Assembly\AssemblyConstraint\StdAssemConstraint</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeStdAssemblyDistance.h">
+      <Filter>Assembly\AssemblyConstraint\StdAssemConstraint</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeStdAssemblyIncidence.h">
+      <Filter>Assembly\AssemblyConstraint\StdAssemConstraint</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeStdAssemblyParallel.h">
+      <Filter>Assembly\AssemblyConstraint\StdAssemConstraint</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeStdAssemblyPerpendicular.h">
+      <Filter>Assembly\AssemblyConstraint\StdAssemConstraint</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeStdAssemblyConstraintAPI.h">
+      <Filter>Assembly\AssemblyConstraint\AssemblyConstraintAPI</Filter>
+    </ClInclude>
+    <ClInclude Include="PmeStdAssemblyConstraintsAPI.h">
+      <Filter>Assembly\AssemblyConstraint\AssemblyConstraintAPI</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="PartModelingEngine.rc">
+      <Filter>리소스 파일</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>

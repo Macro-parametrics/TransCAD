@@ -1,0 +1,24 @@
+HKCR
+{
+	TransCAD.Documents.1 = s 'Documents Class'
+	{
+		CLSID = s '{AD3DDB7B-9F0E-4315-B922-79FC0C8EC2BA}'
+	}
+	TransCAD.Documents = s 'Documents Class'
+	{
+		CLSID = s '{AD3DDB7B-9F0E-4315-B922-79FC0C8EC2BA}'
+		CurVer = s 'TransCAD.Documents.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {AD3DDB7B-9F0E-4315-B922-79FC0C8EC2BA} = s 'Documents Class'
+		{
+			ProgID = s 'TransCAD.Documents.1'
+			VersionIndependentProgID = s 'TransCAD.Documents'
+			ForceRemove 'Programmable'
+			LocalServer32 = s '%MODULE%'
+			val AppID = s '%APPID%'
+			'TypeLib' = s '{DC31CA13-34CA-4D11-A678-58E9FCE42872}'
+		}
+	}
+}

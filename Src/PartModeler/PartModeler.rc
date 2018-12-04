@@ -1,0 +1,846 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// 한국어(대한민국) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_KOR)
+LANGUAGE LANG_KOREAN, SUBLANG_DEFAULT
+#pragma code_page(949)
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_KOR)\r\n"
+    "LANGUAGE 18, 1\r\n"
+    "#pragma code_page(949)\r\n"
+    "#include ""res\\PartModeler.rc2""  // Microsoft Visual C++에서 편집하지 않은 리소스입니다.\r\n"
+    "#include ""afxres.rc""     // 표준 구성 요소입니다.\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,1
+ PRODUCTVERSION 1,0,0,1
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x2L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "041203b5"
+        BEGIN
+            VALUE "CompanyName", "TODO: <회사 이름>"
+            VALUE "FileDescription", "TODO: <파일 설명>"
+            VALUE "FileVersion", "1.0.0.1"
+            VALUE "InternalName", "PartModeler.dll"
+            VALUE "LegalCopyright", "TODO: (c) <회사 이름>.  All rights reserved."
+            VALUE "OriginalFilename", "PartModeler.dll"
+            VALUE "ProductName", "TODO: <제품 이름>"
+            VALUE "ProductVersion", "1.0.0.1"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x412, 949
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_PmTYPE              ICON                    "res\\PmDocument.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_PmTYPE MENU
+BEGIN
+    POPUP "File(&F)"
+    BEGIN
+        MENUITEM "New\tCtrl+N(&N)",             ID_FILE_NEW
+        MENUITEM "Open...\tCtrl+O(&O)",         ID_FILE_OPEN
+        MENUITEM "Close(&C)",                   ID_FILE_CLOSE
+        MENUITEM "Save\tCtrl+S(&S)",            ID_FILE_SAVE
+        MENUITEM "Save as(&A)...",              ID_FILE_SAVE_AS
+        MENUITEM SEPARATOR
+        MENUITEM "Print...\tCtrl+P(&P)",        ID_FILE_PRINT
+        MENUITEM "Print preview(&V)",           ID_FILE_PRINT_PREVIEW
+        MENUITEM "Print setup(&R)...",          ID_FILE_PRINT_SETUP
+        MENUITEM SEPARATOR
+        POPUP "Import(&I) (Pre-Processing)"
+        BEGIN
+            MENUITEM "From CATIA (*.CATScript)",    ID_IMPORT_FROM_CATIA
+            MENUITEM "From CATIA (*.CATPart)",      ID_IMPORT_FROM_CATIA_API
+            MENUITEM "From NX (*.prt)",             ID_IMPORT_FROM_NX
+            MENUITEM "From SolidWorks (*.swb)",     ID_IMPORT_FROM_SOLIDWORKS
+            MENUITEM "From Inventor (*.ipt)",       ID_IMPORT_FROM_INVENTOR
+            MENUITEM "From ETC (*.stp, *.sat, *.igs)", ID_IMPORT_FROM_ETC
+        END
+        POPUP "Export(&E) (Post-Processing)"
+        BEGIN
+            MENUITEM "To CATIA (*.CATScript)",      ID_EXPORT_TO_CATIA
+            MENUITEM "To CATIA (*.CATPart)",        ID_EXPORT_TO_CATIA_API
+            MENUITEM "To NX (*.prt)",               ID_EXPORT_TO_NX
+            MENUITEM "To SolidWorks (*.swb)",       ID_EXPORT_TO_SOLIDWORKS
+            MENUITEM "To Inventor (*.ipt)",         ID_EXPORT_TO_INVENTOR
+            MENUITEM "To Aveva Marine (*.txt)",     ID_EXPORT_TO_AVEVAMARINE
+            MENUITEM "To ETC (*.stp, *.sat, *.igs)", ID_EXPORT_TO_ETC
+            POPUP "To Mesh"
+            BEGIN
+                MENUITEM "To X3D (*.x3d)",              ID_EXPORT_TO_X3D
+                MENUITEM "To OBJ (*.obj)",              ID_EXPORT_TO_OBJ
+                MENUITEM "To STL (*.stl)",              ID_EXPORT_TO_STL
+                MENUITEM "To PLY (*.ply)",              ID_EXPORT_TO_PLY
+                MENUITEM "To VRML (*.wrl)",             ID_EXPORT_TO_VRML
+                MENUITEM "To 3D PDF (*.pdf)",           ID_EXPORT_TO_3DPDF
+            END
+        END
+        MENUITEM SEPARATOR
+        MENUITEM "최근에 사용한 파일",                  ID_FILE_MRU_FILE1, GRAYED
+        MENUITEM SEPARATOR
+        MENUITEM "Exit(&X)",                    ID_APP_EXIT
+    END
+    POPUP "Edit(&E)"
+    BEGIN
+        MENUITEM "Undo\tCtrl+Z(&U)",            ID_EDIT_UNDO
+        MENUITEM SEPARATOR
+        MENUITEM "Cut\tCtrl+X(&T)",             ID_EDIT_CUT
+        MENUITEM "Copy\tCtrl+C(&C)",            ID_EDIT_COPY
+        MENUITEM "Paste\tCtrl+V(&P)",           ID_EDIT_PASTE
+        MENUITEM SEPARATOR
+        MENUITEM "Update all model",            ID_EDIT_UPDATE_ALL
+    END
+    POPUP "View(&V)"
+    BEGIN
+        MENUITEM "Tool bar(&T)",                ID_VIEW_TOOLBAR
+        MENUITEM "Status bar(&S)",              ID_VIEW_STATUS_BAR
+        MENUITEM SEPARATOR
+        MENUITEM "Fit view",                    ID_VIEW_ZOOM_ALL
+        MENUITEM "Manipulation",                ID_VIEW_MANIPULATION
+        MENUITEM "Pan",                         ID_VIEW_PAN
+        MENUITEM "Trackball",                   ID_VIEW_ORBIT
+        MENUITEM "Zoom",                        ID_VIEW_ZOOM_TO_WINDOW
+        MENUITEM "Zoom in",                     ID_VIEW_ZOOM_IN
+        MENUITEM "Zoom out",                    ID_VIEW_ZOOM_OUT
+        MENUITEM SEPARATOR
+        POPUP "Camera setting"
+        BEGIN
+            MENUITEM "Front view",                  ID_VIEW_FRONT
+            MENUITEM "Behind view",                 ID_VIEW_BACK
+            MENUITEM "Left view",                   ID_VIEW_LEFT
+            MENUITEM "Right view",                  ID_VIEW_RIGHT
+            MENUITEM "Top view",                    ID_VIEW_TOP
+            MENUITEM "Bottom view",                 ID_VIEW_BOTTOM
+            MENUITEM SEPARATOR
+            MENUITEM "Iso view",                    ID_VIEW_DEFAULT_VIEWPOINT
+            MENUITEM SEPARATOR
+            MENUITEM "Sketch view",                 ID_VIEW_ACTIVE_SKETCH_VIEWPOINT
+        END
+        MENUITEM SEPARATOR
+        POPUP "Rendering mode"
+        BEGIN
+            MENUITEM "Wire frame",                  ID_VIEW_WIREFRAME
+            MENUITEM "Flat shading",                ID_VIEW_FLAT_SHADING
+            MENUITEM "Gouraud shading",             ID_VIEW_GOUROUD_SHADIHG
+            MENUITEM "Phong shading",               ID_VIEW_PHONG_SHADING
+            MENUITEM "Hidden line removal",         ID_VIEW_HIDDEN_LINE
+        END
+        MENUITEM SEPARATOR
+        MENUITEM "Hoops model tree",            ID_VIEW_HOOPS_MODEL_TREE
+        MENUITEM "View persistent name(&P)",        ID_VIEW_PERSISTENT_NAME
+    END
+    POPUP "Test model(&T)"
+    BEGIN
+        POPUP "KAIST Models(&K)"
+        BEGIN
+            MENUITEM "[K1] L-Block",                ID_TESTMODEL_CREATE_LBLOCK
+            MENUITEM "[K2] Y-Model",                ID_TESTMODEL_CREATE_YMODEL
+            MENUITEM "[K3] Gas Spring",             ID_TESTMODEL_CREATE_GASSPRING
+            MENUITEM "[K4] Linear Sensor",          ID_TESTMODEL_CREATE_LINEARSENSOR
+            MENUITEM "[K5] Engine Air Filter Housing", ID_TESTMODEL_CREATE_ENGINE_AIR_FILTER_HOUSING
+            MENUITEM "[K6] Pneumatic Cylinder",     ID_TESTMODEL_CREATE_PNEUMATIC_CYLINDER
+            MENUITEM "[K7] Chisel",                 ID_TESTMODEL_CREATE_CHISEL
+            MENUITEM SEPARATOR
+            MENUITEM "Test Model",                  ID_TESTMODEL_LASTONE
+        END
+        POPUP "CHAPS Models(&C)"
+        BEGIN
+            MENUITEM "[C1]",                        ID_TESTMODEL_CREATE_C1
+            MENUITEM "[C2]",                        ID_TESTMODEL_CREATE_C2
+            MENUITEM "[C3]",                        ID_TESTMODEL_CREATE_C3
+            MENUITEM "[C4]",                        ID_TESTMODEL_CREATE_C4
+            MENUITEM "[C5]",                        ID_TESTMODEL_CREATE_C5
+            MENUITEM "[C6]",                        ID_TESTMODEL_CREATE_C6
+        END
+    END
+    POPUP "Window(&W)"
+    BEGIN
+        MENUITEM "새 창(&N)",                     ID_WINDOW_NEW
+        MENUITEM "계단식 배열(&C)",                  ID_WINDOW_CASCADE
+        MENUITEM "바둑판식 배열(&T)",                 ID_WINDOW_TILE_HORZ
+        MENUITEM "아이콘 정렬(&A)",                  ID_WINDOW_ARRANGE
+    END
+    POPUP "Help(&H)"
+    BEGIN
+        MENUITEM "TransCAD 정보(&A)...",          ID_APP_ABOUT
+    END
+    POPUP "Naming(&N)"
+    BEGIN
+        MENUITEM "Topology based",              ID_NAMING_TOPOLOGICAL
+        MENUITEM "Point based",                 ID_NAMING_GEOMETRIC
+    END
+    POPUP "Insert(&I)"
+    BEGIN
+        POPUP "Datum Plane"
+        BEGIN
+            MENUITEM "Datum Plane Offset",          ID_DATUMPLANE_DATUMPLANEOFFSET
+        END
+        POPUP "Sketch-Based Features"
+        BEGIN
+            MENUITEM "Extrude",                     ID_SKETCHBASEDFEATURES_EXTRUDE
+            MENUITEM "Revolve",                     ID_SKETCHBASEDFEATURES_REVOLVE
+            MENUITEM "Sweep",                       ID_SKETCHBASEDFEATURES_SWEEP
+            MENUITEM "Hole",                        ID_SKETCHBASEDFEATURES_HOLE
+        END
+        POPUP "Transition Features"
+        BEGIN
+            MENUITEM "Edge Fillet",                 ID_TRANSITIONFEATURES_FILLET
+            MENUITEM "Chamfer",                     ID_TRANSITIONFEATURES_CHAMFER
+            MENUITEM "Shell",                       ID_TRANSITIONFEATURES_SHELL
+            MENUITEM "Draft",                       ID_TRANSITIONFEATURES_DRAFT
+            MENUITEM "Offset",                      ID_TRANSITIONFEATURES_OFFSET
+        END
+        POPUP "Transformation Features"
+        BEGIN
+            MENUITEM "Rectangular Pattern",         ID_TRANSFORMATIONFEATURES_RECTANGULARPATTERN
+            MENUITEM "Circular Pattern",            ID_TRANSFORMATIONFEATURES_CIRCULARPATTERN
+        END
+    END
+END
+
+IDR_MENU1 MENU
+BEGIN
+    MENUITEM "Insert(&I)",                  0
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_VIEW_HOOPS_MODEL_TREE DIALOGEX 0, 0, 291, 254
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Hoops 모델 트리"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "닫기",IDOK,120,233,50,14
+    CONTROL         "",IDC_VIEW_HOOPS_MODEL_TREE_TREE,"SysTreeView32",TVS_HASBUTTONS | TVS_HASLINES | TVS_LINESATROOT | TVS_NOSCROLL | WS_BORDER | WS_TABSTOP,7,7,277,217
+END
+
+IDD_VIEW_PERSISTENT_NAME DIALOGEX 0, 0, 187, 113
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "View Persistent Name"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    CONTROL         "Face",IDC_VIEW_PERSISTENT_NAME_FACE,"Button",BS_AUTORADIOBUTTON,23,17,31,10
+    CONTROL         "Edge",IDC_VIEW_PERSISTENT_NAME_EDGE,"Button",BS_AUTORADIOBUTTON,73,17,32,10
+    CONTROL         "Vertex",IDC_VIEW_PERSISTENT_NAME_VERTEX,"Button",BS_AUTORADIOBUTTON,124,17,37,10
+    EDITTEXT        IDC_VIEW_PERSISTENT_NAME_NAME,7,38,172,68,ES_MULTILINE | ES_AUTOVSCROLL | WS_VSCROLL
+    GROUPBOX        "Selection Mode",IDC_STATIC,7,5,172,28
+END
+
+ID_TRANSITIONFEATURES_FILLET DIALOGEX 0, 0, 205, 183
+STYLE DS_SETFONT | DS_MODALFRAME | DS_SETFOREGROUND | DS_3DLOOK | DS_FIXEDSYS | DS_CENTERMOUSE | WS_POPUP | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_STATICEDGE
+CAPTION "Edge Fillet Definition"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    CONTROL         "Face",IDC_VIEW_SELECT_FACE,"Button",BS_AUTORADIOBUTTON,91,34,31,10
+    CONTROL         "Edge",IDC_VIEW_SELECT_EDGE,"Button",BS_AUTORADIOBUTTON,130,34,32,10
+    EDITTEXT        IDC_FEATURE_NAME,92,60,70,14,ES_AUTOHSCROLL,WS_EX_STATICEDGE
+    EDITTEXT        IDC_FILLET_RADIUS,92,88,70,14,ES_AUTOHSCROLL,WS_EX_STATICEDGE
+    COMBOBOX        IDC_FILLET_PROPAGATION_TYPE,92,116,70,30,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    DEFPUSHBUTTON   "확인",IDOK,50,162,50,14
+    PUSHBUTTON      "취소",IDCANCEL,104,162,50,14
+    LTEXT           "Fillet Name",IDC_STATIC,30,62,36,8
+    LTEXT           "Fillet Radius",IDC_STATIC,30,90,39,8
+    LTEXT           "Propagation",IDC_STATIC,30,118,40,8
+    LTEXT           "Selection Mode",IDC_STATIC,30,34,49,8
+END
+
+ID_TRANSITIONFEATURES_CHAMFER DIALOGEX 0, 0, 206, 183
+STYLE DS_SETFONT | DS_MODALFRAME | DS_SETFOREGROUND | DS_3DLOOK | DS_FIXEDSYS | DS_CENTERMOUSE | WS_POPUP | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_STATICEDGE
+CAPTION "Chamfer Definition"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    CONTROL         "Face",IDC_VIEW_SELECT_FACE,"Button",BS_AUTORADIOBUTTON,91,34,31,10
+    CONTROL         "Edge",IDC_VIEW_SELECT_EDGE,"Button",BS_AUTORADIOBUTTON,130,34,32,10
+    EDITTEXT        IDC_FEATURE_NAME,92,59,71,14,ES_AUTOHSCROLL,WS_EX_STATICEDGE
+    EDITTEXT        IDC_CHAMFER_LENGTH,92,88,71,14,ES_AUTOHSCROLL,WS_EX_STATICEDGE
+    DEFPUSHBUTTON   "확인",IDOK,50,162,50,14
+    PUSHBUTTON      "취소",IDCANCEL,104,162,50,14
+    LTEXT           "Chamfer Name",IDC_STATIC,30,62,48,8
+    LTEXT           "Chamfer Length",IDC_STATIC,30,90,52,8
+    LTEXT           "Selection Mode",IDC_STATIC,30,34,49,8
+END
+
+ID_SKETCHBASEDFEATURES_EXTRUDE DIALOGEX 0, 0, 205, 183
+STYLE DS_SETFONT | DS_MODALFRAME | DS_SETFOREGROUND | DS_3DLOOK | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_STATICEDGE
+CAPTION "Extrude Definition"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    COMBOBOX        IDC_BOOLEAN_TYPE,107,9,70,30,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    EDITTEXT        IDC_FEATURE_NAME,107,27,70,12,ES_AUTOHSCROLL,WS_EX_STATICEDGE
+    EDITTEXT        IDC_PROFILE_SKETCH_NAME,107,45,70,12,ES_AUTOHSCROLL | ES_READONLY,WS_EX_STATICEDGE
+    PUSHBUTTON      "..",IDC_SELECT_PROFILE_SKETCH,179,44,11,13
+    EDITTEXT        IDC_EXTRUDE_START_DEPTH,107,63,70,12,ES_AUTOHSCROLL,WS_EX_STATICEDGE
+    COMBOBOX        IDC_EXTRUDE_START_CONDITION,107,81,70,30,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    EDITTEXT        IDC_EXTRUDE_END_DEPTH,107,99,70,12,ES_AUTOHSCROLL,WS_EX_STATICEDGE
+    COMBOBOX        IDC_EXTRUDE_END_CONDITION,107,117,70,30,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_IS_FLIP,107,135,70,30,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    DEFPUSHBUTTON   "확인",IDOK,50,162,50,14
+    PUSHBUTTON      "취소",IDCANCEL,104,162,50,14
+    LTEXT           "Type",IDC_STATIC,32,9,17,8
+    LTEXT           "Extrude Name",IDC_STATIC,32,27,46,8
+    LTEXT           "Sketch Name",IDC_STATIC,32,45,42,8
+    LTEXT           "Start Depth",IDC_STATIC,32,63,38,8
+    LTEXT           "Start Condition",IDC_STATIC,32,81,49,8
+    LTEXT           "End Depth",IDC_STATIC,32,99,34,8
+    LTEXT           "End Condition",IDC_STATIC,32,117,45,8
+    LTEXT           "IsFlip",IDC_STATIC,32,135,18,8
+END
+
+ID_TRANSFORMATIONFEATURES_RECTANGULARPATTERN DIALOGEX 0, 0, 228, 222
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Rectangular Pattern Definition"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    EDITTEXT        IDC_FEATURE_NAME,120,12,74,14,ES_AUTOHSCROLL,WS_EX_STATICEDGE
+    EDITTEXT        IDC_TARGET_FEATURES,120,29,74,14,ES_AUTOHSCROLL | ES_READONLY,WS_EX_STATICEDGE
+    PUSHBUTTON      "..",IDC_SELECT_TARGET_FEATURES,196,29,11,13
+    EDITTEXT        IDC_ROW_DIRECTION_X,62,64,40,14,ES_AUTOHSCROLL,WS_EX_STATICEDGE
+    EDITTEXT        IDC_ROW_DIRECTION_Y,62,80,40,14,ES_AUTOHSCROLL,WS_EX_STATICEDGE
+    EDITTEXT        IDC_ROW_DIRECTION_Z,62,96,40,14,ES_AUTOHSCROLL,WS_EX_STATICEDGE
+    EDITTEXT        IDC_COLUMN_DIRECTION_X,142,64,40,14,ES_AUTOHSCROLL,WS_EX_STATICEDGE
+    EDITTEXT        IDC_COLUMN_DIRECTION_Y,142,80,40,14,ES_AUTOHSCROLL,WS_EX_STATICEDGE
+    EDITTEXT        IDC_COLUMN_DIRECTION_Z,142,96,40,14,ES_AUTOHSCROLL,WS_EX_STATICEDGE
+    EDITTEXT        IDC_ROW_INSTANCE_NUMBER,119,124,74,14,ES_AUTOHSCROLL,WS_EX_STATICEDGE
+    EDITTEXT        IDC_ROW_INSTANCE_SPACING,119,141,74,14,ES_AUTOHSCROLL,WS_EX_STATICEDGE
+    EDITTEXT        IDC_COLUMN_INSTANCE_NUMBER,119,158,74,14,ES_AUTOHSCROLL,WS_EX_STATICEDGE
+    EDITTEXT        IDC_COLUMN_INSTANCE_SPACING,119,175,74,14,ES_AUTOHSCROLL,WS_EX_STATICEDGE
+    DEFPUSHBUTTON   "확인",IDOK,61,198,50,14
+    PUSHBUTTON      "취소",IDCANCEL,115,198,50,14
+    LTEXT           "Pattern Name",IDC_STATIC,33,15,45,8
+    LTEXT           "Target Features",IDC_STATIC,33,30,53,8
+    GROUPBOX        "Row Direction",IDC_STATIC,37,50,71,65
+    GROUPBOX        "Column Direction",IDC_STATIC,118,50,71,65
+    LTEXT           "X",IDC_STATIC,48,64,8,8
+    LTEXT           "Y",IDC_STATIC,48,81,8,8
+    LTEXT           "Z",IDC_STATIC,48,96,8,8
+    LTEXT           "X",IDC_STATIC,127,64,8,8
+    LTEXT           "Y",IDC_STATIC,127,81,8,8
+    LTEXT           "Z",IDC_STATIC,127,96,8,8
+    LTEXT           "Row Instance Number",IDC_STATIC,33,126,72,8
+    LTEXT           "Row Instance Spacing",IDC_STATIC,33,143,72,8
+    LTEXT           "Column Instance Number",IDC_STATIC,33,160,81,8
+    LTEXT           "Column Instance Spacing",IDC_STATIC,33,177,81,8
+END
+
+ID_TRANSFORMATIONFEATURES_CIRCULARPATTERN DIALOGEX 0, 0, 228, 237
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Circular Pattern Definition"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    EDITTEXT        IDC_FEATURE_NAME,120,12,74,14,ES_AUTOHSCROLL,WS_EX_STATICEDGE
+    EDITTEXT        IDC_TARGET_FEATURES,120,29,74,14,ES_AUTOHSCROLL | ES_READONLY,WS_EX_STATICEDGE
+    PUSHBUTTON      "..",IDC_SELECT_TARGET_FEATURES,196,29,11,13
+    EDITTEXT        IDC_AXIS_ORIGIN_X,62,64,40,14,ES_AUTOHSCROLL,WS_EX_STATICEDGE
+    EDITTEXT        IDC_AXIS_ORIGIN_Y,62,80,40,14,ES_AUTOHSCROLL,WS_EX_STATICEDGE
+    EDITTEXT        IDC_AXIS_ORIGIN_Z,62,96,40,14,ES_AUTOHSCROLL,WS_EX_STATICEDGE
+    EDITTEXT        IDC_AXIS_DIRECTION_X,142,64,40,14,ES_AUTOHSCROLL,WS_EX_STATICEDGE
+    EDITTEXT        IDC_AXIS_DIRECTION_Y,142,80,40,14,ES_AUTOHSCROLL,WS_EX_STATICEDGE
+    EDITTEXT        IDC_AXIS_DIRECTION_Z,142,96,40,14,ES_AUTOHSCROLL,WS_EX_STATICEDGE
+    EDITTEXT        IDC_ANGULAR_NUMBER,119,124,73,14,ES_AUTOHSCROLL,WS_EX_STATICEDGE
+    EDITTEXT        IDC_ANGULAR_INCREMENT,119,141,73,14,ES_AUTOHSCROLL,WS_EX_STATICEDGE
+    EDITTEXT        IDC_RADIAL_NUMBER,119,158,73,14,ES_AUTOHSCROLL,WS_EX_STATICEDGE
+    EDITTEXT        IDC_RADIAL_SPACING,119,175,73,14,ES_AUTOHSCROLL,WS_EX_STATICEDGE
+    COMBOBOX        IDC_IS_RADIALLY_ALIGNED,120,192,72,30,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    DEFPUSHBUTTON   "확인",IDOK,57,216,50,14
+    PUSHBUTTON      "취소",IDCANCEL,117,216,50,14
+    LTEXT           "Pattern Name",IDC_STATIC,33,15,45,8
+    LTEXT           "Target Features",IDC_STATIC,33,30,53,8
+    GROUPBOX        "Origin",IDC_STATIC,37,50,71,64
+    GROUPBOX        "Direction",IDC_STATIC,118,50,71,65
+    LTEXT           "X",IDC_STATIC,48,65,8,8
+    LTEXT           "Y",IDC_STATIC,48,82,8,8
+    LTEXT           "Z",IDC_STATIC,48,98,8,8
+    LTEXT           "X",IDC_STATIC,127,65,8,8
+    LTEXT           "Y",IDC_STATIC,127,82,8,8
+    LTEXT           "Z",IDC_STATIC,127,98,8,8
+    LTEXT           "Angular Number",IDC_STATIC,33,126,52,8
+    LTEXT           "Angular Increment",IDC_STATIC,33,143,60,8
+    LTEXT           "Radial Number",IDC_STATIC,33,160,47,8
+    LTEXT           "Radial Spacing",IDC_STATIC,33,177,47,8
+    LTEXT           "IsRadiallyAligned",IDC_STATIC,33,194,55,8
+END
+
+ID_SKETCHBASEDFEATURES_REVOLVE DIALOGEX 0, 0, 205, 183
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Revolve Definition"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    COMBOBOX        IDC_BOOLEAN_TYPE,107,9,70,30,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    EDITTEXT        IDC_FEATURE_NAME,107,27,70,12,ES_AUTOHSCROLL,WS_EX_STATICEDGE
+    EDITTEXT        IDC_PROFILE_SKETCH_NAME,107,45,70,12,ES_AUTOHSCROLL | ES_READONLY,WS_EX_STATICEDGE
+    PUSHBUTTON      "..",IDC_SELECT_PROFILE_SKETCH,179,44,11,13
+    EDITTEXT        IDC_REVOLVE_START_ANGLE,107,63,70,12,ES_AUTOHSCROLL,WS_EX_STATICEDGE
+    COMBOBOX        IDC_REVOLVE_START_CONDITION,107,81,70,30,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    EDITTEXT        IDC_REVOLVE_END_ANGLE,107,99,70,12,ES_AUTOHSCROLL,WS_EX_STATICEDGE
+    COMBOBOX        IDC_REVOLVE_END_CONDITION,107,117,70,30,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_IS_FLIP,107,135,70,30,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    DEFPUSHBUTTON   "확인",IDOK,50,162,50,14
+    PUSHBUTTON      "취소",IDCANCEL,104,162,50,14
+    LTEXT           "Type",IDC_STATIC,32,9,17,8
+    LTEXT           "Revolve Name",IDC_STATIC,32,27,47,8
+    LTEXT           "Sketch Name",IDC_STATIC,32,45,42,8
+    LTEXT           "Start Angle",IDC_STATIC,32,63,37,8
+    LTEXT           "Start Condition",IDC_STATIC,32,81,49,8
+    LTEXT           "End Angle",IDC_STATIC,32,99,33,8
+    LTEXT           "End Condition",IDC_STATIC,32,117,45,8
+    LTEXT           "IsFlip",IDC_STATIC,32,135,18,8
+END
+
+ID_SKETCHBASEDFEATURES_SWEEP DIALOGEX 0, 0, 205, 183
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Sweep Definition"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    COMBOBOX        IDC_BOOLEAN_TYPE,107,9,70,30,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    EDITTEXT        IDC_FEATURE_NAME,107,33,70,12,ES_AUTOHSCROLL,WS_EX_STATICEDGE
+    EDITTEXT        IDC_PROFILE_SKETCH_NAME,107,57,70,12,ES_AUTOHSCROLL | ES_READONLY,WS_EX_STATICEDGE
+    PUSHBUTTON      "..",IDC_SELECT_PROFILE_SKETCH,179,56,11,13
+    EDITTEXT        IDC_GUIDE_SKETCH_NAME,107,81,70,12,ES_AUTOHSCROLL | ES_READONLY,WS_EX_STATICEDGE
+    PUSHBUTTON      "..",IDC_SELECT_GUIDE_SKETCH,179,80,11,13
+    DEFPUSHBUTTON   "확인",IDOK,50,162,50,14
+    PUSHBUTTON      "취소",IDCANCEL,104,162,50,14
+    LTEXT           "Type",IDC_STATIC,32,9,17,8
+    LTEXT           "Sweep Name",IDC_STATIC,32,33,42,8
+    LTEXT           "Profile Sketch Name",IDC_STATIC,32,57,64,8
+    LTEXT           "Guide Sketch Name",IDC_STATIC,32,81,62,8
+END
+
+ID_SKETCHBASEDFEATURES_HOLE DIALOGEX 0, 0, 205, 207
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Hole Definition"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    COMBOBOX        IDC_HOLE_TYPE,107,9,70,30,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    EDITTEXT        IDC_FEATURE_NAME,107,27,70,12,ES_AUTOHSCROLL,WS_EX_STATICEDGE
+    EDITTEXT        IDC_HOLE_CENTER_X,29,54,40,14,ES_AUTOHSCROLL,WS_EX_STATICEDGE
+    EDITTEXT        IDC_HOLE_CENTER_Y,87,54,40,14,ES_AUTOHSCROLL,WS_EX_STATICEDGE
+    EDITTEXT        IDC_HOLE_CENTER_Z,144,54,40,14,ES_AUTOHSCROLL,WS_EX_STATICEDGE
+    EDITTEXT        IDC_HOLE_RADIUS,109,79,70,12,ES_AUTOHSCROLL,WS_EX_STATICEDGE
+    EDITTEXT        IDC_HOLE_DEPTH,109,96,70,12,ES_AUTOHSCROLL,WS_EX_STATICEDGE
+    EDITTEXT        IDC_HOLE_BOTTOM_ANGLE,109,113,70,12,ES_AUTOHSCROLL,WS_EX_STATICEDGE
+    EDITTEXT        IDC_HOLE_SINK_RADIUS,55,144,40,14,ES_AUTOHSCROLL,WS_EX_STATICEDGE
+    EDITTEXT        IDC_HOLE_SINK_ANGLE,55,162,40,14,ES_AUTOHSCROLL,WS_EX_STATICEDGE
+    EDITTEXT        IDC_HOLE_HEAD_RADIUS,154,144,40,14,ES_AUTOHSCROLL,WS_EX_STATICEDGE
+    EDITTEXT        IDC_HOLE_HEAD_DEPTH,154,162,40,14,ES_AUTOHSCROLL,WS_EX_STATICEDGE
+    DEFPUSHBUTTON   "확인",IDOK,50,186,50,14
+    PUSHBUTTON      "취소",IDCANCEL,104,186,50,14
+    LTEXT           "Hole Type",IDC_STATIC,32,9,33,8
+    LTEXT           "Hole Name",IDC_STATIC,32,27,35,8
+    GROUPBOX        "Center Position",IDC_STATIC,15,42,175,31
+    LTEXT           "Hole Radius",IDC_STATIC,32,79,38,8
+    LTEXT           "Hole Depth",IDC_STATIC,32,96,36,8
+    LTEXT           "Hole Bottom Angle",IDC_STATIC,32,113,60,8
+    GROUPBOX        "Countersunk Options",IDC_STATIC,5,134,95,44
+    LTEXT           "Sink Radius",IDC_STATIC,14,145,37,8
+    LTEXT           "Sink Angle",IDC_STATIC,14,163,34,8
+    GROUPBOX        "Counterbored Options",IDC_STATIC,104,134,95,44
+    LTEXT           "Head Radius",IDC_STATIC,111,145,41,8
+    LTEXT           "Head Depth",IDC_STATIC,111,163,39,8
+    LTEXT           "X",IDC_STATIC,22,56,8,8
+    LTEXT           "Y",IDC_STATIC,79,56,8,8
+    LTEXT           "Z",IDC_STATIC,136,56,8,8
+END
+
+ID_TRANSITIONFEATURES_SHELL DIALOGEX 0, 0, 205, 183
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Shell Definition"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    EDITTEXT        IDC_FEATURE_NAME,105,34,70,14,ES_AUTOHSCROLL,WS_EX_STATICEDGE
+    EDITTEXT        IDC_SHELL_INNER_THICKNESS,105,62,70,14,ES_AUTOHSCROLL,WS_EX_STATICEDGE
+    EDITTEXT        IDC_SHELL_OUTER_THICKNESS,105,90,70,14,ES_AUTOHSCROLL,WS_EX_STATICEDGE
+    DEFPUSHBUTTON   "확인",IDOK,50,162,50,14
+    PUSHBUTTON      "취소",IDCANCEL,104,162,50,14
+    LTEXT           "Shell Name",IDC_STATIC,30,37,36,8
+    LTEXT           "Shell Inner Thickness",IDC_STATIC,30,65,68,8
+    LTEXT           "Shell Outer Thickness",IDC_STATIC,30,93,69,8
+END
+
+ID_TRANSITIONFEATURES_DRAFT DIALOGEX 0, 0, 205, 183
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Draft Definition"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    EDITTEXT        IDC_FEATURE_NAME,99,23,70,14,ES_AUTOHSCROLL,WS_EX_STATICEDGE
+    EDITTEXT        IDC_DRAFT_ANGLE,99,50,70,14,ES_AUTOHSCROLL,WS_EX_STATICEDGE
+    EDITTEXT        IDC_PULLING_ORIGIN_X,53,93,40,14,ES_AUTOHSCROLL,WS_EX_STATICEDGE
+    EDITTEXT        IDC_PULLING_ORIGIN_Y,53,109,40,14,ES_AUTOHSCROLL,WS_EX_STATICEDGE
+    EDITTEXT        IDC_PULLING_ORIGIN_Z,53,125,40,14,ES_AUTOHSCROLL,WS_EX_STATICEDGE
+    EDITTEXT        IDC_PULLING_DIRECTION_X,133,93,40,14,ES_AUTOHSCROLL,WS_EX_STATICEDGE
+    EDITTEXT        IDC_PULLING_DIRECTION_Y,133,109,40,14,ES_AUTOHSCROLL,WS_EX_STATICEDGE
+    EDITTEXT        IDC_PULLING_DIRECTION_Z,133,125,40,14,ES_AUTOHSCROLL,WS_EX_STATICEDGE
+    DEFPUSHBUTTON   "확인",IDOK,50,162,50,14
+    PUSHBUTTON      "취소",IDCANCEL,104,162,50,14
+    LTEXT           "Draft Name",IDC_STATIC,37,26,38,8
+    LTEXT           "Draft Angle",IDC_STATIC,37,52,38,8
+    GROUPBOX        "Pulling Origin",IDC_STATIC,28,79,71,64
+    GROUPBOX        "Pulling Direction",IDC_STATIC,109,79,71,65
+    LTEXT           "X",IDC_STATIC,39,95,8,8
+    LTEXT           "Y",IDC_STATIC,39,112,8,8
+    LTEXT           "Z",IDC_STATIC,39,127,8,8
+    LTEXT           "X",IDC_STATIC,118,95,8,8
+    LTEXT           "Y",IDC_STATIC,118,112,8,8
+    LTEXT           "Z",IDC_STATIC,118,127,8,8
+END
+
+ID_TRANSITIONFEATURES_OFFSET DIALOGEX 0, 0, 205, 183
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Offset Definition"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    EDITTEXT        IDC_FEATURE_NAME,92,49,70,14,ES_AUTOHSCROLL,WS_EX_STATICEDGE
+    EDITTEXT        IDC_OFFSET_THICKNESS,92,78,70,14,ES_AUTOHSCROLL,WS_EX_STATICEDGE
+    DEFPUSHBUTTON   "확인",IDOK,50,162,50,14
+    PUSHBUTTON      "취소",IDCANCEL,104,162,50,14
+    LTEXT           "Offset Name",IDC_STATIC,30,52,42,8
+    LTEXT           "Offset Thickness",IDC_STATIC,30,80,54,8
+END
+
+ID_DATUMPLANE_DATUMPLANEOFFSET DIALOGEX 0, 0, 205, 195
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Datum Plane Definition"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "확인",IDOK,50,174,50,14
+    PUSHBUTTON      "취소",IDCANCEL,104,174,50,14
+    EDITTEXT        IDC_FEATURE_NAME,107,27,70,12,ES_AUTOHSCROLL,WS_EX_STATICEDGE
+    EDITTEXT        IDC_REFERENCE_PLANE_NAME,107,44,70,12,ES_AUTOHSCROLL | ES_READONLY,WS_EX_STATICEDGE
+    PUSHBUTTON      "..",IDC_SELECT_REFERENCE_PLANE,179,43,11,13
+    EDITTEXT        IDC_DATUMPLANE_DISTANCE,107,62,70,12,ES_AUTOHSCROLL,WS_EX_STATICEDGE
+    COMBOBOX        IDC_IS_FLIP,107,80,70,30,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Plane Name",IDC_STATIC,32,27,38,8
+    LTEXT           "Reference Plane Name",IDC_STATIC,32,45,74,8
+    LTEXT           "Distance",IDC_STATIC,32,63,28,8
+    LTEXT           "IsFlip",IDC_STATIC,32,81,18,8
+    COMBOBOX        IDC_IS_FREE,107,8,70,30,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "IsFree",IDC_STATIC,33,9,22,8
+    EDITTEXT        IDC_DATUM_ORIGIN_X,28,114,31,14,ES_AUTOHSCROLL,WS_EX_STATICEDGE
+    EDITTEXT        IDC_DATUM_ORIGIN_Y,28,130,31,14,ES_AUTOHSCROLL,WS_EX_STATICEDGE
+    EDITTEXT        IDC_DATUM_ORIGIN_Z,28,146,31,14,ES_AUTOHSCROLL,WS_EX_STATICEDGE
+    GROUPBOX        "Origin",IDC_STATIC,6,100,59,64
+    LTEXT           "X",IDC_STATIC,14,115,8,8
+    LTEXT           "Y",IDC_STATIC,14,132,8,8
+    LTEXT           "Z",IDC_STATIC,14,147,8,8
+    EDITTEXT        IDC_DATUM_XDIRECTION_X,94,114,31,14,ES_AUTOHSCROLL,WS_EX_STATICEDGE
+    EDITTEXT        IDC_DATUM_XDIRECTION_Y,94,130,31,14,ES_AUTOHSCROLL,WS_EX_STATICEDGE
+    EDITTEXT        IDC_DATUM_XDIRECTION_Z,94,146,31,14,ES_AUTOHSCROLL,WS_EX_STATICEDGE
+    GROUPBOX        "X Direction",IDC_STATIC,72,100,59,64
+    LTEXT           "X",IDC_STATIC,80,115,8,8
+    LTEXT           "Y",IDC_STATIC,80,132,8,8
+    LTEXT           "Z",IDC_STATIC,80,147,8,8
+    EDITTEXT        IDC_DATUM_YDIRECTION_X,161,114,31,14,ES_AUTOHSCROLL,WS_EX_STATICEDGE
+    EDITTEXT        IDC_DATUM_YDIRECTION_Y,161,130,31,14,ES_AUTOHSCROLL,WS_EX_STATICEDGE
+    EDITTEXT        IDC_DATUM_YDIRECTION_Z,161,146,31,14,ES_AUTOHSCROLL,WS_EX_STATICEDGE
+    GROUPBOX        "Y Direction",IDC_STATIC,139,100,59,64
+    LTEXT           "X",IDC_STATIC,147,115,8,8
+    LTEXT           "Y",IDC_STATIC,147,132,8,8
+    LTEXT           "Z",IDC_STATIC,147,147,8,8
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO
+BEGIN
+    IDD_VIEW_HOOPS_MODEL_TREE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 284
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 247
+    END
+
+    IDD_VIEW_PERSISTENT_NAME, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 180
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 106
+    END
+
+    ID_TRANSITIONFEATURES_FILLET, DIALOG
+    BEGIN
+        LEFTMARGIN, 5
+        RIGHTMARGIN, 200
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 176
+    END
+
+    ID_TRANSITIONFEATURES_CHAMFER, DIALOG
+    BEGIN
+        LEFTMARGIN, 5
+        RIGHTMARGIN, 201
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 176
+    END
+
+    ID_SKETCHBASEDFEATURES_EXTRUDE, DIALOG
+    BEGIN
+        LEFTMARGIN, 5
+        RIGHTMARGIN, 200
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 176
+    END
+
+    ID_TRANSFORMATIONFEATURES_RECTANGULARPATTERN, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 221
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 215
+    END
+
+    ID_TRANSFORMATIONFEATURES_CIRCULARPATTERN, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 221
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 230
+    END
+
+    ID_SKETCHBASEDFEATURES_REVOLVE, DIALOG
+    BEGIN
+        LEFTMARGIN, 5
+        RIGHTMARGIN, 200
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 176
+    END
+
+    ID_SKETCHBASEDFEATURES_SWEEP, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 198
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 176
+    END
+
+    ID_SKETCHBASEDFEATURES_HOLE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 198
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 200
+    END
+
+    ID_TRANSITIONFEATURES_SHELL, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 198
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 176
+    END
+
+    ID_TRANSITIONFEATURES_DRAFT, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 198
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 176
+    END
+
+    ID_TRANSITIONFEATURES_OFFSET, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 198
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 176
+    END
+
+    ID_DATUMPLANE_DATUMPLANEOFFSET, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 198
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 188
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDR_MANIPULATION_TOOLBAR BITMAP                  "res\\Toolbar.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Toolbar
+//
+
+IDR_MANIPULATION_TOOLBAR TOOLBAR 16, 15
+BEGIN
+    BUTTON      ID_UNDO
+    BUTTON      ID_REDO
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDR_PmTYPE              "\nPartModeler\nPartModeler\n\n\nPartModeler.Document\nPartModeler.Document"
+    IDS_PM_FEATURE_TREE_TITLE "Feature Tree"
+    IDS_PM_FEATURE_PROPERTY_TITLE "Feature Property"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_XML_FILE_FILTER     "XML 파일 (*.xml)|*.xml|모든 파일 (*.*)|*.*||"
+END
+
+STRINGTABLE
+BEGIN
+    ID_VIEW_MANIPULATION    "화면을 자유롭게 조작합니다.\n화면 조작"
+    ID_VIEW_PAN             "화면을 이동시킵니다.\n화면 이동"
+    ID_VIEW_ORBIT           "화면을 회전시킵니다.\n화면 회전"
+    ID_VIEW_ROTATE          "화면을 회전시킵니다.\n화면 회전"
+    ID_VIEW_ZOOM_IN         "화면을 확대해서 보여줍니다.\n화면 확대"
+    ID_VIEW_ZOOM_OUT        "화면을 축소해서 보여줍니다.\n화면 축소"
+    ID_ZOOM_TO_WINDOW       "선택한 영역을 확대해서 보여줍니다.\n창 확대"
+    ID_VIEW_FRONT           "앞에서 물체를 바라봅니다.\n앞 보기"
+    ID_VIEW_BACK            "뒤에서 물체를 바라봅니다.\n뒤 보기"
+    ID_VIEW_LEFT            "왼쪽에서 물체를 바라봅니다.\n왼쪽 보기"
+END
+
+STRINGTABLE
+BEGIN
+    ID_VIEW_RIGHT           "오른쪽에서 물체를 바라봅니다.\n오른쪽 보기"
+    ID_VIEW_TOP             "위에서 물체를 바라봅니다.\n위 보기"
+    ID_VIEW_BOTTOM          "아래에서 물체를 바라봅니다.\n아래 보기"
+    ID_VIEW_ZOOM_TO_WINDOW  "선택한 영역을 확대해서 보여줍니다.\n창 확대"
+    ID_VIEW_WIREFRAME       "와이어 프레임 모드로 보여줍니다.\n와이어 프레임"
+    ID_VIEW_FLAT_SHADING    "플렛 셰이딩 모드로 보여줍니다.\n플렛 셰이딩"
+    ID_VIEW_GOUROUD_SHADING "고라우드 셰이딩 모드로 보여줍니다.\n고라우드 셰이딩"
+    ID_VIEW_PHONG_SHADING   "퐁 셰이딩 모드로 보여줍니다.\n퐁 셰이딩"
+    ID_VIEW_HIDDEN_LINE     "은선 제거 모드로 보여줍니다.\n은선 제거"
+    ID_VIEW_GOUROUD_SHADIHG "고라우드 셰이딩 모드로 보여줍니다.\n고라우드 셰이딩"
+    ID_VIEW_DEFAULT_VIEWPOINT "기본적으로 설정된 시점으로 변경합니다.\n기본 시점"
+    ID_VIEW_ACTIVE_SKETCH_VIEWPOINT "현재 활성화된 스케치 시점으로 변경합니다.\n스케치 시점"
+    ID_EDIT_UPDATE_ALL      "모델을 재생성합니다.\n전체 업데이트"
+    ID_VIEW_HOOPS_MODEL_TREE "Hoops의 모델 구조를 보여줍이다.\n모델 트리"
+    ID_VIEW_ZOOM_ALL        "전체 형상을 보여줍니다.\n전체 보기"
+    ID_VIEW_PERSISTENT_NAME "엔티티가 가지고 있는 명칭을 보여줍니다.\n명칭 보기"
+END
+
+STRINGTABLE
+BEGIN
+    ID_UNDO                 "작업을 취소합니다.\n뒤로 가기"
+    ID_REDO                 "취소된 작업을 복구합니다.\n앞으로 가기"
+END
+
+#endif    // 한국어(대한민국) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_KOR)
+LANGUAGE 18, 1
+#pragma code_page(949)
+#include "res\PartModeler.rc2"  // Microsoft Visual C++에서 편집하지 않은 리소스입니다.
+#include "afxres.rc"     // 표준 구성 요소입니다.
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

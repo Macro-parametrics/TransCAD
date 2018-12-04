@@ -1,0 +1,2 @@
+Opening D:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\1\pol1.tmp.poly.
+Error:  Point 0 has no z coordinate.

@@ -1,0 +1,668 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// 한국어(대한민국) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_KOR)
+LANGUAGE LANG_KOREAN, SUBLANG_DEFAULT
+#pragma code_page(949)
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_KOR)\r\n"
+    "LANGUAGE 18, 1\r\n"
+    "#pragma code_page(949)\r\n"
+    "#include ""res\\Assembler.rc2""  // Microsoft Visual C++에서 편집하지 않은 리소스입니다.\r\n"
+    "#include ""afxres.rc""     // 표준 구성 요소입니다.\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,1
+ PRODUCTVERSION 1,0,0,1
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x2L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "041203b5"
+        BEGIN
+            VALUE "CompanyName", "TODO: <회사 이름>"
+            VALUE "FileDescription", "TODO: <파일 설명>"
+            VALUE "FileVersion", "1.0.0.1"
+            VALUE "InternalName", "Assembler.dll"
+            VALUE "LegalCopyright", "TODO: (c) <회사 이름>.  All rights reserved."
+            VALUE "OriginalFilename", "Assembler.dll"
+            VALUE "ProductName", "TODO: <제품 이름>"
+            VALUE "ProductVersion", "1.0.0.1"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x412, 949
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_AssemTYPE           ICON                    "res\\AssemDocument.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_AssemTYPE MENU
+BEGIN
+    POPUP "File(&F)"
+    BEGIN
+        MENUITEM "새로 만들기\tCtrl+N(&N)",          ID_FILE_NEW
+        MENUITEM "열기...\tCtrl+O(&O)",           ID_FILE_OPEN
+        MENUITEM "닫기(&C)",                      ID_FILE_CLOSE
+        MENUITEM "저장\tCtrl+S(&S)",              ID_FILE_SAVE
+        MENUITEM "다른 이름으로 저장(&A)...",           ID_FILE_SAVE_AS
+        MENUITEM SEPARATOR
+        MENUITEM "Add SubAssembly",             ID_FILE_ADD_COMPONENT
+        MENUITEM "Import part\tCtrl+I(&I)",     ID_FILE_IMPORT_PART
+        MENUITEM SEPARATOR
+        MENUITEM "내보내기",                        ID_FILE_32940
+        MENUITEM SEPARATOR
+        MENUITEM "인쇄...\tCtrl+P(&P)",           ID_FILE_PRINT
+        MENUITEM "인쇄 미리 보기(&V)",                ID_FILE_PRINT_PREVIEW
+        MENUITEM "인쇄 설정(&R)...",                ID_FILE_PRINT_SETUP
+        MENUITEM SEPARATOR
+        MENUITEM "최근에 사용한 파일",                  ID_FILE_MRU_FILE1
+        MENUITEM SEPARATOR
+        MENUITEM "끝내기(&X)",                     ID_APP_EXIT
+    END
+    POPUP "Edit(&E)"
+    BEGIN
+        MENUITEM "실행 취소\tCtrl+Z(&U)",           ID_EDIT_UNDO
+        MENUITEM SEPARATOR
+        MENUITEM "잘라내기\tCtrl+X(&T)",            ID_EDIT_CUT
+        MENUITEM "복사\tCtrl+C(&C)",              ID_EDIT_COPY
+        MENUITEM "붙여넣기\tCtrl+V(&P)",            ID_EDIT_PASTE
+        MENUITEM SEPARATOR
+        MENUITEM "전체 업데이트",                     ID_EDIT_UPDATE_ALL
+    END
+    POPUP "View(&V)"
+    BEGIN
+        MENUITEM "도구 모음(&T)",                   ID_VIEW_TOOLBAR
+        MENUITEM "상태 표시줄(&S)",                  ID_VIEW_STATUS_BAR
+        MENUITEM SEPARATOR
+        MENUITEM "전체 보기",                       ID_VIEW_ZOOM_ALL
+        MENUITEM "화면 이동",                       ID_VIEW_PAN
+        MENUITEM "화면 회전",                       ID_VIEW_ORBIT
+        MENUITEM "창 확대",                        ID_VIEW_ZOOM_TO_WINDOW
+        MENUITEM "화면 확대",                       ID_VIEW_ZOOM_IN
+        MENUITEM "화면 축소",                       ID_VIEW_ZOOM_TO_WINDOW
+        MENUITEM SEPARATOR
+        POPUP "시점 변경"
+        BEGIN
+            MENUITEM "앞 보기",                        ID_VIEW_FRONT
+            MENUITEM "뒤 보기",                        ID_VIEW_BACK
+            MENUITEM "왼쪽 보기",                       ID_VIEW_LEFT
+            MENUITEM "오른쪽 보기",                      ID_VIEW_RIGHT
+            MENUITEM "위 보기",                        ID_VIEW_TOP
+            MENUITEM "아래 보기",                       ID_VIEW_BOTTOM
+            MENUITEM SEPARATOR
+            MENUITEM "기본 시점",                       ID_VIEW_DEFAULT_VIEWPOINT
+            MENUITEM SEPARATOR
+            MENUITEM "스케치 시점",                      ID_VIEW_ACTIVE_SKETCH_VIEWPOINT
+        END
+        MENUITEM SEPARATOR
+        POPUP "렌더링 모드"
+        BEGIN
+            MENUITEM "와이어 프레임",                     ID_VIEW_WIREFRAME
+            MENUITEM "플렛 셰이딩",                      ID_VIEW_FLAT_SHADING
+            MENUITEM "고라우드 셰이딩",                    ID_VIEW_GOUROUD_SHADIHG
+            MENUITEM "퐁 셰이딩",                       ID_VIEW_PHONG_SHADING
+            MENUITEM "은선 제거",                       ID_VIEW_HIDDEN_LINE
+        END
+        MENUITEM SEPARATOR
+        MENUITEM "Hoops 모델 트리",                 ID_VIEW_HOOPS_MODEL_TREE
+        MENUITEM "화면 업데이트",                     ID_VIEW_UPDATE_ALL
+    END
+    POPUP "Assembly(&A)"
+    BEGIN
+        MENUITEM "Coaxial(&C)",                 ID_ASSEMBLY_COAXIAL
+        MENUITEM "Incidence(&I)",               ID_ASSEMBLY_INCIDENCE
+        MENUITEM "Parallel(&P)",                ID_ASSEMBLY_PARALLEL
+        MENUITEM "Perpendicular(&R)",           ID_ASSEMBLY_PERPENDICULAR
+        MENUITEM "Distance(&D)",                ID_ASSEMBLY_DISTANCE
+        MENUITEM "Angle(&A)",                   ID_ASSEMBLY_ANGLE
+    END
+    POPUP "Test Models(&T)"
+    BEGIN
+        POPUP "A Model"
+        BEGIN
+            MENUITEM "[A1]",                        ID_TESTMODEL_CREATE_A1
+            MENUITEM "[A2]",                        ID_TESTMODEL_CREATE_A2
+        END
+        MENUITEM SEPARATOR
+        POPUP "Engine"
+        BEGIN
+            MENUITEM "Piston",                      ID_ENGINE_PISTON
+            MENUITEM "Connecting rod",              ID_ENGINE_CONNECTINGROD
+        END
+    END
+    POPUP "Windows(&W)"
+    BEGIN
+        MENUITEM "새 창(&N)",                     ID_WINDOW_NEW
+        MENUITEM "계단식 배열(&C)",                  ID_WINDOW_CASCADE
+        MENUITEM "바둑판식 배열(&T)",                 ID_WINDOW_TILE_HORZ
+        MENUITEM "아이콘 정렬(&A)",                  ID_WINDOW_ARRANGE
+    END
+    POPUP "Help(&H)"
+    BEGIN
+        MENUITEM "TransCAD 정보(&A)...",          ID_APP_ABOUT
+    END
+END
+
+IDR_POPUP_MENU MENU
+BEGIN
+    POPUP "POPUP"
+    BEGIN
+        MENUITEM "Hide",                        ID_POPUP_DEL
+        MENUITEM "Duplicate",                   ID_POPUP_DUP
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_VIEW_HOOPS_MODEL_TREE DIALOGEX 0, 0, 291, 254
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Hoops 모델 트리"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "닫기",IDOK,120,233,50,14
+    CONTROL         "",IDC_VIEW_HOOPS_MODEL_TREE_TREE,"SysTreeView32",TVS_HASBUTTONS | TVS_HASLINES | TVS_LINESATROOT | TVS_NOSCROLL | WS_BORDER | WS_TABSTOP,7,7,277,217
+END
+
+IDD_MESH_GEN DIALOGEX 0, 0, 186, 79
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Dialog"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "확인",IDOK,20,58,50,14
+    PUSHBUTTON      "취소",IDCANCEL,120,58,50,14
+    LTEXT           "최대 볼륨",IDC_STATIC,23,21,35,8
+    EDITTEXT        IDC_MESH_MAX_VOL,62,18,96,14,ES_AUTOHSCROLL
+    GROUPBOX        "옵션",IDC_STATIC,7,7,172,31
+END
+
+IDD_CONSTRAINT_COAXIAL DIALOGEX 0, 0, 275, 317
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Coaxial constraint"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    CONTROL         "Constrained part information",IDC_SELECT_CONSTRAINED,
+                    "Button",BS_AUTORADIOBUTTON | WS_GROUP,30,30,105,10
+    CONTROL         "Reference part information",IDC_SELECT_REFERENCE,"Button",BS_AUTORADIOBUTTON,140,30,100,10
+    EDITTEXT        IDC_CONSTRAINT_NAME,133,10,65,14,ES_AUTOHSCROLL
+    COMBOBOX        IDC_CONSTRAINED_GEOM_TYPE,120,50,120,30,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    EDITTEXT        IDC_CONSTRAINED_COMP_NAME,30,80,100,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_CONSTRAINED_PART_NAME,145,80,100,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_CONSTRAINED_GEOM_NAME,30,113,215,40,ES_MULTILINE
+    COMBOBOX        IDC_REFERENCE_GEOM_TYPE,120,175,120,30,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    EDITTEXT        IDC_REFERENCE_COMP_NAME,30,205,100,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_REFERENCE_PART_NAME,145,205,100,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_REFERENCE_GEOM_NAME,30,238,215,40,ES_MULTILINE
+    DEFPUSHBUTTON   "확인",IDOK,160,290,50,14
+    PUSHBUTTON      "취소",IDCANCEL,215,290,50,14
+    LTEXT           "Constraint name",IDC_STATIC,77,13,55,8
+    GROUPBOX        "",IDC_STATIC,20,40,235,120
+    GROUPBOX        "",IDC_STATIC,20,165,235,120
+    RTEXT           "Geometry type",IDC_STATIC,64,52,50,8
+    LTEXT           "Component name ",IDC_STATIC,30,67,60,8
+    LTEXT           "Persistent name of selected constrained geometry",IDC_STATIC,30,100,170,8
+    LTEXT           "Geometry type",IDC_STATIC,64,177,50,8
+    LTEXT           "Component name",IDC_STATIC,30,192,60,8
+    LTEXT           "Persistent name of selected reference geometry",IDC_STATIC,30,225,170,8
+    LTEXT           "Part name",IDC_STATIC,145,67,34,8
+    LTEXT           "Part name",IDC_STATIC,145,192,34,8
+END
+
+IDD_CONSTRAINT_INCIDENCE DIALOGEX 0, 0, 275, 317
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Incidence constraint"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    CONTROL         "Constrained part information",IDC_SELECT_CONSTRAINED,
+                    "Button",BS_AUTORADIOBUTTON | WS_GROUP,30,30,105,10
+    CONTROL         "Reference part information",IDC_SELECT_REFERENCE,"Button",BS_AUTORADIOBUTTON,140,30,100,10
+    EDITTEXT        IDC_CONSTRAINT_NAME,133,10,65,14,ES_AUTOHSCROLL
+    COMBOBOX        IDC_CONSTRAINED_GEOM_TYPE,120,50,120,30,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    EDITTEXT        IDC_CONSTRAINED_COMP_NAME,30,80,100,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_CONSTRAINED_PART_NAME,145,80,100,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_CONSTRAINED_GEOM_NAME,30,113,215,40,ES_MULTILINE
+    COMBOBOX        IDC_REFERENCE_GEOM_TYPE,120,175,120,30,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    EDITTEXT        IDC_REFERENCE_COMP_NAME,30,205,100,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_REFERENCE_PART_NAME,145,205,100,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_REFERENCE_GEOM_NAME,30,238,215,40,ES_MULTILINE
+    DEFPUSHBUTTON   "확인",IDOK,160,290,50,14
+    PUSHBUTTON      "취소",IDCANCEL,215,290,50,14
+    LTEXT           "Constraint name",IDC_STATIC,77,13,55,8
+    GROUPBOX        "",IDC_STATIC,20,40,235,120
+    GROUPBOX        "",IDC_STATIC,20,165,235,120
+    RTEXT           "Geometry type",IDC_STATIC,64,52,50,8
+    LTEXT           "Component name ",IDC_STATIC,30,67,60,8
+    LTEXT           "Persistent name of selected constrained geometry",IDC_STATIC,30,100,170,8
+    LTEXT           "Geometry type",IDC_STATIC,64,177,50,8
+    LTEXT           "Component name",IDC_STATIC,30,192,60,8
+    LTEXT           "Persistent name of selected reference geometry",IDC_STATIC,30,225,170,8
+    LTEXT           "Part name",IDC_STATIC,145,67,34,8
+    LTEXT           "Part name",IDC_STATIC,145,192,34,8
+    COMBOBOX        IDC_INCIDENCE_TYPE,75,290,55,30,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Incidence type",IDC_STATIC,20,292,48,8
+END
+
+IDD_CONSTRAINT_PARALLEL DIALOGEX 0, 0, 275, 317
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Parallel constraint"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    CONTROL         "Constrained part information",IDC_SELECT_CONSTRAINED,
+                    "Button",BS_AUTORADIOBUTTON | WS_GROUP,30,30,105,10
+    CONTROL         "Reference part information",IDC_SELECT_REFERENCE,"Button",BS_AUTORADIOBUTTON,140,30,100,10
+    EDITTEXT        IDC_CONSTRAINT_NAME,133,10,65,14,ES_AUTOHSCROLL
+    COMBOBOX        IDC_CONSTRAINED_GEOM_TYPE,120,50,120,30,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    EDITTEXT        IDC_CONSTRAINED_COMP_NAME,30,80,100,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_CONSTRAINED_PART_NAME,145,80,100,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_CONSTRAINED_GEOM_NAME,30,113,215,40,ES_MULTILINE
+    COMBOBOX        IDC_REFERENCE_GEOM_TYPE,120,175,120,30,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    EDITTEXT        IDC_REFERENCE_COMP_NAME,30,205,100,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_REFERENCE_PART_NAME,145,205,100,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_REFERENCE_GEOM_NAME,30,238,215,40,ES_MULTILINE
+    DEFPUSHBUTTON   "확인",IDOK,160,290,50,14
+    PUSHBUTTON      "취소",IDCANCEL,215,290,50,14
+    LTEXT           "Constraint name",IDC_STATIC,77,13,55,8
+    GROUPBOX        "",IDC_STATIC,20,40,235,120
+    GROUPBOX        "",IDC_STATIC,20,165,235,120
+    RTEXT           "Geometry type",IDC_STATIC,64,52,50,8
+    LTEXT           "Component name ",IDC_STATIC,30,67,60,8
+    LTEXT           "Persistent name of selected constrained geometry",IDC_STATIC,30,100,170,8
+    LTEXT           "Geometry type",IDC_STATIC,64,177,50,8
+    LTEXT           "Component name",IDC_STATIC,30,192,60,8
+    LTEXT           "Persistent name of selected reference geometry",IDC_STATIC,30,225,170,8
+    LTEXT           "Part name",IDC_STATIC,145,67,34,8
+    LTEXT           "Part name",IDC_STATIC,145,192,34,8
+END
+
+IDD_CONSTRAINT_PERPENDICULAR DIALOGEX 0, 0, 275, 317
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Perpendicular constraint"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    CONTROL         "Constrained part information",IDC_SELECT_CONSTRAINED,
+                    "Button",BS_AUTORADIOBUTTON | WS_GROUP,30,30,105,10
+    CONTROL         "Reference part information",IDC_SELECT_REFERENCE,"Button",BS_AUTORADIOBUTTON,140,30,100,10
+    EDITTEXT        IDC_CONSTRAINT_NAME,133,10,65,14,ES_AUTOHSCROLL
+    COMBOBOX        IDC_CONSTRAINED_GEOM_TYPE,120,50,120,30,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    EDITTEXT        IDC_CONSTRAINED_COMP_NAME,30,80,100,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_CONSTRAINED_PART_NAME,145,80,100,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_CONSTRAINED_GEOM_NAME,30,113,215,40,ES_MULTILINE
+    COMBOBOX        IDC_REFERENCE_GEOM_TYPE,120,175,120,30,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    EDITTEXT        IDC_REFERENCE_COMP_NAME,30,205,100,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_REFERENCE_PART_NAME,145,205,100,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_REFERENCE_GEOM_NAME,30,238,215,40,ES_MULTILINE
+    DEFPUSHBUTTON   "확인",IDOK,160,290,50,14
+    PUSHBUTTON      "취소",IDCANCEL,215,290,50,14
+    LTEXT           "Constraint name",IDC_STATIC,77,13,55,8
+    GROUPBOX        "",IDC_STATIC,20,40,235,120
+    GROUPBOX        "",IDC_STATIC,20,165,235,120
+    RTEXT           "Geometry type",IDC_STATIC,64,52,50,8
+    LTEXT           "Component name ",IDC_STATIC,30,67,60,8
+    LTEXT           "Persistent name of selected constrained geometry",IDC_STATIC,30,100,170,8
+    LTEXT           "Geometry type",IDC_STATIC,64,177,50,8
+    LTEXT           "Component name",IDC_STATIC,30,192,60,8
+    LTEXT           "Persistent name of selected reference geometry",IDC_STATIC,30,225,170,8
+    LTEXT           "Part name",IDC_STATIC,145,67,34,8
+    LTEXT           "Part name",IDC_STATIC,145,192,34,8
+END
+
+IDD_CONSTRAINT_ANGLE DIALOGEX 0, 0, 275, 325
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Angle constraint"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    CONTROL         "Constrained part information",IDC_SELECT_CONSTRAINED,
+                    "Button",BS_AUTORADIOBUTTON | WS_GROUP,30,30,105,10
+    CONTROL         "Reference part information",IDC_SELECT_REFERENCE,"Button",BS_AUTORADIOBUTTON,140,30,100,10
+    EDITTEXT        IDC_CONSTRAINT_NAME,133,10,65,14,ES_AUTOHSCROLL
+    COMBOBOX        IDC_CONSTRAINED_GEOM_TYPE,120,50,120,30,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    EDITTEXT        IDC_CONSTRAINED_COMP_NAME,30,80,100,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_CONSTRAINED_PART_NAME,145,80,100,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_CONSTRAINED_GEOM_NAME,30,113,215,40,ES_MULTILINE
+    COMBOBOX        IDC_REFERENCE_GEOM_TYPE,120,175,120,30,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    EDITTEXT        IDC_REFERENCE_COMP_NAME,30,205,100,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_REFERENCE_PART_NAME,145,205,100,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_REFERENCE_GEOM_NAME,30,238,215,40,ES_MULTILINE
+    DEFPUSHBUTTON   "확인",IDOK,160,296,50,14
+    PUSHBUTTON      "취소",IDCANCEL,215,296,50,14
+    LTEXT           "Constraint name",IDC_STATIC,77,13,55,8
+    GROUPBOX        "",IDC_STATIC,20,40,235,120
+    GROUPBOX        "",IDC_STATIC,20,165,235,120
+    RTEXT           "Geometry type",IDC_STATIC,64,52,50,8
+    LTEXT           "Component name ",IDC_STATIC,30,67,60,8
+    LTEXT           "Persistent name of selected constrained geometry",IDC_STATIC,30,100,170,8
+    LTEXT           "Geometry type",IDC_STATIC,64,177,50,8
+    LTEXT           "Component name",IDC_STATIC,30,192,60,8
+    LTEXT           "Persistent name of selected reference geometry",IDC_STATIC,30,225,170,8
+    LTEXT           "Part name",IDC_STATIC,145,67,34,8
+    LTEXT           "Part name",IDC_STATIC,145,192,34,8
+    RTEXT           "Angle",IDC_STATIC,20,292,20,8
+    EDITTEXT        IDC_ANGLE_VALUE,45,289,55,14,ES_AUTOHSCROLL
+END
+
+IDD_CONSTRAINT_DISTANCE DIALOGEX 0, 0, 275, 341
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Distance constraint"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    CONTROL         "Constrained part information",IDC_SELECT_CONSTRAINED,
+                    "Button",BS_AUTORADIOBUTTON | WS_GROUP,30,30,105,10
+    CONTROL         "Reference part information",IDC_SELECT_REFERENCE,"Button",BS_AUTORADIOBUTTON,140,30,100,10
+    EDITTEXT        IDC_CONSTRAINT_NAME,133,10,65,14,ES_AUTOHSCROLL
+    COMBOBOX        IDC_CONSTRAINED_GEOM_TYPE,120,50,120,30,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    EDITTEXT        IDC_CONSTRAINED_COMP_NAME,30,80,100,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_CONSTRAINED_PART_NAME,145,80,100,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_CONSTRAINED_GEOM_NAME,30,113,215,40,ES_MULTILINE
+    COMBOBOX        IDC_REFERENCE_GEOM_TYPE,120,175,120,30,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    EDITTEXT        IDC_REFERENCE_COMP_NAME,30,205,100,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_REFERENCE_PART_NAME,145,205,100,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_REFERENCE_GEOM_NAME,30,238,215,40,ES_MULTILINE
+    DEFPUSHBUTTON   "확인",IDOK,160,317,50,14
+    PUSHBUTTON      "취소",IDCANCEL,215,317,50,14
+    LTEXT           "Constraint name",IDC_STATIC,77,13,55,8
+    GROUPBOX        "",IDC_STATIC,20,40,235,120
+    GROUPBOX        "",IDC_STATIC,20,165,235,120
+    RTEXT           "Geometry type",IDC_STATIC,64,52,50,8
+    LTEXT           "Component name ",IDC_STATIC,30,67,60,8
+    LTEXT           "Persistent name of selected constrained geometry",IDC_STATIC,30,100,170,8
+    LTEXT           "Geometry type",IDC_STATIC,64,177,50,8
+    LTEXT           "Component name",IDC_STATIC,30,192,60,8
+    LTEXT           "Persistent name of selected reference geometry",IDC_STATIC,30,225,170,8
+    LTEXT           "Part name",IDC_STATIC,145,67,34,8
+    LTEXT           "Part name",IDC_STATIC,145,192,34,8
+    COMBOBOX        IDC_INCIDENCE_TYPE,75,290,55,30,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Incidence type",IDC_STATIC,20,292,48,8
+    LTEXT           "Distance",IDC_STATIC,40,313,28,8
+    EDITTEXT        IDC_DISTANCE_VALUE,75,310,55,14,ES_AUTOHSCROLL
+END
+
+IDD_ADD_COMPONENT DIALOGEX 0, 0, 140, 79
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Add new component"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "확인",IDOK,15,53,50,14
+    PUSHBUTTON      "취소",IDCANCEL,75,53,50,14
+    LTEXT           "Enter a new SubAssembly name",IDC_STATIC,15,14,103,8
+    EDITTEXT        IDC_COMPONENT_NAME,15,28,110,14,ES_AUTOHSCROLL
+END
+
+IDD_IMPORT_PART DIALOGEX 0, 0, 220, 235
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Import part"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "확인",IDOK,95,210,50,14
+    PUSHBUTTON      "취소",IDCANCEL,155,210,50,14
+    LISTBOX         IDC_COMP_LIST,65,10,120,50,LBS_SORT | LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Component list",IDC_STATIC,10,10,50,8
+    LTEXT           "Part file path",IDC_STATIC,10,65,42,8
+    EDITTEXT        IDC_FILE_PATH,10,78,175,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "...",IDC_BUTTON_IMPORT_PART,190,78,20,14,BS_CENTER
+    LTEXT           "Part name",IDC_STATIC,10,100,35,8
+    EDITTEXT        IDC_NEW_PART_NAME,50,97,135,14,ES_AUTOHSCROLL
+    GROUPBOX        "Part origin",IDC_STATIC,10,124,95,80
+    LTEXT           "X",IDC_STATIC,20,142,8,8
+    LTEXT           "Y",IDC_STATIC,20,163,8,8
+    LTEXT           "Z",IDC_STATIC,20,184,8,8
+    EDITTEXT        IDC_ORIGIN_X,35,139,60,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_ORIGIN_Y,35,160,60,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_ORIGIN_Z,36,181,60,14,ES_AUTOHSCROLL
+    GROUPBOX        "Part normal",IDC_STATIC,115,124,95,80
+    LTEXT           "X",IDC_STATIC,125,142,8,8
+    LTEXT           "Y",IDC_STATIC,125,163,8,8
+    LTEXT           "Z",IDC_STATIC,125,184,8,8
+    EDITTEXT        IDC_NORMAL_X,140,139,60,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_NORMAL_Y,140,160,60,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_NORMAL_Z,140,181,60,14,ES_AUTOHSCROLL
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO
+BEGIN
+    IDD_VIEW_HOOPS_MODEL_TREE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 284
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 247
+    END
+
+    IDD_MESH_GEN, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 179
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 72
+    END
+
+    IDD_CONSTRAINT_COAXIAL, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 268
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 310
+    END
+
+    IDD_CONSTRAINT_INCIDENCE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 268
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 310
+    END
+
+    IDD_CONSTRAINT_PARALLEL, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 268
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 310
+    END
+
+    IDD_CONSTRAINT_PERPENDICULAR, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 268
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 310
+    END
+
+    IDD_CONSTRAINT_ANGLE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 268
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 318
+    END
+
+    IDD_CONSTRAINT_DISTANCE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 268
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 334
+    END
+
+    IDD_ADD_COMPONENT, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 133
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 72
+    END
+
+    IDD_IMPORT_PART, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 213
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 228
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDR_AssemTYPE           "\nAssembler\nAssembler\n\n\nAssembler.Document\nAssembler.Document"
+    IDS_ASSEM_FEATURE_TREE_TITLE "Product Structure"
+END
+
+STRINGTABLE
+BEGIN
+    ID_VIEW_PAN             "화면을 이동시킵니다.\n화면 이동"
+    ID_VIEW_ORBIT           "화면을 회전시킵니다.\n화면 회전"
+    ID_VIEW_ROTATE          "화면을 회전시킵니다.\n화면 회전"
+    ID_VIEW_ZOOM_IN         "화면을 확대해서 보여줍니다.\n화면 확대"
+    ID_VIEW_ZOOM_OUT        "화면을 축소해서 보여줍니다.\n화면 축소"
+END
+
+STRINGTABLE
+BEGIN
+    ID_ZOOM_TO_WINDOW       "선택한 영역을 확대해서 보여줍니다.\n창 확대"
+    ID_VIEW_FRONT           "앞에서 물체를 바라봅니다.\n앞 보기"
+    ID_VIEW_BACK            "뒤에서 물체를 바라봅니다.\n뒤 보기"
+    ID_VIEW_LEFT            "왼쪽에서 물체를 바라봅니다.\n왼쪽 보기"
+    ID_VIEW_RIGHT           "오른쪽에서 물체를 바라봅니다.\n오른쪽 보기"
+END
+
+STRINGTABLE
+BEGIN
+    ID_VIEW_TOP             "위에서 물체를 바라봅니다.\n위 보기"
+    ID_VIEW_BOTTOM          "아래에서 물체를 바라봅니다.\n아래 보기"
+    ID_VIEW_ZOOM_TO_WINDOW  "선택한 영역을 확대해서 보여줍니다.\n창 확대"
+    ID_VIEW_WIREFRAME       "와이어 프레임 모드로 보여줍니다.\n와이어 프레임"
+    ID_VIEW_FLAT_SHADING    "플렛 셰이딩 모드로 보여줍니다.\n플렛 셰이딩"
+END
+
+STRINGTABLE
+BEGIN
+    ID_VIEW_GOUROUD_SHADING "고라우드 셰이딩 모드로 보여줍니다.\n고라우드 셰이딩"
+    ID_VIEW_PHONG_SHADING   "퐁 셰이딩 모드로 보여줍니다.\n퐁 셰이딩"
+    ID_VIEW_HIDDEN_LINE     "은선 제거 모드로 보여줍니다.\n은선 제거"
+    ID_VIEW_GOUROUD_SHADIHG "고라우드 셰이딩 모드로 보여줍니다.\n고라우드 셰이딩"
+    ID_VIEW_DEFAULT_VIEWPOINT "기본적으로 설정된 시점으로 변경합니다.\n기본 시점"
+    ID_VIEW_ACTIVE_SKETCH_VIEWPOINT "현재 활성화된 스케치 시점으로 변경합니다.\n스케치 시점"
+    ID_EDIT_UPDATE_ALL      "모델을 재생성합니다.\n전체 업데이트"
+    ID_VIEW_HOOPS_MODEL_TREE "Hoops의 모델 구조를 보여줍이다.\n모델 트리"
+    ID_VIEW_ZOOM_ALL        "전체 형상을 보여줍니다.\n전체 보기"
+END
+
+STRINGTABLE
+BEGIN
+    ID_FILE_ADD_COMPONENT   "새로운 component를 추가합니다."
+    ID_IMPORT_PART          "Import a part in existing component"
+END
+
+#endif    // 한국어(대한민국) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_KOR)
+LANGUAGE 18, 1
+#pragma code_page(949)
+#include "res\Assembler.rc2"  // Microsoft Visual C++에서 편집하지 않은 리소스입니다.
+#include "afxres.rc"     // 표준 구성 요소입니다.
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

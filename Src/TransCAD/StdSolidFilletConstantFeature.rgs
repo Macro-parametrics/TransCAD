@@ -1,0 +1,24 @@
+HKCR
+{
+	TransCAD.StdSolidFilletConstantFeatur.1 = s 'StdSolidFilletConstantFeature Class'
+	{
+		CLSID = s '{A73A542C-CA02-49E8-A6A7-7DDDD05EA083}'
+	}
+	TransCAD.StdSolidFilletConstantFeature = s 'StdSolidFilletConstantFeature Class'
+	{
+		CLSID = s '{A73A542C-CA02-49E8-A6A7-7DDDD05EA083}'
+		CurVer = s 'TransCAD.StdSolidFilletConstantFeatur.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {A73A542C-CA02-49E8-A6A7-7DDDD05EA083} = s 'StdSolidFilletConstantFeature Class'
+		{
+			ProgID = s 'TransCAD.StdSolidFilletConstantFeatur.1'
+			VersionIndependentProgID = s 'TransCAD.StdSolidFilletConstantFeature'
+			ForceRemove 'Programmable'
+			LocalServer32 = s '%MODULE%'
+			val AppID = s '%APPID%'
+			'TypeLib' = s '{DC31CA13-34CA-4D11-A678-58E9FCE42872}'
+		}
+	}
+}
