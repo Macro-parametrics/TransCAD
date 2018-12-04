@@ -1,0 +1,20 @@
+# Created folders after building
+Bin/
+Installer/Debug/Installer.msi
+Installer/Release/Installer.msi
+IntmDir/
+ipch/
+Lib/
+
+# License folder
+License/
+
+# For installer
+RegBin/
+
+# Visual Studio file
+*.sdf
+Src/TransCAD/TransCAD_i.h
+TransCAD.opensdf
+TransCAD.suo
+.vs/
