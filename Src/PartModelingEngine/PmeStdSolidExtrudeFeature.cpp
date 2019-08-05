@@ -11,6 +11,34 @@
 #include ".\PmeQuery.h"
 #include ".\pmepersistentname.h"
 #include ".\PmePersistentNameAPI.h"
+#include "swp_anno.hxx"
+
+#include ".\PmePart.h"
+#include ".\PmeExplicitModel.h"
+#include ".\PmeSolid.h"
+
+#include ".\PmeStdSketchFeature.h"
+#include ".\PmeStdSketchGeometries.h"
+#include ".\PmeStdSketchControlPoint.h"
+#include ".\PmeStdSketchLine.h"
+#include ".\PmeStdSketchCenterline.h"
+#include ".\PmeStdSketchCircle.h"
+#include ".\PmeStdSketchCircularArc.h"
+#include ".\MrTolerance.h"
+
+#include ".\PmeStdSketchLineAPI.h"
+#include ".\PmeStdSketchLine.h"
+#include ".\PmeStdSketchControlPoint.h"
+#include ".\PmeExceptionTest.h"
+#include ".\PmeArgumentTypeException.h"
+#include ".\PmeArgumentNullException.h"
+#include ".\PmeHandleMacro.h"
+
+#include ".\PmeStdSketchHDirectionAPI.h"
+#include ".\PmeStdSketchHDirection.h"
+#include ".\PmeStdSketchVDirectionAPI.h"
+#include ".\PmeStdSketchVDirection.h"
+
 
 PME_IMPLEMENT_RUNTIME_TYPE(PmeStdSolidExtrudeFeature, PmeStdSolidFeature)
 
@@ -215,7 +243,7 @@ void PmeStdSolidExtrudeFeature::AttachName(BODY *& pBody)
 		pAnnotationEdgeLat->inputs(annotationInputs);
 		int count = annotationInputs.count();
 		
-		// ÄÆ¸é°ú ´ë»ó¸éÀÌ Á¤È®È÷ ÀÏÄ¡ÇÒ ¶§ count°¡ 2ÀÎ °æ¿ì°¡ ¹ß»ı... (16-07-08 ±Ç¼øÁ¶)
+		// ì»·ë©´ê³¼ ëŒ€ìƒë©´ì´ ì •í™•íˆ ì¼ì¹˜í•  ë•Œ countê°€ 2ì¸ ê²½ìš°ê°€ ë°œìƒ... (16-07-08 ê¶Œìˆœì¡°)
 		if (count != 1)
 			continue;
 		//ASSERT(annotationInputs.count() == 1);
@@ -281,7 +309,7 @@ void PmeStdSolidExtrudeFeature::AttachName(BODY *& pBody)
 
 void PmeStdSolidExtrudeFeature::AttachName_pointbased_2(BODY *& pBody)
 {	
-	// °¢ vertex¿¡ ÀÌ¸§ ÁÖ±â. ÀÌ¸§ Çü½Ä : ÇÇÃÄ + ÁÂÇ¥
+	// ê° vertexì— ì´ë¦„ ì£¼ê¸°. ì´ë¦„ í˜•ì‹ : í”¼ì³ + ì¢Œí‘œ
 
 	ENTITY_LIST edge_list;
 	get_edges(pBody, edge_list);
@@ -314,7 +342,7 @@ void PmeStdSolidExtrudeFeature::AttachName_pointbased_2(BODY *& pBody)
 		new ATTRIB_VERTEXNAME(ver, vertexName);
 	}
 
-	// face¿¡ ÀÌ¸§ ÁÖ±â , Á¡ÀÌ¸§ ³ª¿­.
+	// faceì— ì´ë¦„ ì£¼ê¸° , ì ì´ë¦„ ë‚˜ì—´.
 
 	FACE * ff ;
 	CString faceName;
@@ -359,7 +387,7 @@ void PmeStdSolidExtrudeFeature::AttachName_pointbased_2(BODY *& pBody)
 
 void PmeStdSolidExtrudeFeature::AttachName_pointbased_1(BODY *& pBody)
 {	
-	// °¢ vertex¿¡ ÀÌ¸§ ÁÖ±â. ÀÌ¸§ Çü½Ä : ÇÇÃÄ + ÁÂÇ¥
+	// ê° vertexì— ì´ë¦„ ì£¼ê¸°. ì´ë¦„ í˜•ì‹ : í”¼ì³ + ì¢Œí‘œ
 
 	ENTITY_LIST edge_list;
 	get_edges(pBody, edge_list);
@@ -392,7 +420,7 @@ void PmeStdSolidExtrudeFeature::AttachName_pointbased_1(BODY *& pBody)
 		new ATTRIB_VERTEXNAME(ver, vertexName);
 	}
 	
-	// face¿¡ ÀÌ¸§ ÁÖ±â , Á¡ÀÌ¸§ ³ª¿­.
+	// faceì— ì´ë¦„ ì£¼ê¸° , ì ì´ë¦„ ë‚˜ì—´.
 
 	FACE * ff ;
 	CString faceName;
