@@ -105,21 +105,12 @@ BODY * PmeStdSolidExtrudeFeature::ExtrudeStartSolid(BODY *& pProfile, bool isCut
 	if(pResult)
 	{
 		if(g_bNamingType)
-			AttachName(pResult); //Topology naming 
-
-		else
-		{
-			if (isCut == false)
-			{
-				AttachName_pointbased_1(pResult);
-			}
-			else
-			{
-				AttachName_pointbased_2(pResult);
-			}
-		}
+		{AttachName(pResult);} //Toplogy naming 
+       	else 
+		{AttachVertexName_pointbased(pResult);} //Point-based naming
+		
 	}
-
+	
 	api_clear_annotations();
 
 	return pResult;
@@ -153,18 +144,10 @@ BODY * PmeStdSolidExtrudeFeature::ExtrudeEndSolid(BODY *& pProfile, bool isCut)
 	if(pResult)
 	{
 		if(g_bNamingType)
-			AttachName(pResult); //Toplogy naming 
-       	else
-		{
-			if (isCut == false)
-			{
-				AttachName_pointbased_1(pResult);
-			}
-			else
-			{
-				AttachName_pointbased_2(pResult);
-			}
-		}
+		{AttachName(pResult);} //Toplogy naming 
+       	else 
+		{AttachVertexName_pointbased(pResult);} //Point-based naming
+		
 	}
 
 	api_clear_annotations();
@@ -223,6 +206,7 @@ BODY * PmeStdSolidExtrudeFeature::ExtrudeWithThroughAll(BODY *& pProfile, const 
 	return 0;
 }
 
+//TOPOLOGY - Naming
 void PmeStdSolidExtrudeFeature::AttachName(BODY *& pBody)
 {
 	AttachFeatureTag(pBody);
@@ -306,324 +290,11 @@ void PmeStdSolidExtrudeFeature::AttachName(BODY *& pBody)
 	}
 }
 
-
-void PmeStdSolidExtrudeFeature::AttachName_pointbased_2(BODY *& pBody)
+// POINT-BASED Naming
+void PmeStdSolidExtrudeFeature::AttachVertexName_pointbased(BODY *& pBody)
 {	
-	// 각 vertex에 이름 주기. 이름 형식 : 피쳐 + 좌표
-
-	ENTITY_LIST edge_list;
-	get_edges(pBody, edge_list);
-
-	int a = edge_list.count();
-	VERTEX * ver;	
-
-	for (int i = 0 ; i < a; i++)
-	{
-		double vertexcoord[3];
-		CString vertexNum[3];
-
-		EDGE * e = (EDGE *) edge_list[i];
-
-		ver = e->start();
-		SPAposition s1 = ver->geometry()->coords();
-
-		vertexcoord[0] = s1.x();
-		vertexcoord[1] = s1.y();
-		vertexcoord[2] = s1.z();
-
-		vertexNum[0].Format(_T("%3.2f"), vertexcoord[0]);
-		vertexNum[1].Format(_T("%3.2f"), vertexcoord[1]);
-		vertexNum[2].Format(_T("%3.2f"), vertexcoord[2]);
-
-		CString vertexName;
-
-		vertexName = "Cut1,(" + vertexNum[0] + ","+ vertexNum[1] +","+ vertexNum[2] + ")";
-
-		new ATTRIB_VERTEXNAME(ver, vertexName);
-	}
-
-	// face에 이름 주기 , 점이름 나열.
-
-	FACE * ff ;
-	CString faceName;
-
-	ff = pBody->lump()->shell()->face();
-
-	while (ff!= NULL)
-	{
-		LOOP *lp;
-		lp = ff->loop();
-
-		COEDGE * ce;
-		ce = lp->start();
-
-		int edgecount=0;
-		VERTEX * pver[20];
-
-		do{	
-			pver[edgecount] = ce->start();
-			CString name = PmePersistentName::FindVertexName(pver[edgecount]);
-
-			if (edgecount == 0 )
-				faceName =  name;
-
-			else
-				faceName = faceName +","+ name;			
-
-			edgecount++;
-			ce = ce->next();
-
-		}while (ce != lp ->start());
-
-		CString strNum;
-		strNum.Format(_T("%d"),edgecount) ;
-
-		faceName = "FACE," + strNum +","+ faceName;
-		
-		new ATTRIB_FACENAME(ff, faceName);
-		ff= ff->next();
-	}
-}
-
-void PmeStdSolidExtrudeFeature::AttachName_pointbased_1(BODY *& pBody)
-{	
-	// 각 vertex에 이름 주기. 이름 형식 : 피쳐 + 좌표
-
-	ENTITY_LIST edge_list;
-	get_edges(pBody, edge_list);
+	AttachFeatureTag(pBody);
 	
-	int a = edge_list.count();
-	VERTEX * ver;	
-	
-	for (int i = 0 ; i < a; i++)
-	{
-		double vertexcoord[3];
-		CString vertexNum[3];
-
-		EDGE * e = (EDGE *) edge_list[i];
-
-		ver = e->start();
-		SPAposition s1 = ver->geometry()->coords();
-		
-		vertexcoord[0] = s1.x();
-		vertexcoord[1] = s1.y();
-		vertexcoord[2] = s1.z();
-
-		vertexNum[0].Format(_T("%3.2f"), vertexcoord[0]);
-		vertexNum[1].Format(_T("%3.2f"), vertexcoord[1]);
-		vertexNum[2].Format(_T("%3.2f"), vertexcoord[2]);
-
-		CString vertexName;
-
-		vertexName = "Pad1,(" + vertexNum[0] + ","+ vertexNum[1] +","+ vertexNum[2] + ")";
-
-		new ATTRIB_VERTEXNAME(ver, vertexName);
-	}
-	
-	// face에 이름 주기 , 점이름 나열.
-
-	FACE * ff ;
-	CString faceName;
-	
-	ff = pBody->lump()->shell()->face();
-	
-	while (ff!= NULL)
-	{
-		LOOP *lp;
-		lp = ff->loop();
-			
-		COEDGE * ce;
-		ce = lp->start();
-
-		int edgecount=0;
-		VERTEX * pver[20];
-
-		do{	
-			pver[edgecount] = ce->start();
-			CString name = PmePersistentName::FindVertexName(pver[edgecount]);
-			
-			if (edgecount == 0 )
-				faceName =  name;
-
-			else
-				faceName = faceName +","+ name;			
-
-			edgecount++;
-			ce = ce->next();
-
-		}while (ce != lp ->start());
-		
-		CString strNum;
-		strNum.Format(_T("%d"),edgecount) ;
-
-		faceName = "FACE," + strNum +","+ faceName;
-
-		
-		/*
-		do{
-			SPAposition s1 = ce ->start_pos();			
-
-			p[3*edgecount] = s1.x();
-			p[3*edgecount+1] = s1.y();
-			p[3*edgecount+2] = s1.z();
-
-			strNum[3*edgecount].Format(_T("%3.2f"), p[3*edgecount]);
-			strNum[3*edgecount+1].Format(_T("%3.2f"), p[3*edgecount+1]);
-			strNum[3*edgecount+2].Format(_T("%3.2f"), p[3*edgecount+2]);
-
-			edgecount++;
-
-			ce = ce->next();
-
-		}while (ce != lp ->start());
-	
-		int a =11;
-
-		if (edgecount == 4)
-		{
-			faceName =  "FACE ,4, (" + strNum[0] +","+ strNum[1] +","+ strNum[2] +"), ("+ strNum[3] +","+ strNum[4]+","+ strNum[5] +"), ("+
-				strNum[6] +","+ strNum[7]+","+ strNum[8] +"), (" + strNum[9] +","+ strNum[10]+","+ strNum[11] +")";
-		}
-
-		else if (edgecount == 6)
-		{
-			faceName =  "FACE ,6, (" + strNum[0] +","+ strNum[1] +","+ strNum[2] +"), ("+ strNum[3] +","+ strNum[4]+","+ strNum[5] +"), ("+
-				strNum[6] +","+ strNum[7]+","+ strNum[8] +"), (" + strNum[9] +","+ strNum[10]+","+ strNum[11] +"), ("
-				+ strNum[12] +","+ strNum[13]+","+ strNum[14] +"), ("+ strNum[15] +","+ strNum[16]+","+ strNum[17]+")";
-		}
-
-		else if (edgecount == 8)
-		{
-			faceName =  "FACE ,8, (" + strNum[0] +","+ strNum[1] +","+ strNum[2] +"), ("+ strNum[3] +","+ strNum[4]+","+ strNum[5] +"), ("+
-				strNum[6] +","+ strNum[7]+","+ strNum[8] +"), (" + strNum[9] +","+ strNum[10]+","+ strNum[11] +"), ("
-				+ strNum[12] +","+ strNum[13]+","+ strNum[14] +"), ("+ strNum[15] +","+ strNum[16]+","+ strNum[17]+"), ("
-				+ strNum[18] +","+ strNum[19]+","+ strNum[20] +"), ("+ strNum[21] +","+ strNum[22]+","+ strNum[23]+")";
-		}		
-
-		else
-		{
-		
-		}*/
-		
-		new ATTRIB_FACENAME(ff, faceName);
-		ff= ff->next();
-	}
-	
-
-	
-	
-	/*
-	ENTITY_LIST annotationListLateral;
-
-	api_find_annotations(annotationListLateral, is_SWEEP_ANNO_EDGE_LAT);
-
-	annotationListLateral.init();
-
-	SWEEP_ANNO_EDGE_LAT * pAnnotationEdgeLat;
-
-	CString sketchName = PmeSketchUtility::GetSketch(GetProfileSketch())->GetName();
-
-	while((pAnnotationEdgeLat = (SWEEP_ANNO_EDGE_LAT *)annotationListLateral.next()) != NULL)
-	{
-		ENTITY_LIST annotationInputs;
-		pAnnotationEdgeLat->inputs(annotationInputs);
-		int count = annotationInputs.count();
-
-		ASSERT(annotationInputs.count() == 1);
-
-		EDGE * pEdge = pAnnotationEdgeLat->profile_edge();
-		FACE * pFace = (FACE *)pAnnotationEdgeLat->lateral_face();
-
-		int Edgenum =0 ;
-		
-		COEDGE * ce ;
-		
-		ce = pFace ->loop() ->start();
-
-		while( ce->next() != NULL)
-		{
-			Edgenum++;
-		}
-
-		EDGE * pEdge1 = pFace ->loop() ->start() ->edge(); 
-		EDGE * pEdge2 = pFace ->loop() ->start() ->next() ->next() ->edge();
-
-		SPAposition s1 = pEdge1 ->start_pos();
-		SPAposition e1 = pEdge1 ->end_pos();
-
-		SPAposition s2 = pEdge2 ->start_pos();
-		SPAposition e2 = pEdge2 ->end_pos();
-
-
-		double p[18];
-
-		p[0] = s1.x();
-		p[1] = s1.y();
-		p[2] = s1.z();
-		p[3] = e1.x();
-		p[4] = e1.y();
-		p[5] = e1.z();
-
-		p[6] = s2.x();
-		p[7] = s2.y();
-		p[8] = s2.z();
-		p[9] = e2.x();
-		p[10] = e2.y();
-		p[11] = e2.z();
-
-
-		//p[12] = (p[0] + p[6]) /2;
-		//p[13] = (p[1] + p[7]) /2;
-		//p[14] = (p[2] + p[8]) /2;
-
-
-		CString strNum1;
-		strNum1.Format(_T("%3.2f"), p[0]);
-
-		CString strNum2;
-		strNum2.Format(_T("%3.2f"), p[1]);
-
-		CString strNum3;
-		strNum3.Format(_T("%3.2f"), p[2]);
-
-		CString strNum4;
-		strNum4.Format(_T("%3.2f"), p[3]);
-
-		CString strNum5;
-		strNum5.Format(_T("%3.2f"), p[4]);
-
-		CString strNum6;
-		strNum6.Format(_T("%3.2f"), p[5]);
-
-		CString strNum7;
-		strNum7.Format(_T("%3.2f"), p[6]);
-
-		CString strNum8;
-		strNum8.Format(_T("%3.2f"), p[7]);
-
-		CString strNum9;
-		strNum9.Format(_T("%3.2f"), p[8]);
-
-		CString strNum10;
-		strNum10.Format(_T("%3.2f"), p[9]);
-
-		CString strNum11;
-		strNum11.Format(_T("%3.2f"), p[10]);
-
-		CString strNum12;
-		strNum12.Format(_T("%3.2f"), p[11]);
-
-
-		CString faceName =  "FACE ,((" + strNum1 +","+ strNum2 +","+ strNum3 +"), ("+ strNum4 +","+ strNum5+","+ strNum6 +"), ("+
-			strNum7 +","+ strNum8+","+ strNum9 +"), (" + strNum10 +","+ strNum11+","+ strNum12 +"))";
-
-
-		//CString edgeName = ((ATTRIB_GEN_STRING *)find_named_attrib(pEdge, sketchName))->value();
-		//CString faceName = GetName() + "," + sketchName +"," + edgeName +",0,0,0,ExtrudeFeature:0,0:0;0";
-
-		new ATTRIB_FACENAME(pFace, faceName);
-	}
-
 	ENTITY_LIST annotationListEnd;
 	api_find_annotations(annotationListEnd, is_SWEEP_ANNO_END_CAPS);
 
@@ -631,115 +302,1121 @@ void PmeStdSolidExtrudeFeature::AttachName_pointbased_1(BODY *& pBody)
 	MrPosition sketchOrigin = PmeSketchUtility::GetCoordinateSystem(GetProfileSketch()).Location();
 
 	SWEEP_ANNO_END_CAPS	* pAnnotationEndCaps;
-
+	
 	annotationListEnd.init();
 
 	while((pAnnotationEndCaps = (SWEEP_ANNO_END_CAPS *)annotationListEnd.next()) != NULL)
-	{
+ {
 		ENTITY_LIST annotationInputs;
 
-		//pAnnotationEdgeLat->inputs(annotationInputs);		
-
+		//Naming POINTS on the SKETCH side of pro-EXTRUDE
 		FACE * pStartFace = pAnnotationEndCaps->start_face();
+		ENTITY_LIST edge_list; 
+		get_edges(pStartFace, edge_list);
+
+		CString sketchName = PmeSketchUtility::GetSketch(GetProfileSketch())->GetName();
+
+		int a = edge_list.count();
+		VERTEX * ver;	
+
+		for (int i = 0 ; i < a; i++)
+
+			{
+						double vertexcoord[3];
+						CString vertexNum[3];
+
+						EDGE * e = (EDGE *) edge_list[i];  
+
+						ver = e->start(); // Getting the starting vertex of all the edges
+
+						SPAposition s1 = ver->geometry()->coords();
+		
+						vertexcoord[0] = s1.x();
+						vertexcoord[1] = s1.y();
+						vertexcoord[2] = s1.z();
+						//vertexNum is formated vertex coordinates
+						vertexNum[0].Format(_T("%3.2f"), vertexcoord[0]);
+						vertexNum[1].Format(_T("%3.2f"), vertexcoord[1]);
+						vertexNum[2].Format(_T("%3.2f"), vertexcoord[2]); 
+
+						ENTITY_LIST elist;
+						api_get_edges(ver, elist);
+
+						int b = elist.count();
+
+							CString edgeName;
+							CString edgeName1;
+							CString edgeName2;
+
+							if (b == 3)
+								{
+
+									EDGE* pEdge = (EDGE*)elist[0];
+									edgeName = ((ATTRIB_GEN_STRING *)find_named_attrib(pEdge, sketchName))->value();
+									
+									if (edgeName != "" )
+									{
+										EDGE* pEdge2 = (EDGE*)elist[2];
+										edgeName2 = ((ATTRIB_GEN_STRING *)find_named_attrib(pEdge2, sketchName))->value();
+										
+										if (edgeName2 != "" )
+										{
+											CString vertexName;
+											vertexName = GetName() + "," + sketchName + "," + edgeName + "," + edgeName2 + ",(" + vertexNum[0] + ","+ vertexNum[1] +","+ vertexNum[2] + ")";
+											new ATTRIB_VERTEXNAME(ver, vertexName);
+										}
+
+										else 
+										{
+											EDGE* pEdge1 = (EDGE*)elist[1];
+											edgeName1 = ((ATTRIB_GEN_STRING *)find_named_attrib(pEdge1, sketchName))->value();
+
+											CString vertexName;
+											vertexName = GetName() + "," + sketchName + "," + edgeName + "," + edgeName1 + ",(" + vertexNum[0] + ","+ vertexNum[1] +","+ vertexNum[2] + ")";
+											new ATTRIB_VERTEXNAME(ver, vertexName);
+										}
+									}
+									else
+									{
+							
+											EDGE* pEdge1 = (EDGE*)elist[1];
+											edgeName1 = ((ATTRIB_GEN_STRING *)find_named_attrib(pEdge1, sketchName))->value();
+										
+										
+											EDGE* pEdge2 = (EDGE*)elist[2];
+											edgeName2 = ((ATTRIB_GEN_STRING *)find_named_attrib(pEdge2, sketchName))->value();
+										
+										
+											CString vertexName;
+											vertexName = GetName() + "," + sketchName + "," + edgeName1 + "," + edgeName2 + ",(" + vertexNum[0] + ","+ vertexNum[1] +","+ vertexNum[2] + ")";
+											new ATTRIB_VERTEXNAME(ver, vertexName);
+									}
+								
+								}
+
+							else if (b == 1)
+							{
+
+								Attach_NewVertexNames_pointbased(pBody); //As the method to name the circular profile is same
+							
+							}
+		
+			}	
+		
+		//Naming POINTS on the non-SKETCH side of pro-EXTRUDE
 		FACE * pEndFace = pAnnotationEndCaps->end_face();
 
-		EDGE * pEdge1 = pStartFace ->loop() ->start() ->edge(); 
-		EDGE * pEdge2 = pStartFace ->loop() ->start() ->next() ->next() ->edge();
+		ENTITY_LIST edge_list1; 
+		get_edges(pEndFace, edge_list1);
 
-		EDGE * pEdge3 = pEndFace ->loop() ->start() ->edge(); 
-		EDGE * pEdge4 = pEndFace ->loop() ->start() ->next() ->next() ->edge();
-
-
-		SPAposition ss1 = pEdge1 ->start_pos();
-		SPAposition se1 = pEdge1 ->end_pos();
-
-		SPAposition ss2 = pEdge2 ->start_pos();
-		SPAposition se2 = pEdge2 ->end_pos();
-
-
-		SPAposition es1 = pEdge3 ->start_pos();
-		SPAposition ee1 = pEdge3 ->end_pos();
-
-		SPAposition es2 = pEdge4 ->start_pos();
-		SPAposition ee2 = pEdge4 ->end_pos();
-
-
-		//MrDirection startNormal = PmeQueryFaceNormal(pStartFace, sketchOrigin);
-		//MrDirection endNormal = PmeQueryFaceNormal(pEndFace, sketchOrigin);
-
-		//if(MrMath::IsEqual(startNormal, sketchNormal))
-		//{
-			//std::swap(pStartFace, pEndFace);
-		//}
-
-
-		double sp[18];
-		double ep[18];
+		int b = edge_list1.count();
+		VERTEX * ver1;	
+	
 		
+		for (int i = 0 ; i < b; i++)
+			{
+						double vertexcoord[3];
+						CString vertexNum[3];
 
-		sp[0] = ss1.x();
-		sp[1] = ss1.y();
-		sp[2] = ss1.z();
-		sp[3] = se1.x();
-		sp[4] = se1.y();
-		sp[5] = se1.z();
+						EDGE * e = (EDGE *) edge_list1[i]; // ?  
 
-		sp[6] = ss2.x();
-		sp[7] = ss2.y();
-		sp[8] = ss2.z();
-		sp[9] = se2.x();
-		sp[10] = se2.y();
-		sp[11] = se2.z();
+						ver1 = e->start(); // Getting the starting vertex of all the edges
 
-
-		sp[12] = (sp[0] + sp[6]) /2;
-		sp[13] = (sp[1] + sp[7]) /2;
-		sp[14] = (sp[2] + sp[8]) /2;
-
-		ep[0] = es1.x();
-		ep[1] = es1.y();
-		ep[2] = es1.z();
-		ep[3] = ee1.x();
-		ep[4] = ee1.y();
-		ep[5] = ee1.z();
-
-		ep[6] = es2.x();
-		ep[7] = es2.y();
-		ep[8] = es2.z();
-		ep[9] = ee2.x();
-		ep[10] = ee2.y();
-		ep[11] = ee2.z();
-
-
-		ep[12] = (ep[0] + ep[6]) /2;
-		ep[13] = (ep[1] + ep[7]) /2;
-		ep[14] = (ep[2] + ep[8]) /2;
+						SPAposition s2 = ver1->geometry()->coords();
 		
+						vertexcoord[0] = s2.x();
+						vertexcoord[1] = s2.y();
+						vertexcoord[2] = s2.z();
+						//vertexNum is formated vertex coordinates
+						vertexNum[0].Format(_T("%3.2f"), vertexcoord[0]);
+						vertexNum[1].Format(_T("%3.2f"), vertexcoord[1]);
+						vertexNum[2].Format(_T("%3.2f"), vertexcoord[2]); 
 
-		CString strNum4;
-		strNum4.Format(_T("%f"), sp[12]);
+						CString vertexName;
+						// For each vertex generated by extrude feature
+						vertexName = GetName() + "," + sketchName + ",(" + vertexNum[0] + ","+ vertexNum[1] +","+ vertexNum[2] + ")"; // Replace Feature name with user selected name
 
-		CString strNum5;
-		strNum5.Format(_T("%f"), sp[13]);
+						new ATTRIB_VERTEXNAME(ver1, vertexName); // Get this next!
 
-		CString strNum6;
-		strNum6.Format(_T("%f"), sp[14]);
+			}
 
-		CString strNum7;
-		strNum7.Format(_T("%f"), ep[12]);
-
-		CString strNum8;
-		strNum8.Format(_T("%f"), ep[13]);
-
-		CString strNum9;
-		strNum9.Format(_T("%f"), ep[14]);
+ }
 
 
-		//CString startFaceName = GetName() + ",0,-1,0,0,0,ExtrudeFeature:0,0:0;0";
-		CString startFaceName = "FACE ,(" + strNum4 +","+ strNum5 +","+ strNum6 +")";
-		CString endFaceName = "FACE ,(" + strNum7 +","+ strNum8 +","+ strNum9 +")";
+	AttachRemainingVertexNames_pointbased(pBody);  // Check for remaining vertices
+	AttachFaceName_pointbased(pBody); // FACE names
 
-		new ATTRIB_FACENAME(pStartFace, startFaceName);
-		new ATTRIB_FACENAME(pEndFace, endFaceName);        
-	}*/
+}
+
+void PmeStdSolidExtrudeFeature::AttachRemainingVertexNames_pointbased(BODY *& pBody)
+{
+	ENTITY_LIST edge_list;
+	get_edges(pBody, edge_list);
+
+	int a = edge_list.count();
+	VERTEX * ver;	
+
+	CString sketchName = PmeSketchUtility::GetSketch(GetProfileSketch())->GetName();
+
+	for (int i = 0 ; i < a; i++)
+	{
+		double vertexcoord[3];
+		CString vertexNum[3];
+
+		EDGE * e = (EDGE *) edge_list[i];
+
+		ver = e->start();
+
+		CString verName = PmePersistentName::FindVertexName(ver);
+
+		if (verName == "")  //check which points are still un-named in the final BODY and assign names
+		{
+			SPAposition s1 = ver->geometry()->coords();
+
+			vertexcoord[0] = s1.x();
+			vertexcoord[1] = s1.y();
+			vertexcoord[2] = s1.z();
+
+			vertexNum[0].Format(_T("%3.2f"), vertexcoord[0]);
+			vertexNum[1].Format(_T("%3.2f"), vertexcoord[1]);
+			vertexNum[2].Format(_T("%3.2f"), vertexcoord[2]);
+
+			CString vertexName;
+
+			vertexName = GetName() + "," + sketchName + ",(" + vertexNum[0] + ","+ vertexNum[1] +","+ vertexNum[2] + ")";
+
+			new ATTRIB_VERTEXNAME(ver, vertexName);
+		}
+		
+	}
+
+}
+
+//FACES of body are named after PRO/CUT EXTRUDE
+void PmeStdSolidExtrudeFeature::AttachFaceName_pointbased(BODY *& pBody)
+{
+	FACE * ff ;
+	ff = pBody->lump()->shell()->face();
+
+	while (ff!= NULL)
+	{
+		CString faceName;
+		ENTITY_LIST lp_list;
+		
+		api_get_loops(ff, lp_list); //Accounting for all LOOPS on a FACE
+		
+		int a = lp_list.count();
+		int count=0;
+
+		for (int b = 0; b < a; b++)
+		{
+			
+			LOOP * lp = (LOOP *) lp_list[b];
+		
+			COEDGE * ce;
+			ce = lp->start();
+			VERTEX * ver;
+			
+
+		do{
+			
+			ver = ce->start();
+			CString name = PmePersistentName::FindVertexName(ver);
+
+			if (count == 0)
+				faceName =  name;
+
+			else
+				faceName = faceName +","+ name;			
+
+			count++;
+			ce = ce->next();
+		} while (ce != lp->start()); 
+		
+		}
+
+		CString FaceName;
+
+		FaceName = "FACE," + faceName;
+		
+		new ATTRIB_FACENAME(ff, FaceName);
+		
+		ff= ff->next();
+	
+		}
+
+}
+
+// After BOLEAN operations
+BODY * PmeStdSolidExtrudeFeature::NameNewVertices_ADD_BOL(BODY *& pBody, bool isCut)
+{
+	//BODY * pBody;
+	Attach_NewVertexNames_pointbased(pBody);
+	
+	return pBody;
+}
+
+BODY * PmeStdSolidExtrudeFeature::NameNewVertices_SUB_BOL(BODY *& pBody, bool isCut)
+{
+	//BODY * pBody;
+	Attach_NewVertexNames_pointbased(pBody);
+	
+	return pBody;
+}
+
+// Check for newly generated vertices
+void PmeStdSolidExtrudeFeature:: Attach_NewVertexNames_pointbased(BODY *& pBody)
+
+{
+	
+	ENTITY_LIST edge_list;
+	api_get_edges(pBody, edge_list);
+
+	int b;
+	b = edge_list.count();
+	
+
+	for (int i = 0; i < b; i++)
+	{
+
+	double vertexcoord[3];
+	CString vertexNum[3];
+
+	EDGE * pEdge = (EDGE *) edge_list[i];
+	VERTEX* ver;
+	ver = pEdge->start();
+
+	
+	CString edgeName1;
+	CString sketchName = PmeSketchUtility::GetSketch(GetProfileSketch())->GetName();
+	CString verName = PmePersistentName::FindVertexName(ver);
+	
+		if (verName == "")
+		{
+			
+			SPAposition s1 = ver->geometry()->coords();
+			vertexcoord[0] = s1.x();
+			vertexcoord[1] = s1.y();
+			vertexcoord[2] = s1.z();
+
+			vertexNum[0].Format(_T("%3.2f"), vertexcoord[0]);
+			vertexNum[1].Format(_T("%3.2f"), vertexcoord[1]);
+			vertexNum[2].Format(_T("%3.2f"), vertexcoord[2]);
+
+			PmeSketch * pSketch = PmeSketchUtility::GetSketch(GetProfileSketch());
+
+			PmeFeature * pFeature = pSketch->GetCreator();
+			PmeStdSketchFeature * pSketchFeature = static_cast<PmeStdSketchFeature *>(pFeature);
+
+			PmeStdSketchGeometries * pGeometries = pSketchFeature->GetGeometries();
+			PmeStdSketchGeometries::SizeType size = pGeometries->GetSize();
+
+			MrAxis2 coordinateSystem = pSketchFeature->GetCoordinateSystem();
+			MrDirection XDir = coordinateSystem.XDirection();
+			MrDirection YDir = coordinateSystem.YDirection();
+			//MrDirection ZDir = coordinateSystem.ZDirection();
+
+			MrPosition location = coordinateSystem.Location();
+
+			//int Circular_Element_Count = 0;
+
+			if (location.X() == vertexcoord[0] || location.Y() == vertexcoord[1] || location.Z() == vertexcoord[2])
+			{
+
+			for(PmeStdSketchGeometries::SizeType j = 0; j < size; ++ j)
+			{
+				PmeStdSketchGeometry * pGeometry = pGeometries->GetItem(j);
+
+				
+				if (pGeometry->GetType() == PmeStdSketchGeometryType_Line)
+				{
+					
+					PmeStdSketchLine * pLine = static_cast<PmeStdSketchLine *>(pGeometry);
+					PmeStdSketchControlPoint * pStartPoint = pLine->GetStartPoint();
+
+					EDGE * e1 = PmeSketchUtility::CreateEdgeFromGeometry(pGeometry);
+					EDGE * e2 = CreateTransformedEdge(pEdge, coordinateSystem);
+
+					
+					VERTEX * ver1;
+					ver1 = e1->start();
+					SPAposition s2 = ver1->geometry()->coords();
+					double vertexcoord1[3];
+					vertexcoord1[0] = s2.x();
+					vertexcoord1[1] = s2.y();
+					vertexcoord1[2] = s2.z();
+
+					VERTEX * ver2;
+					ver2 = e2->start();
+					SPAposition s3 = ver2->geometry()->coords();
+					double vertexcoord2[3];
+					vertexcoord2[0] = s3.x();
+					vertexcoord2[1] = s3.y();
+					vertexcoord2[2] = s3.z();
+
+					if (XDir.X() == 1 && YDir.Y() == 1)
+					{
+						if (vertexcoord1[0] == vertexcoord2[0] && vertexcoord1[1] == vertexcoord2[1])
+						{
+						edgeName1 = pGeometry -> GetName();
+
+						for(PmeStdSketchGeometries::SizeType k = 0; k < size; ++ k)
+							{
+								PmeStdSketchGeometry * pGeometry1 = pGeometries->GetItem(k);
+
+				
+								if (pGeometry1->GetType() == PmeStdSketchGeometryType_Line)
+								{
+								
+								PmeStdSketchLine * pLine = static_cast<PmeStdSketchLine *>(pGeometry1);
+								PmeStdSketchControlPoint * pEndPoint = pLine->GetEndPoint();
+
+								double x = pEndPoint->GetX();
+								double y = pEndPoint->GetY();
+
+								if (x == vertexcoord2[0] && y == vertexcoord2[1])
+								{
+								
+									CString edgeName2 = pGeometry1 -> GetName();
+
+									CString vertexName;
+
+									vertexName = GetName() + "," + sketchName + "," + edgeName1 + "," + edgeName2 + ",(" + vertexNum[0] + ","+ vertexNum[1] +","+ vertexNum[2] + ")";
+
+									new ATTRIB_VERTEXNAME(ver, vertexName);
+									//break;
+								
+								}
+
+								}
+
+								else if (pGeometry1->GetType() == PmeStdSketchGeometryType_CircularArc)
+								{
+								
+								PmeStdSketchCircularArc * pCArc = static_cast<PmeStdSketchCircularArc *>(pGeometry1);
+								PmeStdSketchControlPoint * pEndPoint = pCArc->GetEndPoint();
+
+								double x = pEndPoint->GetX();
+								double y = pEndPoint->GetY();
+
+								if (x == vertexcoord2[0] && y == vertexcoord2[1])
+								{
+								
+									CString edgeName2 = pGeometry1 -> GetName();
+
+									CString vertexName;
+
+									vertexName = GetName() + "," + sketchName + "," + edgeName1 + "," + edgeName2 + ",(" + vertexNum[0] + ","+ vertexNum[1] +","+ vertexNum[2] + ")";
+
+									new ATTRIB_VERTEXNAME(ver, vertexName);
+									//break;
+								}
+								
+								}
+						
+							}
+						
+						}
+					}		
+					
+					else if (XDir.Y() == 1 && YDir.Z() == 1)
+					{
+						if (vertexcoord1[0] == vertexcoord2[1] && vertexcoord1[1] == vertexcoord2[2])
+						{
+						edgeName1 = pGeometry -> GetName();
+
+						for(PmeStdSketchGeometries::SizeType k = 0; k < size; ++ k)
+							{
+								PmeStdSketchGeometry * pGeometry1 = pGeometries->GetItem(k);
+
+				
+								if (pGeometry1->GetType() == PmeStdSketchGeometryType_Line)
+								{
+								
+								PmeStdSketchLine * pLine = static_cast<PmeStdSketchLine *>(pGeometry1);
+								PmeStdSketchControlPoint * pEndPoint = pLine->GetEndPoint();
+
+								double x = pEndPoint->GetX();
+								double y = pEndPoint->GetY();
+
+								if (x == vertexcoord2[1] && y == vertexcoord2[2])
+								{
+								
+									CString edgeName2 = pGeometry1 -> GetName();
+
+									CString vertexName;
+
+									vertexName = GetName() + "," + sketchName + "," + edgeName1 + "," + edgeName2 + ",(" + vertexNum[0] + ","+ vertexNum[1] +","+ vertexNum[2] + ")";
+
+									new ATTRIB_VERTEXNAME(ver, vertexName);
+									//break;
+								}
+
+								}
+
+								else if (pGeometry1->GetType() == PmeStdSketchGeometryType_CircularArc)
+								{
+									
+								PmeStdSketchCircularArc * pCArc = static_cast<PmeStdSketchCircularArc *>(pGeometry1);
+								PmeStdSketchControlPoint * pEndPoint = pCArc->GetEndPoint();
+
+								double x = pEndPoint->GetX();
+								double y = pEndPoint->GetY();
+
+								if (x == vertexcoord2[1] && y == vertexcoord2[2])
+								{
+								
+									CString edgeName2 = pGeometry1 -> GetName();
+
+									CString vertexName;
+
+									vertexName = GetName() + "," + sketchName + "," + edgeName1 + "," + edgeName2 + ",(" + vertexNum[0] + ","+ vertexNum[1] +","+ vertexNum[2] + ")";
+
+									new ATTRIB_VERTEXNAME(ver, vertexName);
+									//break;
+								}
+
+								}
+						
+						
+							}
+						}
+				}
+					
+					
+					else if (XDir.Z() == 1 && YDir.X() == 1)
+					{
+						if (vertexcoord1[0] == vertexcoord2[2] && vertexcoord1[1] == vertexcoord2[0])
+						{
+						edgeName1 = pGeometry -> GetName();
+						
+						for(PmeStdSketchGeometries::SizeType k = 0; k < size; ++ k)
+							{
+								PmeStdSketchGeometry * pGeometry1 = pGeometries->GetItem(k);
+
+				
+								if (pGeometry1->GetType() == PmeStdSketchGeometryType_Line)
+								{
+								
+								PmeStdSketchLine * pLine = static_cast<PmeStdSketchLine *>(pGeometry1);
+								PmeStdSketchControlPoint * pEndPoint = pLine->GetEndPoint();
+
+								double x = pEndPoint->GetX();
+								double y = pEndPoint->GetY();
+
+								if (x == vertexcoord2[2] && y == vertexcoord2[0])
+								{
+								
+									CString edgeName2 = pGeometry1 -> GetName();
+
+									CString vertexName;
+
+									vertexName = GetName() + "," + sketchName + "," + edgeName1 + "," + edgeName2 + ",(" + vertexNum[0] + ","+ vertexNum[1] +","+ vertexNum[2] + ")";
+
+									new ATTRIB_VERTEXNAME(ver, vertexName);
+									//break;
+								}
+
+								}
+						
+								else if (pGeometry1->GetType() == PmeStdSketchGeometryType_CircularArc)
+
+								{
+								
+								PmeStdSketchCircularArc * pCArc = static_cast<PmeStdSketchCircularArc *>(pGeometry1);
+								PmeStdSketchControlPoint * pEndPoint = pCArc->GetEndPoint();
+
+								double x = pEndPoint->GetX();
+								double y = pEndPoint->GetY();
+
+								if (x == vertexcoord2[2] && y == vertexcoord2[0])
+								{
+								
+									CString edgeName2 = pGeometry1 -> GetName();
+
+									CString vertexName;
+
+									vertexName = GetName() + "," + sketchName + "," + edgeName1 + "," + edgeName2 + ",(" + vertexNum[0] + ","+ vertexNum[1] +","+ vertexNum[2] + ")";
+
+									new ATTRIB_VERTEXNAME(ver, vertexName);
+									//break;
+								}
+								}
+							}
+						
+						
+						}
+
+
+					}
+					
+					}
+					else if (pGeometry->GetType() == PmeStdSketchGeometryType_Circle)
+					{
+						if (size != 2 ) //Multiple close-loop/Circular sketch elements
+						
+						{
+							PmeStdSketchCircle * pCircle = static_cast<PmeStdSketchCircle *>(pGeometry);
+							PmeStdSketchControlPoint * pCenterPoint = pCircle->GetCenterPoint();
+							
+							double circle_radius = pCircle->GetRadius();
+
+							double x = pCenterPoint->GetX();
+							double y = pCenterPoint->GetY();
+							
+							double local_x = vertexcoord[0] - location.X() ;
+							double local_y = vertexcoord[1] - location.Y() ;
+							double local_z = vertexcoord[2] - location.Z() ;
+
+
+							
+							if( (XDir.X() == 1 && YDir.Y() == 1) || (XDir.X() == 1 && YDir.Y() == -1) || (XDir.X() == -1 && YDir.Y() == 1) || (XDir.X() == -1 && YDir.Y() == -1) )
+							{
+								if (local_x == x)
+								{
+									if (local_y == (y - circle_radius))
+									{
+									edgeName1 = pGeometry -> GetName();
+									CString vertexName;
+									vertexName = GetName() + "," + sketchName + "," + edgeName1 + ",(" + vertexNum[0] + ","+ vertexNum[1] +","+ vertexNum[2] + ")";
+									new ATTRIB_VERTEXNAME(ver, vertexName);
+									}
+									else if (local_y == (y + circle_radius))  
+									{
+									edgeName1 = pGeometry -> GetName();
+									CString vertexName;
+									vertexName = GetName() + "," + sketchName + "," + edgeName1 + ",(" + vertexNum[0] + ","+ vertexNum[1] +","+ vertexNum[2] + ")";
+									new ATTRIB_VERTEXNAME(ver, vertexName);
+									}
+								}
+
+								else if (local_x == -x)
+								{
+									if (local_y == (y - circle_radius))
+									{
+									edgeName1 = pGeometry -> GetName();
+									CString vertexName;
+									vertexName = GetName() + "," + sketchName + "," + edgeName1 + ",(" + vertexNum[0] + ","+ vertexNum[1] +","+ vertexNum[2] + ")";
+									new ATTRIB_VERTEXNAME(ver, vertexName);
+									}
+									else if (local_y == (y + circle_radius))  
+									{
+									edgeName1 = pGeometry -> GetName();
+									CString vertexName;
+									vertexName = GetName() + "," + sketchName + "," + edgeName1 + ",(" + vertexNum[0] + ","+ vertexNum[1] +","+ vertexNum[2] + ")";
+									new ATTRIB_VERTEXNAME(ver, vertexName);
+									}
+								}
+								else if (local_y == y )
+								{
+									if (local_x == (x - circle_radius))
+									{
+									edgeName1 = pGeometry -> GetName();
+									CString vertexName;
+									vertexName = GetName() + "," + sketchName + "," + edgeName1 + ",(" + vertexNum[0] + ","+ vertexNum[1] +","+ vertexNum[2] + ")";
+									new ATTRIB_VERTEXNAME(ver, vertexName);
+									}
+									else if (local_x == (x + circle_radius))
+									{
+									edgeName1 = pGeometry -> GetName();
+									CString vertexName;
+									vertexName = GetName() + "," + sketchName + "," + edgeName1 + ",(" + vertexNum[0] + ","+ vertexNum[1] +","+ vertexNum[2] + ")";
+									new ATTRIB_VERTEXNAME(ver, vertexName);
+									}
+								}
+								else if (local_y == -y)
+								{
+									if (local_x == (x - circle_radius))
+									{
+									edgeName1 = pGeometry -> GetName();
+									CString vertexName;
+									vertexName = GetName() + "," + sketchName + "," + edgeName1 + ",(" + vertexNum[0] + ","+ vertexNum[1] +","+ vertexNum[2] + ")";
+									new ATTRIB_VERTEXNAME(ver, vertexName);
+									}
+									else if (local_x == (x + circle_radius))
+									{
+									edgeName1 = pGeometry -> GetName();
+									CString vertexName;
+									vertexName = GetName() + "," + sketchName + "," + edgeName1 + ",(" + vertexNum[0] + ","+ vertexNum[1] +","+ vertexNum[2] + ")";
+									new ATTRIB_VERTEXNAME(ver, vertexName);
+									}
+								}
+
+
+
+							}
+
+							else if( (XDir.Y() == 1 && YDir.Z() == 1) || (XDir.Y() == 1 && YDir.Z() == -1) || (XDir.Y() == -1 && YDir.Z() == 1) || (XDir.Y() == -1 && YDir.Z() == -1) )
+							{
+								
+								if (local_y == x)
+								{
+									if (local_z == (y - circle_radius))
+									{
+									edgeName1 = pGeometry -> GetName();
+									CString vertexName;
+									vertexName = GetName() + "," + sketchName + "," + edgeName1 + ",(" + vertexNum[0] + ","+ vertexNum[1] +","+ vertexNum[2] + ")";
+									new ATTRIB_VERTEXNAME(ver, vertexName);
+									}
+									else if (local_z == (y + circle_radius))  
+									{
+									edgeName1 = pGeometry -> GetName();
+									CString vertexName;
+									vertexName = GetName() + "," + sketchName + "," + edgeName1 + ",(" + vertexNum[0] + ","+ vertexNum[1] +","+ vertexNum[2] + ")";
+									new ATTRIB_VERTEXNAME(ver, vertexName);
+									}
+								}
+
+								else if (local_y == -x)
+								{
+									if (local_z == (y - circle_radius))
+									{
+									edgeName1 = pGeometry -> GetName();
+									CString vertexName;
+									vertexName = GetName() + "," + sketchName + "," + edgeName1 + ",(" + vertexNum[0] + ","+ vertexNum[1] +","+ vertexNum[2] + ")";
+									new ATTRIB_VERTEXNAME(ver, vertexName);
+									}
+									else if (local_z == (y + circle_radius))  
+									{
+									edgeName1 = pGeometry -> GetName();
+									CString vertexName;
+									vertexName = GetName() + "," + sketchName + "," + edgeName1 + ",(" + vertexNum[0] + ","+ vertexNum[1] +","+ vertexNum[2] + ")";
+									new ATTRIB_VERTEXNAME(ver, vertexName);
+									}
+								}
+								else if (local_z == y )
+								{
+									if (local_y == (x - circle_radius))
+									{
+									edgeName1 = pGeometry -> GetName();
+									CString vertexName;
+									vertexName = GetName() + "," + sketchName + "," + edgeName1 + ",(" + vertexNum[0] + ","+ vertexNum[1] +","+ vertexNum[2] + ")";
+									new ATTRIB_VERTEXNAME(ver, vertexName);
+									}
+									else if (local_y == (x + circle_radius))
+									{
+									edgeName1 = pGeometry -> GetName();
+									CString vertexName;
+									vertexName = GetName() + "," + sketchName + "," + edgeName1 + ",(" + vertexNum[0] + ","+ vertexNum[1] +","+ vertexNum[2] + ")";
+									new ATTRIB_VERTEXNAME(ver, vertexName);
+									}
+								}
+								else if (local_z == -y)
+								{
+									if (local_y == (x - circle_radius))
+									{
+									edgeName1 = pGeometry -> GetName();
+									CString vertexName;
+									vertexName = GetName() + "," + sketchName + "," + edgeName1 + ",(" + vertexNum[0] + ","+ vertexNum[1] +","+ vertexNum[2] + ")";
+									new ATTRIB_VERTEXNAME(ver, vertexName);
+									}
+									else if (local_y == (x + circle_radius))
+									{
+									edgeName1 = pGeometry -> GetName();
+									CString vertexName;
+									vertexName = GetName() + "," + sketchName + "," + edgeName1 + ",(" + vertexNum[0] + ","+ vertexNum[1] +","+ vertexNum[2] + ")";
+									new ATTRIB_VERTEXNAME(ver, vertexName);
+									}
+								}
+							
+							}
+
+							else if( (XDir.X() == 1 && YDir.Z() == 1) || (XDir.X() == 1 && YDir.Z() == -1) || (XDir.X() == -1 && YDir.Z() == 1) || (XDir.X() == -1 && YDir.Z() == -1) )
+							{
+								
+								if (local_x == x )
+								{
+									if (local_z == (y - circle_radius))
+									{
+									edgeName1 = pGeometry -> GetName();
+									CString vertexName;
+									vertexName = GetName() + "," + sketchName + "," + edgeName1 + ",(" + vertexNum[0] + ","+ vertexNum[1] +","+ vertexNum[2] + ")";
+									new ATTRIB_VERTEXNAME(ver, vertexName);
+									}
+									else if (local_z == (y + circle_radius))  
+									{
+									edgeName1 = pGeometry -> GetName();
+									CString vertexName;
+									vertexName = GetName() + "," + sketchName + "," + edgeName1 + ",(" + vertexNum[0] + ","+ vertexNum[1] +","+ vertexNum[2] + ")";
+									new ATTRIB_VERTEXNAME(ver, vertexName);
+									}
+								}
+
+								else if (local_x == -x)
+								{
+									if (local_z == (y - circle_radius))
+									{
+									edgeName1 = pGeometry -> GetName();
+									CString vertexName;
+									vertexName = GetName() + "," + sketchName + "," + edgeName1 + ",(" + vertexNum[0] + ","+ vertexNum[1] +","+ vertexNum[2] + ")";
+									new ATTRIB_VERTEXNAME(ver, vertexName);
+									}
+									else if (local_z == (y + circle_radius))  
+									{
+									edgeName1 = pGeometry -> GetName();
+									CString vertexName;
+									vertexName = GetName() + "," + sketchName + "," + edgeName1 + ",(" + vertexNum[0] + ","+ vertexNum[1] +","+ vertexNum[2] + ")";
+									new ATTRIB_VERTEXNAME(ver, vertexName);
+									}
+								}
+								else if (local_z == y)
+								{
+									if (local_x == (x - circle_radius))
+									{
+									edgeName1 = pGeometry -> GetName();
+									CString vertexName;
+									vertexName = GetName() + "," + sketchName + "," + edgeName1 + ",(" + vertexNum[0] + ","+ vertexNum[1] +","+ vertexNum[2] + ")";
+									new ATTRIB_VERTEXNAME(ver, vertexName);
+									}
+									else if (local_x == (x + circle_radius))
+									{
+									edgeName1 = pGeometry -> GetName();
+									CString vertexName;
+									vertexName = GetName() + "," + sketchName + "," + edgeName1 + ",(" + vertexNum[0] + ","+ vertexNum[1] +","+ vertexNum[2] + ")";
+									new ATTRIB_VERTEXNAME(ver, vertexName);
+									}
+								}
+								else if (local_z == -y)
+								{
+									if (local_x == (x - circle_radius))
+									{
+									edgeName1 = pGeometry -> GetName();
+									CString vertexName;
+									vertexName = GetName() + "," + sketchName + "," + edgeName1 + ",(" + vertexNum[0] + ","+ vertexNum[1] +","+ vertexNum[2] + ")";
+									new ATTRIB_VERTEXNAME(ver, vertexName);
+									}
+									else if (local_x == (x + circle_radius))
+									{
+									edgeName1 = pGeometry -> GetName();
+									CString vertexName;
+									vertexName = GetName() + "," + sketchName + "," + edgeName1 + ",(" + vertexNum[0] + ","+ vertexNum[1] +","+ vertexNum[2] + ")";
+									new ATTRIB_VERTEXNAME(ver, vertexName);
+									}
+								}
+							
+							}
+							
+							else if( (XDir.Y() == 1 && YDir.X() == 1) || (XDir.Y() == 1 && YDir.X() == -1) || (XDir.Y() == -1 && YDir.X() == 1) || (XDir.Y() == -1 && YDir.X() == -1) )
+							{
+								if (local_y == x )
+								{
+									if (local_x == (y - circle_radius))
+									{
+									edgeName1 = pGeometry -> GetName();
+									CString vertexName;
+									vertexName = GetName() + "," + sketchName + "," + edgeName1 + ",(" + vertexNum[0] + ","+ vertexNum[1] +","+ vertexNum[2] + ")";
+									new ATTRIB_VERTEXNAME(ver, vertexName);
+									}
+									else if (local_x == (y + circle_radius))  
+									{
+									edgeName1 = pGeometry -> GetName();
+									CString vertexName;
+									vertexName = GetName() + "," + sketchName + "," + edgeName1 + ",(" + vertexNum[0] + ","+ vertexNum[1] +","+ vertexNum[2] + ")";
+									new ATTRIB_VERTEXNAME(ver, vertexName);
+									}
+								}
+
+								else if (local_y == -x) 
+								{
+									if (local_x == (y - circle_radius))
+									{
+									edgeName1 = pGeometry -> GetName();
+									CString vertexName;
+									vertexName = GetName() + "," + sketchName + "," + edgeName1 + ",(" + vertexNum[0] + ","+ vertexNum[1] +","+ vertexNum[2] + ")";
+									new ATTRIB_VERTEXNAME(ver, vertexName);
+									}
+									else if (local_x == (y + circle_radius))  
+									{
+									edgeName1 = pGeometry -> GetName();
+									CString vertexName;
+									vertexName = GetName() + "," + sketchName + "," + edgeName1 + ",(" + vertexNum[0] + ","+ vertexNum[1] +","+ vertexNum[2] + ")";
+									new ATTRIB_VERTEXNAME(ver, vertexName);
+									}
+								}
+								else if (local_x == y)
+								{
+									if (local_y == (x - circle_radius))
+									{
+									edgeName1 = pGeometry -> GetName();
+									CString vertexName;
+									vertexName = GetName() + "," + sketchName + "," + edgeName1 + ",(" + vertexNum[0] + ","+ vertexNum[1] +","+ vertexNum[2] + ")";
+									new ATTRIB_VERTEXNAME(ver, vertexName);
+									}
+									else if (local_y == (x + circle_radius))
+									{
+									edgeName1 = pGeometry -> GetName();
+									CString vertexName;
+									vertexName = GetName() + "," + sketchName + "," + edgeName1 + ",(" + vertexNum[0] + ","+ vertexNum[1] +","+ vertexNum[2] + ")";
+									new ATTRIB_VERTEXNAME(ver, vertexName);
+									}
+								}
+								else if (local_x == -y)
+								{
+									if (local_y == (x - circle_radius))
+									{
+									edgeName1 = pGeometry -> GetName();
+									CString vertexName;
+									vertexName = GetName() + "," + sketchName + "," + edgeName1 + ",(" + vertexNum[0] + ","+ vertexNum[1] +","+ vertexNum[2] + ")";
+									new ATTRIB_VERTEXNAME(ver, vertexName);
+									}
+									else if (local_y == (x + circle_radius))
+									{
+									edgeName1 = pGeometry -> GetName();
+									CString vertexName;
+									vertexName = GetName() + "," + sketchName + "," + edgeName1 + ",(" + vertexNum[0] + ","+ vertexNum[1] +","+ vertexNum[2] + ")";
+									new ATTRIB_VERTEXNAME(ver, vertexName);
+									}
+								}
+							
+							}
+
+							else if( (XDir.Z() == 1 && YDir.Y() == 1) || (XDir.Z() == 1 && YDir.Y() == -1) || (XDir.Z() == -1 && YDir.Y() == 1) || (XDir.Z() == -1 && YDir.Y() == -1) )
+							{
+								if (local_z == x)
+								{	
+									if (local_y == (y - circle_radius))
+									{
+									edgeName1 = pGeometry -> GetName();
+									CString vertexName;
+									vertexName = GetName() + "," + sketchName + "," + edgeName1 + ",(" + vertexNum[0] + ","+ vertexNum[1] +","+ vertexNum[2] + ")";
+									new ATTRIB_VERTEXNAME(ver, vertexName);
+									}
+									else if (local_y == (y + circle_radius))
+									{
+									edgeName1 = pGeometry -> GetName();
+									CString vertexName;
+									vertexName = GetName() + "," + sketchName + "," + edgeName1 + ",(" + vertexNum[0] + ","+ vertexNum[1] +","+ vertexNum[2] + ")";
+									new ATTRIB_VERTEXNAME(ver, vertexName);
+									}
+								}
+								else if (local_z == -x)
+								{
+									if (local_y == (y - circle_radius))
+									{
+									edgeName1 = pGeometry -> GetName();
+									CString vertexName;
+									vertexName = GetName() + "," + sketchName + "," + edgeName1 + ",(" + vertexNum[0] + ","+ vertexNum[1] +","+ vertexNum[2] + ")";
+									new ATTRIB_VERTEXNAME(ver, vertexName);
+									}
+									else if (local_y == (y + circle_radius))
+									{
+									edgeName1 = pGeometry -> GetName();
+									CString vertexName;
+									vertexName = GetName() + "," + sketchName + "," + edgeName1 + ",(" + vertexNum[0] + ","+ vertexNum[1] +","+ vertexNum[2] + ")";
+									new ATTRIB_VERTEXNAME(ver, vertexName);
+									}
+								}
+								else if (local_y == y)
+								{
+									if (local_z == (x - circle_radius))
+									{
+									edgeName1 = pGeometry -> GetName();
+									CString vertexName;
+									vertexName = GetName() + "," + sketchName + "," + edgeName1 + ",(" + vertexNum[0] + ","+ vertexNum[1] +","+ vertexNum[2] + ")";
+									new ATTRIB_VERTEXNAME(ver, vertexName);
+									}
+									else if (local_z == (x + circle_radius))
+									{
+									edgeName1 = pGeometry -> GetName();
+									CString vertexName;
+									vertexName = GetName() + "," + sketchName + "," + edgeName1 + ",(" + vertexNum[0] + ","+ vertexNum[1] +","+ vertexNum[2] + ")";
+									new ATTRIB_VERTEXNAME(ver, vertexName);
+									}
+							    }
+								else if (local_y == -y)
+								{
+									if (local_z == (x - circle_radius))
+									{
+									edgeName1 = pGeometry -> GetName();
+									CString vertexName;
+									vertexName = GetName() + "," + sketchName + "," + edgeName1 + ",(" + vertexNum[0] + ","+ vertexNum[1] +","+ vertexNum[2] + ")";
+									new ATTRIB_VERTEXNAME(ver, vertexName);
+									}
+									else if (local_z == (x + circle_radius))
+									{
+									edgeName1 = pGeometry -> GetName();
+									CString vertexName;
+									vertexName = GetName() + "," + sketchName + "," + edgeName1 + ",(" + vertexNum[0] + ","+ vertexNum[1] +","+ vertexNum[2] + ")";
+									new ATTRIB_VERTEXNAME(ver, vertexName);
+									}
+								}
+
+							}
+							
+							else if( (XDir.Z() == 1 && YDir.X() == 1) || (XDir.Z() == 1 && YDir.X() == -1) || (XDir.Z() == -1 && YDir.X() == 1) || (XDir.Z() == -1 && YDir.X() == -1) )
+							{
+								if (local_z == x)
+								{
+									
+									if(local_x == (y - circle_radius))
+									{
+									edgeName1 = pGeometry -> GetName();
+									CString vertexName;
+									vertexName = GetName() + "," + sketchName + "," + edgeName1 + ",(" + vertexNum[0] + ","+ vertexNum[1] +","+ vertexNum[2] + ")";
+									new ATTRIB_VERTEXNAME(ver, vertexName);
+									}
+
+									else if(local_x == (y + circle_radius))
+									{
+									edgeName1 = pGeometry -> GetName();
+									CString vertexName;
+									vertexName = GetName() + "," + sketchName + "," + edgeName1 + ",(" + vertexNum[0] + ","+ vertexNum[1] +","+ vertexNum[2] + ")";
+									new ATTRIB_VERTEXNAME(ver, vertexName);
+									}
+									
+									/*else if(local_x == -(y - circle_radius))
+									{
+									edgeName1 = pGeometry -> GetName();
+									CString vertexName;
+									vertexName = GetName() + "," + sketchName + "," + edgeName1 + ",(" + vertexNum[0] + ","+ vertexNum[1] +","+ vertexNum[2] + ")";
+									new ATTRIB_VERTEXNAME(ver, vertexName);
+									}	
+										
+									else if(local_x == -(y + circle_radius))
+									{
+									edgeName1 = pGeometry -> GetName();
+									CString vertexName;
+									vertexName = GetName() + "," + sketchName + "," + edgeName1 + ",(" + vertexNum[0] + ","+ vertexNum[1] +","+ vertexNum[2] + ")";
+									new ATTRIB_VERTEXNAME(ver, vertexName);
+									}	*/
+								}		
+								else if (local_z == -x)
+								{
+									if(local_x == (y - circle_radius))
+									{
+									edgeName1 = pGeometry -> GetName();
+									CString vertexName;
+									vertexName = GetName() + "," + sketchName + "," + edgeName1 + ",(" + vertexNum[0] + ","+ vertexNum[1] +","+ vertexNum[2] + ")";
+									new ATTRIB_VERTEXNAME(ver, vertexName);
+									}
+
+									else if(local_x == (y + circle_radius))
+									{
+									edgeName1 = pGeometry -> GetName();
+									CString vertexName;
+									vertexName = GetName() + "," + sketchName + "," + edgeName1 + ",(" + vertexNum[0] + ","+ vertexNum[1] +","+ vertexNum[2] + ")";
+									new ATTRIB_VERTEXNAME(ver, vertexName);
+									}
+									
+									/*else if(local_x == -(y - circle_radius))
+									{
+									edgeName1 = pGeometry -> GetName();
+									CString vertexName;
+									vertexName = GetName() + "," + sketchName + "," + edgeName1 + ",(" + vertexNum[0] + ","+ vertexNum[1] +","+ vertexNum[2] + ")";
+									new ATTRIB_VERTEXNAME(ver, vertexName);
+									}	
+										
+									else if(local_x == -(y + circle_radius))
+									{
+									edgeName1 = pGeometry -> GetName();
+									CString vertexName;
+									vertexName = GetName() + "," + sketchName + "," + edgeName1 + ",(" + vertexNum[0] + ","+ vertexNum[1] +","+ vertexNum[2] + ")";
+									new ATTRIB_VERTEXNAME(ver, vertexName);
+									}	*/
+								}
+								else if (local_x == y) 
+								{
+
+								    if(local_z == (x - circle_radius) )
+									{
+									edgeName1 = pGeometry -> GetName();
+									CString vertexName;
+									vertexName = GetName() + "," + sketchName + "," + edgeName1 + ",(" + vertexNum[0] + ","+ vertexNum[1] +","+ vertexNum[2] + ")";
+									new ATTRIB_VERTEXNAME(ver, vertexName);
+									}
+
+									else if( local_z == (x + circle_radius))
+									{
+									edgeName1 = pGeometry -> GetName();
+									CString vertexName;
+									vertexName = GetName() + "," + sketchName + "," + edgeName1 + ",(" + vertexNum[0] + ","+ vertexNum[1] +","+ vertexNum[2] + ")";
+									new ATTRIB_VERTEXNAME(ver, vertexName);
+									}
+									
+									/*else if(local_z == -(x - circle_radius))
+									{
+									edgeName1 = pGeometry -> GetName();
+									CString vertexName;
+									vertexName = GetName() + "," + sketchName + "," + edgeName1 + ",(" + vertexNum[0] + ","+ vertexNum[1] +","+ vertexNum[2] + ")";
+									new ATTRIB_VERTEXNAME(ver, vertexName);
+									}	
+										
+									else if( local_z == -(x + circle_radius))
+									{
+									edgeName1 = pGeometry -> GetName();
+									CString vertexName;
+									vertexName = GetName() + "," + sketchName + "," + edgeName1 + ",(" + vertexNum[0] + ","+ vertexNum[1] +","+ vertexNum[2] + ")";
+									new ATTRIB_VERTEXNAME(ver, vertexName);
+									}	*/
+								}
+								else if (local_x == -y) 
+								{
+							        if(local_z == (x - circle_radius) )
+									{
+									edgeName1 = pGeometry -> GetName();
+									CString vertexName;
+									vertexName = GetName() + "," + sketchName + "," + edgeName1 + ",(" + vertexNum[0] + ","+ vertexNum[1] +","+ vertexNum[2] + ")";
+									new ATTRIB_VERTEXNAME(ver, vertexName);
+									}
+
+									else if( local_z == (x + circle_radius))
+									{
+									edgeName1 = pGeometry -> GetName();
+									CString vertexName;
+									vertexName = GetName() + "," + sketchName + "," + edgeName1 + ",(" + vertexNum[0] + ","+ vertexNum[1] +","+ vertexNum[2] + ")";
+									new ATTRIB_VERTEXNAME(ver, vertexName);
+									}
+									
+									/*else if(local_z == -(x - circle_radius))
+									{
+									edgeName1 = pGeometry -> GetName();
+									CString vertexName;
+									vertexName = GetName() + "," + sketchName + "," + edgeName1 + ",(" + vertexNum[0] + ","+ vertexNum[1] +","+ vertexNum[2] + ")";
+									new ATTRIB_VERTEXNAME(ver, vertexName);
+									}	
+										
+									else if( local_z == -(x + circle_radius))
+									{
+									edgeName1 = pGeometry -> GetName();
+									CString vertexName;
+									vertexName = GetName() + "," + sketchName + "," + edgeName1 + ",(" + vertexNum[0] + ","+ vertexNum[1] +","+ vertexNum[2] + ")";
+									new ATTRIB_VERTEXNAME(ver, vertexName);
+									}	*/
+								}
+			
+							}
+
+						}
+
+						else if (size == 2) //Single circular sketch element
+						{
+						edgeName1 = pGeometry -> GetName();
+							
+						CString vertexName;
+
+						vertexName = GetName() + "," + sketchName + "," + edgeName1 + ",(" + vertexNum[0] + ","+ vertexNum[1] +","+ vertexNum[2] + ")";
+
+						new ATTRIB_VERTEXNAME(ver, vertexName);
+						}
+					}
+
+				}
+		}
+
+		else 
+		{
+		
+		CString vertexName;
+
+		vertexName = GetName() + "," + sketchName + ",(" + vertexNum[0] + ","+ vertexNum[1] +","+ vertexNum[2] + ")";
+
+		new ATTRIB_VERTEXNAME(ver, vertexName);
+		}
+
+	}
+
+}
+	
+	AttachRemainingVertexNames_pointbased(pBody);
+	AttachFaceName_pointbased(pBody);
 }
