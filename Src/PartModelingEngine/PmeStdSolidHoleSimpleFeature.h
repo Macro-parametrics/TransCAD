@@ -49,6 +49,8 @@ public:
 
 protected:
 	void AttachName(BODY *& pBody);
+	
+	void AttachName_pointbased(BODY *& pBody);
 
 private:
 	EDGE * CreateCircleEdge(double centerX, double centerY, double radius);
