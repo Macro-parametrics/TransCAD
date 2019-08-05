@@ -13,6 +13,7 @@
 #include ".\PmeQuery.h"
 #include ".\attr_pme_vertexname.h"
 #include ".\pmepersistentname.h"
+#include ".\PmePersistentNameAPI.h"
 
 PME_IMPLEMENT_RUNTIME_TYPE(PmeStdSolidProtrusionExtrudeFeature, PmeStdSolidExtrudeFeature)
 
@@ -64,7 +65,10 @@ void PmeStdSolidProtrusionExtrudeFeature::Update(void)
 			check_outcome(result);
 		}
 		else
-			pOldBody = pNewBody;
+		{pOldBody = pNewBody;}
+	
+	BODY * pBody;
+	pBody = pOldBody;
 
 		if(result.ok())
 		{
@@ -72,6 +76,12 @@ void PmeStdSolidProtrusionExtrudeFeature::Update(void)
 			pSolid->UpdateSolid(pOldBody);
 			SetSolid(pSolid);
 		}
+	
+		if(g_bNamingType)
+		{AttachName(pBody);}
+		else
+		{BODY * pOldBody = NameNewVertices_ADD_BOL(pBody, false);}
+	
 	API_END
 
 	//
