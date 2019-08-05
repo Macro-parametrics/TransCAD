@@ -9,6 +9,12 @@
 #include ".\PmeSketch.h"
 #include ".\PmeSketchUtility.h"
 
+#include ".\PmePersistentNameAPI.h"
+#include ".\attr_pme_facename.h"
+#include ".\PmeQuery.h"
+#include ".\attr_pme_vertexname.h"
+#include ".\pmepersistentname.h"
+
 PME_IMPLEMENT_RUNTIME_TYPE(PmeStdSolidCutSweepFeature, PmeStdSolidSweepFeature)
 
 PmeStdSolidCutSweepFeature::PmeStdSolidCutSweepFeature(PmePart * pPart)
