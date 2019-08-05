@@ -62,7 +62,10 @@ void PmeStdSolidProtrusionSweepFeature::Update(void)
 			check_outcome(result);
 		}
 		else
-			pOldBody = pBody;
+		{pOldBody = pBody;}
+
+		BODY * pBody;
+		pBody = pOldBody;
 
 		if(result.ok())
 		{
@@ -70,6 +73,12 @@ void PmeStdSolidProtrusionSweepFeature::Update(void)
 			pSolid->UpdateSolid(pOldBody);
 			SetSolid(pSolid);
 		}
+
+		if(g_bNamingType)
+		{AttachName(pBody);} //Topology-based
+		else
+		{BODY * pOldBody = NameNewVertices_ADD_BOL(pBody, false);} //Point-based
+
 	API_END
 
 	//
