@@ -61,7 +61,10 @@ void PmeStdSolidProtrusionRevolveFeature::Update(void)
 			check_outcome(result);
 		}
 		else
-			pOldBody = pNewBody;
+		{pOldBody = pNewBody;}
+
+		BODY * pBody;
+		pBody = pOldBody;
 
 		if(result.ok())
 		{
@@ -69,6 +72,12 @@ void PmeStdSolidProtrusionRevolveFeature::Update(void)
 			pSolid->UpdateSolid(pOldBody);
 			SetSolid(pSolid);
 		}
+		
+		if(g_bNamingType)
+		{AttachName(pBody);}
+		else
+		{BODY * pOldBody = NamingNewVertices_ADD_BOL(pBody, false);}
+
 	API_END
 
 	//
