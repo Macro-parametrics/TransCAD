@@ -46,10 +46,18 @@ protected:
 
 	BODY * ExtrudeWithBlind(BODY *& pProfile, const MrVector & vector);
 	BODY * ExtrudeWithThroughAll(BODY *& pProfile, const MrDirection & direction);
+	
+	BODY * NameNewVertices_SUB_BOL(BODY *& pBody, bool isCut = true); //For Name Matching (Subtraction)
+	BODY * NameNewVertices_ADD_BOL(BODY *& pBody, bool isCut = false); //For Name Matching (Addition)
 
+	//[Topology Names]
 	void AttachName(BODY *& pBody);
-	void AttachName_pointbased_1(BODY *& pBody);
-	void AttachName_pointbased_2(BODY *& pBody);
+	
+	//[Point-Based Names]
+	void AttachVertexName_pointbased(BODY *& pBody); //initial 
+	void AttachFaceName_pointbased(BODY *& pBody); //initial 
+	void Attach_NewVertexNames_pointbased(BODY *& pBody); //Name Matching
+	void AttachRemainingVertexNames_pointbased(BODY *& pBody); //Final Check
 	
 	//void SplitCheck(BODY *& pBody, ENTITY_LIST & old_face_list);
 
