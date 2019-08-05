@@ -9,6 +9,12 @@
 #include ".\PmeSketch.h"
 #include ".\PmeSketchUtility.h"
 
+#include ".\PmePersistentNameAPI.h"
+#include ".\attr_pme_facename.h"
+#include ".\PmeQuery.h"
+#include ".\attr_pme_vertexname.h"
+#include ".\pmepersistentname.h"
+
 PME_IMPLEMENT_RUNTIME_TYPE(PmeStdSolidCutRevolveFeature, PmeStdSolidRevolveFeature)
 
 PmeStdSolidCutRevolveFeature::PmeStdSolidCutRevolveFeature(PmePart * pPart)
@@ -60,15 +66,26 @@ void PmeStdSolidCutRevolveFeature::Update(void)
 			result = api_boolean(pNewBody, pOldBody, SUBTRACTION);
 			check_outcome(result);
 		}
-		//else
-		//	pOldBody = pNewBody;
-
+		else
+		pOldBody = pNewBody;
+	
+	BODY * pBody;
+	pBody = pOldBody;
+	
 		if(result.ok())
 		{
 			PmeSolid * pSolid = pPart->GetExplicitModel()->GetSolid();
 			pSolid->UpdateSolid(pOldBody);
 			SetSolid(pSolid);
 		}
+
+		if(g_bNamingType)
+		{AttachName(pBody);}  //Topology-based
+		else
+		{BODY * pOldBody = NamingNewVertices_SUB_BOL(pBody, true);} //Point-based
+
+
+
 	API_END
 
 	
