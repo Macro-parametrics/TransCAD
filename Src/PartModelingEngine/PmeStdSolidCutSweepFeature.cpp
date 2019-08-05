@@ -60,8 +60,10 @@ void PmeStdSolidCutSweepFeature::Update(void)
 			result = api_boolean(pBody, pOldBody, SUBTRACTION);
 			check_outcome(result);
 		}
-		//else
-		//	pOldBody = pBody;
+		else
+			pOldBody = pBody;
+			pBody = pOldBody;
+
 
 		if(result.ok())
 		{
@@ -69,6 +71,12 @@ void PmeStdSolidCutSweepFeature::Update(void)
 			pSolid->UpdateSolid(pOldBody);
 			SetSolid(pSolid);
 		}
+
+	if(g_bNamingType)
+	{AttachName(pBody);} //Topology-based
+	else
+	{BODY * pOldBody = NameNewVertices_SUB_BOL(pBody, true);} //Point-based
+
 	API_END
 
 	//
@@ -77,6 +85,7 @@ void PmeStdSolidCutSweepFeature::Update(void)
 	MergeCheck(pOldBody, old_face_list2, old_face_list3);
 	//
 }
+
 
 void PmeStdSolidCutSweepFeature::Transform(const SPAtransf & transformation, BODY *& pBody)
 {
