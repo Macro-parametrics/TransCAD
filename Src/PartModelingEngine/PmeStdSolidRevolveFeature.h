@@ -46,8 +46,18 @@ protected:
 
 	BODY * RevolveWithBlind(BODY *& pProfile, const MrAxis1 & axis, double angle);
 
+	BODY * NamingNewVertices_SUB_BOL(BODY *& pBody, bool isCut = true); //For Name Matching
+	BODY * NamingNewVertices_ADD_BOL(BODY *& pBody, bool isCut = false); //For Name Matching
+
+	//[Topology Names]
 	void AttachName(BODY *& pBody);
-	void AttachName_pointbased(BODY *& pBody);
+	
+	//[Point-Based Names]
+	void AttachVertexName_pointbased(BODY *& pBody); //initial 
+	void AttachFaceName_pointbased(BODY *& pBody); //initial 
+	void Attach_NewVertexNames_pointbased(BODY *& pBody); //Name Matching
+	void AttachRemainingVertexNames_pointbased(BODY *& pBody); //Final Check
+	
 
 	bool IsSharingEdge(FACE * pFace1, FACE * pFace2);
 
