@@ -8,11 +8,20 @@
 #include ".\PmeIlligalOperationException.h"
 #include ".\PmeSketch.h"
 #include ".\PmeSketchUtility.h"
-
+#include ".\PmePersistentNameAPI.h"
 #include ".\attr_pme_facename.h"
 #include ".\PmeQuery.h"
 #include ".\attr_pme_vertexname.h"
 #include ".\pmepersistentname.h"
+
+#include ".\PmeStdSketchFeature.h"
+#include ".\PmeStdSketchGeometries.h"
+#include ".\PmeStdSketchControlPoint.h"
+#include ".\PmeStdSketchLine.h"
+#include ".\PmeStdSketchCenterline.h"
+#include ".\PmeStdSketchCircle.h"
+#include ".\PmeStdSketchCircularArc.h"
+#include ".\MrTolerance.h"
 
 PME_IMPLEMENT_RUNTIME_TYPE(PmeStdSolidCutExtrudeFeature, PmeStdSolidExtrudeFeature)
 
@@ -64,6 +73,11 @@ void PmeStdSolidCutExtrudeFeature::Update(void)
 			result = api_boolean(pNewBody, pOldBody, SUBTRACTION);
 			check_outcome(result);
 		}
+		else
+		{pOldBody	= pNewBody;}
+			
+		BODY * pBody;
+		pBody = pOldBody;
 	
 		if(result.ok())
 		{
@@ -71,6 +85,12 @@ void PmeStdSolidCutExtrudeFeature::Update(void)
 			pSolid->UpdateSolid(pOldBody);
 			SetSolid(pSolid);
 		}
+	
+	if(g_bNamingType)
+	{AttachName(pBody);} //Topology-based
+	else
+	{BODY * pOldBody = NameNewVertices_SUB_BOL(pBody, true);} //Point-based
+	
 	API_END	
 
 	//
@@ -127,7 +147,7 @@ void PmeStdSolidCutExtrudeFeature::CreateSolidBody(BODY *& pBody)
 	API_END
 }
 
-
+/*
 void PmeStdSolidCutExtrudeFeature::AttachVertexName_pointbased(BODY *& pBody)
 {	
 	ENTITY_LIST edge_list;
@@ -232,4 +252,4 @@ void PmeStdSolidCutExtrudeFeature::AttachFaceName_pointbased(BODY *& pBody)
 		ff= ff->next();
 	}
 	
-}
+}*/
