@@ -78,9 +78,9 @@ void PmeStdSolidProtrusionExtrudeFeature::Update(void)
 		}
 	
 		if(g_bNamingType)
-		{AttachName(pBody);}
+		{AttachName(pBody);} //Topology-based
 		else
-		{BODY * pOldBody = NameNewVertices_ADD_BOL(pBody, false);}
+		{BODY * pOldBody = NameNewVertices_ADD_BOL(pBody, false);} //Point-based
 	
 	API_END
 
